@@ -1,0 +1,410 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Universidade Federal de Santa Catarina             
+% Biblioteca Universitária                     
+%----------------------------------------------------------------------
+% Exemplo de utilização da documentclass ufscThesis
+%----------------------------------------------------------------------                                                           
+% (c)2013 Roberto Simoni (roberto.emc@gmail.com)
+%         Carlos R Rocha (cticarlo@gmail.com)
+%         Rafael M Casali (rafaelmcasali@yahoo.com.br)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{ufscThesis} % Definicao do documentclass ufscThesis	
+
+%----------------------------------------------------------------------
+% Pacotes usados especificamente neste documento
+\usepackage{graphicx} % Possibilita o uso de figuras e gráficos
+\usepackage{color}    % Possibilita o uso de cores no documento
+\usepackage{listings}
+%----------------------------------------------------------------------
+% Comandos criados pelo usuário
+\newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
+
+%----------------------------------------------------------------------
+% Identificadores do trabalho
+% Usados para preencher os elementos pré-textuais
+\instituicao[a]{Universidade Federal de Santa Catarina} % Opcional
+\departamento[a]{Biblioteca Universitária}
+\curso[o]{Bacharel em Ciências da Computação}
+\documento[a]{Trabalho de conclusão de curso} % [o] para dissertação [a] para tese
+\titulo{Implementação do protocolo CoAP para o monitoramento em redes de sensores sem fio}
+%\subtitulo{Subtítulo (se houver)} % Opcional
+\autor{Rafael de Lucena Valle}
+%\grau{...}
+\local{Florianópolis} % Opcional (Florianópolis é o padrão)
+\data{15}{julho}{2013}
+
+\orientador[Orientador\\Universidade ...]{Prof. Dr. Antônio Augusto Fröhlich}
+\coorientador[Coorientador\\Universidade ...]{Prof. Dr. Arliones Hoeller Jr}
+
+\coordenador[Coordenador\\Universidade ...]{Prof. Dr. Roberto Cislaghi}
+
+\numerodemembrosnabanca{4} % Isso decide se haverá uma folha adicional
+\orientadornabanca{sim} % Se faz parte da banca definir como sim
+\coorientadornabanca{sim} % Se faz parte da banca definir como sim
+\bancaMembroA{Arliones Hoeller Jr} %Nome do presidente da banca
+\bancaMembroB{Antônio Augusto Fröhlich}      % Nome do membro da Banca
+\bancaMembroC{}     % Nome do membro da Banca
+\bancaMembroD{xxQuarto membro\\Universidade ...}       % Nome do membro da Banca
+%\bancaMembroE{Quinto membro\\Universidade ...}       % Nome do membro da Banca
+%\bancaMembroF{Sexto membro\\Universidade ...}        % Nome do membro da Banca
+%\bancaMembroG{Sétimo membro\\Universidade ...}       % Nome do membro da Banca
+
+\dedicatoria{Este trabalho é dedicado aos meus colegas de classe e aos meus queridos pais.}
+
+\agradecimento{Inserir os agradecimentos aos colaboradores à execução do trabalho.}
+
+\epigrafe{Texto da Epígrafe. Citação relativa ao tema do trabalho. É opcional. A epígrafe pode também aparecer na abertura de cada seção ou capítulo.}
+{(Autor da epígrafe, ano)}
+
+
+\textoResumo {Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas. Os nós das redes geralmente são computadores e rádios simplificados, que possuem restrições de memória, processamento, energia e comunicação, mas um custo relativamente baixo de equipamentos, tornando interessante a implantação destes sistemas. O protocolo HTTP foi desenvolvido pensado em computadores de propósito geral, onde essas restrições não existem. Um protocolo leve como CoAP pode tornar viável a criação de aplicações web em redes de sensores sem fio por um baixo custo.
+É proposto uma infraestrutura de comunicação entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os nós sensores e um gateway que utiliza GPRS para áreas sem acesso à WIFI, aproveitando a vasta abrangência da tecnologia de telefonia. Com a Utilização do CoAP é esperado uma redução de consumo de energia e memória, em relação a outros protocolos de aplicação existentes.
+
+\palavrasChave { internetworking wireless sensor networks IPv6 6LoWPAN GPRS CoAP }.
+ 
+\textAbstract {Resumo traduzido para outros idiomas, neste caso, inglês. Segue o formato do resumo feito na língua vernácula. As palavras-chave traduzidas, versão em língua estrangeira, são colocadas abaixo do texto precedidas pela expressão ``Keywords'', separadas por ponto.}
+\keywords {Keyword 1. Keyword 2. Keyword 3.}
+
+%----------------------------------------------------------------------
+% Início do documento                                
+\begin{document}
+%--------------------------------------------------------
+% Elementos pré-textuais
+%\capa  
+\folhaderosto[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
+\folhaaprovacao
+\paginadedicatoria
+\paginaagradecimento
+\paginaepigrafe
+\paginaresumo
+\paginaabstract
+%\pretextuais % Substitui todos os elementos pre-textuais acima
+\listadefiguras % as listas dependem da necessidade do usuário
+\listadetabelas 
+\listadeabreviaturas
+\listadesimbolos
+\sumario
+%--------------------------------------------------------
+% Elementos textuais
+
+\chapter{Introdução}
+Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas. Os nós que participam destas redes geralmente são computadores e rádios simplificados, que possuem restrições de memória, processamento, energia e comunicação, mas um custo relativamente baixo de equipamentos. O maior consumo de energia neste tipo de aplicação é o rádio, portanto os desafios dos algoritmos de roteamento nesta área são em manter os rádios o mínimo período de tempo possível e manter o nó comunicável pela rede.
+
+\section{OBJETIVOS}
+
+Descrição...
+
+\subsection{Objetivo Geral}
+
+O trabalho será descrever e implementar webservices em uma rede sensores sem fio, que farão a aquisição dos dados do ambiente e disponibilizarão as informações captadas. A comunicação entre os nós sensores será feita utilizando um protocolo de aplicação padrão, apropriado para redes de sensores sem fio, viabilisando o desenvolvimento de webservices para os nós da rede.
+A distribuição da informação para Internet será feita através de um gateway. Os objetivos são: o monitoramento de ambientes e a integração da rede de sensores sem fio com a Internet em lugares aonde o não existe o acesso a rede cabeada ou sem fio, como lugares afastados, na área rural, por exemplo. GPRS possui a maior cobertura dentre as tecnologias de transmissão de telefonia no Brasil, atingindo cerca de 5477 municípios.[8]
+
+
+\subsection{Objetivos Específicos}
+
+Implementar uma aplicação de redes de sensores sem fio, que utilize um gateway GPRS/Zigbee que será responsável em disponibilizar as informações captadas pela rede para Internet, além de oferecer uma simples aplicação web que será possível para o usuário configurar os parâmetros da rede.
+
+Na infra-estrutura de software será necessário implementar o protocolo CoAP no EPOS. Desenvolver o protocolo CoAP utilizando a pilha UDP do EPOS ou portar a biblioteca libcoap, uma biblioteca de código aberto desenvolvida em C que implementa o protocolo de aplicaçao leve para dispositivos com restrições de recursos como poder computacional, alcance de rádio, memória, vazão ou tamanho dos pacotes de rede.
+
+O gateway 6LowPan/GPRS terá a capacidade de fazer a ponte entre a rede de sensores e a Internet, utilizando um modem GPRS. Será projetado utilizando um mote, um modem GPRS além do circuito necessário para integração dos dois módulos. Será a parte de hardware do projeto.
+
+
+\chapter{DESENVOLVIMENTO}
+
+\section{EXPOSIÇÃO DO TEMA OU MATÉRIA}
+
+É a parte principal e mais extensa do trabalho. Deve apresentar a fundamentação teórica, a metodologia, os resultados e a discussão. Divide-se em seções e subseções conforme a NBR 6024~\cite{abnt14724}. Quanto a sua estrutura, segue as recomendações da norma para preparação de trabalhos acadêmicos, a NBR 14724 de 2011~\cite{abnt14724}. Quanto à Formatação, segue o modelo adotado pela UFSC, o formato A5.
+
+\subsection{Metodologia}
+
+Inicialmente será feito um levantamento bibliográfico sobre os tópicos escolhidos e as tecnologias utilizadas. Para uma validação inicial de modelo do sistema, serão feitas simulações dos nós da rede e do gateway. As simulações serão feitas nas ferramentas OMNeT++[11], biblioca e framework de simulação de redes, e o Cooja[10], simulador do Contiki.[9]
+
+Existe uma vontade de desenvolver o software compleatamente métodos ágeis, principalmente o TDD.
+
+Será feito um levantamento dos componentes necessários para o desenvolvimento do gateway 6LowPan/GPRS utilizando o mote EPOSMote II e um modem GPRS, que será definido no decorrer do trabalho. Então será desenvolvido o esquemático para fabricação do gateway.
+
+Após a validação do modelo, será iniciada a prototipação do hardware e a implementação do protocolo de aplicação CoAP no EPOS. Os testes serão executados na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido. Para efeito de comparação serão também executados testes utilizando o Contiki, CoAP e a placa de desenvolvimento da ATMega128rfa1.
+
+\subsection{Justificativa e Motivação}
+
+O Sistema operacional EPOS possui implementação das camadas de transporte UDP e TCP, porém não possui nenhum protocolo de aplicação desenvolvido.
+Os mecanismos de confiabilidade na transmissão e as técinicas para se manter uma conexão do TCP e os rearranjos que são feitos para garantir a ordem das mensagens recebidas não são adequados para um dispositivo que possua restrições de energia, pois podem fazer que fiquem com seus transmissores, ligados por mais tempo para manter a conexão ou até mesmo para reenvio de mensagens. O maior consumo de energia de um nó sensor é no envio e recebimento de dados, quando mantem seu transmissor ligado.
+
+Assim faz-se uso do UDP, um protocolo que não mantém conexão, os dados são recebidos fora de ordem e o envido é feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise montá-la e garantir que nenhuma das peças está corrompida. Também também é feita uma redução do tamanho do cabeçalho do pacote. [3] Estas características demostram uma alternativa interessante para estes equipamentos restritos. Testes feitos em implementações de sistemas operacionais similares ao EPOS[6], como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redução no consumo de energia e memória em relação ao HTTP.[1]
+
+Falta de padrão
+
+Um dos grande problemas das redes de sensores sem fio é a falta de um padrão de comunicação. A maioria das empresas utiliza protocolos proprietários, que se comunicacam apenas com os produtos da própria empresa.
+
+O protocolo HTTP foi desenvolvido para comunicação de computadores de propósito geral, onde as restrições citadas não são comuns. Em relação ao tamanho do pacote HTTP é um problema, já que redes que trabalham nessa frequência possuem uma restrição de 128 bytes.  Além do tamanho do pacote HTTP, manter uma conexão TCP é custosa, já que os nós sensores que precisam manter seus rádios desligados o maior tempo possível.
+
+Um protocolo leve como CoAP pode tornar viável a criação de aplicações web em redes de sensores sem fio por um baixo custo. Neste trabalho é proposto uma infraestrutura de comunicação entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os nós sensores e um gateway GPRS para áreas sem acesso à WIFI, aproveitando a vasta abrangência da tecnologia de telefonia. Com a utilização do CoAP é esperado uma redução de consumo de energia e memória, em relação a outros protocolos de aplicação existentes.
+
+\subsection{Organização do Trabalho}
+
+\section{Revisão Bibliográfica}
+
+\subsection{Redes de sensores sem fio}
+Avanços recentes nas tecnologias de sistemas eletrônicos, semicondutores, sensores, microcontroladores e rádios tornaram possível o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade. São utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores.tornando-as importantes para controle, telemetria e rastreamento de sistemas. Características destas redes são: pouca memória, pouco alcance do rádio, baixa capacidade de processamento e bateria, e custo reduzido.[2]
+
+A conservação de energia é um dos objetivos das redes de sensores sem fio, deve-se minimizar o consumo em todos os níveis do sistema, da aplicação até o nível de hardware.[14] Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente.
+
+\subsection{Arquitetura orientada a serviços}
+
+\subsection{Embedded Parallel Operating System}
+Projetado utilizando o método Application-Driven Embedded System Design, que guia o desenvolvimento paralelo de hardware e software.
+o de um Sistema Operacional Paralelo Embarcado desenvolvido em C++ e faz uso intenso de programação orientada a aspectos utilizando templates. Possui abstrações para entidades temporais como relógio, alarme e cronometro, também containers como pilha, listas, hashs, vetores
+hashs, threads, semáforos, entre outros.
+
+\subsection{REST}
+
+\subsection{Constrained Aplication Protocol}
+
+A IETF estabelece as condições mínimas para o desenvolvimento de um protocolo de aplicação compatível com HTTP, mas focado em aplicações aonde energia e memória são escassas. O protocolo CoAP foi projetado levando em consideração as restrições energéticas e altas taxas de falha na transmissão dos pacotes. As vantagens de utilizar um protocolo compatível com o HTTP são: a facilidade de integração e o reuso de aplicações. CoAP possui compressão nas opções* (TODO:) não é apenas uma compressão do HTTP, mas um subconjunto REST otimizado para M2M, possui suporte para descoberta de recursos, suporte a multicast e troca de mensagens assíncronas com simplicidade e baixo overhead. [1] A comunicação entre os pontos no CoAP é de forma assíncrona usando o UDP, a confiabilidade é opcional e feita através de um mecanismo de retransmissão exponencial. Possui 4 tipos de mensagem: Confirmável, Não-Confirmável, Confirmação (ACK) e Reset.
+
+
+     0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |Ver| T |  TKL  |      Code     |          Message ID           |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |   Token (if any, TKL bytes) ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |   Options (if any) ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |1 1 1 1 1 1 1 1|    Payload (if any) ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+O Formato do pacote CoAP  [4]
+
+
+Os campos do pacote CoAP são definidos:
+   Versão (Ver):  2-bit unsigned integer.  Indica a versão do CoAP, implementações devem utilizar este campo com (1).
+   Tipo (T):  2-bit unsigned integer. Tipo da mensagem, Confirmável (0), Não-Confirmável (1) , de Confirmação (2) ou Reset (3).
+   Tamanho do Toke (TKL):  4-bit unsigned integer. O tamanho do Token pode variar entre 0 e 8 bytes. Tamanhos entre 9 a 15 são reservados e não devem ser usados.
+   Código:  8-bit unsigned integer, separados em 3-bit (bits mais significativos) para a classe e 5-bits (bits menos significativos) como detalhe, documentado como c.dd aonde c é um dígito de 0 to 7 para o campo de 3-bits e dd são dois dígitos que vão de 00 a 31 são para o campo de 5-bit.
+   
+   As classes podem indicar uma requisição (0), uma resposta de sucesso (2), e uma resposta de erro do cliente (4), ou uma resposta de erro do servidor (5), as outras classes são reservadas. Em um caso especial o código Code 0.00 indicates an Empty message.
+
+   ID da mensagem:  16-bit unsigned integer in network byte order. Usada para deduplicação de mensagens e para to match messages of type Acknowledgement/Reset to messages of type Confirmable/Non-confirmable.
+   As regras para definição do ID de mensagem são:
+   
+Codificação das opções
+
+
+A transmissão de mensagems é controlada basicamente pelos parâmetros: ACK_TIMEOUT, ACK_RANDOM_FACTOR, MAX_RETRANSMIT, NSTART, DEFAULT_LEISUR e PROBING_RATE
+
+
+Modelo de requisição e resposta Mensagens confirmadas Mensangens não-confirmadas usa um contador de timeouts e a transmissão da mensagem de tempos em tempos defina por uma função que varia de acordo com o número de tentativas.
+A função é:
+
+Um servidor que atende uma requisição confirmável pode respondê-la em conjunto da mensagem de confirmação. Essa técnica é chamada de Pigbackend um mecanismo de transmissão para mensagens confirmadas. Para 
+
+Recursos
+
+Os recursos são identificados por uma URI, e os métodos são implementados de forma similar ao HTTP.
+
+A descoberta de serviços no protocolo CoAP é feita através de socket Multicast
+A descoberta de recursos é feita quando um servidor recebe uma requisição GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format, (TODO) conforme RFC
+
+\subsection{Trabalhos Relacionados}
+
+LibCoap É uma biblioteca implementada em C do protocolo CoAP, possui 292K de tamanho compilada estaticamente em sua versão 4.0.1
+
+Contiki Sistema Operacional desenvolvido em C, código aberto para sistemas com restrição de memória e (que lidão com temporização)? foi desenvolvido para ser um sistema operacional para a Internet das coisas. Possui uma camada de abstração RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
+Um processo no Contiki possui bloco de controle que contem informações informações de tempo de execução do processo, o nome do processo, estado do processo e um ponteiro para a thread do processo. O cógido que reside na thread do processo é armazenado na ROM.
+No contiki os processos são implementados como phrotothreads, uma combinação entre eventos e threads. São executadas no kernel dirigido a eventos do Contiki. Como threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento entre as protothreads. Dos eventos herdam o baixo overhead de memória e por não necessitarem de salvamento de contexto na região de memória da Stack.
+Uma protothread é uma maneira de estruturar o código, de forma que permita que o sistema rode outras atividades enquanto o código está esperando para algo acontecer. Permite que de código C execute de uma maneira similar a threads, porém sem o overhead de memória.
+A maior vantagem das protothreads sobre as threads comuns é o baixo consumo de memória, todas utilizam a mesma Stack e a troca de contexto é feita por (TODO) Stack rewinding. Cada protothread consome 2 bytes de memória, esses dois bytes são utilizados para armazenar a continuidade local, uma referencia utilizada para um pulo condicional ser feito na execução da thread. Essa marcação é feita utilizando o resultado da macro __LINE__ do compilador, que é o número da linha do código no momemto da compilação. Com esta marcação próxima vez que a thread for chamada ele utilize o switch para aquele número de linha, que é aonde o teste para verificar se a condição passada pela função PT_THREAD_WAIT_UNTIL é verificada.
+
+Criadores: Adam Dunkels
+Protocolos de Roteamento
+
+Dispositivos de baixo consumo que possuem restrição de energia e precisam ficar ligados durante anos utilizando uma única bateria, precisam consumir o mínimo de energia possível. O tramissor e receptor sem fio é um dos componentes que mais consome energia e é preciso mantê-lo o mínimo de tempo possível, mas também precisa ficar ligado para comunicação com seus vizinhos. O Contiki propões uma estratégia de ciclos de trabalho que consegue manter um nó comunicável em uma rede, porém com seus rádio desligado em aproximadamente 99% do tempo. Utiliza mecanismos assíncronos com precise timming e fast sleep otimization (TODO)
+
+O protocolo de roteamento padrão ContikiMAC os nós dormem a maior parte do tempo e acordam periodicamente para verificar a atividade do rádio. Se um pacote de rede é detectado o recebedor mantém-se acordado para receber o próximo pacote 
+
+TinyOS Sistema Operacional projetado para sistemas embarcados com comunicação sem fio e restrições energéticas. Foi desenvolvido em nesC, uma linguagem código aberto que é uma extensão do C [2]. É um sistema operacional event-driven desenvolvido para redes de sensores que possuem recursos limitados. Possui uma implementação do CoAP baseada na libCoAP.
+
+Possui licensa BSD
+
+Protocolos de Roteamento
+  
+Arduino Protocolos de Roteamento
+
+
+\subsection{Proposta}
+Será implementada uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP.
+
+O trabalho também consiste na implementação de uma aplicação para gateway GPRS/Zigbee utilizando o EPOS e um componente de hardware que será acoplado ao EposMoteII que esta sendo desenvolvido em paralelo por um colega de laboratório. O desenvolvimento da aplicação no EPOS que será responsável pelo roteamento de mensagens para Internet utilizando a tecnologia GPRS, provida por um módulo GSM/GPRS da Quectel o M95.
+
+As principais funções deste gateway é receber os dados da rede de sensores e encaminhá-las para um servidor remoto que armazenará essas informações e exibirá de forma conveniente para o usuário final.
+
+As funções a serem desenvolvidas na aplicação do gateway são:
+Configuração SMS
+Envia mensagem SMS
+Recebe mensagem SMS
+
+Configuração contexto PDP
+Configuração GPRS
+Configuração TCP/IP
+
+\subsection{Metas}
+Entregar um módulo simplificado do procotolo CoAP no primeiro semestre.
+Testes efetuados no modem GSM
+
+Entregar o firmware do gateway na segunda parte do ano A aplicação desenvolvida no EPOS precisará de um buffer para o recebimento de dados da rede ZigBEE que será enviado para rede via GPRS. Duas threads, uma produtora que ficará ouvindo o rádio ZigBEE e alimentando num formato de dados ainda não especificado.  uma consumidora que será responsável em pegar estes dados da rede de sensores e encaminhá-los pra Internet usando a extensão GPRS do EPOSmote II.
+
+\subsection{Resultados parciais}
+A parte de validação de um pacote CoAP foi feita com TDD e está disponível no site: (TODO)
+Ao receber uma mensagem de confirmação, remove da lista a mensagem que não havia sido confirmada utilizando o id.
+Ao receber uma mensagem confirmável, envia uma mensagem de confirmação.
+Ao receber uma mensagem
+Repassar mensagem para controle de Requisição e Reposta Adicionar a lista de mensagem recebidas.
+
+Enviar mensagem não confirmável
+Enviar mensagem confirmável e adicionar na lista de confirmações pendentes.
+Reenviar a mensagem que está na lista de confirmação pendente e reconfigurar o próximo reenvio.
+
+Modelagem do sistema
+Testes no Modem
+
+Enviar Mensagem
+Receber Mensagem
+
+Criar socket TCP
+Enviar mensagem via socket
+Receber mensagem via socket
+
+
+
+\subsection{Tecnologias utilizadas}
+C++
+Linguagem de programação com suporte a programação genérica e orientação a objetos. Foi criada por Bjarune Stroustup em 1970 como uma extensão da linguagem C. É uma linguagem compilada e de tipagem forte
+
+CPPUTEST
+Framework de testes unitários focado em aplicações embarcadas, foi desenvolvido por xxx e é utilizado para 
+
+Autotools/CMake
+Ferramenta utilizada no ambiente GNU para encontrar bibliotecas e montar os projetos com código C e C++.
+
+A linguagem de programação utilizada é o C++, que API do EPOS de alarme, chronometro, threads
+Framework de testes CPPUTEST CMake ou Autotools?
+
+API assíncrona UDP do EPOS
+
+NewLib
+
+GDB
+
+\subsection{Atividades pendentes}
+Camada de Requisição e Resposta do CoAP
+Implementação da aplicação gateway GPRS/Zigbee no EPOS
+Discussões interessantes:
+Desenvolvimento de um chronometro decrescente configurável para execução de uma função no final da contagem.
+
+
+\subsection{Considerações Parciais}
+
+
+
+A indicação da fonte consultada deve aparecer na parte inferior, elemento obrigatório mesmo que seja produção do próprio autor. A ilustração deve ser citada no texto e inserida o mais próximo possível do texto a que se refere~\cite{abnt14724}. 
+
+A Figura \ref{fig:a} mostra o logo da BU
+\begin{figure}[!htb]
+   \centering
+   \caption{Logo da BU.}
+   \includegraphics[width=0.3\textwidth]{figuras/brasaoBU.jpg}
+     \label{fig:a}
+\end{figure}
+
+A Tabela~\ref{tab:a} mostra mais informações do template BU.
+
+\begin{table}[!htb]
+\begin{center}
+ \caption{Formatação do texto.}
+  \begin{tabular}{ p{3cm} | p{6cm} }
+    \hline
+Cor & Branco\\ \hline
+Formato do papel & A5\\ \hline
+Gramatura & 75\\ \hline
+Impressão & Frente e verso\\ \hline
+Margens & Espelhadas: superior 2, Inferior: 1,5, Externa 1,5 e Externa: 2.\\ \hline
+Cabeçalho & 0,7\\ \hline
+Rodapé & 0,7\\ \hline
+Paginação & Externa\\ \hline
+Alinhamento vertical & Superior\\ \hline
+Alinhamento do texto & Justificado\\ \hline
+Fonte sugerida & Times New Roman \\ \hline
+Tamanho da fonte & 10,5 para o texto incluindo os títulos das seções e subseções. As citações com mais de três linhas as legendas das ilustrações e tabelas, fonte 9,5.\\ \hline
+Espaçamento entre linhas & Um (1) simples\\ \hline
+Espaçamento entre parágrafos & Anterior 0,0; Posterior 0,0\\ \hline
+Numeração da seção & As seções  primárias devem  começar  sempre em páginas ímpares. Deixar um espaço (simples) entre o título da seção e o texto e  entre o texto e o título da subseção. \\  \hline
+  \end{tabular}
+\end{center}
+Fonte: Universidade Federal de Santa Catarina (2011)
+\label{tab:a}
+\end{table}
+
+
+
+\subsubsection{Equações e fórmulas}
+
+As equações e fórmulas devem ser destacadas no texto para facilitar a leitura.  Para numerá-las, deve-se usar algarismos arábicos entre parênteses e alinhados à direita. Pode-se usar uma entrelinha maior do que a usada no texto~\cite{abnt14724}.
+
+Exemplo: A equação \ref{eq:a}
+\begin{equation}
+ x^2 + y^2 = z^2
+ \label{eq:a}
+\end{equation}
+ e a equação  \ref{eq:b}
+\begin{equation}
+ x^2 + y^2 = n
+\label{eq:b}
+\end{equation}
+
+\subsection{Exemplo de como gerar a lista de símbolos e abreviaturas}
+
+Para gerar a lista de símbolos e abreviaturas use os comandos
+
+\abreviatura{ABNT}{Associação Brasileira de Normas Técnicas}
+\abreviatura{IBGE}{Instituto Brasileiro de Geografia e Estatística}
+\simbolo{$\int$}{Integral}
+\simbolo{$\prod$}{Produtório}
+
+\begin{lstlisting}
+\simbolo{símbolo}{descrição}
+\end{lstlisting}
+
+\begin{lstlisting}
+\abreviatura{abreviatura}{descrição}
+\end{lstlisting}
+
+\subsubsection{Exemplo de citações no \LaTeX}
+
+Segundo \citeonline{alves_2001} ...
+
+...no final da frase \cite{abnt14724,BU_formatoA5}
+
+
+\nocite{alves_2001,abnt10520,abnt6024,abnt14724}
+
+
+
+\section{Considerações Parciais}
+%\chapter{CONCLUSÃO}
+
+As conclusões devem responder às questões da pesquisa, em relação aos objetivos e hipóteses. Devem ser breves podendo apresentar recomendações e sugestões para trabalhos futuros.
+
+\bibliographystyle{ufscThesis/ufsc-alf}
+\bibliography{bibliografia}
+
+%--------------------------------------------------------
+% Elementos pós-textuais
+\apendice
+\chapter{Exemplificando um Apêndice}
+Texto do Apêndice aqui. 
+
+\anexo
+\chapter{Exemplificando um Anexo}
+Texto do anexo aqui.
+\end{document}
