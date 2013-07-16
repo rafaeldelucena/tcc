@@ -795,9 +795,9 @@
     \begin{center}
     \autorformat\ABNTautordata
     \end{center}
-    }
+    }%
 \vfill %\vspace{42pt}
-\begin{center}
+\begin{center}%
     \begin{espacosimples}
     \ABNTifnotempty{\ABNTtitulodata}%
 	{%
