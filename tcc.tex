@@ -15,7 +15,7 @@
 \usepackage{graphicx} % Possibilita o uso de figuras e gráficos
 \usepackage{color}    % Possibilita o uso de cores no documento
 \usepackage{listings}
-\usepackage{amsmath}
+%\usepackage{amsmath}
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
 \newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
@@ -49,22 +49,24 @@
 {(Autor da epígrafe, ano)}
 
 
-\textoResumo {Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas. Os nós das redes geralmente são computadores e rádios simplificados, que possuem restrições de memória, processamento, energia e comunicação, mas um custo relativamente baixo de equipamentos, tornando interessante a implantação destes sistemas. O protocolo HTTP foi desenvolvido pensado em computadores de propósito geral, onde essas restrições não existem. Um protocolo leve como CoAP pode tornar viável a criação de aplicações web em redes de sensores sem fio por um baixo custo.
+\textoResumo{ Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas.
+    Os nós das redes geralmente são computadores e rádios simplificados, que possuem restrições de memória, processamento, energia e comunicação, mas um custo relativamente baixo de equipamentos, tornando interessante a implantação destes sistemas. O protocolo HTTP foi desenvolvido pensado em computadores de propósito geral, onde essas restrições não existem. Um protocolo leve como CoAP pode tornar viável a criação de aplicações web em redes de sensores sem fio por um baixo custo.
 É proposto uma infraestrutura de comunicação entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os nós sensores e um gateway que utiliza GPRS para áreas sem acesso à WIFI, aproveitando a vasta abrangência da tecnologia de telefonia. Com a Utilização do CoAP é esperado uma redução de consumo de energia e memória, em relação a outros protocolos de aplicação existentes.}
 
-\palavrasChave { internetworking wireless sensor networks IPv6 6LoWPAN GPRS CoAP }
+\palavrasChave{ internetworking wireless sensor networks IPv6 6LoWPAN GPRS CoAP }
 
 %----------------------------------------------------------------------
 % Início do documento                                
 \begin{document}
 %--------------------------------------------------------
 % Elementos pré-textuais
-\capa}
-\folhaderosto%[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
+\capa
+%\folhaderosto%[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
 \folhaaprovacao
 %\paginadedicatoria
 %\paginaagradecimento
 %\paginaepigrafe
+
 \paginaresumo
 %\paginaabstract
 %\pretextuais % Substitui todos os elementos pre-textuais acima
@@ -89,11 +91,9 @@
 
 %--------------------------------------------------------
 % Elementos pós-textuais
-\apendice
-\chapter{Exemplificando um Apêndice}
-Texto do Apêndice aqui. 
 
 \anexo
 \chapter{Código Desenvolvido}
-\input{text/codigo.tex}
+\input{tex/codigo}
+
 \end{document}
