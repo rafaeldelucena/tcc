@@ -1,47 +1,50 @@
 \section{EXPOSIÇÃO DO TEMA OU MATÉRIA}
 
-É a parte principal e mais extensa do trabalho. Deve apresentar a fundamentação teórica, a metodologia, os resultados e a discussão. Divide-se em seções e subseções conforme a NBR 6024~\cite{abnt14724}. Quanto a sua estrutura, segue as recomendações da norma para preparação de trabalhos acadêmicos, a NBR 14724 de 2011~\cite{abnt14724}. Quanto à Formatação, segue o modelo adotado pela UFSC, o formato A5.
-
 \subsection{Metodologia}
 
-Inicialmente será feito um levantamento bibliográfico sobre os tópicos escolhidos e as tecnologias utilizadas. Para uma validação inicial de modelo do sistema, serão feitas simulações dos nós da rede e do gateway. As simulações serão feitas nas ferramentas OMNeT++[11], biblioca e framework de simulação de redes, e o Cooja[10], simulador do Contiki.[9]
-
-Existe uma vontade de desenvolver o software compleatamente métodos ágeis, principalmente o TDD.
-
-Será feito um levantamento dos componentes necessários para o desenvolvimento do gateway 6LowPan/GPRS utilizando o mote EPOSMote II e um modem GPRS, que será definido no decorrer do trabalho. Então será desenvolvido o esquemático para fabricação do gateway.
-
-Após a validação do modelo, será iniciada a prototipação do hardware e a implementação do protocolo de aplicação CoAP no EPOS. Os testes serão executados na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido. Para efeito de comparação serão também executados testes utilizando o Contiki, CoAP e a placa de desenvolvimento da ATMega128rfa1.
+O desenvolvimento do protocolo será orientado a testes, aonde o código escrito apenas satisfaz as condições necessárias para validar um comportamento desejado da aplicação.
 
 \subsection{Justificativa e Motivação}
 
-O Sistema operacional EPOS possui implementação das camadas de transporte UDP e TCP, porém não possui nenhum protocolo de aplicação desenvolvido.
 Os mecanismos de confiabilidade na transmissão e as técnicas para se manter uma conexão do TCP e os rearranjos que são feitos para garantir a ordem das mensagens recebidas não são adequados para um dispositivo que possua restrições de energia, pois podem fazer que fiquem com seus transmissores, ligados por mais tempo para manter a conexão ou até mesmo para reenvio de mensagens. O maior consumo de energia de um nó sensor é no envio e recebimento de dados, quando mantem seu transmissor ligado.
 
-Assim faz-se uso do UDP, um protocolo que não mantém conexão, os dados são recebidos fora de ordem e o envido é feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise montá-la e garantir que nenhuma das peças está corrompida. Também também é feita uma redução do tamanho do cabeçalho do pacote. [3] Estas características demostram uma alternativa interessante para estes equipamentos restritos. Testes feitos em implementações de sistemas operacionais similares ao EPOS[6], como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redução no consumo de energia e memória em relação ao HTTP.[1]
+Assim faz-se uso do UDP, um protocolo que não mantém conexão, os dados são recebidos fora de ordem e o envido é feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise montá-la e garantir que nenhuma das peças está corrompida. Também também é feita uma redução do tamanho do cabeçalho do pacote. Estas características demostram uma alternativa interessante para estes equipamentos restritos. Testes feitos em implementações de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redução no consumo de energia e memória em relação ao HTTP.
 
-Falta de padrão
-
-Um dos grande problemas das redes de sensores sem fio é a falta de um padrão de comunicação. A maioria das empresas utiliza protocolos proprietários, que se comunicacam apenas com os produtos da própria empresa.
+A falta de padronização dos protocolos afeta o desenvolvimento de uma rede pública ubíqua de uma cidade inteligente por exemplo, a falta de um padrão de comunicação. A maioria das empresas utiliza protocolos proprietários, que se comunicacam apenas com os produtos da própria empresa.
 
 O protocolo HTTP foi desenvolvido para comunicação de computadores de propósito geral, onde as restrições citadas não são comuns. Em relação ao tamanho do pacote HTTP é um problema, já que redes que trabalham nessa frequência possuem uma restrição de 128 bytes.  Além do tamanho do pacote HTTP, manter uma conexão TCP é custosa, já que os nós sensores que precisam manter seus rádios desligados o maior tempo possível.
 
 Um protocolo leve como CoAP pode tornar viável a criação de aplicações web em redes de sensores sem fio por um baixo custo. Neste trabalho é proposto uma infraestrutura de comunicação entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os nós sensores e um gateway GPRS para áreas sem acesso à WIFI, aproveitando a vasta abrangência da tecnologia de telefonia. Com a utilização do CoAP é esperado uma redução de consumo de energia e memória, em relação a outros protocolos de aplicação existentes.
+
+O Sistema operacional EPOS possui implementação das camadas de transporte UDP e TCP, porém não possui nenhum protocolo de aplicação desenvolvido.
 
 \subsection{Organização do Trabalho}
 
 \section{Revisão Bibliográfica}
 
 \subsection{Redes de sensores sem fio}
-Avanços recentes nas tecnologias de sistemas eletrônicos, semicondutores, sensores, microcontroladores e rádios tornaram possível o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade. São utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores.tornando-as importantes para controle, telemetria e rastreamento de sistemas. Características destas redes são: pouca memória, pouco alcance do rádio, baixa capacidade de processamento e bateria, e custo reduzido.[2]
+Avanços recentes nas tecnologias de sistemas eletrônicos, semicondutores, sensores, microcontroladores e rádios tornaram possível o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade. São utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores.tornando-as importantes para controle, telemetria e rastreamento de sistemas.
 
-A conservação de energia é um dos objetivos das redes de sensores sem fio, deve-se minimizar o consumo em todos os níveis do sistema, da aplicação até o nível de hardware.[14] Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente.
+Características destas redes são: pouca memória, pouco alcance do rádio, baixa capacidade de processamento e bateria, e custo reduzido. A conservação de energia é um dos objetivos das redes de sensores sem fio, deve-se minimizar o consumo em todos os níveis do sistema, da aplicação até o nível de hardware. Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente.
 
 \subsection{Arquitetura orientada a serviços}
+Vantagens novos processos de negócios podem ser definidos de uma forma similar, 
+reutilizando os serviços e acrescentando metainformação para
+uso de conectores genéricos.
+\cite{perrey2003service}
 
 \subsection{Embedded Parallel Operating System}
-Projetado utilizando o método Application-Driven Embedded System Design, que guia o desenvolvimento paralelo de hardware e software.
-o de um Sistema Operacional Paralelo Embarcado desenvolvido em C++ e faz uso intenso de programação orientada a aspectos utilizando templates. Possui abstrações para entidades temporais como relógio, alarme e cronometro, também containers como pilha, listas, hashs, vetores
-hashs, threads, semáforos, entre outros.
+Sistema Operacional Multithread com suporte a preempção, foi desenvolvido em C++ e faz uso intenso de programação orientada a aspectos utilizando templates.
+Possui abstrações infladas para entidades temporais como relógio, alarme e cronometro, biblioteca com estruturas de dados e sequenciadores que permite o uso de ferramentas para geração automatizada de abstrações de sistemas. A portabilidade é atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as funções específicas de arquitetura. Estas interfaces são utilizadas por entidades abstratas como alarmes e threads periódicas.
+
+Projetado utilizando o método ADESD, um método para projeto de sistemas embarcados orientados à aplicação. Esta metodologia guia o desenvolvimento paralelo de hardware e software além de manter certa portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc e AVR.
+
+Possui Implementa
+
+
+\cite{epos}
+% SIGLA (ADESD - Application Driven Embedded System Design)
+
 
 \subsection{REST}
 
@@ -169,7 +172,7 @@ C++
 Linguagem de programação com suporte a programação genérica e orientação a objetos. Foi criada por Bjarune Stroustup em 1970 como uma extensão da linguagem C. É uma linguagem compilada e de tipagem forte
 
 CPPUTEST
-Framework de testes unitários focado em aplicações embarcadas, foi desenvolvido por xxx e é utilizado para 
+É um utilitário para testes unitários em C++, focado em aplicações embarcadas e foi desenvolvido por xxx
 
 Autotools/CMake
 Ferramenta utilizada no ambiente GNU para encontrar bibliotecas e montar os projetos com código C e C++.
