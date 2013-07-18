@@ -1,3 +1,5 @@
+\section{EXPOSIÇÃO DO TEMA OU MATÉRIA}
+
 \subsection{Metodologia}
 
 O desenvolvimento do protocolo será orientado a testes, aonde o código escrito apenas satisfaz as condições necessárias para validar um comportamento desejado da aplicação.
@@ -48,7 +50,11 @@ Possui Implementa
 
 \subsection{Constrained Aplication Protocol}
 
-A IETF estabelece as condições mínimas para o desenvolvimento de um protocolo de aplicação compatível com HTTP, mas focado em aplicações aonde energia e memória são escassas. O protocolo CoAP foi projetado levando em consideração as restrições energéticas e altas taxas de falha na transmissão dos pacotes. As vantagens de utilizar um protocolo compatível com o HTTP são: a facilidade de integração e o reuso de aplicações. CoAP possui compressão nas opções* (TODO:) não é apenas uma compressão do HTTP, mas um subconjunto REST otimizado para M2M, possui suporte para descoberta de recursos, suporte a multicast e troca de mensagens assíncronas com simplicidade e baixo overhead. A comunicação entre os pontos no CoAP é de forma assíncrona usando o UDP, a confiabilidade é opcional e feita através de um mecanismo de retransmissão exponencial. Possui 4 tipos de mensagem: Confirmável, Não-Confirmável, Confirmação (ACK) e Reset.
+Um dos principais objetivos do CoAP é ser uma alternativa de um protocolo web genérico para redes com dispositivos com restrição de energia e memória.
+
+Possui 
+
+A IETF estabelece as condições mínimas para o desenvolvimento de um protocolo de aplicação compatível com HTTP, mas focado em aplicações aonde energia e memória são escassas. O protocolo CoAP foi projetado levando em consideração as restrições energéticas e altas taxas de falha na transmissão dos pacotes. As vantagens de utilizar um protocolo compatível com o HTTP são: a facilidade de integração e o reuso de aplicações. CoAP possui compressão é apenas uma compressão do HTTP, mas um subconjunto REST otimizado para M2M, possui suporte para descoberta de recursos, suporte a multicast e troca de mensagens assíncronas com simplicidade e baixo overhead. A comunicação entre os pontos no CoAP é de forma assíncrona usando o UDP, a confiabilidade é opcional e feita através de um mecanismo de retransmissão exponencial. Possui 4 tipos de mensagem: Confirmável, Não-Confirmável, Confirmação (ACK) e Reset.
 
 
      0                   1                   2                   3
