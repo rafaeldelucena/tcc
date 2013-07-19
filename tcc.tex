@@ -1,8 +1,8 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Universidade Federal de Santa Catarina             
 % Biblioteca Universitária                     
 %----------------------------------------------------------------------
-% Exemplo de utilização da documentclass ufscThesis
+% Exemplo de utiliza\c{C}ão da documentclass ufscThesis
 %----------------------------------------------------------------------
 % (c)2013 Roberto Simoni (roberto.emc@gmail.com)
 %         Carlos R Rocha (cticarlo@gmail.com)
@@ -25,9 +25,9 @@
 % Usados para preencher os elementos pré-textuais
 \instituicao[a]{Universidade Federal de Santa Catarina} % Opcional
 \departamento[a]{Departamento de Inform\'atica e Estat\'istica}
-\curso[o]{Bacharel em Ci\^encias da Computa\'c\~ao}
-\documento[a]{Trabalho de conclus\~ao de curso} % [o] para dissertação [a] para tese
-\titulo{Implementa\'c\~ao do protocolo CoAP para o monitoramento em redes de sensores sem fio}
+\curso[o]{Bacharel em Ci\^encias da Computa\c{c}\~ao}
+\documento[a]{Trabalho de conclus\~ao de curso} % [o] para disserta\c{C}ão [a] para tese
+\titulo{Implementa\c{c}\~ao do protocolo CoAP para o monitoramento em redes de sensores sem fio}
 \autor{Rafael de Lucena Valle}
 \local{Florian\'opolis} % Opcional (Florianópolis é o padrão)
 \data{15}{julho}{2013}
@@ -43,11 +43,11 @@
 \bancaMembroC{Prof. Dr. Eng. Rafael Luiz Cancian} % Nome do membro da Banca
 \bancaMembroD{Prof. Dr. Frank Siqueira} % Nome do membro da Banca
 
-\agradecimento{Inserir os agradecimentos aos colaboradores à execuç\~ao do trabalho.}
+\agradecimento{Inserir os agradecimentos aos colaboradores \'a execu\c{c}\~ao do trabalho.}
 
-\textoResumo {Redes de sensores s\~ao utilizadas para a captaç\~ao, processamento de informaç\~ao e atuaç\~ao sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas. Os nós das redes geralmente s\~ao computadores e rádios simplificados, que possuem restriç\~oes de memória, processamento, energia e comunicaç\~ao, mas um custo relativamente baixo de equipamentos, tornando interessante a implantaç\~ao destes sistemas. O protocolo HTTP foi desenvolvido pensado em computadores de propósito geral, onde essas restriç\~oes n\~ao existem. Um protocolo leve como CoAP pode tornar viável a criaç\~ao de aplicaç\~oes web em redes de sensores sem fio por um baixo custo.
+\textoResumo {Redes de sensores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas. Os n\'os das redes geralmente s\~ao computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos, tornando interessante a implanta\c{c}\~ao destes sistemas. O protocolo HTTP foi desenvolvido pensado em computadores de prop\'osito geral, onde essas restri\c{c}\~oes n\~ao existem. Um protocolo leve como CoAP pode tornar viável a cria\c{c}\~ao de aplica\c{c}\~oes web em redes de sensores sem fio por um baixo custo.
 
-\'E proposto uma infraestrutura de comunicaç\~ao entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os nós sensores e um gateway GPRS para áreas sem acesso à WIFI, aproveitando a vasta abrangência da tecnologia de telefonia. Com a Utilizaç\~ao do CoAP \'e esperado uma reduç\~ao de consumo de energia e memória, em relaç\~ao a outros protocolos de aplicaç\~ao existentes.}
+\'E proposto uma infraestrutura de comunica\c{c}\~ao entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para \'areas sem acesso \'a WIFI, aproveitando a vasta abrang\^encia da tecnologia de telefonia. Com a Utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.}
 
 \palavrasChave{ internetworking wireless sensor networks IPv6 6LoWPAN GPRS CoAP }
 
@@ -56,14 +56,14 @@
 \begin{document}
 %--------------------------------------------------------
 % Elementos pré-textuais
-%\capa
-%\folhaderosto%[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
-%\folhaaprovacao
+\capa
+\folhaderosto%[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
+\folhaaprovacao
 %\paginadedicatoria
-%\paginaagradecimento
+\paginaagradecimento
 %\paginaepigrafe
 
-%\paginaresumo
+\paginaresumo
 %\paginaabstract
 %\pretextuais % Substitui todos os elementos pre-textuais acima
 \listadefiguras % as listas dependem da necessidade do usuário
@@ -74,13 +74,13 @@
 %--------------------------------------------------------
 % Elementos textuais
 
-\chapter{Introduç\~ao}
+\chapter{Introdu\c{c}\~ao}
 \input{tex/introducao}
 
 \chapter{Desenvolvimento}
 \input{tex/desenvolvimento}
 
-\chapter{Consideraç\~oes Parciais}
+\chapter{Considera\c{c}\~oes Parciais}
 
 \bibliographystyle{ufscThesis/ufsc-alf}
 \bibliography{bibliografia}
