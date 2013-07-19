@@ -2,7 +2,9 @@
 
 \subsection{Metodologia}
 
-O desenvolvimento do protocolo será orientado a testes, aonde o código escrito apenas satisfaz as condições necessárias para validar um comportamento desejado da aplicação.
+O desenvolvimento do protocolo será orientado a testes, aonde o código escrito apenas satisfaz as condições necessárias para validar um comportamento desejado da aplicação. Apesar de desafiador, por ser .... X demonstra que com certas ferramentas, e utilizando técnicas em nível de linkagem para testar o módulo de cada objeto, co TDD em sistemas embarcados é possível.
+
+Será utilizado uma placa de desenvolvimento em conjunto com um módulo M95 da Quectel disponibilizada pelo Laboratório, para serem feitos os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos proprietários adicionais do modem.
 
 \subsection{Justificativa e Motivação}
 
@@ -19,6 +21,7 @@ Um protocolo leve como CoAP pode tornar viável a criação de aplicações web 
 O Sistema operacional EPOS possui implementação das camadas de transporte UDP e TCP, porém não possui nenhum protocolo de aplicação desenvolvido.
 
 \subsection{Organização do Trabalho}
+\aFazer{}
 
 \section{Revisão Bibliográfica}
 
@@ -27,20 +30,20 @@ Avanços recentes nas tecnologias de sistemas eletrônicos, semicondutores, sens
 
 Características destas redes são: pouca memória, pouco alcance do rádio, baixa capacidade de processamento e bateria, e custo reduzido. A conservação de energia é um dos objetivos das redes de sensores sem fio, deve-se minimizar o consumo em todos os níveis do sistema, da aplicação até o nível de hardware. Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente.
 
+Um nó pertencente a esta rede geralmente é um dispositivo especificamente desenvolvido para um próposito, que possui poucos recursos computacionais e energéticos e se comunicam entre seus semalhantes.
+
 \subsection{Arquitetura orientada a serviços}
-Vantagens novos processos de negócios podem ser definidos de uma forma similar, 
-reutilizando os serviços e acrescentando metainformação para
-uso de conectores genéricos.
+\aFazer{
+Vantagens em novos processos de negócios podem ser definidos de uma forma similar, reutilizando os serviços e acrescentando metainformação para uso de conectores genéricos.
+}
 \cite{perrey2003service}
 
 \subsection{Embedded Parallel Operating System}
+\aFazer{
 Sistema Operacional Multithread com suporte a preempção, foi desenvolvido em C++ e faz uso intenso de programação orientada a aspectos utilizando templates.
 Possui abstrações infladas para entidades temporais como relógio, alarme e cronometro, biblioteca com estruturas de dados e sequenciadores que permite o uso de ferramentas para geração automatizada de abstrações de sistemas. A portabilidade é atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as funções específicas de arquitetura. Estas interfaces são utilizadas por entidades abstratas como alarmes e threads periódicas.
 
-Projetado utilizando o método ADESD, um método para projeto de sistemas embarcados orientados à aplicação. Esta metodologia guia o desenvolvimento paralelo de hardware e software além de manter certa portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc e AVR.
-
-Possui Implementa
-
+Projetado utilizando o método ADESD, um método para projeto de sistemas embarcados orientados à aplicação. Esta metodologia guia o desenvolvimento paralelo de hardware e software além de manter certa portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc e AVR.}
 
 \cite{epos}
 % SIGLA (ADESD - Application Driven Embedded System Design)
@@ -146,13 +149,13 @@ Configuração TCP/IP
 Entregar um módulo simplificado do procotolo CoAP no primeiro semestre.
 Testes efetuados no modem GSM
 
-Entregar o firmware do gateway na segunda parte do ano A aplicação desenvolvida no EPOS precisará de um buffer para o recebimento de dados da rede ZigBEE que será enviado para rede via GPRS. Duas threads, uma produtora que ficará ouvindo o rádio ZigBEE e alimentando num formato de dados ainda não especificado.  uma consumidora que será responsável em pegar estes dados da rede de sensores e encaminhá-los pra Internet usando a extensão GPRS do EPOSmote II.
+Entregar o firmware do gateway na segunda parte do ano A aplicação desenvolvida no EPOS precisará de um buffer para o recebimento de dados da rede ZigBEE que será enviado para rede via GPRS.
+Duas threads, uma produtora que ficará escutando o rádio ZigBEE e alimentando num formato de dados ainda não especificado. Outra consumidora que será responsável em utlizar estes dados na rede de sensores e encaminhá-los pra Internet usando a extensão GPRS do EPOSmote II.
 
 \subsection{Resultados parciais}
 A parte de validação de um pacote CoAP foi feita com TDD e está disponível no site: (TODO)
 Ao receber uma mensagem de confirmação, remove da lista a mensagem que não havia sido confirmada utilizando o id.
 Ao receber uma mensagem confirmável, envia uma mensagem de confirmação.
-Ao receber uma mensagem
 Repassar mensagem para controle de Requisição e Reposta Adicionar a lista de mensagem recebidas.
 
 Enviar mensagem não confirmável
@@ -169,11 +172,12 @@ Criar socket TCP
 Enviar mensagem via socket
 Receber mensagem via socket
 
+Fazer requisição HTTP para um webserver, foi possível utilizando os comandos proprietários do modem.
 
 
 \subsection{Tecnologias utilizadas}
 C++
-Linguagem de programação com suporte a programação genérica e orientação a objetos. Foi criada por Bjarune Stroustup em 1970 como uma extensão da linguagem C. É uma linguagem compilada e de tipagem forte
+Linguagem de programação com suporte a programação genérica e orientação a objetos. Foi criada por Bjarune Stroustup em 1970 como uma extensão da linguagem C.
 
 CPPUTEST
 É um utilitário para testes unitários em C++, focado em aplicações embarcadas e foi desenvolvido por xxx
@@ -190,11 +194,15 @@ NewLib
 
 GDB
 
+Git
+
+Vim
+
 \subsection{Atividades pendentes}
 Camada de Requisição e Resposta do CoAP
 Implementação da aplicação gateway GPRS/Zigbee no EPOS
 Discussões interessantes:
-Desenvolvimento de um chronometro decrescente configurável para execução de uma função no final da contagem.
 
 
 \subsection{Considerações Parciais}
+Um objeto interessante a ser desenvolvido é um cronômetro decrescente e configurável, que execute uma função passada pelo usuário seja executada no final do decremento de forma assíncrona. Provavelmente bloqueante, pois o buffer de mensagensa confirmáveis, que precisam ser confirmadas será único.
