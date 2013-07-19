@@ -1,4 +1,5 @@
-Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas. Os nós que participam destas redes geralmente são computadores e rádios simplificados, que possuem restrições de memória, processamento, energia e comunicação, mas um custo relativamente baixo de equipamentos. O maior consumo de energia neste tipo de aplicação é o rádio, portanto os desafios dos algoritmos de roteamento nesta área são em manter os rádios o mínimo período de tempo possível e manter o nó comunicável pela rede.
+Redes de sensores são utilizadas para a captação, processamento de informação e atuação sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas.
+Os n\'os que participam destas redes geralmente são computadores e r\'adios simplificados, que possuem restriç\~oes de mem\'oria, processamento, energia e comunicação, mas um custo relativamente baixo de equipamentos. O maior consumo de energia neste tipo de aplicação é o r\'adio, portanto os desafios dos algoritmos de roteamento nesta \'area são em manter os r\'adios o m\'inimo per\'iodo de tempo poss\'ivel e manter o n\'o comunic\'avel pela rede.
 
 \section{OBJETIVOS}
 
@@ -6,12 +7,12 @@ Descrição...
 
 \subsection{Objetivo Geral}
 
-O trabalho será descrever e implementar webservices em uma rede sensores sem fio, que farão a aquisição dos dados do ambiente e disponibilizarão as informações captadas. A comunicação entre os nós sensores será feita utilizando um protocolo de aplicação padrão, apropriado para redes de sensores sem fio, viabilisando o desenvolvimento de webservices para os nós da rede.
-A distribuição da informação para Internet será feita através de um gateway. Os objetivos são: o monitoramento de ambientes e a integração da rede de sensores sem fio com a Internet em lugares aonde o não existe o acesso a rede cabeada ou sem fio, como lugares afastados, na área rural, por exemplo. GPRS possui a maior cobertura dentre as tecnologias de transmissão de telefonia no Brasil, atingindo cerca de 5477 municípios.[8]
+O trabalho ser\'a descrever e implementar webservices em uma rede sensores sem fio, que farão a aquisição dos dados do ambiente e disponibilizarão as informaç\~oes captadas. A comunicação entre os n\'os sensores ser\'a feita utilizando um protocolo de aplicação padrão, apropriado para redes de sensores sem fio, viabilisando o desenvolvimento de webservices para os n\'os da rede.
+A distribuição da informação para Internet ser\'a feita através de um gateway. Os objetivos são: o monitoramento de ambientes e a integração da rede de sensores sem fio com a Internet em lugares aonde o não existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo. GPRS possui a maior cobertura dentre as tecnologias de transmissão de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.
 
 
-\subsection{Objetivos Específicos}
+\subsection{Objetivos Espec\'ificos}
 
-Implementar uma aplicação de redes de sensores sem fio, que utilize um gateway GPRS/Zigbee que será responsável em disponibilizar as informações captadas pela rede para Internet, além de oferecer uma simples aplicação web que será possível para o usuário configurar os parâmetros da rede.
-Na infra-estrutura de software será necessário implementar o protocolo CoAP no EPOS. Desenvolver o protocolo CoAP utilizando a pilha UDP do EPOS ou portar a biblioteca libcoap, uma biblioteca de código aberto desenvolvida em C que implementa o protocolo de aplicaçao leve para dispositivos com restrições de recursos como poder computacional, alcance de rádio, memória, vazão ou tamanho dos pacotes de rede.
-O gateway 6LowPan/GPRS terá a capacidade de fazer a ponte entre a rede de sensores e a Internet, utilizando um modem GPRS. Será projetado utilizando um mote, um modem GPRS além do circuito necessário para integração dos dois módulos. Será a parte de hardware do projeto.
+Implementar uma aplicação de redes de sensores sem fio, que utilize um gateway GPRS/Zigbee que ser\'a respons\'avel em disponibilizar as informaç\~oes captadas pela rede para Internet, além de oferecer uma simples aplicação web que ser\'a poss\'ivel para o usu\'ario configurar os par\^ametros da rede.
+Na infra-estrutura de software ser\'a necess\'ario implementar o protocolo CoAP no EPOS. Desenvolver o protocolo CoAP utilizando a pilha UDP do EPOS ou portar a biblioteca libcoap, uma biblioteca de c\'odigo aberto desenvolvida em C que implementa o protocolo de aplicaçao leve para dispositivos com restriç\~oes de recursos como poder computacional, alcance de r\'adio, mem\'oria, vazão ou tamanho dos pacotes de rede.
+O gateway 6LowPan/GPRS ter\'a a capacidade de fazer a ponte entre a rede de sensores e a Internet, utilizando um modem GPRS. Ser\'a projetado utilizando um mote, um modem GPRS além do circuito necess\'ario para integração dos dois m\'odulos. Ser\'a a parte de hardware do projeto.
