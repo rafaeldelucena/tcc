@@ -5,7 +5,7 @@
 \subsection{Metodologia}
 
 O desenvolvimento do protocolo ser\'a orientado a testes, aonde o c\'odigo escrito apenas satisfaz as condi\c{c}\~oes necess\'arias para validar um comportamento desejado da aplica\c{c}\~ao.
-Apesar de desafiador, por ser .... X demonstra que com certas ferramentas, e utilizando t\'ecnicas em n\'ivel de linkagem para testar o m\'odulo de cada objeto, co TDD em sistemas embarcados \'e poss\'ivel.
+Apesar de desafiador, por ser .... X demonstra que com certas ferramentas, e utilizando t\'ecnicas em n\'ivel de linkagem para testar o m\'odulo de cada objeto, \'e poss\'ivel desenvolver utilizando TDD em sistemas embarcados.
 
 Ser\'a utilizado uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio, para serem feitos os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
 
@@ -13,13 +13,13 @@ Ser\'a utilizado uma placa de desenvolvimento em conjunto com um m\'odulo M95 da
 
 Os mecanismos de confiabilidade na transmiss\~ao e as t\'ecnicas para se manter uma conex\~ao do TCP e os rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivo que possua restri\c{c}\~oes de energia, pois podem fazer que fiquem com seus transmissores, ligados por mais tempo para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado.
 
-Assim faz-se uso do UDP, um protocolo que n\~ao mant\'em conex\~ao, os dados s\~ao recebidos fora de ordem e o envido \'e feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise mont\'a-la e garantir que nenhuma das pe\c{c}as est\'a corrompida. Tamb\'em tamb\'em \'e feita uma redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote. Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos restritos. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.
+Assim faz-se uso do UDP, um protocolo que n\~ao mant\'em conex\~ao, os dados s\~ao recebidos fora de ordem e o envido \'e feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise mont\'a-la e garantir que nenhuma das pe\c{c}as est\'a corrompida. Tamb\'em \'e feito uma redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote. Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos restritos. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{}
 
 A falta de padroniza\c{c}\~ao dos protocolos afeta o desenvolvimento de uma rede p\'ublica ub\'iqua de uma cidade inteligente por exemplo, a falta de um padr\~ao de comunica\c{c}\~ao. A maioria das empresas utiliza protocolos propriet\'arios, que se comunicacam apenas com os produtos da pr\'opria empresa.
 
-O protocolo HTTP foi desenvolvido para comunica\c{c}\~ao de computadores de prop\'osito geral, onde as restri\c{c}\~oes citadas n\~ao s\~ao comuns. Em rela\c{c}\~ao ao tamanho do pacote HTTP \'e um problema, j\'a que redes que trabalham nessa frequência possuem uma restri\c{c}\~ao de 128 bytes.  Al\'em do tamanho do pacote HTTP, manter uma conex\~ao TCP \'e custosa, j\'a que os n\'os sensores que precisam manter seus r\'adios desligados o maior tempo poss\'ivel.
+O protocolo HTTP foi desenvolvido para comunica\c{c}\~ao de computadores de prop\'osito geral, onde as restri\c{c}\~oes citadas n\~ao s\~ao comuns. Em rela\c{c}\~ao ao tamanho do pacote HTTP \'e um problema, j\'a que redes que trabalham nessa frequ\^encia possuem uma restri\c{c}\~ao de 128 bytes.  Al\'em do tamanho do pacote HTTP, manter uma conex\~ao TCP \'e custosa, j\'a que os n\'os sensores que precisam manter seus r\'adios desligados o maior tempo poss\'ivel.
 
-Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\c{c}\~oes web em redes de sensores sem fio por um baixo custo. Neste trabalho \'e proposto uma infraestrutura de comunica\c{c}\~ao entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para \'areas sem acesso \'a WIFI, aproveitando a vasta abrangência da tecnologia de telefonia. Com a utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.
+Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\c{c}\~oes web em redes de sensores sem fio por um baixo custo. Neste trabalho \'e proposto uma infraestrutura de comunica\c{c}\~ao entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para \'areas sem acesso \'a WIFI, aproveitando a vasta abrang\^encia da tecnologia de telefonia. Com a utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.
 
 O Sistema operacional EPOS possui implementa\c{c}\~ao das camadas de transporte UDP e TCP, por\'em n\~ao possui nenhum protocolo de aplica\c{c}\~ao desenvolvido.
 
@@ -28,7 +28,7 @@ O Sistema operacional EPOS possui implementa\c{c}\~ao das camadas de transporte 
 \section{Revis\~ao Bibliogr\'afica}
 
 \subsection{Redes de sensores sem fio}
-Avan\c{c}os recentes nas tecnologias de sistemas eletrônicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade. S\~ao utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores.tornando-as importantes para controle, telemetria e rastreamento de sistemas.
+Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade. S\~ao utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores.tornando-as importantes para controle, telemetria e rastreamento de sistemas.
 
 Caracter\'isticas destas redes s\~ao: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o n\'ivel de hardware. Redes de sensores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente.
 
@@ -74,47 +74,37 @@ A IETF estabelece as condi\c{c}\~oes m\'inimas para o desenvolvimento de um prot
 
 
 Os campos do pacote CoAP s\~ao definidos:
-   Vers\~ao (Ver):  2-bit unsigned integer.  Indica a vers\~ao do CoAP, implementa\c{c}\~oes devem utilizar este campo com (1).
-   Tipo (T):  2-bit unsigned integer. Tipo da mensagem, Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
-   Tamanho do Toke (TKL):  4-bit unsigned integer. O tamanho do Token pode variar entre 0 e 8 bytes. Tamanhos entre 9 a 15 s\~ao reservados e n\~ao devem ser usados.
-   C\'odigo:  8-bit unsigned integer, separados em 3-bit (bits mais significativos) para a classe e 5-bits (bits menos significativos) como detalhe, documentado como c.dd aonde c \'e um d\'igito de 0 to 7 para o campo de 3-bits e dd s\~ao dois d\'igitos que v\~ao de 00 a 31 s\~ao para o campo de 5-bit.
-   
-   As classes podem indicar uma requisi\c{c}\~ao (0), uma resposta de sucesso (2), e uma resposta de erro do cliente (4), ou uma resposta de erro do servidor (5), as outras classes s\~ao reservadas. Em um caso especial o c\'odigo Code 0.00 indicates an Empty message.
+Vers\~ao: 2-bit Indica a vers\~ao do CoAP, implementa\c{c}\~oes devem utilizar este campo com (1).
+Tipo: 2-bit Campo responsável para definir o tipo da mensagem: Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
+Tamanho do Token: 4-bit, o tamanho do Token pode variar entre 0 e 8 bytes. Tamanhos entre 9 a 15 s\~ao reservados e n\~ao devem ser usados.
+C\'odigo: 8-bit separados em 3-bit (bits mais significativos) para a classe e 5-bits (bits menos significativos) como detalhe, documentado como c.dd aonde c \'e um d\'igito de 0 to 7 para o campo de 3-bits e dd s\~ao dois d\'igitos que v\~ao de 00 a 31 s\~ao para o campo de 5-bit. As classes podem indicar uma requisi\c{c}\~ao (0), uma resposta de sucesso (2), e uma resposta de erro do cliente (4), ou uma resposta de erro do servidor (5), as outras classes s\~ao reservadas. Em um caso especial o c\'odigo Code 0.00 indicates an Empty message.
+ID da mensagem: 16-bit in network byte order. Usada para deduplica\c{c}\~ao de mensagens e para confirmação ou reset de mensagens.
 
-   ID da mensagem:  16-bit unsigned integer in network byte order. Usada para deduplica\c{c}\~ao de mensagens e para to match messages of type Acknowledgement/Reset to messages of type Confirmable/Non-confirmable.
-
-    As regras para defini\c{c}\~ao do ID de mensagem s\~ao:
+As regras para defini\c{c}\~ao do ID de mensagem s\~ao:
    
 Codifica\c{c}\~ao das op\c{c}\~oes
 
 A transmiss\~ao de mensagems \'e controlada basicamente pelos par\^ametros: ACK TIMEOUT, ACK RANDOM FACTOR, MAX RETRANSMIT, NSTART, DEFAULT LEISUR e PROBING RATE.
-Modelo de requisi\c{c}\~ao e resposta Mensagens confirmadas Mensangens n\~ao-confirmadas usa um contador de timeouts e a transmiss\~ao da mensagem de tempos em tempos defina por uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas.
-A fun\c{c}\~ao \'e:
+Modelo de requisi\c{c}\~ao e resposta Mensagens confirmadas Mensagens n\~ao-confirmadas usa um contador de timeouts e a transmiss\~ao da mensagem de tempos em tempos defina por uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas. A fun\c{c}\~ao \'e:
 
-Um servidor que atende uma requisi\c{c}\~ao confirm\'avel pode respondê-la em conjunto da mensagem de confirma\c{c}\~ao. Essa t\'ecnica \'e chamada de Pigbackend um mecanismo de transmiss\~ao para mensagens confirmadas.\cite{draft-ietf-core-coap-18}
+Um servidor que atende uma requisi\c{c}\~ao confirm\'avel pode respond\^e-la em conjunto da mensagem de confirma\c{c}\~ao. Essa t\'ecnica \'e chamada de Pigbackend um mecanismo de transmiss\~ao para mensagens confirmadas.\cite{draft-ietf-core-coap-18}
 
 Recursos
 Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.
 
 A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast.
+
 A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690}
 
 \subsection{Trabalhos Relacionados}
 
 LibCoap \'e uma biblioteca implementada em C do protocolo CoAP, possui 292K de tamanho compilada estaticamente em sua vers\~ao 4.0.1
 
-Contiki Sistema Operacional desenvolvido em C, c\'odigo aberto para sistemas com restri\c{c}\~ao de mem\'oria e (que lid\~ao com temporiza\c{c}\~ao)? foi desenvolvido para ser um sistema operacional para a Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
-Um processo no Contiki possui bloco de controle que contem informa\c{c}\~oes informa\c{c}\~oes de tempo de execu\c{c}\~ao do processo, o nome do processo, estado do processo e um ponteiro para a thread do processo. O c\'ogido que reside na thread do processo \'e armazenado na ROM.
-No contiki os processos s\~ao implementados como phrotothreads, uma combina\c{c}\~ao entre eventos e threads. S\~ao executadas no kernel dirigido a eventos do Contiki. Como threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento entre as protothreads. Dos eventos herdam o baixo overhead de mem\'oria e por n\~ao necessitarem de salvamento de contexto na regi\~ao de mem\'oria da Stack.
-Uma protothread \'e uma maneira de estruturar o c\'odigo, de forma que permita que o sistema rode outras atividades enquanto o c\'odigo est\'a esperando para algo acontecer. Permite que de c\'odigo C execute de uma maneira similar a threads, por\'em sem o overhead de mem\'oria.
-A maior vantagem das protothreads sobre as threads comuns \'e o baixo consumo de mem\'oria, todas utilizam a mesma Stack e a troca de contexto \'e feita por (TODO) Stack rewinding. Cada protothread consome 2 bytes de mem\'oria, esses dois bytes s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada para um pulo condicional ser feito na execu\c{c}\~ao da thread. Essa marca\c{c}\~ao \'e feita utilizando o resultado da macro --LINE-- do compilador, que \'e o n\'umero da linha do c\'odigo no momemto da compila\c{c}\~ao. Com esta marca\c{c}\~ao pr\'oxima vez que a thread for chamada ele utilize o switch para aquele n\'umero de linha, que \'e aonde o teste para verificar se a condi\c{c}\~ao passada pela fun\c{c}\~ao PT THREAD WAIT UNTIL \'e verificada.
+Contiki Sistema Operacional criado por Adam Dunkels em 2000, escrito em C, c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos que se comunicam em uma rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP. Um processo no Contiki possui bloco de controle, que contém informa\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma referencia para uma protothread, na qual o c\'ogido \'e armazenado na ROM.
+Protothread é uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento e dos eventos herdam o baixo overhead de mem\'oria por n\~ao necessitarem de salvamento de contexto. A implementação \'e uma maneira de estruturar o c\'odigo, de forma que permita que o sistema rode outras atividades enquanto o c\'odigo est\'a esperando para algo acontecer. Cada protothread consome 2 bytes de mem\'oria, esses dois bytes s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. Essa marca\c{c}\~ao \'e feita utilizando o resultado da macro --LINE-- do compilador. \'E um método similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffy}
 
-Criadores: Adam Dunkels
-Protocolos de Roteamento
-
-Dispositivos de baixo consumo que possuem restri\c{c}\~ao de energia e precisam ficar ligados durante anos utilizando uma \'unica bateria, precisam consumir o m\'inimo de energia poss\'ivel. O tramissor e receptor sem fio \'e um dos componentes que mais consome energia e \'e preciso mantê-lo o m\'inimo de tempo poss\'ivel, mas tamb\'em precisa ficar ligado para comunica\c{c}\~ao com seus vizinhos. O Contiki prop\~oes uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adio desligado em aproximadamente 99\% do tempo. Utiliza mecanismos ass\'incronos com precise timming e fast sleep otimization (TODO)
-
-O protocolo de roteamento padr\~ao ContikiMAC os n\'os dormem a maior parte do tempo e acordam periodicamente para verificar a atividade do r\'adio. Se um pacote de rede \'e detectado o recebedor mant\'em-se acordado para receber o pr\'oximo pacote 
+O transceiver sem fio \'e um dos componentes que mais consome energia quando ligado escutando o ambiente, assim uma das estratégias utilizadas é manter o m\'inimo de tempo poss\'ivel ligado, mas o suficiente para manter a troca de mensagens entre a rede. O Contiki prop\~oes uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adio desligado em aproximadamente 99\% do tempo. Utiliza mecanismos ass\'incronos com precise timming e fast sleep otimization (TODO)
+O protocolo de roteamento padr\~ao ContikiMAC os n\'os dormem a maior parte do tempo e acordam periodicamente para verificar a atividade do r\'adio. Se um pacote de rede \'e detectado o recebedor mant\'em-se acordado para receber o pr\'oximo pacote.
 
 TinyOS Sistema Operacional projetado para sistemas embarcados com comunica\c{c}\~ao sem fio e restri\c{c}\~oes energ\'eticas. Foi desenvolvido em nesC, uma linguagem c\'odigo aberto que \'e uma extens\~ao do C. \'e um sistema operacional event-driven desenvolvido para redes de sensores que possuem recursos limitados. Possui uma implementa\c{c}\~ao do CoAP baseada na libCoAP.
 
@@ -173,18 +163,15 @@ Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os coma
 
 \subsection{Tecnologias utilizadas}
 C++
-Linguagem de programa\c{c}\~ao com suporte a programa\c{c}\~ao gen\'erica e orienta\c{c}\~ao a objetos. Foi criada por Bjarune Stroustup em 1970 como uma extens\~ao da linguagem C.
+Linguagem de programa\c{c}\~ao com suporte a programa\c{c}\~ao gen\'erica e orienta\c{c}\~ao a objetos.
+Compilada e de tipagem forte foi criada por Bjarune Stroustup em 1970 como uma extens\~ao da linguagem C. \cite{Stroustrup95thec++}.
+
 
 CPPUTEST
 \'e um utilit\'ario para testes unit\'arios em C++, focado em aplica\c{c}\~oes embarcadas e foi desenvolvido por xxx
 
 Autotools/CMake
 Ferramenta utilizada no ambiente GNU para encontrar bibliotecas e montar os projetos com c\'odigo C e C++.
-
-A linguagem de programa\c{c}\~ao utilizada \'e o C++, que API do EPOS de alarme, chronometro, threads
-Framework de testes CPPUTEST CMake ou Autotools?
-
-API ass\'incrona UDP do EPOS
 
 NewLib
 
@@ -197,8 +184,3 @@ Vim
 \subsection{Atividades pendentes}
 Camada de Requisi\c{c}\~ao e Resposta do CoAP
 Implementa\c{c}\~ao da aplica\c{c}\~ao gateway GPRS/Zigbee no EPOS
-Discuss\~oes interessantes:
-
-
-\subsection{Considera\c{c}\~oes Parciais}
-Um objeto interessante a ser desenvolvido \'e um cronômetro decrescente e configur\'avel, que execute uma fun\c{c}\~ao passada pelo usu\'ario seja executada no final do decremento de forma ass\'incrona. Provavelmente bloqueante, pois o buffer de mensagensa confirm\'aveis, que precisam ser confirmadas ser\'a \'unico.
