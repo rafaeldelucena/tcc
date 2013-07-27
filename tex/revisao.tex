@@ -1,0 +1,121 @@
+Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
+\section{Redes de sensores sem fio}
+
+Redes de sensores sẽm fio s\~ao utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semalhantes.
+
+A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, pois n\~ao est\~ao ligados diretamente a fonte de energia. Deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o n\'ivel de hardware. Redes de sensores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente.
+
+
+\section{Arquitetura orientada a servi\c{c}os}
+Vantagens em novos processos de neg\'ocios podem ser definidos de uma forma similar, reutilizando os servi\c{c}os e acrescentando metainforma\c{c}\~ao para uso de conectores gen\'ericos.
+\cite{perrey2003service}
+
+
+\section{REST}
+
+Os servidores n\~ao salvam estado das aplica\c{c}\~oes, e fazem uso de m\'etodos HTTP explicitamente, s\~ao eles:
+\begin{itemize}
+    \item GET: para receber um recurso do webserver.
+    \item POST: criar um recurso no webserver.
+    \item PUT: mudar o estado de um recurso do webserver.
+    \item DELETE: remover o recurso ou alterar para um estado vazio.
+\end{itemize}
+
+A identificação de recursos na rede é feita por estruturas de diret\'orios.
+
+Para transfe\^encia de dados utiliza-se formatos genéricos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON.
+
+\section{Constrained Aplication Protocol}
+
+Um dos principais objetivos do CoAP \'e ser uma alternativa de um protocolo web gen\'erico para redes com dispositivos com restri\c{c}\~ao de energia e mem\'oria.
+
+As vantagens de utilizar um protocolo compat\'ivel com o HTTP s\~ao: a facilidade de integra\c{c}\~ao e o reuso de aplica\c{c}\~oes. CoAP possui compress\~ao \'e apenas uma compress\~ao do HTTP, mas um subconjunto REST otimizado para M2M, possui suporte para descoberta de recursos, suporte a multicast e troca de mensagens ass\'incronas com simplicidade e baixo overhead.
+
+A IETF estabelece as condi\c{c}\~oes m\'inimas para o desenvolvimento de um protocolo de aplica\c{c}\~ao compat\'ivel com HTTP, mas focado em aplica\c{c}\~oes aonde energia e mem\'oria s\~ao escassas. O protocolo CoAP foi projetado levando em considera\c{c}\~ao as restri\c{c}\~oes energ\'eticas e altas taxas de falha na transmiss\~ao dos pacotes.
+
+A comunica\c{c}\~ao entre os pontos no CoAP \'e de forma ass\'incrona usando o UDP, a confiabilidade \'e opcional e feita atrav\'es de um mecanismo de retransmiss\~ao exponencial. Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset.
+
+\subsection{Formato das mensagens}
+
+     0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |Ver| T |  TKL  |      Code     |          Message ID           |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |   Token (if any, TKL bytes) ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |   Options (if any) ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |1 1 1 1 1 1 1 1|    Payload (if any) ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   O Formato do pacote CoAP  \cite{draft-ietf-core-coap-18}
+
+
+Os campos do pacote CoAP s\~ao definidos:
+\begin{itemize}
+    \item Vers\~ao: 2-bit Indica a vers\~ao do CoAP, implementa\c{c}\~oes devem utilizar este campo com (1).
+    \item Tipo: 2-bit Campo responsável para definir o tipo da mensagem: Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
+    \item Tamanho do Token: 4-bit, o tamanho do Token pode variar entre 0 e 8 bytes. Tamanhos entre 9 a 15 s\~ao reservados e n\~ao devem ser usados.
+    \item C\'odigo: 8-bit separados em 3-bit mais significativos para classes e 5-bits menos significativos para detalhe. As classes podem indicar uma requisi\c{c}\~ao (0), uma resposta de sucesso (2), e uma resposta de erro do cliente (4), ou uma resposta de erro do servidor (5), as outras classes s\~ao reservadas. Em um caso especial o c\'odigo 0.00 indica uma mensagem vazia.
+    \item ID da mensagem: 16-bit in network byte order. Usada para deduplica\c{c}\~ao de mensagens e para confirmação ou reset de mensagens.
+\end{itemize}
+
+As regras para defini\c{c}\~ao do ID de mensagem s\~ao:
+   
+Codifica\c{c}\~ao das op\c{c}\~oes
+
+A transmiss\~ao de mensagems \'e controlada basicamente pelos par\^ametros:
+\begin{itemize}
+    \item ACK TIMEOUT:
+    \item ACK RANDOM FACTOR:
+    \item MAX RETRANSMIT:
+    \item NSTART:
+    \item DEFAULT LEISU:
+    \item PROBING RATE: Período
+\end{itemize}
+
+\subsection{Camada de Reposta e Requisi\c{c}\~ao}
+ O modelo de requisi\c{c}\~ao e resposta Mensagens confirmadas Mensagens n\~ao-confirmadas usa um contador de timeouts e a transmiss\~ao da mensagem de tempos em tempos defina por uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas. A fun\c{c}\~ao \'e:
+ 
+ O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util. Quando possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Pigbackend'' um mecanismo de transmiss\~ao para mensagens confirmadas.\cite{draft-ietf-core-coap-18}
+
+ \subsection{Recursos}
+Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.
+
+A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast.
+
+A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690}
+
+\section{Embedded Parallel Operating System}
+Sistema Operacional Multithread com suporte a preemp\c{c}\~ao, foi desenvolvido em C++ e faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
+
+Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cronometro, biblioteca com estruturas de dados e sequenciadores que permite o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas. A portabilidade \'e atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas.
+
+Projetado utilizando o m\'etodo ADESD, um m\'etodo para projeto de sistemas embarcados orientados \'a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter certa portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc e AVR.
+
+\cite{epos}
+% SIGLA (ADESD - Application Driven Embedded System Design)
+
+\section{Trabalhos Relacionados}
+
+\subsection{Contiki}
+Contiki Sistema Operacional criado por Adam Dunkels em 2000, escrito em C, c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos que se comunicam em uma rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
+
+Cada processo no Contiki possui bloco de controle, que contém informa\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma referencia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. Protothread é uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento e dos eventos herdam o baixo overhead de mem\'oria por n\~ao necessitarem de salvamento de contexto.
+
+Na parte de implementação, estas ténicas são maneiras de estruturar o c\'odigo de uma forma que permita que o sistema rode outras atividades enquanto o c\'odigo est\'a esperando para algo acontecer. Cada protothread consome 2 bytes de mem\'oria, esses dois bytes s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. Essa marca\c{c}\~ao \'e feita utilizando o resultado da macro --LINE-- do compilador. \'E um método similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffy}
+
+O transceiver sem fio \'e um dos componentes que mais consome energia quando ligado escutando o ambiente, assim uma das estratégias utilizadas é manter o m\'inimo de tempo poss\'ivel ligado, mas o suficiente para manter a troca de mensagens entre a rede. O Contiki prop\~oes uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adio desligado em aproximadamente 99\% do tempo. Utiliza mecanismos ass\'incronos com precise timming e fast sleep otimization. (TODO)
+
+O protocolo de roteamento padr\~ao ContikiMAC os n\'os dormem a maior parte do tempo e acordam periodicamente para verificar a atividade do r\'adio. Se um pacote de rede \'e detectado o recebedor mant\'em-se acordado para receber o pr\'oximo pacote.
+
+\subsection{LibCoap}
+LibCoap \'e uma biblioteca implementada em C do protocolo CoAP, possui 292K de tamanho compilada estaticamente em sua vers\~ao 4.0.1
+
+
+\subsection{TinyOS}
+TinyOS Sistema Operacional projetado para sistemas embarcados com comunica\c{c}\~ao sem fio e restri\c{c}\~oes energ\'eticas. Foi desenvolvido em nesC, uma linguagem c\'odigo aberto que \'e uma extens\~ao do C. \'e um sistema operacional event-driven desenvolvido para redes de sensores que possuem recursos limitados. Possui uma implementa\c{c}\~ao do CoAP baseada na libCoAP.
+
+Possui licensa BSD
+
+Protocolos de Roteamento

@@ -1,18 +1,56 @@
 Redes de sensores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente, tornando-as importantes para controle, telemetria e rastreamento de sistemas.
-Os n\'os que participam destas redes geralmente s\~ao computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos. O maior consumo de energia neste tipo de aplica\c{c}\~ao \'e o r\'adio, portanto os desafios dos algoritmos de roteamento nesta \'area s\~ao em manter os r\'adios o m\'inimo per\'iodo de tempo poss\'ivel e manter o n\'o comunic\'avel pela rede.
 
-\section{OBJETIVOS}
+N\'os que participantes destas redes geralmente s\~ao computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos.
 
-Descri\c{c}\~ao...
+O maior consumo de energia neste tipo de aplica\c{c}\~ao \'e o r\'adio, portanto os desafios dos algoritmos de roteamento nesta \'area s\~ao em manter os r\'adios o m\'inimo per\'iodo de tempo poss\'ivel e manter o n\'o comunic\'avel pela rede.
 
-\subsection{Objetivo Geral}
+\section{Objetivos}
 
-O trabalho ser\'a descrever e implementar webservices em uma rede sensores sem fio, que far\~ao a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas. A comunica\c{c}\~ao entre os n\'os sensores ser\'a feita utilizando um protocolo de aplica\c{c}\~ao padr\~ao, apropriado para redes de sensores sem fio, viabilisando o desenvolvimento de webservices para os n\'os da rede.
-A distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway. Os objetivos s\~ao: o monitoramento de ambientes e a integra\c{c}\~ao da rede de sensores sem fio com a Internet em lugares aonde o n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo. GPRS possui a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.
+O objetivo geral desse trabalho \'e descrever e implementar webservices em uma rede sensores sem fio, que far\~ao a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
 
 
 \subsection{Objetivos Espec\'ificos}
+Os objetivos espec\'ificos do trabalho s\~ao relacionados ao desenvolvimento de duas aplica\c{c}\~oes e uma biblioteca.
 
-Implementar uma aplica\c{c}\~ao de redes de sensores sem fio, que utilize um gateway GPRS/Zigbee que ser\'a respons\'avel em disponibilizar as informa\c{c}\~oes captadas pela rede para Internet, al\'em de oferecer uma simples aplica\c{c}\~ao web que ser\'a poss\'ivel para o usu\'ario configurar os par\^ametros da rede.
-Para infra-estrutura de software ser\'a necess\'ario implementar o protocolo CoAP no EPOS. Desenvolver o protocolo CoAP utilizando a pilha UDP do EPOS.
-O gateway ZigBEE/GPRS ter\'a a capacidade de fazer a ponte entre a rede de sensores e a Internet, utilizando um modem GPRS. Ser\'a projetado utilizando um mote, um modem GPRS al\'em do circuito necess\'ario para integra\c{c}\~ao dos dois m\'odulos. Ser\'a a parte de hardware do projeto, que ser\'a desenvolvida em paralelo por um colega do laborat\'orio.
+\begin{itemize}
+    \item Implementar uma aplica\c{c}\~ao de redes de sensores sem fio.
+    \item Desenvolver o firmware do  gateway GPRS/Zigbee, que ser\'a respons\'avel em disponibilizar as informa\c{c}\~oes captadas da rede para Internet.
+    \item Portar o protocolo CoAP para o EPOS.
+    \item Monitoramento de ambientes e a integra\c{c}\~ao da rede de sensores sem fio com a Internet.
+\end{itemize}
+        
+
+\section{Justificativa e Motiva\c{c}\~ao}
+
+Os mecanismos de confiabilidade na transmiss\~ao e as t\'ecnicas para se manter uma conex\~ao do TCP e os rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivo que possua restri\c{c}\~oes de energia, pois podem fazer que fiquem com seus transmissores, ligados por mais tempo para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado.
+
+Assim faz-se uso do UDP, um protocolo que n\~ao mant\'em conex\~ao, os dados s\~ao recebidos fora de ordem e o envido \'e feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise mont\'a-la e garantir que nenhuma das pe\c{c}as est\'a corrompida. Tamb\'em \'e feito uma redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote. Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos restritos. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{}
+
+A falta de padroniza\c{c}\~ao dos protocolos afeta o desenvolvimento de uma rede p\'ublica ub\'iqua de uma cidade inteligente por exemplo, a falta de um padr\~ao de comunica\c{c}\~ao. A maioria das empresas utiliza protocolos propriet\'arios, que se comunicacam apenas com os produtos da pr\'opria empresa.
+
+O protocolo HTTP foi desenvolvido para comunica\c{c}\~ao de computadores de prop\'osito geral, onde as restri\c{c}\~oes citadas n\~ao s\~ao comuns. Em rela\c{c}\~ao ao tamanho do pacote HTTP \'e um problema, j\'a que redes que trabalham nessa frequ\^encia possuem uma restri\c{c}\~ao de 128 bytes.  Al\'em do tamanho do pacote HTTP, manter uma conex\~ao TCP \'e custosa, j\'a que os n\'os sensores que precisam manter seus r\'adios desligados o maior tempo poss\'ivel.
+
+Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\c{c}\~oes web em redes de sensores sem fio por um baixo custo. Neste trabalho \'e proposto uma infraestrutura de comunica\c{c}\~ao entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para \'areas sem acesso \'a WIFI, aproveitando a vasta abrang\^encia da tecnologia de telefonia. Com a utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.
+
+A distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway. Este gateway \'e composto por um EposMoteII e um m\'odulo GPRS. Em lugares aonde o n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo. GPRS possui a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.
+
+O Sistema operacional EPOS possui implementa\c{c}\~ao das camadas de transporte UDP e TCP, por\'em n\~ao possui nenhum protocolo de aplica\c{c}\~ao desenvolvido.
+
+\subsection{Metodologia}
+
+Inicialmente ser\'a feito um levantamento bibliogr\'afico sobre os t\'opicos escolhidos e as tecnologias utilizadas. Para uma valida\c{c}\~ao inicial de modelo do sistema, ser\~ao feitas simula\c{c}\~oes dos n\'os da rede e do gateway. As simula\c{c}\~oes ser\~ao feitas nas ferramentas OMNeT++, biblioca e framework de simula\c{c}\~ao de redes, e o Cooja, simulador do Contiki.
+
+Ser\'a feito um levantamento dos componentes necess\'arios para o desenvolvimento do gateway 6LowPan/GPRS utilizando o mote EPOSMote II e um modem GPRS, que ser\'a definido no decorrer do trabalho. Ent\~ao ser\'a desenvolvido o esquem\'atico para fabrica\c{c}\~ao do gateway.
+
+Ap\'os a valida\c{c}\~ao do modelo, ser\'a iniciada a prototipa\c{c}\~ao do hardware e a implementa\c{c}\~ao do protocolo de aplica\c{c}\~ao CoAP no EPOS. O desenvolvimento do protocolo ser\'a orientado a testes, aonde o c\'odigo escrito apenas satisfaz as condi\c{c}\~oes necess\'arias para validar um comportamento desejado da aplica\c{c}\~ao.
+
+Para testes de integra\c{c}\~ao, as aplica\c{c}\~oes ser\~ao executados na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido.
+
+Para testes de integra\c{c}\~ao do gateway ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio, para serem feitos os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
+
+
+\section{Organiza\c{c}\~ao}
+
+Para infra-estrutura de software ser\'a necess\'ario implementar o protocolo CoAP no EPOS.
+
+Desenvolver o protocolo CoAP utilizando a pilha UDP do EPOS.

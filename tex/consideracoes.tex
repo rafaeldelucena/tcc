@@ -1,1 +1,5 @@
 Um objeto interessante a ser desenvolvido \'e um cron\^ometro decrescente e configur\'avel, que execute uma fun\c{c}\~ao passada pelo usu\'ario seja executada no final do decremento de forma ass\'incrona. Provavelmente bloqueante, pois o buffer de mensagensa confirm\'aveis, que precisam ser confirmadas ser\'a \'unico.
+
+O gateway ZigBEE/GPRS ter\'a a capacidade de fazer a ponte entre a rede de sensores e a Internet, utilizando um modem GPRS. Ser\'a projetado utilizando um mote, um modem GPRS al\'em do circuito necess\'ario para integra\c{c}\~ao dos dois m\'odulos. Ser\'a a parte de hardware do projeto, que ser\'a desenvolvida em paralelo por um colega do laborat\'orio.
+
+A aplica\c{c}\~ao desenvolvida no EPOS precisar\'a de um buffer para o recebimento de dados da rede ZigBEE que ser\'a enviado para rede via GPRS. Duas threads, uma produtora que ficar\'a escutando o r\'adio ZigBEE e alimentando num formato de dados ainda n\~ao especificado. Outra consumidora que ser\'a respons\'avel em utlizar estes dados na rede de sensores e encaminh\'a-los pra Internet usando a extens\~ao GPRS do EPOSmote II.

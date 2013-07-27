@@ -1,0 +1,82 @@
+Ser\'a implementada uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP.
+
+O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/Zigbee utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII que esta sendo desenvolvido em paralelo por um colega de laborat\'orio. O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utilizando a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
+
+As principais fun\c{c}\~oes deste gateway \'e receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final.
+
+As fun\c{c}\~oes a serem desenvolvidas na aplica\c{c}\~ao do gateway s\~ao:
+Configura\c{c}\~ao SMS
+Envia mensagem SMS
+Recebe mensagem SMS
+
+Configura\c{c}\~ao contexto PDP
+Configura\c{c}\~ao GPRS
+Configura\c{c}\~ao TCP/IP
+
+\section{Metas}
+Entregar um m\'odulo simplificado do procotolo CoAP no primeiro semestre.
+Testes efetuados no modem GSM
+
+Entregar o firmware do gateway na segunda parte do ano
+
+\section{Cronograma}
+
+\begin {ganttchart}[vgrid, hgrid] {21}
+    \gantttitle {Trabalho de Conclus\~ao de Curso}{21} \\
+    \gantttitlelist {3,...,12}{2}\\
+    \ganttgroup {2013.1} {1}{10}\\
+        \ganttbar {Estudar EPOS} {1}{4}\\
+        \ganttbar {Estudar EPOSMoteII}{1}{4}\\
+        \ganttbar {Estudar modem GPRS}{1}{4}\\
+        \ganttbar {Levantar requisitos libcoap no EPOS} {1}{6} \\
+        \ganttbar {Levantar componentes do HW} {1}{6}\\
+        \ganttbar {Simula\c{c}\~oes} {5}{6} \\
+        \ganttbar {Desenvolvimento do esquem\'atico} {7}{10}\\
+        \ganttmilestone {Relat\'orio de TCC I}{10}\\
+    \ganttgroup {2013.2}{11}{20} \\
+        \ganttbar {Prototipa\c{c}\~ao do HW} {11}{15}\\
+        \ganttbar {Implementa\c{c}\~ao} {11}{18}\\
+        \ganttbar {Testes Unit\'arios} {11}{18}\\
+        \ganttbar {Testes de Integra\c{c}\~ao} {19}{20}\\
+        \ganttbar {Documenta\c{c}\~ao do trabalho} {1}{20} \\
+        \ganttmilestone {Relat\'orio de TCC II}{20}
+
+    \ganttlink {elem2}{elem7}
+    \ganttlink {elem3}{elem7}
+    \ganttlink {elem5}{elem7}
+    \ganttlink {elem1}{elem11}
+    \ganttlink {elem4}{elem11}
+    \ganttlink {elem7}{elem10}
+    \ganttlink {elem11}{elem12}
+    \ganttlink {elem12}{elem11}
+    \ganttlink {elem11}{elem13}
+    \ganttlink {elem10}{elem13}
+\end{ganttchart}
+
+\section{Resultados parciais}
+A parte de valida\c{c}\~ao de um pacote CoAP foi feita com TDD e est\'a dispon\'ivel no site: (TODO).
+
+Ao receber uma mensagem de confirma\c{c}\~ao, remove da lista a mensagem que n\~ao havia sido confirmada utilizando o id.
+
+Ao receber uma mensagem confirm\'avel, envia uma mensagem de confirma\c{c}\~ao.
+
+Repassar mensagem para controle de Requisi\c{c}\~ao e Reposta Adicionar a lista de mensagem recebidas.
+
+Enviar mensagem n\~ao confirm\'avel.
+Enviar mensagem confirm\'avel e adicionar na lista de confirma\c{c}\~oes pendentes.
+Reenviar a mensagem que est\'a na lista de confirma\c{c}\~ao pendente e reconfigurar o pr\'oximo reenvio.
+Modelagem do sistema.
+Testes no Modem:
+\begin{itemize}
+    \item Enviar Mensagem
+    \item Receber Mensagem
+    \item Criar socket TCP
+    \item Enviar mensagem via socket
+    \item Receber mensagem via socket
+\end{itemize}
+
+Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os comandos propriet\'arios do modem.
+
+\subsection{Atividades pendentes}
+Camada de Requisi\c{c}\~ao e Resposta do CoAP.
+Implementa\c{c}\~ao da aplica\c{c}\~ao gateway GPRS/Zigbee no EPOS.
