@@ -5,24 +5,24 @@ N\'os que participantes destas redes geralmente s\~ao computadores e r\'adios si
 O maior consumo de energia neste tipo de aplica\c{c}\~ao \'e o r\'adio, portanto os desafios dos algoritmos de roteamento nesta \'area s\~ao em manter os r\'adios o m\'inimo per\'iodo de tempo poss\'ivel e manter o n\'o comunic\'avel pela rede.
 
 \section{Objetivos}
-
-O objetivo geral desse trabalho \'e descrever e implementar webservices em uma rede sensores sem fio, que far\~ao a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
-
+O objetivo geral desse trabalho \'e descrever e implementar webservices em uma rede sensores sem fio, que far\~ao\
+a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
 
 \subsection{Objetivos Espec\'ificos}
 Os objetivos espec\'ificos do trabalho s\~ao relacionados ao desenvolvimento de duas aplica\c{c}\~oes e uma biblioteca.
 
 \begin{itemize}
     \item Implementar uma aplica\c{c}\~ao de redes de sensores sem fio.
-    \item Desenvolver o firmware do  gateway GPRS/Zigbee, que ser\'a respons\'avel em disponibilizar as informa\c{c}\~oes captadas da rede para Internet.
+    \item Desenvolver o firmware do  gateway GPRS/Zigbee, que ser\'a respons\'avel em disponibilizar\
+        as informa\c{c}\~oes captadas da rede para Internet.
     \item Portar o protocolo CoAP para o EPOS.
     \item Monitoramento de ambientes e a integra\c{c}\~ao da rede de sensores sem fio com a Internet.
 \end{itemize}
         
 
-\section{Justificativa e Motiva\c{c}\~ao}
+\section{Justificativa}
 
-Os mecanismos de confiabilidade na transmiss\~ao e as t\'ecnicas para se manter uma conex\~ao do TCP e os rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivo que possua restri\c{c}\~oes de energia, pois podem fazer que fiquem com seus transmissores, ligados por mais tempo para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado.
+Os mecanismos de confiabilidade na transmiss\~ao, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivo que possua restri\c{c}\~oes de energia, pois podem fazer que fiquem com seus transmissores, ligados por mais tempo para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado.
 
 Assim faz-se uso do UDP, um protocolo que n\~ao mant\'em conex\~ao, os dados s\~ao recebidos fora de ordem e o envido \'e feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise mont\'a-la e garantir que nenhuma das pe\c{c}as est\'a corrompida. Tamb\'em \'e feito uma redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote. Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos restritos. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{}
 
@@ -46,7 +46,7 @@ Ap\'os a valida\c{c}\~ao do modelo, ser\'a iniciada a prototipa\c{c}\~ao do hard
 
 Para testes de integra\c{c}\~ao, as aplica\c{c}\~oes ser\~ao executados na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido.
 
-Para testes de integra\c{c}\~ao do gateway ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio, para serem feitos os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
+Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio, para serem feitos os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
 
 
 \section{Organiza\c{c}\~ao}

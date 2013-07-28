@@ -1,7 +1,7 @@
 Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
 \section{Redes de sensores sem fio}
 
-Redes de sensores sẽm fio s\~ao utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semalhantes.
+Redes de sensores sem fio s\~ao utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semalhantes.
 
 A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, pois n\~ao est\~ao ligados diretamente a fonte de energia. Deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o n\'ivel de hardware. Redes de sensores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente.
 
@@ -21,9 +21,9 @@ Os servidores n\~ao salvam estado das aplica\c{c}\~oes, e fazem uso de m\'etodos
     \item DELETE: remover o recurso ou alterar para um estado vazio.
 \end{itemize}
 
-A identificação de recursos na rede é feita por estruturas de diret\'orios.
+A identifica\c{c}\~ao de recursos na rede \'e feita por estruturas de diret\'orios, as URIs. De acordo com essa defini\c{c}\~ao uma URI \'e uma \'arvore com ramos subordinados e superordinados conectando os nós.
 
-Para transfe\^encia de dados utiliza-se formatos genéricos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON.
+Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON.
 
 \section{Constrained Aplication Protocol}
 
@@ -54,7 +54,7 @@ A comunica\c{c}\~ao entre os pontos no CoAP \'e de forma ass\'incrona usando o U
 Os campos do pacote CoAP s\~ao definidos:
 \begin{itemize}
     \item Vers\~ao: 2-bit Indica a vers\~ao do CoAP, implementa\c{c}\~oes devem utilizar este campo com (1).
-    \item Tipo: 2-bit Campo responsável para definir o tipo da mensagem: Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
+    \item Tipo: 2-bit Campo respons\'avel para definir o tipo da mensagem: Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
     \item Tamanho do Token: 4-bit, o tamanho do Token pode variar entre 0 e 8 bytes. Tamanhos entre 9 a 15 s\~ao reservados e n\~ao devem ser usados.
     \item C\'odigo: 8-bit separados em 3-bit mais significativos para classes e 5-bits menos significativos para detalhe. As classes podem indicar uma requisi\c{c}\~ao (0), uma resposta de sucesso (2), e uma resposta de erro do cliente (4), ou uma resposta de erro do servidor (5), as outras classes s\~ao reservadas. Em um caso especial o c\'odigo 0.00 indica uma mensagem vazia.
     \item ID da mensagem: 16-bit in network byte order. Usada para deduplica\c{c}\~ao de mensagens e para confirmação ou reset de mensagens.
@@ -70,8 +70,8 @@ A transmiss\~ao de mensagems \'e controlada basicamente pelos par\^ametros:
     \item ACK RANDOM FACTOR:
     \item MAX RETRANSMIT:
     \item NSTART:
-    \item DEFAULT LEISU:
-    \item PROBING RATE: Período
+    \item DEFAULT LEISURE:
+    \item PROBING RATE: Per\'iodo
 \end{itemize}
 
 \subsection{Camada de Reposta e Requisi\c{c}\~ao}
@@ -101,11 +101,11 @@ Projetado utilizando o m\'etodo ADESD, um m\'etodo para projeto de sistemas emba
 \subsection{Contiki}
 Contiki Sistema Operacional criado por Adam Dunkels em 2000, escrito em C, c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos que se comunicam em uma rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
 
-Cada processo no Contiki possui bloco de controle, que contém informa\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma referencia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. Protothread é uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento e dos eventos herdam o baixo overhead de mem\'oria por n\~ao necessitarem de salvamento de contexto.
+Cada processo no Contiki possui bloco de controle, que cont\'em informa\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma refer\^encia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. Protothread \'e uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento e dos eventos herdam o baixo overhead de mem\'oria por n\~ao necessitarem de salvamento de contexto.
 
-Na parte de implementação, estas ténicas são maneiras de estruturar o c\'odigo de uma forma que permita que o sistema rode outras atividades enquanto o c\'odigo est\'a esperando para algo acontecer. Cada protothread consome 2 bytes de mem\'oria, esses dois bytes s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. Essa marca\c{c}\~ao \'e feita utilizando o resultado da macro --LINE-- do compilador. \'E um método similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffy}
+Na parte de implementa\c{c}\~ao, estas t\'enicas s\~ao maneiras de estruturar o c\'odigo de uma forma que permita que o sistema rode outras atividades enquanto o c\'odigo est\'a esperando para algo acontecer. Cada protothread consome 2 bytes de mem\'oria, esses dois bytes s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. Essa marca\c{c}\~ao \'e feita utilizando o resultado da macro --LINE-- do compilador. \'E um m\'etodo similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffy}
 
-O transceiver sem fio \'e um dos componentes que mais consome energia quando ligado escutando o ambiente, assim uma das estratégias utilizadas é manter o m\'inimo de tempo poss\'ivel ligado, mas o suficiente para manter a troca de mensagens entre a rede. O Contiki prop\~oes uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adio desligado em aproximadamente 99\% do tempo. Utiliza mecanismos ass\'incronos com precise timming e fast sleep otimization. (TODO)
+O transceiver sem fio \'e um dos componentes que mais consome energia quando ligado escutando o ambiente, assim uma das estrat\'egias utilizadas \'e manter o m\'inimo de tempo poss\'ivel ligado, mas o suficiente para manter a troca de mensagens entre a rede. O Contiki prop\~oes uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adio desligado em aproximadamente 99\% do tempo. Utiliza mecanismos ass\'incronos com precise timming e fast sleep otimization. (TODO)
 
 O protocolo de roteamento padr\~ao ContikiMAC os n\'os dormem a maior parte do tempo e acordam periodicamente para verificar a atividade do r\'adio. Se um pacote de rede \'e detectado o recebedor mant\'em-se acordado para receber o pr\'oximo pacote.
 
