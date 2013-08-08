@@ -18,6 +18,7 @@
 \usepackage{pgfgantt}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{paralistt
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
 \newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
@@ -36,15 +37,14 @@
 \data{15}{julho}{2013}
 \orientador[Orientador]{Prof. Dr. Ant\^onio Augusto Fr\"ohlich}
 \coorientador[Coorientador]{Prof. M.Sc. Arliones Hoeller Jr}
-\coordenador[Coordenador]{Prof. Dr. Roberto Cislaghi}
+\coordenador[Coordenador]{Prof. Dr. Vit\'orio Mazzola}
 
-\numerodemembrosnabanca{4} % Isso decide se haverá uma folha adicional
+\numerodemembrosnabanca{3} % Isso decide se haverá uma folha adicional
 \orientadornabanca{sim} % Se faz parte da banca definir como sim
-\coorientadornabanca{sim} % Se faz parte da banca definir como sim
-\bancaMembroA{Prof. M.Sc. Arliones Hoeller Jr} %Nome do presidente da banca
-\bancaMembroB{Prof. Dr. Ant\^onio Augusto Fr\"ohlich} % Nome do membro da Banca
-\bancaMembroC{Prof. Dr. Eng. Rafael Luiz Cancian} % Nome do membro da Banca
-\bancaMembroD{Prof. Dr. Frank Siqueira} % Nome do membro da Banca
+\coorientadornabanca{nao} % Se faz parte da banca definir como sim
+\bancaMembroA{Prof. Dr. Ant\^onio Augusto Fr\"ohlich} %Nome do presidente da banca
+\bancaMembroB{Prof. Dr. Eng. Rafael Luiz Cancian} % Nome do membro da Banca
+\bancaMembroC{Prof. Dr. Frank Siqueira} % Nome do membro da Banca
 
 \agradecimento{Inserir os agradecimentos aos colaboradores \'a execu\c{c}\~ao do trabalho.}
 
@@ -52,17 +52,17 @@
     e atua\c{c}\~ao sobre um ambiente, tornando-as importantes em aplica\c{c}\~oes de controle, telemetria \
     e rastreamento.
     
-    Os n\'os destas redes possuem processadores, transmissores e receptores simplificados, que possuem restri\c{c}\~oes\
-    de mem\'oria, processamento, energia e comunica\c{c}\~ao. Contudo estes dispositivos apresentam um custo\
+    Os n\'os destas redes possuem processadores, transmissores e receptores de dados simplificados, que possuem restri\c{c}\~oes\
+    de mem\'oria, processamento, energia e taxa de transmiss\~ao de dados. Contudo estes dispositivos apresentam um custo\
     baixo de equipamentos, tornando mais interessante a implanta\c{c}\~ao destes sistemas.
     
     O protocolo HTTP, um protocolo de aplica\c{c}\~ao muito utilizado na atualidade, foi desenvolvido pensado\
     em computadores de prop\'osito geral, onde essas restri\c{c}\~oes n\~ao existem. Um protocolo leve como\
-    CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\c{c}\~oes web em redes de sensores sem fio por um baixo custo.
+    CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\c{c}\~oes web em redes de sensores sem fio por um baixo custo. Al\'em disso o CoAP implementa mecanismos básicos de um SOA.
     
     Este trabalho prop\~oe uma infraestrutura de comunica\c{c}\~ao entre redes de sensores sem fio e a Internet,\
 utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para \'areas sem acesso \`a WIFI,\
-aproveitando a vasta abrang\^encia da tecnologia de telefonia. Com a Utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao\
+aproveitando a vasta abrang\^encia da tecnologia de telefonia. Com a utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao\
 de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.}
 
 \palavrasChave{ internetworking WSN IPv6 6LoWPAN GPRS CoAP IoT}
@@ -84,7 +84,6 @@ de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplic
 %\pretextuais % Substitui todos os elementos pre-textuais acima
 %\listadefiguras % as listas dependem da necessidade do usuário
 %\listadetabelas 
-\abreviatura{ABNT}{Associação Brasileira de Normas Técnicas}
 \abreviatura{CoAP}{Constrained Aplication Protocol}
 \abreviatura{EPOS}{Embedded Parallel Operating System}
 \abreviatura{HTTP}{Hipertext Transfer protocol}
@@ -94,6 +93,10 @@ de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplic
 \abreviatura{UDP}{User Datagram Protocol}
 \abreviatura{6LoWPan}{IPv6 over Low power Wireless Personal Area Networks}
 \abreviatura{IoT}{Internet of Things}
+\abreviatura{JSON}{JavaScript Object Notation}
+\abreviatura{XML}{Extensible Markup Language}
+\abreviatura{ADESD}{Application Driven Embedded System Design}
+
 \listadeabreviaturas
 
 %\listadesimbolos

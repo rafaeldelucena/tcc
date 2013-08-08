@@ -1,14 +1,14 @@
-Ser\'a implementada uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP.
+Este trabalho prop\~oes a implementa\c{c}\~ao de uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP.
 
 O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/Zigbee utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII. Este componente esta sendo desenvolvido em paralelo por um colega de laborat\'orio.
 
-O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utilizando a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
+O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
 
-As principais fun\c{c}\~oes deste gateway \'e receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final.
+As principais fun\c{c}\~oes deste gateway s\~ao receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final.
 
 As fun\c{c}\~oes a serem desenvolvidas na aplica\c{c}\~ao do gateway s\~ao:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item Configura\c{c}\~ao SMS
     \item Envia mensagem SMS
     \item Recebe mensagem SMS
@@ -19,8 +19,7 @@ As fun\c{c}\~oes a serem desenvolvidas na aplica\c{c}\~ao do gateway s\~ao:
 \end{itemize}
 
 \section{Metas}
-Entregar um m\'odulo simplificado do procotolo CoAP no primeiro semestre.
-Testar as funcionalidades no modem GSM/GPRS.
+Entregar um m\'odulo simplificado do procotolo CoAP no primeiro semestre e testar as funcionalidades no modem GSM/GPRS.
 Desenvolver a aplica\c{c}\~ao no EPOS no segundo semestre e fazer testes de integra\c{c}\~ao.
 
 \section{Cronograma}
@@ -33,16 +32,15 @@ Desenvolver a aplica\c{c}\~ao no EPOS no segundo semestre e fazer testes de inte
     \ganttbar {Estudar EPOS} {1}{4}\\
     \ganttbar {Estudar EPOSMoteII}{1}{4}\\
     \ganttbar {Estudar modem GPRS}{1}{4}\\
-    \ganttbar {Levantar requisitos libcoap no EPOS} {1}{6} \\
-    \ganttbar {Levantar componentes do HW} {1}{6}\\
-    \ganttbar {Simula\c{c}\~oes} {5}{6} \\
-    \ganttbar {Desenvolvimento do esquem\'atico} {7}{10}\\
+    \ganttbar {Levantar requisitos libcoap no EPOS} {3}{4} \\
+    \ganttbar {Levantar requisitos do HW} {1}{6}\\
+    \ganttbar {Implementa\c{c}\~ao do CoAP} {3}{10} \\
+    \ganttbar {Testar modem GPRS} {4}{10} \\
+    \ganttbar {Desenvolvimento do prot\'otipo do HW} {7}{10}\\
     \ganttmilestone {Relat\'orio de TCC I}{10}\\
     \ganttnewline[thick, blue]
     \ganttgroup {2013.2}{11}{20} \\
-    \ganttbar {Prototipa\c{c}\~ao do HW} {11}{15}\\
-    \ganttbar {Implementa\c{c}\~ao} {11}{18}\\
-    \ganttbar {Testes Unit\'arios} {11}{18}\\
+    \ganttbar {Implementa\c{c}\~ao do Gateway} {11}{18}\\
     \ganttbar {Testes de Integra\c{c}\~ao} {19}{20}\\
     \ganttbar {Documenta\c{c}\~ao do trabalho} {1}{20} \\
     \ganttmilestone {Relat\'orio de TCC II}{20}
@@ -62,29 +60,41 @@ Desenvolver a aplica\c{c}\~ao no EPOS no segundo semestre e fazer testes de inte
 
 \section{Resultados parciais}
 
-A parte de valida\c{c}\~ao de um pacote CoAP foi feita com TDD e est\'a dispon\'ivel no site: (TODO).
-
-Ao receber uma mensagem de confirma\c{c}\~ao, remove da lista a mensagem que n\~ao havia sido confirmada utilizando o id.
-
-Ao receber uma mensagem confirm\'avel, envia uma mensagem de confirma\c{c}\~ao.
-
-Repassar mensagem para controle de Requisi\c{c}\~ao e Reposta Adicionar a lista de mensagem recebidas.
-
-Enviar mensagem n\~ao confirm\'avel.
-Enviar mensagem confirm\'avel e adicionar na lista de confirma\c{c}\~oes pendentes.
-Reenviar a mensagem que est\'a na lista de confirma\c{c}\~ao pendente e reconfigurar o pr\'oximo reenvio.
-Modelagem do sistema.
-Testes no Modem:
+Abaixo est\~ao listadas as atividades conclu\'idas at\'e o momento:
 \begin{itemize}
-    \item Enviar Mensagem
-    \item Receber Mensagem
-    \item Criar socket TCP
-    \item Enviar mensagem via socket
-    \item Receber mensagem via socket
+    \item Estudar EPOS.
+    \item Estudar EPOSMoteII.
+    \item Estudar modem GPRS.
+    \item Levantar requisitos libcoap no EPOS.
+    \item Levantar requisitos do HW.
+    \item Implementa\c{c}\~ao do CoAP: a parte de valida\c{c}\~ao de um pacote CoAP foi feita com TDD e est\'a dispon\'ivel no site: (TODO).
+    \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Ao receber uma mensagem de confirma\c{c}\~ao, remove da lista a mensagem que n\~ao havia sido confirmada utilizando o id.
+        \item Ao receber uma mensagem confirm\'avel, envia uma mensagem de confirma\c{c}\~ao.
+        \item Repassar mensagem para controle de Requisi\c{c}\~ao e Reposta.
+        \item Adicionar a lista de mensagem recebidas.
+        \item Enviar mensagem n\~ao confirm\'avel.
+        \item Enviar mensagem confirm\'avel e adicionar na lista de confirma\c{c}\~oes pendentes.
+        \item Reenviar a mensagem que est\'a na lista de confirma\c{c}\~ao pendente e reconfigurar o pr\'oximo reenvio.
+    \end{itemize}
+    
+    \item Testes no m\'ouldo GPRS:
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+            \item Enviar Mensagem
+            \item Receber Mensagem
+            \item Criar socket TCP
+            \item Enviar mensagem via socket
+            \item Receber mensagem via socket
+            \item Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os comandos propriet\'arios do modem.
+        \end{itemize}
+    \item Desenvolvimento do prot\'otipo do HW.
 \end{itemize}
 
-Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os comandos propriet\'arios do modem.
-
 \subsection{Atividades pendentes}
-Camada de Requisi\c{c}\~ao e Resposta do CoAP.
-Implementa\c{c}\~ao da aplica\c{c}\~ao gateway GPRS/Zigbee no EPOS.
+As atividades que ser\~ao feitas ao longo do segundo semestre:
+\begin{itemize}
+    \item Implementa\c{c}\~ao do Gateway.
+    \item Testes de Integra\c{c}\~ao.
+    \item Documenta\c{c}\~ao do trabalho.
+    \item Relat\'orio de TCC II.
+\end{itemize}
