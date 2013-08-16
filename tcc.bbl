@@ -1,0 +1,40 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.45.2.1 }
+
+\bibitem[Service-oriented architecture 2003]{perrey2003service}
+\abntrefinfo{SOA}{SOA}{2003}
+{Perrey, Randall and Lycett, Mark. \emph{Service-oriented architecture}. 2003. p 116-119.}
+
+\bibitem[RESTful web services]{richardson2008restful}
+\abntrefinfo{RESTful}{RESTful}{2008}
+{Richardson, Leonard and Ruby, Sam. \emph{RESTful web services}. 2008.}
+
+\bibitem[Wireless Sensor Network survey]{WsnSurvey2008}
+\abntrefinfo{WSN}{WSN}{2008}
+{Jennifer Yick, Biswanath Mukherjee, Dipak Ghosal. \emph{Wireless Sensor Network survey}. 2008.}
+
+\bibitem[EPOS]{epos}
+\abntrefinfo{EPOS}{EPOS}{1999}
+{Ant\^onio Augusto Fr\"ohlich, Wolfgang Schr\"oer-Preikschat. \emph{Embedded Parallel Operating System}. 1999.
+\ $<$https://epos.lisha.ufsc.br/$>$.}
+
+\bibitem[REST]{rest}
+\abntrefinfo{Fielding}{Fielding}{2000}
+{Roy Thomas Fielding. \emph{Architectural Styles and the Design of Network-based Software Architectures}. 2000.
+\ $<$http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm$>$.}
+
+\bibitem[CoAP]{draft-ietf-core-coap-18}
+\abntrefinfo{}{CoAP}{2013}
+{Z. Shelby, K. Hartke, C. Bormann \emph{Constrained Application Protocol (CoAP)}. 2013.
+\ $<$http://www.ietf.org/id/draft-ietf-core-coap-18.txt$>$.}
+
+\bibitem[CoRE Link Format]{rfc6690}
+\abntrefinfo{Shelby}{Shelby}{2012}
+{Z. Shelby . \emph{Constrained RESTful Environments (CoRE) Link Format}. 2012.
+\ $<$http://tools.ietf.org/rfc/rfc6690.txt$>$.}
+
+\end{thebibliography}

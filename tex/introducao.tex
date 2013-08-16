@@ -22,9 +22,11 @@ Os objetivos espec\'ificos do trabalho s\~ao relacionados ao desenvolvimento de 
 
 \section{Justificativa}
 
-Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivo que dependam de uma bateria, pois podem fazer que fiquem com seus transmissores, ligados por mais tempo para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado.
+Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivos com suprimento limitado de energia, como uma bateria ou uma placa fotovolt\'aica. Esstas t\'ecnicas fazem que os transmissores fiquem ligados por mais tempo, para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas.
 
-Assim faz-se uso do UDP, um protocolo que n\~ao mant\'em conex\~ao onde os dados s\~ao recebidos fora de ordem e o envio \'e feito de uma mensagem por vez, sem o uso de streammings do TCP, que fazem que quem receba a mensagem precise mont\'a-la e garantir que nenhuma das pe\c{c}as est\'a corrompida. Isto implica tamb\'em na redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote. Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{}
+Por sua vez o protocolo do UDP, n\~ao mant\'em conex\~ao, dados s\~ao recebidos fora de ordem e o envio \'e feito de uma mensagem por vez.  Isto implica tamb\'em na redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote.
+
+Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{} .
 
 A falta de padroniza\c{c}\~ao dos protocolos afeta o desenvolvimento de uma rede p\'ublica ub\'iqua de uma cidade inteligente por exemplo. Grande parte das solu\c{c}\~oes utiliza protocolos propriet\'arios, que se comunicacam apenas com os produtos de um mesmo fabricante.
 
@@ -32,8 +34,10 @@ O protocolo HTTP foi desenvolvido para comunica\c{c}\~ao de computadores de prop
 
 Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\-\c{c}\~oes web em redes de sensores sem fio por um baixo custo. Neste trabalho \'e proposto uma infraestrutura de comunica\c{c}\~ao entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para \'areas sem acesso \`a WIFI, aproveitando a vasta abrang\^encia da tecnologia de telefonia. Com a utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.
 
-Em lugares aonde n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo a distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway. Este gateway ser\'a composto por um EposMoteII e um m\'odulo GPRS.
-Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.
+Em lugares aonde n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo a distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway.
+
+O gateway ser\'a composto por um EposMoteII e um m\'odulo GPRS ZigBEE/GPRS, respons\'avel por fazer a ponte entre a rede de sensores e a Internet. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.\cite{CoberturaGPRS}
+
 
 \section{Metodologia}
 
@@ -41,6 +45,8 @@ Ser\'a feito um levantamento dos componentes necess\'arios para o desenvolviment
 
 Ap\'os a valida\c{c}\~ao do modelo, ser\'a iniciada a prototipa\c{c}\~ao do hardware e a implementa\c{c}\~ao do protocolo de aplica\c{c}\~ao CoAP no EPOS. O desenvolvimento do protocolo ser\'a orientado a testes, aonde o c\'odigo escrito apenas satisfaz as condi\c{c}\~oes necess\'arias para validar um comportamento desejado da aplica\c{c}\~ao.
 
-Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio, para serem feitos os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
+Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio. Os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
 
 Para testes de integra\c{c}\~ao, as aplica\c{c}\~oes ser\~ao executados na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido.
+
+O m\'odulo de integra\c{c}\~ao composto pelo mote, modem GPRS e o circuito necess\'ario para o funcionamento ser\~ao desenvolvidas em paralelo por um colega do laborat\'orio.
