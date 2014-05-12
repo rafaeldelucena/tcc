@@ -36,6 +36,19 @@ O desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirma
 
 Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP portados para o EPOS. Foi necess\'ario implementar a func\c{c}\~ao assert.
 
+O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo uma tabela comparativa com as diversas arquituras e opera\c{c}\~oes entres as principais solu\c{c}\~oes livres.
+
+\begin{table}[h]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Operating System & CoAP & Size &  Memory &  &  \\ \midrule
+EPOS &  CantCoap &  &  &  \\
+Contiki &  Erbium &  &  &  \\
+Contiki &  libcoap &  &  &  \\
+TinyOS &  libcoap &  &  &  \\ \bottomrule
+\end{tabular}
+\end{table}
+
 \section{An\'alise de Desempenho}
 exemplo
 \lstdefinestyle{customc}{
