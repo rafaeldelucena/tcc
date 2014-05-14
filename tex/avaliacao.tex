@@ -1,15 +1,24 @@
 \section{An\'alise de Requisitos}
-Requisitos
-\begin{itemize}
-    \item Coletar dados do ambiente
-    \item Padroniza\c{c}\~ao na comunica\c{c}\~ao para facilitar a interconex\~ao dos sistemas.
-    \item Extens\'ivel: Podendo ser reutilizada em diversas arquiteturas.
-    \item Eficiente em:
-        \begin{itemize}
-            \item Energia: cosumir pouca energia para longa durabilidade com bateria.
-            \item Valor: utilizar uma infraestrutura de hardware simples para realizar as tarefas.
-        \end{itemize}
-\end{itemize}
+
+Infraestrutura flex\'ivel para a contru\c{c}\~ao de aplica\c{c}\~oes embarcadas em modelo de webservices utilizando redes de sensores sem fio.
+
+\subsection{Requisitos Funcionais}{
+Coletar informa\c{c}\~ao do ambiente atrav\'es de sensores e transmit\'i-las atrav\'es da Internet.
+
+F\'acil integra\c{c}\~ao com a Internet mesmo em locais sem rede WIFI.
+}
+
+
+\subsection{Requisitos N\~ao Funcionais}{
+
+Extens\'ivel: Podendo ser reutilizada em diversas arquiteturas.
+Padroniza\c{c}\~ao na comunica\c{c}\~ao para facilitar a interconex\~ao dos sistemas.
+Eficiente em:
+    \begin{itemize}
+        \item Energia: cosumir pouca energia para longa durabilidade com bateria.
+        \item Valor: utilizar uma infraestrutura de hardware simples para realizar as tarefas.
+    \end{itemize}
+}
 \section{An\'alise Funcional}
 \subsection{Limita\c{c}\~oes Funcionais}
 A falta de uma implementaca\c{c}\~ao segura, utilizando os padr\~oes DTLS.
@@ -24,9 +33,7 @@ A falta de uma implementaca\c{c}\~ao segura, utilizando os padr\~oes DTLS.
 A biblioteca utilizada para montar o pacote CoAP foi:
 \begin{lstlisting}
     https://github.com/staropram/cantcoap.git
-\end{lstlisting} onde sou colaborador e enviei algumas melhorias para a biblioteca.
-Alguns testes para validar a correta execu\c{c}\~ao dos algoritmos utilizados, as altera\c{c}\~oes podem ser visualisadas aqui:
-\begin{lstlisting}
+ \end{lstlisting} Na qual enviei algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante mudan\c{c}as no c\'odigo. As altera\c{c}\~oes podem ser visualisadas aqui: \begin{lstlisting}
     https://github.com/staropram/cantcoap/commits?author=rafaeldelucena.
 \end{lstlisting}
 
@@ -35,6 +42,8 @@ Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada 
 O desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada. Mecanismo de requisic\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num Hash com a chave sendo o token gerado pelo cliente.
 
 Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP portados para o EPOS. Foi necess\'ario implementar a func\c{c}\~ao assert.
+
+\section{An\'alise de Desempenho}
 
 O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo uma tabela comparativa com as diversas arquituras e opera\c{c}\~oes entres as principais solu\c{c}\~oes livres.
 
@@ -49,50 +58,48 @@ TinyOS &  libcoap &  &  &  \\ \bottomrule
 \end{tabular}
 \end{table}
 
-\section{An\'alise de Desempenho}
-exemplo
-\lstdefinestyle{customc}{
-  belowcaptionskip=1\baselineskip,
-  breaklines=true,
-  xleftmargin=\parindent,
-  language=C,
-  showstringspaces=false,
-  basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
-  commentstyle=\itshape\color{purple!40!black},
-  identifierstyle=\color{blue},
-  stringstyle=\color{orange},
-}
-
-\lstdefinestyle{customasm}{
-  belowcaptionskip=1\baselineskip,
-  frame=L,
-  xleftmargin=\parindent,
-  language=[x86masm]Assembler,
-  basicstyle=\footnotesize\ttfamily,
-  commentstyle=\itshape\color{purple!40!black},
-}
-
-\lstset{escapechar=@,style=customc}
-
-\begin{lstlisting}
-#include <stdio.h>
-#define N 10
-/* Block
- * comment */
- 
-int main()
-{
-    int i;
- 
-    // Line comment.
-    puts("Hello world!");
- 
-    for (i = 0; i < N; i++)
-    {
-        puts("LaTeX is also great for programmers!");
-    }
- 
-    return 0;
-}
-\end{lstlisting}
+%\lstdefinestyle{customc}{
+%  belowcaptionskip=1\baselineskip,
+%  breaklines=true,
+%  xleftmargin=\parindent,
+%  language=C,
+%  showstringspaces=false,
+%  basicstyle=\footnotesize\ttfamily,
+%  keywordstyle=\bfseries\color{green!40!black},
+%  commentstyle=\itshape\color{purple!40!black},
+%  identifierstyle=\color{blue},
+%  stringstyle=\color{orange},
+%}
+%
+%\lstdefinestyle{customasm}{
+%  belowcaptionskip=1\baselineskip,
+%  frame=L,
+%  xleftmargin=\parindent,
+%  language=[x86masm]Assembler,
+%  basicstyle=\footnotesize\ttfamily,
+%  commentstyle=\itshape\color{purple!40!black},
+%}
+%
+%\lstset{escapechar=@,style=customc}
+%
+%\begin{lstlisting}
+%#include <stdio.h>
+%#define N 10
+%/* Block
+% * comment */
+% 
+%int main()
+%{
+%    int i;
+% 
+%    // Line comment.
+%    puts("Hello world!");
+% 
+%    for (i = 0; i < N; i++)
+%    {
+%        puts("LaTeX is also great for programmers!");
+%    }
+% 
+%    return 0;
+%}
+%\end{lstlisting}

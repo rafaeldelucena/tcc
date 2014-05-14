@@ -55,30 +55,24 @@ Desenvolver a aplica\c{c}\~ao no EPOS no segundo semestre e fazer testes de inte
 
 \section{Resultados parciais}
 
-Abaixo est\~ao listadas as atividades conclu\'idas at\'e o momento:
-\begin{itemize}
-    \item Estudos realizados durante o desenvolvimento do protocolo e testes para valida\c{c}\~ao do m\'odulo GPRS. e durante o levamento de requisitos para portar a libcoap para o EPOS
-    \item Estudar EPOSMoteII.
-    \item Levantar requisitos libcoap no EPOS.
-    \item Levantar requisitos do HW.
-    \item Implementa\c{c}\~ao do CoAP: a parte de valida\c{c}\~ao de um pacote CoAP foi feita com TDD para facilitar o verifica\c{c}\~ao de pacotes. Os testes para validar o envio/recebimento de mensagens do EPOS foi feito no qemu.
-    \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-        \item Repassar mensagem para controle de Requisi\c{c}\~ao e Reposta.
-        \item Adicionar a lista de mensagem recebidas.
-        \item Envio de mensagens confirm\'aveis e n\~ao confirm\'aveis
-        \item Mecanismo de retransmiss\~ao simplificado: enviar mensagens com confirma\c{c}\~ao pendentes e reconfigurar-se a pr\'oximo envdio.
-    \end{itemize}
-    
-    \item Testes no m\'ouldo GPRS:
-        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-            \item Enviar Mensagem
-            \item Receber Mensagem
-            \item Criar socket TCP
-            \item Enviar mensagem via socket
-            \item Receber mensagem via socket
-            \item Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os comandos propriet\'arios do modem.
-        \end{itemize}
-    \item Desenvolvimento do prot\'otipo do HW.
+Estudos realizados durante o desenvolvimento do protocolo e testes para valida\c{c}\~ao do m\'odulo GPRS. e durante o levamento de requisitos para portar a libcoap para o EPOS, e EPOSMoteII. Levantar requisitos libcoap no EPOS, requisitos do HW.
+
+Porte da biblioteca para o EPOS. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu. Implementa\c{c}\~ao do CoAP: mecanismos de retransmiss\~ao, requisi\c{c}\~ao e resposta.
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Repassar mensagem para controle de Requisi\c{c}\~ao e Reposta.
+\item Adicionar a lista de mensagem recebidas.
+\item Envio de mensagens confirm\'aveis e n\~ao confirm\'aveis
+\item Mecanismo de retransmiss\~ao simplificado: enviar mensagens com confirma\c{c}\~ao pendentes e reconfigurar-se a pr\'oximo envio.
+\end{itemize}
+
+Testes no m\'ouldo GPRS:
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Enviar Mensagem
+\item Receber Mensagem
+\item Criar socket TCP
+\item Enviar mensagem via socket
+\item Receber mensagem via socket
+\item Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os comandos propriet\'arios do modem.
 \end{itemize}
 
 \subsection{Atividades pendentes}
