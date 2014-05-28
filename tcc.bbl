@@ -14,7 +14,7 @@
 {Richardson, Leonard and Ruby, Sam. \emph{RESTful web services}. 2008.}
 
 \bibitem[Wireless Sensor Network survey]{WsnSurvey2008}
-\abntrefinfo{WSN}{WSN}{2008}
+\abntrefinfo{}{Yick, Mukherjee, Ghosal}{2008}
 {Jennifer Yick, Biswanath Mukherjee, Dipak Ghosal. \emph{Wireless Sensor Network survey}. 2008.}
 
 \bibitem[EPOS]{epos}
@@ -23,12 +23,12 @@
 \ $<$https://epos.lisha.ufsc.br/$>$.}
 
 \bibitem[REST]{rest}
-\abntrefinfo{Fielding}{Fielding}{2000}
+\abntrefinfo{}{Fielding}{2000}
 {Roy Thomas Fielding. \emph{Architectural Styles and the Design of Network-based Software Architectures}. 2000.
 \ $<$http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm$>$.}
 
 \bibitem[CoAP]{draft-ietf-core-coap-18}
-\abntrefinfo{}{CoAP}{2013}
+\abntrefinfo{}{Shelby, Hartke, Bormann}{2013}
 {Z. Shelby, K. Hartke, C. Bormann \emph{Constrained Application Protocol (CoAP)}. 2013.
 \ $<$http://www.ietf.org/id/draft-ietf-core-coap-18.txt$>$.}
 
@@ -36,5 +36,10 @@
 \abntrefinfo{Shelby}{Shelby}{2012}
 {Z. Shelby . \emph{Constrained RESTful Environments (CoRE) Link Format}. 2012.
 \ $<$http://tools.ietf.org/rfc/rfc6690.txt$>$.}
+
+\bibitem[Transport Application]{transportApp}
+\abntrefinfo{}{Kuladinithi, Bergmann, P\"otsch, Becker, Gorg}{2011}
+{Koojana Kuladinithi, Olaf Bergmann, Thomas Pötsch, Markus Becker, Carmelita G\"org \emph{Implementation of CoAP and its Application in Transport Logistics} 2011}
+
 
 \end{thebibliography}

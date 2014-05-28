@@ -1,4 +1,4 @@
-Redes de sensores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente, tornando-as importantes em aplica\c{c}\~oes de controle, telemetria e rastreamento de sistemas.
+Redes de sensores e atuadores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente, tornando-as importantes em aplica\c{c}\~oes de controle, telemetria e rastreamento de sistemas.
 
 N\'os que participam destas redes geralmente s\~ao computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e capacidade de comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos.
 
@@ -9,23 +9,25 @@ O objetivo geral desse trabalho \'e descrever e implementar webservices em uma r
 a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
 
 \subsection{Objetivos Espec\'ificos}
-Os objetivos espec\'ificos s\~ao o desenvolvimento aplica\c{c}\~oes web e o software de sistema para fazer a ponte entre a rede de sensores e a Internet. O Sistema operacional utilizado ser\'a o EPOS, Embedded Paralell Operating System. A aplica\c{c}\~ao integradora GPRS/802.15.4 ir\'a executar na plataforma EposMoteII utilizando uma extens\~ao GPRS, desenvolvida por uma colega de laborat\'orio.
+Este trabalho realizar\'a o desenvolvimento de aplica\c{c}\~oes web e software de sistema para fazer a ponte entre a rede de sensores e a Internet. O Sistema operacional utilizado ser\'a o EPOS, Embedded Paralell Operating System. A aplica\c{c}\~ao integradora GPRS/802.15.4 ir\'a executar na plataforma EposMoteII utilizando uma extens\~ao GPRS, desenvolvida por uma colega de laborat\'orio.
 
-A comunica\c{c}\~ao entre os n\'os sensores e atuadores ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP - Constrained Application Protocol, espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
+A comunica\c{c}\~ao entre os n\'os sensores e atuadores ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP - Constrained Application Protocol. Um protocolo espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
+
+Sendo assim, os objetivos espec\'ificos s\~ao:
 
 \begin{itemize}
-    \item Portar o protocolo CoAP para o EPOS.
-    \item Implementar uma aplica\c{c}\~ao de redes de sensores sem fio.
-    \item Desenvolver a aplica\c{c}\~ao integradora (gateway GPRS/802.15.4).
+\item Portar o protocolo CoAP para o EPOS.
+\item Implementar uma aplica\c{c}\~ao de redes de sensores sem fio.
+\item Desenvolver a aplica\c{c}\~ao gateway GPRS/802.15.4.
 \end{itemize}
 
 \section{Justificativa}
 
-Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivos com suprimento limitado de energia, como uma bateria ou uma placa fotovolt\'aica. Esstas t\'ecnicas fazem que os transmissores fiquem ligados por mais tempo, para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas.
+Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivos com suprimento limitado de energia, como uma bateria ou uma placa fotovolt\'aica. Estas t\'ecnicas fazem que os transmissores fiquem ligados por mais tempo, para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas.
 
 Por sua vez o protocolo do UDP, n\~ao mant\'em conex\~ao, dados s\~ao recebidos fora de ordem e o envio \'e feito de uma mensagem por vez.  Isto implica tamb\'em na redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote.
 
-Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{} .
+Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{transportApp}
 
 A falta de padroniza\c{c}\~ao dos protocolos afeta o desenvolvimento de uma rede p\'ublica ub\'iqua de uma cidade inteligente por exemplo. Grande parte das solu\c{c}\~oes utiliza protocolos propriet\'arios, que se comunicacam apenas com os produtos de um mesmo fabricante.
 
@@ -35,17 +37,15 @@ Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\-\c{c
 
 Em lugares aonde n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo a distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway.
 
-O gateway ser\'a composto por um EposMoteII e um m\'odulo GPRS ZigBEE/GPRS, respons\'avel por fazer a ponte entre a rede de sensores e a Internet. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.\cite{CoberturaGPRS}
+O gateway ser\'a composto por um EposMoteII e um m\'odulo GPRS ZigBEE/GPRS, respons\'avel por fazer a ponte entre a rede de sensores e a Internet. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.\cite{coberturaGPRS}
 
 
 \section{Metodologia}
 
-Ser\'a feito um levantamento dos componentes necess\'arios para o desenvolvimento do gateway 6LowPan/GPRS utilizando o mote EPOSMote II e um modem GPRS, que ser\'a definido no decorrer do trabalho. Ent\~ao ser\'a desenvolvido o esquem\'atico para fabrica\c{c}\~ao do gateway.
+Ser\'a feito um levantamento dos componentes de software e hardware necess\'arios para o desenvolvimento do gateway 802.15.4/GPRS. Neste caso utilizando o mote EPOSMote II e um m\'odulo GPRS, que ser\'a desenvolvido em paralelo a implementa\c{c}\~ao do protocolo de aplica\c{c}\~ao CoAP no sistema operacional EPOS.
 
-Ap\'os a valida\c{c}\~ao do modelo, ser\'a iniciada a prototipa\c{c}\~ao do hardware e a implementa\c{c}\~ao do protocolo de aplica\c{c}\~ao CoAP no EPOS. O desenvolvimento do protocolo ser\'a orientado a testes, aonde o c\'odigo escrito apenas satisfaz as condi\c{c}\~oes necess\'arias para validar um comportamento desejado da aplica\c{c}\~ao.
+Durante o desenvolvimento do protocolo testes ser\~ao executados para verificar o correto comportamento e diminuir a depura\c{c}\~ao em hardware, que geralmente leva mais tempo.\{Citation Needed}
 
 Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio. Os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
 
 Para testes de integra\c{c}\~ao, as aplica\c{c}\~oes ser\~ao executados na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido.
-
-O m\'odulo de integra\c{c}\~ao composto pelo mote, modem GPRS e o circuito necess\'ario para o funcionamento ser\~ao desenvolvidas em paralelo por um colega do laborat\'orio.
