@@ -4,16 +4,22 @@ Foram realizados diversos estudos durante o desenvolvimento do protocolo e teste
 
 O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
 
-Porte da biblioteca para o EPOS. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu. Implementa\c{c}\~ao do CoAP: mecanismos de retransmiss\~ao, requisi\c{c}\~ao e resposta.
-Repassar mensagem para controle de Requisi\c{c}\~ao e Reposta.  Adicionar a lista de mensagem recebidas.  Envio de mensagens confirm\'aveis e n\~ao confirm\'aveis Mecanismo de retransmiss\~ao simplificado: enviar mensagens com confirma\c{c}\~ao pendentes e reconfigurar-se a pr\'oximo envio.
+Porte da biblioteca para o EPOS. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu.
+
+Implementa\c{c}\~ao do CoAP: mecanismos de retransmiss\~ao, requisi\c{c}\~ao e resposta. Envio de mensagens confirm\'aveis e n\~ao confirm\'aveis
 
 \section{An\'alise de Requisitos}
 Infraestrutura flex\'ivel para a contru\c{c}\~ao de aplica\c{c}\~oes embarcadas em modelo de webservices utilizando redes de sensores sem fio.
 \subsection{Requisitos Funcionais}{
 Coletar informa\c{c}\~ao do ambiente atrav\'es de sensores e transmit\'i-las atrav\'es da Internet. F\'acil integra\c{c}\~ao com a Internet mesmo em locais sem rede WIFI.
 
-As principais fun\c{c}\~oes deste gateway s\~ao receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final. As fun\c{c}\~oes a serem desenvolvidas na aplica\c{c}\~ao do gateway s\~ao:
-Configura\c{c}\~ao SMS, Envia mensagem SMS, Recebe mensagem SMS, Configura\c{c}\~ao contexto PDP, Configura\c{c}\~ao GPRS, Configura\c{c}\~ao TCP/IP, Manter uma conex\~ao TCP/IP
+As principais fun\c{c}\~oes deste gateway s\~ao receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final.
+As fun\c{c}\~oes a da aplica\c{c}\~ao do gateway s\~ao:
+\begin{enumerate}
+    \item Configura\c{c}\~ao, envia e recebimentode SMS;
+    \item Configura\c{c}\~ao contexto PDP, Configura\c{c}\~ao GPRS;
+    \item Configura\c{c}\~ao TCP/IP e manuten\c{c}\~ao de conex\~ao TCP/IP.
+\end{enumerate}
 }
 
 \subsection{Requisitos N\~ao Funcionais}{
@@ -30,4 +36,4 @@ Eficiente em:
 \section{Implementaca\c{c}\~ao}
 \section{Testes}
 \subsection{Testes na placa de desenvolvimento do m\'ouldo GPRS}{
-Enviar Mensagem, Receber Mensagem, Criar socket TCP, Enviar mensagem via socket, Receber mensagem via socket, Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os comandos propriet\'arios do modem.}
+    Os testes feitos foram: Enviar e recebimento de mensagens; criar socket TCP, enviar e receber mensagem via socket, fazer requisi\c{c}\~ao HTTP, foi poss\'ivel utilizando os comandos propriet\'arios do modem.}
