@@ -38,8 +38,11 @@
 \ $<$http://tools.ietf.org/rfc/rfc6690.txt$>$.}
 
 \bibitem[Transport Application]{transportApp}
-\abntrefinfo{}{Kuladinithi, Bergmann, P\"otsch, Becker, Gorg}{2011}
-{Koojana Kuladinithi, Olaf Bergmann, Thomas P\"otsch, Markus Becker, Carmelita G\"org \emph{Implementation of CoAP and its Application in Transport Logistics} 2011}
+\abntrefinfo{}{K. Kuladinithi, O. Bergmann, T. P\"otsch, M. Becker, C. Gorg}{2011}
+{Koojana Kuladinithi, Olaf Bergmann, Thomas P\"otsch, Markus Becker, Carmelita G\"org \emph{Implementation of CoAP and its Application in Transport Logistics}. 2011.\ $<$http://hinrg.cs.jhu.edu/joomla/images/stories/coap-ipsn.pdf$>$}
 
+\bibitem[Service-Oriented Computing: Concepts, Characteristics and Directions]{581580}
+\abntrefinfo{}{M. Papazoglou}{2003}
+{Mike P. Papazoglou. \emph{Service-Oriented Computing: Concepts, Characteristics and Directions}. Web Information Systems Engineering - WISE , pp. 3-12, 2003.}
 
 \end{thebibliography}
