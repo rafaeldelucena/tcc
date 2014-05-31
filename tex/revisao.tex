@@ -6,7 +6,7 @@ Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arq
 
 Redes de sensores sem fio s\~ao utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido.
 
-Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semalhantes, como apresentado na figura \ref{fig:a}.
+Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes, como apresentado na figura \ref{fig:a}.
 
 \begin{figure}
    \label{fig:a}
@@ -20,9 +20,16 @@ A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fi
 
 \section{Arquitetura orientada a servi\c{c}os}
 
-Arquitetura orientada a servi\c{c}os \'e uma forma de organizar infraestrutura e aplica\c{c}\~oes de software em um conjunto de servi\c{c}os. Estes s\~ao oferecidos por prestadores de servi\c{c}o, organiza\c{c}\~oes que implementam os servi\c{c}os, fornece descri\c{c}\~ao, suporte t\'ecnico e de neg\'ocio.\cite{581580}
+Arquitetura orientada a servi\c{c}os \'e uma forma de organizar infraestrutura e aplica\c{c}\~oes de software em um conjunto de servi\c{c}os. Estes s\~ao oferecidos por prestadores de servi\c{c}o, servidores, organiza\c{c}\~oes que implementam os servi\c{c}os, fornecem descri\c{c}\~ao dos servic\c{c}os oferecidos, suporte t\'ecnico e de neg\'ocio.
 
-Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requis\'itos um servi\c{c}o deve:
+O modelo de computa\c{c}\~ao utilizando esta afirmativa \'e conhecido como Computa\c{c}\~o Orientada a servi\c{c}os (SOC). \cite{581580}
+
+Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requis\'itos servi\c{c}os devem:
+\begin{itemize}
+\item Tecnologicamente neutros: utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta;
+\item Baixo acoplamento: detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o;
+\item Localidade transparente: clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
+\end{itemize}
 
 \cite{perrey2003service}
 

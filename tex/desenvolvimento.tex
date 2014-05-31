@@ -1,6 +1,6 @@
-Este trabalho prop\~oe a implementa\c{c}\~ao de uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP. O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/Zigbee utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII.
-
 Foram realizados diversos estudos durante o desenvolvimento do protocolo e testes para valida\c{c}\~ao do m\'odulo GPRS. e durante o levamento de requisitos para portar a libcoap para o EPOS, e EPOSMoteII. Levantar requisitos libcoap no EPOS, requisitos do HW.
+
+Este trabalho implementa uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP. O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/Zigbee utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII.
 
 O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
 
@@ -34,6 +34,18 @@ Eficiente em:
 }
 
 \section{Implementaca\c{c}\~ao}
+A biblioteca utilizada para montar o pacote CoAP foi:
+\begin{lstlisting}
+    https://github.com/staropram/cantcoap.git
+ \end{lstlisting} Na qual enviei algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante mudan\c{c}as no c\'odigo. As altera\c{c}\~oes podem ser visualisadas aqui: \begin{lstlisting}
+    https://github.com/staropram/cantcoap/commits?author=rafaeldelucena.
+\end{lstlisting}
+
+Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes utilizo um buffer com um valor m\'aximo e armazeno os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
+
+O desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada. Mecanismo de requisic\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num Hash com a chave sendo o token gerado pelo cliente.
+
+Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP portados para o EPOS. Foi necess\'ario implementar a fun\c{c}\~ao assert.
 \section{Testes}
 \subsection{Testes na placa de desenvolvimento do m\'ouldo GPRS}{
     Os testes feitos foram: Enviar e recebimento de mensagens; criar socket TCP, enviar e receber mensagem via socket, fazer requisi\c{c}\~ao HTTP, foi poss\'ivel utilizando os comandos propriet\'arios do modem.}

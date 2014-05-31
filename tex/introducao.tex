@@ -14,12 +14,11 @@ Este trabalho realizar\'a o desenvolvimento de aplica\c{c}\~oes web e software d
 A comunica\c{c}\~ao entre os n\'os sensores e atuadores ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP - Constrained Application Protocol. Um protocolo espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
 
 Sendo assim, os objetivos espec\'ificos s\~ao:
-
-\begin{itemize}
-\item Portar o protocolo CoAP para o EPOS.
-\item Implementar uma aplica\c{c}\~ao de redes de sensores sem fio.
+\begin{inparaenum}
+\item Portar o protocolo CoAP para o EPOS;
+\item Implementar uma aplica\c{c}\~ao de redes de sensores sem fio;
 \item Desenvolver a aplica\c{c}\~ao gateway GPRS/802.15.4.
-\end{itemize}
+\end{inparaenum}
 
 \section{Justificativa}
 
@@ -37,14 +36,14 @@ Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\-\c{c
 
 Em lugares aonde n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo a distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway.
 
-O gateway ser\'a composto por um EposMoteII e um m\'odulo GPRS ZigBEE/GPRS, respons\'avel por fazer a ponte entre a rede de sensores e a Internet. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.\cite{coberturaGPRS}
+O gateway ser\'a composto por um EposMoteII e um m\'odulo GPRS, respons\'avel por fazer a ponte entre a rede de sensores e a Internet. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.\cite{coberturaGPRS}
 
 
 \section{Metodologia}
 
 Ser\'a feito um levantamento dos componentes de software e hardware necess\'arios para o desenvolvimento do gateway 802.15.4/GPRS. Neste caso utilizando o mote EPOSMote II e um m\'odulo GPRS, que ser\'a desenvolvido em paralelo a implementa\c{c}\~ao do protocolo de aplica\c{c}\~ao CoAP no sistema operacional EPOS.
 
-Durante o desenvolvimento do protocolo testes ser\~ao executados para verificar o correto comportamento e diminuir a depura\c{c}\~ao em hardware, que geralmente leva mais tempo.\{Citation Needed}
+Durante o desenvolvimento do protocolo testes ser\~ao executados para verificar o correto comportamento e diminuir a depura\c{c}\~ao em hardware, que geralmente leva mais tempo. Citation Needed
 
 Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio. Os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
 

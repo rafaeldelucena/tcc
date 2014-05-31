@@ -9,18 +9,6 @@ A falta de uma implementaca\c{c}\~ao segura, utilizando os padr\~oes DTLS.
   breaklines=true,                 % sets automatic line breaking
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
 }
-A biblioteca utilizada para montar o pacote CoAP foi:
-\begin{lstlisting}
-    https://github.com/staropram/cantcoap.git
- \end{lstlisting} Na qual enviei algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante mudan\c{c}as no c\'odigo. As altera\c{c}\~oes podem ser visualisadas aqui: \begin{lstlisting}
-    https://github.com/staropram/cantcoap/commits?author=rafaeldelucena.
-\end{lstlisting}
-
-Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes utilizo um buffer com um valor m\'aximo e armazeno os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
-
-O desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada. Mecanismo de requisic\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num Hash com a chave sendo o token gerado pelo cliente.
-
-Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP portados para o EPOS. Foi necess\'ario implementar a func\c{c}\~ao assert.
 
 \section{An\'alise de Desempenho}
 
