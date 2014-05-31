@@ -31,6 +31,15 @@ Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, 
 \item Localidade transparente: clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
 \end{itemize}
 
+Abaixo uma figura \ref{fig:b}.
+
+\begin{figure}
+   \label{fig:b}
+   \centering
+   \includegraphics[width=0.7\textwidth]{figuras/soa.png}
+   \caption{Arquitetura Orientada a Servi\c{c}os}
+\end{figure}
+
 \cite{perrey2003service}
 
 
@@ -116,24 +125,14 @@ A retransmiss\~ao \'e controlada por um timeout e um contador. Quando este timeo
 Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa.
 
 O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
-Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura 4.\cite{draft-ietf-core-coap-18}
+Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{fig:c}.\cite{draft-ietf-core-coap-18}
 
-\begin{center}
-\begin{verbatim}
-Client  Server
-    |      |
-    |      |
-    +----->|     Header: GET
-    |      |  (T=CON, Code=0.01, MID=0x7d34)
-    | GET  |   Uri-Path: "temperature"
-    |      |
-    |<-----+     Header: 2.05 Content
-    |      |  (T=ACK, Code=2.05, MID=0x7d34)
-    | 2.05 |    Payload: "22.3 C"
-    |      |
-\end{verbatim}
-Figura 4
-\end{center}
+\begin{figure}
+   \label{fig:c}
+   \centering
+   \includegraphics[width=0.7\textwidth]{figuras/piggybacked.png}
+   \caption{Resposta na mensagem de confirma\c{c}\~ao, chamado de piggy-backed.}
+\end{figure}
 
 \subsection{Camada de Reposta e Requisi\c{c}\~ao}
 Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo code no cabe\c{c}alho do CoAP. Possuem as mesmas propriedades de idempot\'encia e only retrieved das requisi\c{c}\~oes HTTP.
