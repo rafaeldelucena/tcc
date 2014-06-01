@@ -34,18 +34,25 @@ Eficiente em:
 }
 
 \section{Implementaca\c{c}\~ao}
-A biblioteca utilizada para montar o pacote CoAP foi:
-\begin{lstlisting}
-    https://github.com/staropram/cantcoap.git
- \end{lstlisting} Na qual enviei algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante mudan\c{c}as no c\'odigo. As altera\c{c}\~oes podem ser visualisadas aqui: \begin{lstlisting}
-    https://github.com/staropram/cantcoap/commits?author=rafaeldelucena.
-\end{lstlisting}
+
+A implementa\c{c}\~ao consiste num m\'odulo que trata requisi\c{c}\~oes, encapsula em pacotes e transmite por mecanimos de transmiss\~ao baseados em \cite{draft-ietf-core-coap-18}.
+
+A biblioteca utilizada para montar o pacote CoAP foi:\\https://github.com/staropram/cantcoap.git. Na qual enviei algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante mudan\c{c}as no c\'odigo. As altera\c{c}\~oes podem ser visualisadas aqui:\\https://github.com/staropram/cantcoap/commits?author=rafaeldelucena.
 
 Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes utilizo um buffer com um valor m\'aximo e armazeno os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
 
 O desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada. Mecanismo de requisic\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num Hash com a chave sendo o token gerado pelo cliente.
 
-Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP portados para o EPOS. Foi necess\'ario implementar a fun\c{c}\~ao assert.
+Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP portados para o EPOS. Foi necess\'ario implementar a fun\c{c}\~ao assert. J\'a que seria bem mais trabalhoso adicionar uma ferramenta de testes no sistema de build do EPOS.
+
 \section{Testes}
+Testes do cliente:
+Fazendo uma requisi\c{c}\~ao confirm\'aveis e n\~ao-confirm\'aveis do tipo: GET, POST, PUT, DELETE.
+Recebendo respostas: válidas e inválidas.
+
+
+Testes do Servidor:
+Recebendo e respondendo requisi\c{c}\~oes: que possui recurso, que n\~ao possui, descoberta de recurso.
+
 \subsection{Testes na placa de desenvolvimento do m\'ouldo GPRS}{
     Os testes feitos foram: Enviar e recebimento de mensagens; criar socket TCP, enviar e receber mensagem via socket, fazer requisi\c{c}\~ao HTTP, foi poss\'ivel utilizando os comandos propriet\'arios do modem.}

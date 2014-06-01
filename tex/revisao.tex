@@ -22,7 +22,7 @@ A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fi
 
 Arquitetura orientada a servi\c{c}os \'e uma forma de organizar infraestrutura e aplica\c{c}\~oes de software em um conjunto de servi\c{c}os. Estes s\~ao oferecidos por prestadores de servi\c{c}o, servidores, organiza\c{c}\~oes que implementam os servi\c{c}os, fornecem descri\c{c}\~ao dos servic\c{c}os oferecidos, suporte t\'ecnico e de neg\'ocio.
 
-O modelo de computa\c{c}\~ao utilizando esta afirmativa \'e conhecido como Computa\c{c}\~o Orientada a servi\c{c}os (SOC). \cite{581580}
+O modelo de computa\c{c}\~ao utilizando esta afirmativa \'e conhecido como Computa\c{c}\~ao Orientada a servi\c{c}os (SOC). \cite{581580}
 
 Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requis\'itos servi\c{c}os devem:
 \begin{itemize}
@@ -139,6 +139,14 @@ Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo code no cabe\c{c}alho
 
 
 O modelo de requisi\c{c}\~ao e resposta usa um contador de timeouts. E a retransmiss\~ao das mensagens \'e defina por uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas.
+
+Resposta separada \ref{fig:d}:
+\begin{figure}
+   \label{fig:d}
+   \centering
+   \includegraphics[width=0.7\textwidth]{figuras/separateresponse.png}
+   \caption{Fluxo esperado de requisi\c{c}\~ao e resposta com confirma\c{c}\~ao, com resposta separada}
+\end{figure}
  
 
 \subsection{Recursos}
