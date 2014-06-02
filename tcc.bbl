@@ -5,10 +5,6 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.45.2.1 }
 
-\bibitem[Service-oriented architecture 2003]{perrey2003service}
-\abntrefinfo{SOA}{SOA}{2003}
-{Perrey, Randall and Lycett, Mark. \emph{Service-oriented architecture}. 2003. p 116-119.}
-
 \bibitem[RESTful web services]{richardson2008restful}
 \abntrefinfo{RESTful}{RESTful}{2008}
 {Richardson, Leonard and Ruby, Sam. \emph{RESTful web services}. 2008.}
