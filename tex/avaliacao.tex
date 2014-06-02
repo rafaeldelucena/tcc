@@ -3,9 +3,11 @@
 A falta de uma implementaca\c{c}\~ao segura, utilizando os padr\~oes DTLS.
 \section{An\'alise Estrutural}
 \section{An\'alise de Desempenho}
-O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo uma tabela comparativa com as diversas arquituras e opera\c{c}\~oes entres as principais solu\c{c}\~oes livres.
+O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo a tabela \ref{comparacaoCoap}, que faz um comparativo com as diversas arquituras e opera\c{c}\~oes entres as principais solu\c{c}\~oes livres.
 
 \begin{table}[h]
+\label{comparacaoCoap}
+\centering
 \begin{tabular}{@{}lllll@{}}
 \toprule
 OS & CoAP & Size &  Memory &  &  \\ \midrule
@@ -14,6 +16,7 @@ Contiki &  Erbium &  &  &  \\
 Contiki &  libcoap &  &  &  \\
 TinyOS &  libcoap &  &  &  \\ \bottomrule
 \end{tabular}
+\caption{Compara\c{c}\~ao das implementa\c{c}\~oes}
 \end{table}
 
 %\lstdefinestyle{customc}{

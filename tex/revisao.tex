@@ -6,10 +6,9 @@ Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arq
 
 Redes de sensores sem fio s\~ao utilizados para capturar, processar e comunicar dados captados do ambiente. Geralmente tais redes possuem centenas ou milhares de sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido.
 
-Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes, como apresentado na figura \ref{fig:a}.
-
-\begin{figure}
-   \label{fig:a}
+Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes, como apresentado na figura \ref{wsnOverview}.
+\begin{figure}[h]
+   \label{wsnOverview}
    \centering
    \includegraphics[width=0.7\textwidth]{figuras/wsn.png}
    \caption{Overview de uma redes de sensores sem fio}
@@ -31,12 +30,12 @@ Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, 
 \item Localidade transparente: clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
 \end{itemize}
 
-Abaixo uma figura \ref{fig:b}.
+Abaixo uma figura \ref{soaOverview}.
 
-\begin{figure}
-   \label{fig:b}
+\begin{figure}[h]
+   \label{soaOverview}
    \centering
-   \includegraphics[width=0.7\textwidth]{figuras/soa.png}
+   \includegraphics[width=0.6\textwidth]{figuras/soa.png}
    \caption{Arquitetura Orientada a Servi\c{c}os}
 \end{figure}
 
@@ -103,10 +102,11 @@ A transmiss\~ao de mensagems \'e controlada basicamente pelos par\^ametros: ACK 
 
 Estes par\^ametros s\~ao respectivamente: o tempo que uma mensagem confirm\'avel aguarda o ACK; fator de randomicidade para gerar os ACK TIMEOUTs subsequentes; contador para o n\'umero m\'aximo de tentativas de retransmiss\~ao; n\'umero limite de intera\c{c}\~oes simult\^aneas mantidas por um servidor.
 
-A Leisure \'e o tempo que o servidor aguarda para responder uma requisi\c{c}\~ao multicast, \'e calculada: \begin{math}Leisure = S * G / R\end{math}. Aonde S \'e o tamanho estimado da reposta, G \'e uma estimativa do tamanho do grupo e R \'e a taxa de transmiss\~ao. PROBING RATE: \'e a taxa m\'edia para transmiss\~ao de dados.
+A Leisure \'e o tempo que o servidor aguarda para responder uma requisi\c{c}\~ao multicast, \'e calculada: $Leisure = S * G / R$. Aonde S \'e o tamanho estimado da reposta, G \'e uma estimativa do tamanho do grupo e R \'e a taxa de transmiss\~ao. PROBING RATE: \'e a taxa m\'edia para transmiss\~ao de dados.
 
-Estes par\^ametros definem a temporiza\c{c}\~ao do sistema. Os valores padr\~oes s\~ao mostrados na Tabela 1.
+    Estes par\^ametros definem a temporiza\c{c}\~ao do sistema. Os valores padr\~oes s\~ao mostrados na Tabela \ref{coapDefault}.
 \begin{table}[h]
+\label{coapDefault}
 \centering
 \begin{tabular}{@{}lllll@{}}
 \toprule
@@ -120,34 +120,39 @@ Max retransmit & 4 &  \\ \midrule
 \end{tabular}
 \end{table}
 
-A retransmiss\~ao \'e controlada por um timeout e um contador. Quando este timeout \'e atigido e o contador \'e menor que valor m\'aximo de retransmiss\~ao a mensagem \'e transmitida, o contador incrementado e timeout duplicado.
+A retransmiss\~ao \'e controlada por um timeout e um contador. Quando este timeout \'e atigido e o contador \'e menor que valor m\'aximo de retransmiss\~ao a mensagem \'e transmitida, o contador incrementado e timeout duplicado. O modelo de retransmiss\~ao usa um contador de timeouts e uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas.
 
 Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa.
 
 O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
-Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{fig:c}.\cite{draft-ietf-core-coap-18}
 
-\begin{figure}
-   \label{fig:c}
+Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{piggyBacked}.\cite{draft-ietf-core-coap-18}
+\begin{figure}[h]
+   \label{piggyBacked}
    \centering
-   \includegraphics[width=0.7\textwidth]{figuras/piggybacked.png}
+   \includegraphics[width=0.6\textwidth]{figuras/piggybacked.png}
    \caption{Resposta na mensagem de confirma\c{c}\~ao, chamado de piggy-backed.}
+\end{figure}
+
+Fluxo esperado de requisi\c{c}\~ao sem confirma\c{c}\~ao na figura \ref{nonConfirmable}.
+\begin{figure}[h]
+   \label{nonConfirmable}
+   \centering
+   \includegraphics[width=0.6\textwidth]{figuras/nonconfirmable.png}
+   \caption{Fluxo esperado de requisi\c{c}\~ao e resposta sem confirma\c{c}\~ao}
+\end{figure}
+
+A RFC tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e resposta separada com confirma\c{c}\~ao. A figura \ref{separateResponse} exemplifica:
+
+\begin{figure}[h]
+   \label{separateResponse}
+   \centering
+   \includegraphics[width=0.6\textwidth]{figuras/separateresponse.png}
+   \caption{Fluxo esperado de requisi\c{c}\~ao e resposta com confirma\c{c}\~ao, com resposta separada}
 \end{figure}
 
 \subsection{Camada de Reposta e Requisi\c{c}\~ao}
 Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo code no cabe\c{c}alho do CoAP. Possuem as mesmas propriedades de idempot\'encia e only retrieved das requisi\c{c}\~oes HTTP.
-
-
-O modelo de requisi\c{c}\~ao e resposta usa um contador de timeouts. E a retransmiss\~ao das mensagens \'e defina por uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas.
-
-Resposta separada \ref{fig:d}:
-\begin{figure}
-   \label{fig:d}
-   \centering
-   \includegraphics[width=0.7\textwidth]{figuras/separateresponse.png}
-   \caption{Fluxo esperado de requisi\c{c}\~ao e resposta com confirma\c{c}\~ao, com resposta separada}
-\end{figure}
- 
 
 \subsection{Recursos}
 A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690} E a descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.
