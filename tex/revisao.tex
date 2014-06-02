@@ -51,10 +51,23 @@ POST: criar um recurso no webserver.
 PUT: mudar o estado de um recurso do webserver.
 DELETE: remover o recurso ou alterar para um estado vazio.
 
-Uma abordagem utilizando SOAP RPC em HTTP n\~ao \'e interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. Al\'em disso, a aplica\c{c}\~ao teria que conhecer l\'ogica interna do servi\c{c}o istrumentando o recurso utilizando chamadas de fun\c{c}\~oes remotas. A Figura 2 exemplifica e demonstra a diferen\c{c}a de uma aplica\c{c}\~ao que faz uso de SOAP RPC e outra RESTful.\cite{richardson2008restful}
+Uma abordagem utilizando SOAP RPC em HTTP n\~ao \'e interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. Al\'em disso, a aplica\c{c}\~ao teria que conhecer l\'ogica interna do servi\c{c}o istrumentando o recurso utilizando chamadas de fun\c{c}\~oes remotas. A figura \ref{soaVsHttp} exemplifica e demonstra a diferen\c{c}a de uma aplica\c{c}\~ao que faz uso de SOAP RPC e outra RESTful.\cite{richardson2008restful}
+
+A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
+
+\begin{figure}[h]
+    \label{bytesTransmitted}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figuras/bytestransmitted.png}
+    \caption{Imagem retirada de \cite{transportApp}}
+\end{figure}
+
+
+
 
 %Inserir figura que demonstra a diferença entre o tamanho dos pacotes.
 \afazer{A desenvolver...}
+
 
 \section{CoAP}
 
