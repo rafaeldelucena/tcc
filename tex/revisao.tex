@@ -106,6 +106,7 @@ Default Leisure & 5 segundos & \\
 Probing rate & 1 Byte/segundo & \\
 Max retransmit & 4 &  \\ \midrule
 \end{tabular}
+\caption{Valores padr\~ao do CoAP.}
 \end{table}
 
 A retransmiss\~ao \'e controlada por um timeout e um contador. Quando este timeout \'e atigido e o contador \'e menor que valor m\'aximo de retransmiss\~ao a mensagem \'e transmitida, o contador incrementado e timeout duplicado. O modelo de retransmiss\~ao usa um contador de timeouts e uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas.
@@ -175,12 +176,62 @@ O transceiver sem fio \'e um dos componentes que mais consome energia quando lig
 
 \subsection{LibCoap}
 LibCoap \'e uma biblioteca implementada em C do protocolo CoAP. Possui 292K de tamanho compilada estaticamente em sua vers\~ao 4.0.1.
+A licensa da biblioteca \'e GPL (2 ou maior) ou licensa BSD revisada.
 
+Possui uma su\'ite de testes para regress\~ao, utilizando o framework de testes CUnit (http://cunit.sourceforge.net/). A documenta\c{c}\~ao pode ser encontrada em: http://libcoap.sourceforge.net/.
+
+\'E uma biblioteca auto-condida, que possui parser do protocolo e fun\c{c}\~oes b\'asicas de rede utilizando sockets tipo BSD e malloc. Implementa\c{c}\~ao de Hash, String e URI: os headers s\~ao hashkey.h, str.h, uri.h utilizados para montar os pacotes CoAP.
+
+\'E separada num m\'odulo de rede: net.h, aonde \'e implementado as fun\c{c}\~oes de envio/recebimento de requisi\c{c}\~oes e respostas, com confirma\c{c}\~ao, sem confirma\c\~ao, mensagem de reset e erros.
+
+Para selecionar a camada de transporte \'e necess\'ario selecionar utilizando flags de preprocessamento. O padr\~ao \'e socket POSIX. A pilha uIP \'e selecionada com a flag -DWITH\textunderscore CONTIKI, ou para selecionar a pilha lwIP -DWITH\textunderscore LWIP.
 
 \subsection{TinyOS}
 O TinyOS \'e um sistema operacional projetado para sistemas embarcados com comunica\c{c}\~ao sem fio e restri\c{c}\~oes energ\'eticas. Foi desenvolvido em nesC, uma linguagem c\'odigo aberto que \'e uma extens\~ao do C. \'E um sistema operacional baseado em eventos desenvolvido para redes de sensores que possuem recursos limitados. Possui uma implementa\c{c}\~ao do CoAP baseada na libCoAP.
 
 \subsection{CantCoap}
 \'E uma implementa\c{c}\~ao em C++ que visa facilitar a cria\c{c}\~ao de pacotes Coap tanto diretamente quanto a partir de uma sequ\^encia de characteres, recebida da camada UDP por exemplo.
+
+\'E poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede. Abaixo exemplos de uso da biblioteca retirados de https://github.com/staropram/cantcoap.
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=C++,
+  showstringspaces=false,
+  basicstyle=\scriptsize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{blue},
+  identifierstyle=\color{blue!20!black},
+  stringstyle=\color{red},
+}
+
+\lstset{escapechar=@,style=customc}
+
+Abaixo um exemplo de uso para montar um pacote e enviar:
+
+\begin{lstlisting}
+CoapPDU *pdu = new CoapPDU();
+pdu->setType(CoapPDU::COAP_CONFIRMABLE);
+pdu->setCode(CoapPDU::COAP_GET);
+pdu->setToken((uint8_t*)"\3\2\1\0",4);
+pdu->setMessageID(0x0005);
+pdu->setURI((char*)"test",4);
+
+// send packet 
+ret = send(sockfd,pdu->getPDUPointer(),pdu->getPDULength(),0);
+\end{lstlisting}
+
+Quando receber a mensagem a forma de uso \'e mostrada abaixo:
+\begin{lstlisting}
+// receive packet
+ret = recvfrom(sockfd,&buffer,BUF_LEN,0,recvAddr,recvAddrLen);
+CoapPDU *recvPDU = new CoapPDU((uint8_t*)buffer,ret);
+if(recvPDU->validate()) {
+    recvPDU->getURI(uriBuffer,URI_BUF_LEN,&recvURILen);
+    ...
+}
+\end{lstlisting}
 
 Por ser uma biblioteca bem simplificada e n\~ao possuir depend\^encias diretas com a implementa\c{c}\~ao da camada de transporte e ser c\'odigo livre, foi escolhida para a implementa\c{c}\~ao teste do trabalho.
