@@ -45,4 +45,17 @@
 \abntrefinfo{}{F. Lewis}{2004}
 {Franck L. Lewis. \emph{Wireless Sensor Networks}. Journal Smat environments: technologies, protocols, and applications, pp. 11-46, 2004.}
 
+\bibitem[ADHOP Protocol]{adhop}
+\abntrefinfo{}{A. OKAZAKI, A. FR\"OLICH}{2012}
+{Alexandre Massayuki Okazaki, Antrônio Augusto Fröhlich. \emph{ADHOP: an Energy Aware Routing Algorithm for Mobile Wireless Sensor Networks}. 2012.}
+
+\bibitem[Web Services Architecture]{w3c-web-04}
+\abntrefino{}{W3C Working Group}
+{Booth, David and Haas, Hugo and McCabe, Francis and Newcomer, Eric and Champion, Michael and Ferris, Chris and Orchard, David \emph{Web Services Architecture}. $<$http://www.w3.org/TR/ws-arch$>$. 2004.}
+
+\bibitem[OpenWSN]{OpenWSNPaper}
+\abntrefino{}{OpenWSN Community} % change this...
+{Watteyne, Thomas and Vilajosana, Xavier and Kerkez, Branko and Chraim, Fabien and Weekly, Kevin and Wang, Qin and Glaser, Steven and Pister, Kris. \emph{OpenWSN: a standards-based low-power wireless development environment}. 2012.}
+
+
 \end{thebibliography}

@@ -215,15 +215,21 @@ Utiliza um sistema de constru\c{c}\~ao baseado em makefiles e shell scripts.
 
 \subsection{OpenWSN}
 
-O projeto OpenWSN \'e um projeto de visa o c\'odigo aberto e confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas.
+O projeto OpenWSN \'e um projeto de visa o c\'odigo aberto e confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas. E com a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, Time Synchronized Channel Hopping.
 
-Possui porte para diversas plataformas de microcontroladores de 16 bits e para as arquiteturas mais novas de 32 bits dos cortex-M. O projeto possui diversas ferramentas para depura\c{c}\~ao, simula\c{c}\~ao e ambiente necess\'ario para integrar as aplica\c{c}\~oes a Internet.
+Por serem sincronizados os motes precisam acordar apenas para transmitir ou receber e periodicamente se comunicar para manter a rede sincronizada quando estiver inativo. Este overhead de temporiza\c{c}\~ao \'e pequeno, cerca de 0.02\% de ciclo de trabalho do r\ádio. \cite{openWSNPaper}
+
+O pilha de protocolos \'e totalmente em C e pode ser compilada em qualquer toolchain que suporte uma plataforma alvo. OpenWSN j\'a foi portado para as seguintes arquiteturas: ARM, AVR, ...
+
+Possui porte para diversas plataformas de microcontroladores de 16 bits e para as arquiteturas mais novas de 32 bits dos cortex-M. O projeto possui diversas ferramentas para depura\c{c}\~ao, simula\c{c}\~ao e ambiente necess\'ario para integrar as aplica\c{c}\~oes a Internet.\cite{openWSN}
+
+Resultados experimentais de uma rede de motes demonstram que os r\'adios operam num ciclo m\'edio de trabalho de $0.1\%$ e uma m\'edia de 0.68 microA em hardware comum. Este consumo baixo permite uma vasta gama de aplica\c{c}\~oes.
 
 Para utilizar \'e necess\'ario baixar os seguintes reposit\'orios:
 \begin{itemize}
-    \item Software de sistema que ir\'a executar no simulador ou nos motes https://github.com/openwsn-berkeley/openwsn-fw 
-    \item Ferramentas que ir\~ao executar no computador de desenvolvimento: https://github.com/openwsn-berkeley/openwsn-sw 
-    \item Implementa\c{c}\~ao do CoAP em Python: https://github.com/openwsn-berkeley/coap
+    \item Software de sistema que ir\'a executar no simulador ou nos motes:\\https://github.com/openwsn-berkeley/openwsn-fw
+    \item Ferramentas que ir\~ao executar no computador de desenvolvimento:\\https://github.com/openwsn-berkeley/openwsn-sw 
+    \item Implementa\c{c}\~ao do CoAP em Python:\\https://github.com/openwsn-berkeley/coap
 \end{itemize}
 
 

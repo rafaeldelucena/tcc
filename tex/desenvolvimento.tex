@@ -1,15 +1,18 @@
-Foram realizados diversos estudos durante o desenvolvimento do protocolo e testes para valida\c{c}\~ao do m\'odulo GPRS. e durante o levamento de requisitos para portar a libcoap para o EPOS, e EPOSMoteII. Levantar requisitos libcoap no EPOS, requisitos do HW.
+Este trabalho implementa uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP, uma aplica\c{c}\~ao gateway GPRS/802.14.5 utilizando o EPOS e um componente de hardware GPRS que ser\'a acoplado ao EposMoteII.
 
-Este trabalho implementa uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP. O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/802.14.5 utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII.
-
-O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
+Para isto foram realizados diversos estudos durante o desenvolvimento do protocolo, pesquisas para escolher um m\'odulo GPRS adequado a tarefa. Al\'em disso testes de valida\c{c}\~ao dos sistemas de software e valida\c{c}\~ao do m\'odulo GPRS, levantamento de requisitos para porte de uma biblioteca CoAP para o EPOS (libCoap, libCantCoap, microCoap, entre outras) e EPOSMoteII.
 
 Porte da biblioteca para o EPOS. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu.
 
-Implementa\c{c}\~ao do CoAP: mecanismos de retransmiss\~ao, requisi\c{c}\~ao e resposta. Envio de mensagens confirm\'aveis e n\~ao confirm\'aveis
+Implementa\c{c}\~ao dos mecanismos de transmiss\~ao para mensagens confirm\'aveis e n\~ao-confim\'aveis, requisi\c{c}\~ao e resposta.
+
+A aplica\c{c}\~ao que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
 
 \section{Levantamento de Requisitos}
 Infraestrutura flex\'ivel para a contru\c{c}\~ao de aplica\c{c}\~oes embarcadas em modelo de webservices utilizando redes de sensores sem fio.
+
+O usu\'ario ir\'a acessar a rede de sensores sem fio por uma aplica\c{c}\~ao html5, hospedada em http://minhascoisas.io.
+Nesta aplica\c{c}\~ao \'e poss\'ivel enviar requisi\c{c}\~oes para a rede de sensores de teste e listar os servi\c{c}os oferecidos.
 
 \subsection{Requisitos Funcionais}
 Coletar informa\c{c}\~ao do ambiente atrav\'es de sensores e transmit\'i-las atrav\'es da Internet. F\'acil integra\c{c}\~ao com a Internet mesmo em locais sem rede WIFI.
@@ -27,21 +30,30 @@ As fun\c{c}\~oes a da aplica\c{c}\~ao do gateway s\~ao:
 
 \subsection{Requisitos N\~ao Funcionais}
 
-Extens\'ivel: Podendo ser reutilizada em diversas arquiteturas.
-Padroniza\c{c}\~ao na comunica\c{c}\~ao para facilitar a interconex\~ao dos sistemas.
-Eficiente em:
+Os webservices que v\~ao executar nos motes devem herdar a caracteristica de baixo consumo energ\'etico para que possam durar por anos, e serem extens\'iveis, podendo ser reutilizada em outras arquiteturas.
+
+Al\'em os servi\c{c}os ser\~ao listatos utilizando o padr\~ao \cite{rfc6690} disso os dados captados por sensores ser\~ao disponibilizados na forma de webservices CoAP, protocolo espec\'ifico para este tipo de aplicac\c{c}\~ao.
+
+A padroniza\c{c}\~ao na comunica\c{c}\~ao visa facilitar a interconex\~ao dos sistemas de diversas plataformas.
+
+Caracter\'isticas destes sistemas s\~ao eficiente em:
     \begin{itemize}
         \item Armazenamento: deve ser suficientemente pequeno para ser utilizado em microcontroladores.
         \item Energia: cosumir pouca energia para longa durabilidade com bateria.
         \item Valor: utilizar uma infraestrutura de hardware simples para realizar as tarefas.
     \end{itemize}
 
+
 \section{Especifica\c{c}\~ao}
 \subsection{Arquitetura}
+
+A pilha utilizada \'e composta por EposMoteII, EPOS, UDP, CoAP, conforme a figura \ref{arquitetura} abaixo. 
+
 \subsection{Componentes}
+O CoAP implementado \'e composto pelos seguintes componentes:
 
 
-\section{Implementa\c{c}\~ao}
+
 
 A implementa\c{c}\~ao consiste num m\'odulo que trata requisi\c{c}\~oes, encapsula em pacotes e transmite por mecanimos de transmiss\~ao baseados em \cite{draft-ietf-core-coap-18}.
 
