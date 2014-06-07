@@ -1,6 +1,6 @@
 Foram realizados diversos estudos durante o desenvolvimento do protocolo e testes para valida\c{c}\~ao do m\'odulo GPRS. e durante o levamento de requisitos para portar a libcoap para o EPOS, e EPOSMoteII. Levantar requisitos libcoap no EPOS, requisitos do HW.
 
-Este trabalho implementa uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP. O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/Zigbee utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII.
+Este trabalho implementa uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP. O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/802.14.5 utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII.
 
 O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
 
@@ -8,32 +8,40 @@ Porte da biblioteca para o EPOS. Utilizando testes para validar o funcionamento 
 
 Implementa\c{c}\~ao do CoAP: mecanismos de retransmiss\~ao, requisi\c{c}\~ao e resposta. Envio de mensagens confirm\'aveis e n\~ao confirm\'aveis
 
-\section{An\'alise de Requisitos}
+\section{Levantamento de Requisitos}
 Infraestrutura flex\'ivel para a contru\c{c}\~ao de aplica\c{c}\~oes embarcadas em modelo de webservices utilizando redes de sensores sem fio.
-\subsection{Requisitos Funcionais}{
+
+\subsection{Requisitos Funcionais}
 Coletar informa\c{c}\~ao do ambiente atrav\'es de sensores e transmit\'i-las atrav\'es da Internet. F\'acil integra\c{c}\~ao com a Internet mesmo em locais sem rede WIFI.
 
 As principais fun\c{c}\~oes deste gateway s\~ao receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final.
+
+Ser\'a poss\'ivel comunicar-se em tempo real com a rede de sensores, utilizando um m\'odulo GPRS que ir\'a repassar as requisi\c{c}\~oes e respostas alimentadas pelo usu\'ario.
+
 As fun\c{c}\~oes a da aplica\c{c}\~ao do gateway s\~ao:
 \begin{enumerate}
-    \item Configura\c{c}\~ao, envia e recebimentode SMS;
+    \item Configura\c{c}\~ao, envio e recebimento de SMS;
     \item Configura\c{c}\~ao contexto PDP, Configura\c{c}\~ao GPRS;
     \item Configura\c{c}\~ao TCP/IP e manuten\c{c}\~ao de conex\~ao TCP/IP.
 \end{enumerate}
-}
 
-\subsection{Requisitos N\~ao Funcionais}{
+\subsection{Requisitos N\~ao Funcionais}
 
 Extens\'ivel: Podendo ser reutilizada em diversas arquiteturas.
 Padroniza\c{c}\~ao na comunica\c{c}\~ao para facilitar a interconex\~ao dos sistemas.
 Eficiente em:
     \begin{itemize}
+        \item Armazenamento: deve ser suficientemente pequeno para ser utilizado em microcontroladores.
         \item Energia: cosumir pouca energia para longa durabilidade com bateria.
         \item Valor: utilizar uma infraestrutura de hardware simples para realizar as tarefas.
     \end{itemize}
-}
 
-\section{Implementaca\c{c}\~ao}
+\section{Especifica\c{c}\~ao}
+\subsection{Arquitetura}
+\subsection{Componentes}
+
+
+\section{Implementa\c{c}\~ao}
 
 A implementa\c{c}\~ao consiste num m\'odulo que trata requisi\c{c}\~oes, encapsula em pacotes e transmite por mecanimos de transmiss\~ao baseados em \cite{draft-ietf-core-coap-18}.
 
@@ -54,5 +62,5 @@ Recebendo respostas: válidas e inválidas.
 Testes do Servidor:
 Recebendo e respondendo requisi\c{c}\~oes: que possui recurso, que n\~ao possui, descoberta de recurso.
 
-\subsection{Testes na placa de desenvolvimento do m\'ouldo GPRS}{
-    Os testes feitos foram: Enviar e recebimento de mensagens; criar socket TCP, enviar e receber mensagem via socket, fazer requisi\c{c}\~ao HTTP, foi poss\'ivel utilizando os comandos propriet\'arios do modem.}
+\subsection{Testes na placa de desenvolvimento do m\'ouldo GPRS}
+Os testes feitos foram: Enviar e recebimento de mensagens; criar socket TCP, enviar e receber mensagem via socket, fazer requisi\c{c}\~ao HTTP, foi poss\'ivel utilizando os comandos propriet\'arios do modem.

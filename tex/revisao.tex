@@ -1,10 +1,12 @@
-Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
+Ambientes inteligentes est\~ao tornando-se realidade, este conjunto de tecnologias que est\~ao sendo desenvolvidas ser\~ao um grande passo para as \'areas como: constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
+
+Para tomar decis\~oes e agirem de forma inteligente, estes ambientes necessitam de informac\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e  comunicando os dados do ambiente.\cite{lewis2004wireless}
 
 Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arquitetura orientada a servi\c{c}os e os protocolos de aplica\c{c}ao existentes.
 
 \section{Redes de sensores sem fio}
 
-Ambientes inteligentes est\~ao tornando-se realidade,  que ser\'a um grande passo para as \'areas como: constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial. Necessitam de informac\c{c}\~ao sobre seus arredores para agirem. Redes de sensores sem fio s\~ao um componente chave para estes ambientes, utilizados para capturar, processar e comunicar dados captados do ambiente.\cite{lewis2004wireless}
+Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
 
 Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. 
 
@@ -43,7 +45,7 @@ Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, 
 \item Localidade transparente: clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
 \end{itemize}
 
-Abaixo uma figura \ref{soaOverview}.
+SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c} (service provider), descoberta de servi\c{c}o (service discovery agency) e o client (service requestor).  Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes: publicar (publish), encontrar (find) e vincular (bind).
 
 \begin{figure}[h]
    \label{soaOverview}
@@ -52,7 +54,22 @@ Abaixo uma figura \ref{soaOverview}.
    \caption{Arquitetura Orientada a Servi\c{c}os}
 \end{figure}
 
+
+\section{Webservices}
+
+Um servi\c{c}o web \'e um sistema de software projetado para suportar interoperabilidade em intera\c{c}\~oes m\'aquina-a-m\'aquina na rede. Possui uma interface descritiva das funcionalidades num formato padronizado (especificamente WSDL). Esta nota\c{c}\~ao abstrata que deve ser implementada por um agente.\cite{w3c-web-04}.
+
+Servi\c{c}os Web prov\^eem um padr\~ao para a interoperabilidade entre diferentes aplica\c{c}\~oes de software, que executam em diferentes plataformas de software e hardware.
+
+O agente \'e algo concreto, pode ser um peda\c{c}o de hardware ou software que recebe e envia mensagens. Um exemplo \'e implementar o mesmo servi\c{c}o web, utilizando agentes em diferentes linguagens. Embora o agente seja diferente, o servi\c{c}o Web continua o mesmo.
+
+\section{Resource Oriented Architecture}
+
+ROA \'e uma arquitetura boa para RESTful webservices. \cite{richardson2008restful}
+
 \section{RESTful}
+
+Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informac\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI.
 
 Um servi\c{c}o web que utiliza HTTP e os princ\'ipios REST possui recursos e a\c{c}\~oes gen\'ericas bem definidas.\cite{rest}
 
@@ -66,6 +83,14 @@ DELETE: remover o recurso ou alterar para um estado vazio.
 
 Uma abordagem utilizando SOAP RPC em HTTP n\~ao \'e interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. Al\'em disso, a aplica\c{c}\~ao teria que conhecer l\'ogica interna do servi\c{c}o istrumentando o recurso utilizando chamadas de fun\c{c}\~oes remotas. A figura \ref{soaVsHttp} exemplifica e demonstra a diferen\c{c}a de uma aplica\c{c}\~ao que faz uso de SOAP RPC e outra RESTful.\cite{richardson2008restful}
 
+%Inserir figura que demonstra a diferença entre o tamanho dos pacotes.
+\begin{figure}[h]
+    \label{soaVsHttp}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figuras/soavshttp.png}
+    \caption{Imagem retirada de \cite{richardson2008restful}}
+\end{figure}
+
 A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
 
 \begin{figure}[h]
@@ -75,12 +100,9 @@ A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes tra
     \caption{Imagem retirada de \cite{transportApp}}
 \end{figure}
 
+Todos os webservices utilizam o conceito de URI, por\'em de maneiras diferentes. Mas um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre.
 
-
-
-%Inserir figura que demonstra a diferença entre o tamanho dos pacotes.
-\afazer{A desenvolver...}
-
+Os principais competidores aos servi\c{c}os web RESTful s\~ao os RPC-styles.
 
 \section{CoAP}
 
@@ -98,7 +120,7 @@ Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida nu
     \label{coapFormat}
     \centering
     \includegraphics[width=0.7\textwidth]{figuras/formato.png}
-    \caption{formato do pacote CoAP  \cite{draft-ietf-core-coap-18}}
+    \caption{formato do pacote CoAP  em bits. \cite{draft-ietf-core-coap-18}}
 \end{figure}
 
 
@@ -188,6 +210,22 @@ Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\
 Utiliza um sistema de constru\c{c}\~ao baseado em makefiles e shell scripts.
 
 \section{Trabalhos Relacionados}
+
+\subsection{OpenMote}
+
+\subsection{OpenWSN}
+
+O projeto OpenWSN \'e um projeto de visa o c\'odigo aberto e confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas.
+
+Possui porte para diversas plataformas de microcontroladores de 16 bits e para as arquiteturas mais novas de 32 bits dos cortex-M. O projeto possui diversas ferramentas para depura\c{c}\~ao, simula\c{c}\~ao e ambiente necess\'ario para integrar as aplica\c{c}\~oes a Internet.
+
+Para utilizar \'e necess\'ario baixar os seguintes reposit\'orios:
+\begin{itemize}
+    \item Software de sistema que ir\'a executar no simulador ou nos motes https://github.com/openwsn-berkeley/openwsn-fw 
+    \item Ferramentas que ir\~ao executar no computador de desenvolvimento: https://github.com/openwsn-berkeley/openwsn-sw 
+    \item Implementa\c{c}\~ao do CoAP em Python: https://github.com/openwsn-berkeley/coap
+\end{itemize}
+
 
 \subsection{Contiki}
 O Contiki \'e um sistema operacional criado por Adam Dunkels em 2000, escrito em C, de c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos comunicam-se numa rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
