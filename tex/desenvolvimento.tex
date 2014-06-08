@@ -47,11 +47,10 @@ Caracter\'isticas destes sistemas s\~ao eficiente em:
 \section{Especifica\c{c}\~ao}
 \subsection{Arquitetura}
 
-A pilha utilizada \'e composta por EposMoteII, EPOS, UDP, CoAP, conforme a figura \ref{arquitetura} abaixo. 
+A pilha utilizada \'e composta por EposMoteII, EPOS, UDP, CoAP, conforme a figura \ref{arquitetura} abaixo.
 
 \subsection{Componentes}
 O CoAP implementado \'e composto pelos seguintes componentes:
-
 
 
 
@@ -62,6 +61,22 @@ A biblioteca utilizada para montar o pacote CoAP foi:\\https://github.com/starop
 Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes utilizo um buffer com um valor m\'aximo e armazeno os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
 
 O desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada. Mecanismo de requisic\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num Hash com a chave sendo o token gerado pelo cliente.
+
+O protocolo CoAP foi modelado conforme \'e mostrado na figura \ref{uml} abaixo:
+\begin{figure}[h]
+   \label{uml}
+   \centering
+   \includegraphics[width=0.9\textwidth]{figuras/uml.png}
+   \caption{Diagrama UML das entidades de software implementadas.}
+\end{figure}
+
+
+\begin{figure}[h]
+   \label{uml}
+   \centering
+   \includegraphics[width=0.9\textwidth]{figuras/casodeuso.png}
+   \caption{Diagrama de casos de uso.}
+\end{figure}
 
 Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP portados para o EPOS. Foi necess\'ario implementar a fun\c{c}\~ao assert. J\'a que seria bem mais trabalhoso adicionar uma ferramenta de testes no sistema de build do EPOS.
 
