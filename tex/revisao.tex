@@ -8,17 +8,24 @@ Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arq
 
 Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
 
-Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. 
+Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'sica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
 
-Geralmente tais redes possuem centenas ou milhares de sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido.
+Um n\'o sensor de uma rede de sensores sem fio n\~ao \'e apenas respons\'avel por coletar dados, mas an\'alise da rede, correla\c{c}\~ao entre dados de outros sensores e comunica\c{c}\~ao com uma esta\c{c}\~ao base para centralizar a informa\c{c}\~ao. Isto \'e importante pois geralmente tais redes s\~ao compostas por muitos n\'os. \cite{dargie2010fundamentals}
+
+Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem f|o, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento.
+
+Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores.\cite{542724}
 
 Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes, como apresentado na figura \ref{wsnOverview}.
+
 \begin{figure}[h]
    \label{wsnOverview}
    \centering
    \includegraphics[width=0.7\textwidth]{figuras/wsn.png}
-   \caption{Overview de uma arquitetura de redes de sensores sem fio de multiplos saltos}
+   \caption{Overview de uma arquitetura de redes de sensores sem fio retirado de \cite{dargie2010fundamentals}.}
 \end{figure}
+
+Muitas redes de sensores tamb\'em possuem atuadores, que permitem controle direto ao mundo real. Uma rede de sensores e atuadores recebe comandos da unidade de processamento (microcontrolador) e transforma estes comandos em sinais de entrada para um atuador, que interage com processos f\'sicos. Estas redes s\~ao chamadas de redes de sensores e atuadores sem fio, ou WSAN.
 
 A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, pois n\~ao est\~ao ligados diretamente a fonte de energia. Deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o meio f\'isico, iniciando com o projeto de r\'adio. \cite{WsnSurvey2008} 
 
@@ -30,7 +37,8 @@ A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fi
 
 \subsection{Aplica\c{c}\~oes}
 
-As aplica\c{c}\~oes 
+Existe um enorme n\'umero de aplica\c{c}\~oes que pode ser desenvolvido gra\c{c}as as tecnologias de WSN.
+
 
 \section{Arquitetura orientada a servi\c{c}os}
 
@@ -119,7 +127,7 @@ Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida nu
 \begin{figure}[h]
     \label{coapFormat}
     \centering
-    \includegraphics[width=0.7\textwidth]{figuras/formato.png}
+    \includegraphics[width=0.6\textwidth]{figuras/formato.png}
     \caption{formato do pacote CoAP  em bits. \cite{draft-ietf-core-coap-18}}
 \end{figure}
 
@@ -217,7 +225,7 @@ Utiliza um sistema de constru\c{c}\~ao baseado em makefiles e shell scripts.
 
 O projeto OpenWSN \'e um projeto de visa o c\'odigo aberto e confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas. E com a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, Time Synchronized Channel Hopping.
 
-Por serem sincronizados os motes precisam acordar apenas para transmitir ou receber e periodicamente se comunicar para manter a rede sincronizada quando estiver inativo. Este overhead de temporiza\c{c}\~ao \'e pequeno, cerca de 0.02\% de ciclo de trabalho do r\ádio. \cite{openWSNPaper}
+Por serem sincronizados os motes precisam acordar apenas para transmitir ou receber e periodicamente se comunicar para manter a rede sincronizada quando estiver inativo. Este overhead de temporiza\c{c}\~ao \'e pequeno, cerca de 0.02\% de ciclo de trabalho do r\'adio. \cite{openWSNPaper}
 
 O pilha de protocolos \'e totalmente em C e pode ser compilada em qualquer toolchain que suporte uma plataforma alvo. OpenWSN j\'a foi portado para as seguintes arquiteturas: ARM, AVR, ...
 
