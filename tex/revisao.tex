@@ -1,6 +1,6 @@
-Ambientes inteligentes est\~ao tornando-se realidade, este conjunto de tecnologias que est\~ao sendo desenvolvidas ser\~ao um grande passo para as \'areas como: constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
+Ambientes inteligentes est\~ao tornando-se realidade, este conjunto de tecnologias est\~ao sendo desenvolvidas e ser\~ao um grande passo para as \'areas como: constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
 
-Para tomar decis\~oes e agirem de forma inteligente, estes ambientes necessitam de informac\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e  comunicando os dados do ambiente.\cite{lewis2004wireless}
+Para agirem de forma inteligente, estes ambientes necessitam de informac\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e comunicando os dados do ambiente.\cite{lewis2004wireless}
 
 Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arquitetura orientada a servi\c{c}os e os protocolos de aplica\c{c}ao existentes.
 
@@ -8,15 +8,18 @@ Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arq
 
 Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
 
-Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'sica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
-
 Um n\'o sensor de uma rede de sensores sem fio n\~ao \'e apenas respons\'avel por coletar dados, mas an\'alise da rede, correla\c{c}\~ao entre dados de outros sensores e comunica\c{c}\~ao com uma esta\c{c}\~ao base para centralizar a informa\c{c}\~ao. Isto \'e importante pois geralmente tais redes s\~ao compostas por muitos n\'os. \cite{dargie2010fundamentals}
 
-Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem f|o, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento.
+Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os.
 
 Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores.\cite{542724}
 
-Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes, como apresentado na figura \ref{wsnOverview}.
+Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
+
+\subsection{Sensor Nodes}
+Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'sica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
+
+\subsection{Sink Nodes}
 
 \begin{figure}[h]
    \label{wsnOverview}
@@ -29,13 +32,12 @@ Muitas redes de sensores tamb\'em possuem atuadores, que permitem controle diret
 
 A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, pois n\~ao est\~ao ligados diretamente a fonte de energia. Deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o meio f\'isico, iniciando com o projeto de r\'adio. \cite{WsnSurvey2008} 
 
-\subsection{Plataforma de Hardware}
-
-\subsection{Sistema Operacional}
-
-\subsection{Rede de interconex\~ao}
-
-\subsection{Aplica\c{c}\~oes}
+% descreva sobre as plataformas de \subsection{Plataforma de Hardware}
+% descreva os \subsection{Sistema Operacional}
+%
+%\subsection{Rede de interconex\~ao}
+%
+%\subsection{Aplica\c{c}\~oes}
 
 Existe um enorme n\'umero de aplica\c{c}\~oes que pode ser desenvolvido gra\c{c}as as tecnologias de WSN.
 
@@ -71,16 +73,9 @@ O agente \'e algo concreto, pode ser um peda\c{c}o de hardware ou software que r
 
 Servi\c{c}os Web prov\^eem um padr\~ao para a interoperabilidade entre diferentes aplica\c{c}\~oes de software, que executam em diferentes plataformas de software e hardware.
 
+\subsection{RESTful}
 
-\section{Resource Oriented Architecture}
-
-ROA \'e uma arquitetura boa para RESTful webservices. \cite{richardson2008restful}
-
-\section{RESTful}
-
-Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informac\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI.
-
-Um servi\c{c}o web que utiliza HTTP e os princ\'ipios REST possui recursos e a\c{c}\~oes gen\'ericas bem definidas.\cite{rest}
+Um servi\c{c}o web que utiliza HTTP e os princ\'ipios REST possui recursos e a\c{c}\~oes gen\'ericas bem definidas. Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informac\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI. \cite{rest}
 
 Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON.
 
@@ -89,6 +84,8 @@ GET: solicita ao webserver a representa\c{c}\~ao de uma informa\c{c}\~ao de um d
 POST: criar um recurso no webserver.
 PUT: mudar o estado de um recurso do webserver.
 DELETE: remover o recurso ou alterar para um estado vazio.
+
+Resource Oriented Architecture A \'e uma arquitetura boa para RESTful webservices. \cite{richardson2008restful}
 
 Uma abordagem utilizando SOAP RPC em HTTP n\~ao \'e interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. Al\'em disso, a aplica\c{c}\~ao teria que conhecer l\'ogica interna do servi\c{c}o istrumentando o recurso utilizando chamadas de fun\c{c}\~oes remotas. A figura \ref{soaVsHttp} exemplifica e demonstra a diferen\c{c}a de uma aplica\c{c}\~ao que faz uso de SOAP RPC e outra RESTful.\cite{richardson2008restful}
 
@@ -198,14 +195,11 @@ A RFC tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e respos
 \end{figure}
 
 \subsection{Camada de Reposta e Requisi\c{c}\~ao}
-Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo code no cabe\c{c}alho do CoAP. Possuem as mesmas propriedades de idempot\'encia e only retrieved das requisi\c{c}\~oes HTTP.
+Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo c\'odigo no cabe\c{c}alho do CoAP e gerado um token.
+Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token tem que bater.
 
 \subsection{Recursos}
 A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690} E a descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.
-
-\afazer{A desenvolver...}
-
-%Inserir figura que represente os recursos ???
 
 \section{EPOS}
 O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, foi desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
@@ -220,11 +214,11 @@ Utiliza um sistema de constru\c{c}\~ao baseado em makefiles e shell scripts.
 
 \section{Trabalhos Relacionados}
 
-\subsection{OpenMote}
-
 \subsection{OpenWSN}
 
-O projeto OpenWSN \'e um projeto de visa o c\'odigo aberto e confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas. E com a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, Time Synchronized Channel Hopping.
+O projeto OpenWSN \'e um projeto de redes de sensores sem fio de c\'odigo aberto e confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas.
+
+E com a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, Time Synchronized Channel Hopping.
 
 Por serem sincronizados os motes precisam acordar apenas para transmitir ou receber e periodicamente se comunicar para manter a rede sincronizada quando estiver inativo. Este overhead de temporiza\c{c}\~ao \'e pequeno, cerca de 0.02\% de ciclo de trabalho do r\'adio. \cite{openWSNPaper}
 
@@ -249,9 +243,9 @@ Cada processo no Contiki possui bloco de controle, que cont\'em informa\-\c{c}\~
 
 Protothread \'e uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento dos eventos, gerando um baixo overhead de mem\'oria por n\~ao necessitar de salvamento de contexto.
 
-Cada protothread consome 2 bytes de mem\'oria, que s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. \'E um m\'etodo similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffy}
+Cada protothread consome 2 bytes de mem\'oria, que s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. \'E um m\'etodo similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffyMechanism}
 
-O transceiver sem fio \'e um dos componentes que mais consome energia quando ligado escutando o ambiente, assim uma das estrat\'egias utilizadas \'e manter o m\'inimo de tempo poss\'ivel ligado, mas o suficiente para manter a troca de mensagens na rede. O Contiki prop\~oe uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adios desligados em aproximadamente 99\% do tempo.
+O Contiki prop\~oe uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adios desligados em aproximadamente 99\% do tempo.\cite{contikiRadioDutty}
 
 \subsection{LibCoap}
 LibCoap \'e uma biblioteca implementada em C do protocolo CoAP. Possui 292K de tamanho compilada estaticamente em sua vers\~ao 4.0.1.
@@ -259,19 +253,17 @@ A licensa da biblioteca \'e GPL (2 ou maior) ou licensa BSD revisada.
 
 Possui uma su\'ite de testes para regress\~ao, utilizando o framework de testes CUnit (http://cunit.sourceforge.net/). A documenta\c{c}\~ao pode ser encontrada em: http://libcoap.sourceforge.net/.
 
-\'E uma biblioteca auto-condida, que possui parser do protocolo e fun\c{c}\~oes b\'asicas de rede utilizando sockets tipo BSD e malloc. Implementa\c{c}\~ao de Hash, String e URI: os headers s\~ao hashkey.h, str.h, uri.h utilizados para montar os pacotes CoAP.
+\'E uma biblioteca auto-condida, que possui parser do protocolo e fun\c{c}\~oes b\'asicas de rede. Depende de implementa\c{c}\~ao de sockets tipo BSD e malloc. Possui implementa\c{c}\~ao de Hash, String e URI utilizados para montar os pacotes CoAP.
 
-\'E separada num m\'odulo de rede: net.h, aonde \'e implementado as fun\c{c}\~oes de envio/recebimento de requisi\c{c}\~oes e respostas, com confirma\c{c}\~ao, sem confirma\c\~ao, mensagem de reset e erros.
+Possui um m\'odulo de rede, aonde \'e implementado as fun\c{c}\~oes de envio/recebimento de requisi\c{c}\~oes e respostas, com confirma\c{c}\~ao, sem confirma\c\~ao, mensagem de reset e erros.
 
-Para selecionar a camada de transporte \'e necess\'ario selecionar utilizando flags de preprocessamento. O padr\~ao \'e socket POSIX. A pilha uIP \'e selecionada com a flag -DWITH\textunderscore CONTIKI, ou para selecionar a pilha lwIP -DWITH\textunderscore LWIP.
-
-\subsection{TinyOS}
-O TinyOS \'e um sistema operacional projetado para sistemas embarcados com comunica\c{c}\~ao sem fio e restri\c{c}\~oes energ\'eticas. Foi desenvolvido em nesC, uma linguagem c\'odigo aberto que \'e uma extens\~ao do C. \'E um sistema operacional baseado em eventos desenvolvido para redes de sensores que possuem recursos limitados. Possui uma implementa\c{c}\~ao do CoAP baseada na libCoAP.
+\'E poss\'ivel selecionar a camada de transporte \'e necess\'ario selecionar utilizando flags de preprocessamento. O padr\~ao \'e socket POSIX. A pilha uIP \'e selecionada com a flag -DWITH\textunderscore CONTIKI, ou para selecionar a pilha lwIP -DWITH\textunderscore LWIP.
 
 \subsection{CantCoap}
-\'E uma implementa\c{c}\~ao em C++ que visa facilitar a cria\c{c}\~ao de pacotes Coap tanto diretamente quanto a partir de uma sequ\^encia de characteres, recebida da camada UDP por exemplo.
+\'E uma implementa\c{c}\~ao em C++ desenvolvida por Ashley Mills em 2013. Utiliza uma licensa similar a.
 
-\'E poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede. Abaixo exemplos de uso da biblioteca retirados de https://github.com/staropram/cantcoap.
+Esta biblioteca foca na simplicidade e oferece uma conjuto m\'inimo para montar pacotes CoAP. Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede.
+Abaixo exemplos de uso da biblioteca retirados de https://github.com/staropram/cantcoap.
 
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,

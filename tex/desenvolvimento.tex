@@ -1,18 +1,15 @@
 Este trabalho implementa uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP, uma aplica\c{c}\~ao gateway GPRS/802.14.5 utilizando o EPOS e um componente de hardware GPRS que ser\'a acoplado ao EposMoteII.
 
-Para isto foram realizados diversos estudos durante o desenvolvimento do protocolo, pesquisas para escolher um m\'odulo GPRS adequado a tarefa. Al\'em disso testes de valida\c{c}\~ao dos sistemas de software e valida\c{c}\~ao do m\'odulo GPRS, levantamento de requisitos para porte de uma biblioteca CoAP para o EPOS (libCoap, libCantCoap, microCoap, entre outras) e EPOSMoteII.
+Durante o desenvolvimento foram realizados diversos estudos para escolher m\'odulo GPRS adequado a tarefa e o trabalho necess\'ario para acoplar o protoloco. Testes de valida\c{c}\~ao dos sistemas de software e valida\c{c}\~ao do m\'odulo GPRS foram realizados. Foi realizado um levantamento de requisitos para porte de uma biblioteca CoAP para o EPOS (libCoap, libCantCoap, microCoap, entre outras) e EPOSMoteII. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu.
 
-Porte da biblioteca para o EPOS. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu.
+Implementa\c{c}\~ao dos mecanismos de transmiss\~ao para mensagens confirm\'aveis e n\~ao-confim\'aveis, requisi\c{c}\~ao e resposta, e suporte a inser\c{c}\~ao de recursos, como sensores e atuadores como servi\c{c}os CoAP.
 
-Implementa\c{c}\~ao dos mecanismos de transmiss\~ao para mensagens confirm\'aveis e n\~ao-confim\'aveis, requisi\c{c}\~ao e resposta.
-
-A aplica\c{c}\~ao que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
+A aplica\c{c}\~ao respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
 
 \section{Levantamento de Requisitos}
 Infraestrutura flex\'ivel para a contru\c{c}\~ao de aplica\c{c}\~oes embarcadas em modelo de webservices utilizando redes de sensores sem fio.
 
-O usu\'ario ir\'a acessar a rede de sensores sem fio por uma aplica\c{c}\~ao html5, hospedada em http://minhascoisas.io.
-Nesta aplica\c{c}\~ao \'e poss\'ivel enviar requisi\c{c}\~oes para a rede de sensores de teste e listar os servi\c{c}os oferecidos.
+O usu\'ario ir\'a acessar a rede de sensores sem fio por uma aplica\c{c}\~ao html5, hospedada em na internet no endere\c{c}o: http://adefinir. Nesta aplica\c{c}\~ao \'e poss\'ivel enviar requisi\c{c}\~oes para a rede de sensores de teste e listar os servi\c{c}os oferecidos.
 
 \subsection{Requisitos Funcionais}
 Coletar informa\c{c}\~ao do ambiente atrav\'es de sensores e transmit\'i-las atrav\'es da Internet. F\'acil integra\c{c}\~ao com a Internet mesmo em locais sem rede WIFI.
@@ -26,6 +23,7 @@ As fun\c{c}\~oes a da aplica\c{c}\~ao do gateway s\~ao:
     \item Configura\c{c}\~ao, envio e recebimento de SMS;
     \item Configura\c{c}\~ao contexto PDP, Configura\c{c}\~ao GPRS;
     \item Configura\c{c}\~ao TCP/IP e manuten\c{c}\~ao de conex\~ao TCP/IP.
+    \item Recebimento de requisi\c{c}\~oes CoAP.
 \end{enumerate}
 
 \subsection{Requisitos N\~ao Funcionais}

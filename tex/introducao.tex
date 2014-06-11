@@ -9,22 +9,23 @@ O objetivo geral desse trabalho \'e descrever e implementar webservices em uma r
 a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
 
 \subsection{Objetivos Espec\'ificos}
-Este trabalho realizar\'a o desenvolvimento de aplica\c{c}\~oes web e software de sistema para fazer a ponte entre a rede de sensores e a Internet. O Sistema operacional utilizado ser\'a o EPOS, Embedded Paralell Operating System. A aplica\c{c}\~ao integradora GPRS/802.15.4 ir\'a executar na plataforma EposMoteII utilizando uma extens\~ao GPRS, desenvolvida por uma colega de laborat\'orio.
+Este trabalho realizar\'a o desenvolvimento de aplica\c{c}\~oes web e software de sistema para fazer a ponte entre a rede de sensores e a Internet. O Sistema operacional utilizado ser\'a o EPOS, Embedded Paralell Operating System. A aplica\c{c}\~ao integradora GPRS/802.15.4 ir\'a executar na plataforma EposMoteII utilizando uma extens\~ao GPRS.
 
-A comunica\c{c}\~ao entre os n\'os sensores e atuadores ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP - Constrained Application Protocol. Um protocolo espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
+A comunica\c{c}\~ao entre os n\'os da rede ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP - Constrained Application Protocol. Um protocolo espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
 
 Sendo assim, os objetivos espec\'ificos s\~ao:
-\begin{inparaenum}
-\item Portar o protocolo CoAP para o EPOS;
-\item Implementar uma aplica\c{c}\~ao de redes de sensores sem fio;
-\item Desenvolver a aplica\c{c}\~ao gateway GPRS/802.15.4.
-\end{inparaenum}
+\begin{enumerate}
+    \item Portar o protocolo CoAP para o EPOS;
+    \item Implementar uma aplica\c{c}\~ao para redes de sensores sem fio;
+    \item Desenvolver a aplica\c{c}\~ao gateway GPRS/802.15.4.
+    \item Desenvolver uma aplica\c{c}\~ao web para visualiza\c{c}\~ao da informa\c{c}\~ao.
+\end{enumerate}
 
 \section{Justificativa}
 
 Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivos com suprimento limitado de energia, como uma bateria ou uma placa fotovolt\'aica. Estas t\'ecnicas fazem que os transmissores fiquem ligados por mais tempo, para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens. O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas.
 
-Por sua vez o protocolo do UDP, n\~ao mant\'em conex\~ao, dados s\~ao recebidos fora de ordem e o envio \'e feito de uma mensagem por vez.  Isto implica tamb\'em na redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote.
+Por sua vez o protocolo do UDP, n\~ao mant\'em conex\~ao, dados s\~ao recebidos fora de ordem e o envio \'e feito de uma mensagem por vez. Isto implica tamb\'em na redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote.
 
 Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{transportApp}
 
@@ -43,7 +44,7 @@ O gateway ser\'a composto por um EposMoteII e um m\'odulo GPRS, respons\'avel po
 
 Ser\'a feito um levantamento dos componentes de software e hardware necess\'arios para o desenvolvimento do gateway 802.15.4/GPRS. Neste caso utilizando o mote EPOSMote II e um m\'odulo GPRS, que ser\'a desenvolvido em paralelo a implementa\c{c}\~ao do protocolo de aplica\c{c}\~ao CoAP no sistema operacional EPOS.
 
-Durante o desenvolvimento do protocolo testes ser\~ao executados para verificar o correto comportamento e diminuir a depura\c{c}\~ao em hardware, que geralmente leva mais tempo. Citation Needed
+Durante o desenvolvimento do protocolo, testes ser\~ao executados para verificar o correto comportamento e diminuir a depura\c{c}\~ao em hardware, que geralmente leva mais tempo.
 
 Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio. Os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
 

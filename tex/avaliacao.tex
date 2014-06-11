@@ -12,11 +12,48 @@ O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo a tabe
 \centering
 \begin{tabular}{@{}lllll@{}}
 \toprule
-OS & CoAP & Size &  Memory &  &  \\ \midrule
-EPOS &  CantCoap &  &  &  \\
-Contiki &  Erbium &  &  &  \\
-Contiki &  libcoap &  &  &  \\
-TinyOS &  libcoap &  &  &  \\ \bottomrule
+App & OS & CoAP & Size &  Memory &  &  \\ \midrule
+CoapClient & EPOS &  CantCoap &  &  & & \\
+ER-Rest-Example & Contiki &  Erbium &  &  &  \\
+Rest-client & Contiki &  libcoap &  &  &  \\
+Coap-client & OpenWSN &  OpenCoAP &  &  &  \\ \bottomrule
 \end{tabular}
 \caption{Compara\c{c}\~ao das implementa\c{c}\~oes}
+\end{table}
+
+Abaixo um comparativo entre as principais fun\c{c}\~oes utilizadas nos sistema, utilizando um pacote padr\~ao e um pacote com tamanho m\'aximo de 128 bytes, o valor m\'aximo de MTU utilizado.
+
+\begin{table}[h]
+\label{executionTimeCoap}
+\centering
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Biblioteca CoAP & Tipo do Pacote & Tempo em ms &  \\ \midrule
+CantCoap &  Small &  & \\
+CantCoap &  Large &  & \\
+Erbium &  Small &  &  \\
+Erbium &  Large &  &  \\
+OpenCoAP &  Small &  &  \\
+OpenCoAP &  Large &  &  \\ \bottomrule
+\end{tabular}
+\caption{Compara\c{c}\~ao das implementa\c{c}\~oes em tempo de execu\c{c}\~ao}
+\end{table}
+
+
+Tabela que demonstra a vaz\~ao do sistema para mensagens, com tamanho definido anteriormente.
+
+\begin{table}[h]
+\label{throughputCoap}
+\centering
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Biblioteca CoAP & Tipo do Pacote & N\'umero de mensagens &  \\ \midrule
+CantCoap &  Small &  & \\
+CantCoap &  Large &  & \\
+Erbium &  Small &  &  \\
+Erbium &  Large &  &  \\
+OpenCoAP &  Small &  &  \\
+OpenCoAP &  Large &  &  \\ \bottomrule
+\end{tabular}
+\caption{Compara\c{c}\~ao da vaz\~ao entre as  implementa\c{c}\~oes}
 \end{table}
