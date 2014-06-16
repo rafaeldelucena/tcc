@@ -16,7 +16,7 @@ Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~a
 
 Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os.
 
-\begin{figure}[h]
+\begin{figure}[H]
    \label{wsnOverview}
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/wsn.png}
@@ -66,7 +66,7 @@ Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, 
 
 SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c} (service provider), descoberta de servi\c{c}o (service discovery agency) e o client (service requestor).  Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes: publicar (publish), encontrar (find) e vincular (bind).
 
-\begin{figure}[h]
+\begin{figure}[H]
    \label{soaOverview}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/soa.png}
@@ -97,7 +97,7 @@ DELETE: remover o recurso ou alterar para um estado vazio.
 
 Uma abordagem utilizando HTTP n\~ao \'e t\~ao interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \label{bytesTransmitted}
     \centering
     \includegraphics[width=0.9\textwidth]{figuras/bytestransmitted.png}
@@ -122,7 +122,7 @@ Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~a
 
 \subsection{Formato das mensagens}
 Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida numa camada de enlace limitada.
-\begin{figure}[h]
+\begin{figure}[H]
     \label{coapFormat}
     \centering
     \includegraphics[width=0.6\textwidth]{figuras/formato.png}
@@ -168,7 +168,7 @@ A retransmiss\~ao \'e controlada por um timeout e um contador. Quando este timeo
 Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa. O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
 
 Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{piggyBacked}.\cite{draft-ietf-core-coap-18}
-\begin{figure}[h]
+\begin{figure}[H]
    \label{piggyBacked}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/piggybacked.png}
@@ -182,7 +182,7 @@ Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token tem que 
 
 
 Fluxo esperado de requisi\c{c}\~ao sem confirma\c{c}\~ao na figura \ref{nonConfirmable}.
-\begin{figure}[h]
+\begin{figure}[H]
    \label{nonConfirmable}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/nonconfirmable.png}
@@ -191,7 +191,7 @@ Fluxo esperado de requisi\c{c}\~ao sem confirma\c{c}\~ao na figura \ref{nonConfi
 
 A RFC tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e resposta separada com confirma\c{c}\~ao. A figura \ref{separateResponse} exemplifica:
 
-\begin{figure}[h]
+\begin{figure}[H]
    \label{separateResponse}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/separateresponse.png}
@@ -218,7 +218,7 @@ Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\
 
 Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas. A portabilidade \'e atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas. Abaixo uma a figura \ref{eposOverview} ilustrando a vis\~ao geral do EPOS.
 
-\begin{figure}[h]
+\begin{figure}[H]
    \label{eposOverview}
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/eposOverview.png}
@@ -295,7 +295,7 @@ Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de ca
   language=C++,
   showstringspaces=false,
   basicstyle=\scriptsize\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
+  keywordstyle=\bfseries\color{black},
   commentstyle=\itshape\color{blue},
   identifierstyle=\color{black},
   stringstyle=\color{red},
