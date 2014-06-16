@@ -11,17 +11,18 @@ utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e contr
 
 Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
 
+Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores.\cite{542724}
+
+
 Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os.
 
 \begin{figure}[h]
    \label{wsnOverview}
    \centering
-   \includegraphics[width=0.7\textwidth]{figuras/wsn.png}
+   \includegraphics[width=0.8\textwidth]{figuras/wsn.png}
    \caption{\cite{dargie2010fundamentals}}
 \end{figure}
 
-
-Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores.\cite{542724}
 
 Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
 
@@ -58,9 +59,9 @@ O modelo de computa\c{c}\~ao utilizando esta afirmativa \'e conhecido como Compu
 
 Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requis\'itos servi\c{c}os devem:
 \begin{itemize}
-\item Tecnologicamente neutros: utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta;
-\item Baixo acoplamento: detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o;
-\item Localidade transparente: clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
+    \item Tecnologicamente neutros: utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta;
+    \item Baixo acoplamento: detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o;
+    \item Localidade transparente: clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
 \end{itemize}
 
 SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c} (service provider), descoberta de servi\c{c}o (service discovery agency) e o client (service requestor).  Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes: publicar (publish), encontrar (find) e vincular (bind).
@@ -72,6 +73,7 @@ SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento e
    \caption{Arquitetura Orientada a Servi\c{c}os}
 \end{figure}
 
+%\section{REST}
 
 \section{Webservices}
 
@@ -83,9 +85,9 @@ Servi\c{c}os Web prov\^eem um padr\~ao para a interoperabilidade entre diferente
 
 \subsection{RESTful}
 
-Um servi\c{c}o web que utiliza HTTP e os princ\'ipios REST possui recursos e a\c{c}\~oes gen\'ericas bem definidas. Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informac\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI. \cite{rest}
+RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informac\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI. \cite{rest}
 
-Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON.
+Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture A \'e uma arquitetura boa para RESTful webservices. \cite{richardson2008restful}
 
 Os Recursos s\~ao usam um identificador \'unico e persistente, as URIs. A URIs possuem estruturas de diret\'orios, uma URI \'e uma \'arvore com ramos subordinados e superordinados conectando os n\'os. As opera\c{c}\~oes suportas s\~ao m\'etodos HTTP expl\'icitos que n\~ao salvam estado das aplica\c{c}\~oes clientes e s\~ao idempotentes, s\~ao eles:
 GET: solicita ao webserver a representa\c{c}\~ao de uma informa\c{c}\~ao de um determinado recurso.
@@ -93,30 +95,18 @@ POST: criar um recurso no webserver.
 PUT: mudar o estado de um recurso do webserver.
 DELETE: remover o recurso ou alterar para um estado vazio.
 
-Resource Oriented Architecture A \'e uma arquitetura boa para RESTful webservices. \cite{richardson2008restful}
-
-Uma abordagem utilizando SOAP RPC em HTTP n\~ao \'e interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. Al\'em disso, a aplica\c{c}\~ao teria que conhecer l\'ogica interna do servi\c{c}o istrumentando o recurso utilizando chamadas de fun\c{c}\~oes remotas. A figura \ref{soaVsHttp} exemplifica e demonstra a diferen\c{c}a de uma aplica\c{c}\~ao que faz uso de SOAP RPC e outra RESTful.\cite{richardson2008restful}
-
-%Inserir figura que demonstra a diferença entre o tamanho dos pacotes.
-\begin{figure}[h]
-    \label{soaVsHttp}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figuras/soavshttp.png}
-    \caption{\cite{richardson2008restful}}
-\end{figure}
-
-A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
+Uma abordagem utilizando HTTP n\~ao \'e t\~ao interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
 
 \begin{figure}[h]
     \label{bytesTransmitted}
     \centering
-    \includegraphics[width=0.7\textwidth]{figuras/bytestransmitted.png}
+    \includegraphics[width=0.9\textwidth]{figuras/bytestransmitted.png}
     \caption{\cite{transportApp}}
 \end{figure}
 
-Todos os webservices utilizam o conceito de URI, por\'em de maneiras diferentes. Mas um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre.
+Todos os webservices utilizam o conceito de URI, por\'em de maneiras diferentes. Mas um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre. Os principais competidores aos servi\c{c}os web RESTful s\~ao os RPC-styles.
 
-Os principais competidores aos servi\c{c}os web RESTful s\~ao os RPC-styles.
+%\section{Webservices em WSN}
 
 \section{CoAP}
 
@@ -217,14 +207,24 @@ observer
 
 
 \subsection{Recursos}
+
 A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690} E a descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
 \section{EPOS}
 O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, foi desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
 
-Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\'etodo para projeto de sistemas embarcados orientados \`a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc, AVR e ARM. \cite{epos}
+Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\'etodo para projeto de sistemas embarcados orientados \`a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc, AVR e ARM. \cite{eposProject}
 
-Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas. A portabilidade \'e atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas.
+Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas. A portabilidade \'e atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas. Abaixo uma a figura \ref{eposOverview} ilustrando a vis\~ao geral do EPOS.
 
+\begin{figure}[h]
+   \label{eposOverview}
+   \centering
+   \includegraphics[width=0.9\textwidth]{figuras/eposOverview.png}
+   \caption{Overview do EPOS.}
+\end{figure}
+
+ 
+O EPOS tamb\'em possui uma interface de software/hardware que abstrai de sensores de forma uniforme, definindo classes de dispositivos baseados numa finalidade.\cite{epos}
 %Inserir figura da arquitetura do EPOS.
 
 A infraestrutura de comunicaca\c{c}\~ao do EPOS para redes de sensores sem-fio \'e implementada pelo protocolo C-MAC, Configurable MAC, que prov\^e suporte a comunicaca\c{c}\~ao de baixo n\'ivel (MAC - Medium Access Control)
@@ -276,15 +276,15 @@ Possui uma su\'ite de testes para regress\~ao, utilizando o framework de testes 
 
 \'E uma biblioteca auto-condida, que possui parser do protocolo e fun\c{c}\~oes b\'asicas de rede. Depende de implementa\c{c}\~ao de sockets tipo BSD e malloc. Possui implementa\c{c}\~ao de Hash, String e URI utilizados para montar os pacotes CoAP.
 
-Possui um m\'odulo de rede, aonde \'e implementado as fun\c{c}\~oes de envio/recebimento de requisi\c{c}\~oes e respostas, com confirma\c{c}\~ao, sem confirma\c\~ao, mensagem de reset e erros.
+Possui um m\'odulo de rede, aonde \'e implementado as fun\c{c}\~oes de envio/recebimento de requisi\c{c}\~oes e respostas, com confirma\c{c}\~ao, sem confirma\c{c}\~ao, mensagem de reset e erros.
 
 \'E poss\'ivel selecionar a camada de transporte \'e necess\'ario selecionar utilizando flags de preprocessamento. O padr\~ao \'e socket POSIX. A pilha uIP \'e selecionada com a flag -DWITH\textunderscore CONTIKI, ou para selecionar a pilha lwIP -DWITH\textunderscore LWIP.
 
 \subsection{CantCoap}
 \'E uma implementa\c{c}\~ao em C++ desenvolvida por Ashley Mills em 2013. Utiliza uma licensa similar a.
 
-Esta biblioteca foca na simplicidade e oferece uma conjuto m\'inimo para montar pacotes CoAP. Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede.
-Abaixo exemplos de uso da biblioteca retirados de https://github.com/staropram/cantcoap.
+Esta biblioteca foca na simplicidade e oferece uma conjuto m\'inimo para montar pacotes CoAP.
+Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede. Abaixo exemplos de uso da biblioteca retirados de https://github.com/staropram/cantcoap.
 
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,

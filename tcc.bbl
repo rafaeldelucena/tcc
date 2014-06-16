@@ -15,8 +15,7 @@
 
 \bibitem[EPOS]{epos}
 \abntrefinfo{EPOS}{FR\"OHLICH A.}{1999}
-{Ant\^onio Augusto Fr\"ohlich, Wolfgang Schr\"oer-Preikschat. \emph{Embedded Parallel Operating System}. 1999.
-\ $<$https://epos.lisha.ufsc.br/$>$.}
+{Ant\^onio Augusto Fr\"ohlich, Wolfgang Schr\"oer-Preikschat. \emph{Embedded Parallel Operating System}. 1999.}
 
 \bibitem[REST]{rest}
 \abntrefinfo{}{FIELDING R.}{2000}
@@ -65,5 +64,34 @@
 \bibitem[Low power system for wireless microsensors]{542724}
 \abntrefinfo{}{BULT, CHANG, DONG, FIELDING}{1996}
 {Bult, K. and Burstein, A. and Chang, D. and Dong, M. and Fielding, M. and Kruglick, E. and Ho, J. and Lin, F. and Lin, T.-H. and Kaiser, W.J. and Marcy, H. and Mukai, R. and Nelson, P. and Newburg, F. L. and Pister, K.S.J. and Pottie, G. and Sanchez, H. and Sohrabi, K. and Stafsudd, O.M. and Tan, K. B. and Yung, G. and Xue, S. and Yao, J. \emph{Low power systems for wireless microsensors}. 1996}
+
+\bibitem[Contiki MAC]{Dunkels11thecontikimac}
+\abntrefinfo{}{DUNKELS A.}{2011}
+{Adam Dunkels. \emph{The ContikiMAC Radio Duty Cycling Protocol}. 2011}
+
+\bibitem[Protothreads]{Dunkels05protothreads}
+\abntrefinfo{}{DUNKELS A., SCHMIDT O.}{2005}
+{Adam Dunkels and Oliver Schmidt. \emph{Protothreads - Lightweight, Stackless Threads in C}. 2005}
+
+\bibitem[Integrating WSN and WEB]{Colitti11deintegrating}
+\abntrefinfo{}{COLITTI W., STEENHAUT K., DE CARO N.}{2011}
+{Walter Colitti and Kris Steenhaut and Niccol\`o De Caro.
+\emph{De Integrating Wireless Sensor Networks with the Web}. 2011}
+
+\bibitem[Energy-aware placement WSN]{cheng2004energy}
+\abntrefinfo{}{Cheng P., Chuah C.,  Liu X.}{2004}
+{Cheng, Peng and Chuah, Chen-Nee and Liu, Xin. \emph{Energy-aware node placement in wireless sensor networks}. 2004}
+
+\bibitem[]{coberturaGPRS}
+\abntrefinfo{}{}{}{\afazer{falta inserir dados da anatel}}
+
+\bibitem[]{openWSN}
+\abntrefinfo{}{}{}{$<$https://openwsn.atlassian.net/wiki$>$}
+
+\bibitem[Duffy Device]{duffyMechanism}
+\abntrefinfo{}{Duffy T.}{1988}{Tom Duffy $<$http://www.lysator.liu.se/c/duffs-device.html$>$. 1988.}
+
+\bibitem[EPOS Project]{eposProject}
+\abntrefinfo{EPOS}{1988}{$<$http://epos.lisha.ufsc.br/HomePage$>$. 1999.}
 
 \end{thebibliography}
