@@ -55,7 +55,7 @@ Os testes feitos para o protocolo CoAP s\~ao:
 \end{enumerate}
 
 Testes para validar a transfer\^encia de blocos:
-\begin{enumarate}
+\begin{enumerate}
     \item Tratar a transfer\^encia de blocos para recursos grandes utilizando o m\'etodo GET (negocia\c{c}\~ao antecipada).
     \item Tratar a transfer\^encia de blocos para recursos grandes utilizando o m\'etodo GET (negocia\c{c}\~ao atrasada).
     \item Tratar a transfer\^encia de blocos para recursos grandes utilizando o m\'etodo PUT.
@@ -69,7 +69,7 @@ Testes para observa\c{c}\~ao de recursos:
     \item Detec\c{c}\~ao de deregistro do cliente (Max-Age).
     \item Detec\c{c}\~ao de deregistro do servidor (client OFF).
     \item Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito).
-\end{enumarete}
+\end{enumerate}
 
 \section{An\'alise de Desempenho}
 
@@ -83,11 +83,11 @@ O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo a tabe
 \centering
 \begin{tabular}{@{}lllll@{}}
 \toprule
-App & OS & CoAP & Size &  Memory &  &  \\ \midrule
-CoapClient & EPOS &  CantCoap &  &  & & \\
-ER-Rest-Example & Contiki &  Erbium &  &  &  \\
-Rest-client & Contiki &  libcoap &  &  &  \\
-Coap-client & OpenWSN &  OpenCoAP &  &  &  \\ \bottomrule
+  App & OS & CoAP & Size &  Memory & \\ \midrule
+  CoapClient & EPOS &  CantCoap &  &  & \\
+  ER-Rest-Example & Contiki &  Erbium & & & \\
+  Rest-client & Contiki &  libcoap & & & \\
+  Coap-client & OpenWSN &  OpenCoAP &  & & \\ \bottomrule
 \end{tabular}
 \caption{Compara\c{c}\~ao das implementa\c{c}\~oes}
 \end{table}

@@ -73,9 +73,9 @@ O protocolo CoAP foi modelado conforme \'e mostrado na figura \ref{uml} abaixo:
    \caption{Diagrama UML das entidades de software implementadas.}
 \end{figure}
 
-
+A figura \ref{casodeuso} mostra o diagrama de caso de uso das principais fun\c{c}\~oes desenvolvidas.
 \begin{figure}[h]
-   \label{uml}
+   \label{casodeuso}
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/casodeuso.png}
    \caption{Diagrama de casos de uso.}
@@ -93,15 +93,16 @@ Para validar o comportamento utilizei alguns testes da pr\'opria biblioteca CoAP
 Foram realizados in\'umeros testes durante o desenvolvimento para verificar e validar o correto comportamento dos componentes de software e hardware.
 
 Para validar a implementa\c{c}\~ao do protocolo CoAP foram efetuados os seguintes testes:
+
 Testes de constru\c{c}\~ao de pacotes v\'alidos e inv\'alidos utilizando como entrada sequ\^encia de caracteres.
+
 Testes de interoperabilidade entre as implementa\c{c}\~oes, utilizando cen\'arios parecidos com o IOT Plugtest.
 
-
 Fazendo uma requisi\c{c}\~ao confirm\'aveis e n\~ao-confirm\'aveis do tipo: GET, POST, PUT, DELETE.
+
 Recebendo respostas: v\'alidas e inv\'lidas.
 
 Testes do Servidor:
 Recebendo e respondendo requisi\c{c}\~oes: que possui recurso, que n\~ao possui, descoberta de recurso.
 
-\subsection{Testes na placa de desenvolvimento do m\'ouldo GPRS}
 Os testes feitos foram: Enviar e recebimento de mensagens; criar socket TCP, enviar e receber mensagem via socket, fazer requisi\c{c}\~ao HTTP, foi poss\'ivel utilizando os comandos propriet\'arios do modem.

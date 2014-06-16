@@ -58,11 +58,11 @@ Arquitetura orientada a servi\c{c}os \'e uma forma de organizar infraestrutura e
 O modelo de computa\c{c}\~ao utilizando esta afirmativa \'e conhecido como Computa\c{c}\~ao Orientada a servi\c{c}os (SOC). \cite{581580}
 
 Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requis\'itos servi\c{c}os devem:
-\begin{itemize}
-    \item Tecnologicamente neutros: utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta;
-    \item Baixo acoplamento: detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o;
-    \item Localidade transparente: clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
-\end{itemize}
+\begin{description}
+    \item[Tecnologicamente neutros] utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta;
+    \item[Baixo acoplamento] detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o;
+    \item[Localidade transparente] clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
+\end{description}
 
 SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c} (service provider), descoberta de servi\c{c}o (service discovery agency) e o client (service requestor).  Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes: publicar (publish), encontrar (find) e vincular (bind).
 
@@ -116,7 +116,9 @@ As vantagens de utilizar um protocolo compat\'ivel com o HTTP s\~ao: a facilidad
 
 A IETF estabelece as condi\c{c}\~oes m\'inimas para o desenvolvimento de um protocolo de aplica\c{c}\~ao compat\'ivel com HTTP, mas focado em aplica\c{c}\~oes aonde energia e mem\'oria s\~ao escassas. O protocolo CoAP foi projetado levando em considera\c{c}\~ao as restri\c{c}\~oes energ\'eticas e altas taxas de falha na transmiss\~ao dos pacotes em RSSF.
 
-A comunica\c{c}\~ao entre os pontos no CoAP \'e de forma ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial. Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset. A figura \ref{coapFormat} mostra o formato do pacote.
+A comunica\c{c}\~ao entre os pontos no CoAP \'e de forma ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial.
+
+Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset. A figura \ref{coapFormat} mostra o formato do pacote.
 
 \subsection{Formato das mensagens}
 Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida numa camada de enlace limitada.
@@ -246,11 +248,11 @@ Possui porte para diversas plataformas de microcontroladores de 16 bits e para a
 Resultados experimentais de uma rede de motes demonstram que os r\'adios operam num ciclo m\'edio de trabalho de $0.1\%$ e uma m\'edia de 0.68 microA em hardware comum. Este consumo baixo permite uma vasta gama de aplica\c{c}\~oes.
 
 Para utilizar \'e necess\'ario baixar os seguintes reposit\'orios:
-\begin{itemize}
-    \item Software de sistema que ir\'a executar no simulador ou nos motes:\\https://github.com/openwsn-berkeley/openwsn-fw
-    \item Ferramentas que ir\~ao executar no computador de desenvolvimento:\\https://github.com/openwsn-berkeley/openwsn-sw 
-    \item Implementa\c{c}\~ao do CoAP em Python:\\https://github.com/openwsn-berkeley/coap
-\end{itemize}
+\begin{description}
+    \item [Software de sistema que ir\'a executar no simulador ou nos motes] https://github.com/openwsn-berkeley/openwsn-fw
+    \item [Ferramentas que ir\~ao executar no computador de desenvolvimento] https://github.com/openwsn-berkeley/openwsn-sw 
+    \item[Implementa\c{c}\~ao do CoAP em Python] https://github.com/openwsn-berkeley/coap
+\end{description}
 
 
 \subsection{Contiki}
@@ -295,7 +297,7 @@ Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de ca
   basicstyle=\scriptsize\ttfamily,
   keywordstyle=\bfseries\color{green!40!black},
   commentstyle=\itshape\color{blue},
-  identifierstyle=\color{blue!20!black},
+  identifierstyle=\color{black},
   stringstyle=\color{red},
 }
 
@@ -311,7 +313,7 @@ pdu->setToken((uint8_t*)"\3\2\1\0",4);
 pdu->setMessageID(0x0005);
 pdu->setURI((char*)"test",4);
 
-// send packet 
+/* send packet */
 ret = send(sockfd,pdu->getPDUPointer(),pdu->getPDULength(),0);
 \end{lstlisting}
 
