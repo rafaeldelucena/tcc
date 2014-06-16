@@ -1,4 +1,4 @@
-Ambientes inteligentes est\~ao tornando-se realidade, este conjunto de tecnologias est\~ao sendo desenvolvidas e ser\~ao um grande passo para as \'areas como: constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
+As t\'ecnologias de ambientes inteligentes est\~ao est\~ao sendo desenvolvidas e ser\~ao um grande passo para as \'areas como: constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
 
 Para agirem de forma inteligente, estes ambientes necessitam de informac\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e comunicando os dados do ambiente.\cite{lewis2004wireless}
 
@@ -6,31 +6,42 @@ Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arq
 
 \section{Redes de sensores sem fio}
 
+O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes militares e hoje s\~ao utilizados em 
+utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e controle de processos industriais, supervis\~ao de maquinas, monitoramento de ambientes, estruturas e tubula\c{c}\~oes, autom\c{c}\~ao resid\^encial, coleta de dados de pacientes, entre outros.
+
 Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
 
-Um n\'o sensor de uma rede de sensores sem fio n\~ao \'e apenas respons\'avel por coletar dados, mas an\'alise da rede, correla\c{c}\~ao entre dados de outros sensores e comunica\c{c}\~ao com uma esta\c{c}\~ao base para centralizar a informa\c{c}\~ao. Isto \'e importante pois geralmente tais redes s\~ao compostas por muitos n\'os. \cite{dargie2010fundamentals}
-
 Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os.
-
-Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores.\cite{542724}
-
-Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
-
-\subsection{Sensor Nodes}
-Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'sica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
-
-\subsection{Sink Nodes}
 
 \begin{figure}[h]
    \label{wsnOverview}
    \centering
    \includegraphics[width=0.7\textwidth]{figuras/wsn.png}
-   \caption{Overview de uma arquitetura de redes de sensores sem fio retirado de \cite{dargie2010fundamentals}.}
+   \caption{\cite{dargie2010fundamentals}}
 \end{figure}
+
+
+Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores.\cite{542724}
+
+Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
 
 Muitas redes de sensores tamb\'em possuem atuadores, que permitem controle direto ao mundo real. Uma rede de sensores e atuadores recebe comandos da unidade de processamento (microcontrolador) e transforma estes comandos em sinais de entrada para um atuador, que interage com processos f\'sicos. Estas redes s\~ao chamadas de redes de sensores e atuadores sem fio, ou WSAN.
 
 A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, pois n\~ao est\~ao ligados diretamente a fonte de energia. Deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o meio f\'isico, iniciando com o projeto de r\'adio. \cite{WsnSurvey2008} 
+
+\subsection{Sensor Nodes}
+Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'sica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
+
+Um n\'o sensor de uma rede de sensores sem fio n\~ao \'e apenas respons\'avel por coletar dados, mas an\'alise da rede, correla\c{c}\~ao entre dados de outros sensores e comunica\c{c}\~ao com uma esta\c{c}\~ao base para centralizar a informa\c{c}\~ao. Isto \'e importante pois geralmente tais redes s\~ao compostas por muitos n\'os. \cite{dargie2010fundamentals}
+
+\subsection{Sink Nodes}
+
+Como estas redes utilizam um espectro diferente de comunica\c{c}\~ao, \'e necess\'ario uma integra\c{c}\~ao com a rede j\'a conhecida. Uma forma de integrar os n\'os sensores \'e utilizar n\'os espec\'ificos para executarem este trabalho. \afazer{citar}
+
+Um exemplo \'e utilizar um n\'o como esta\c{c}\~ao de sincroniza\c{c}\~ao, por\'em surge um problema, pois o n\'o sincronizador deve ter conhecimento de todos os recursos dispon\'iveis na rede.
+
+Quando os recursos s\~ao expostos diretamente pelo pr\'oprio dispositivo como num protocolo de aplica\c{c}\~ao tipo o CoAP a complexidade do n\'o gateway \'e bem reduzida, j\'a que o papel \'e simplesmente repassar os pacotes de descoberta de recursos para Internet. \cite{Colitti11deintegrating}
+
 
 % descreva sobre as plataformas de \subsection{Plataforma de Hardware}
 % descreva os \subsection{Sistema Operacional}
@@ -38,9 +49,6 @@ A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fi
 %\subsection{Rede de interconex\~ao}
 %
 %\subsection{Aplica\c{c}\~oes}
-
-Existe um enorme n\'umero de aplica\c{c}\~oes que pode ser desenvolvido gra\c{c}as as tecnologias de WSN.
-
 
 \section{Arquitetura orientada a servi\c{c}os}
 
@@ -94,7 +102,7 @@ Uma abordagem utilizando SOAP RPC em HTTP n\~ao \'e interessante para uma aplica
     \label{soaVsHttp}
     \centering
     \includegraphics[width=0.7\textwidth]{figuras/soavshttp.png}
-    \caption{Imagem retirada de \cite{richardson2008restful}}
+    \caption{\cite{richardson2008restful}}
 \end{figure}
 
 A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
@@ -103,7 +111,7 @@ A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes tra
     \label{bytesTransmitted}
     \centering
     \includegraphics[width=0.7\textwidth]{figuras/bytestransmitted.png}
-    \caption{Imagem retirada de \cite{transportApp}}
+    \caption{\cite{transportApp}}
 \end{figure}
 
 Todos os webservices utilizam o conceito de URI, por\'em de maneiras diferentes. Mas um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre.
@@ -165,9 +173,7 @@ Max retransmit & 4 &  \\ \midrule
 
 A retransmiss\~ao \'e controlada por um timeout e um contador. Quando este timeout \'e atigido e o contador \'e menor que valor m\'aximo de retransmiss\~ao a mensagem \'e transmitida, o contador incrementado e timeout duplicado. O modelo de retransmiss\~ao usa um contador de timeouts e uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas.
 
-Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa.
-
-O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
+Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa. O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
 
 Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{piggyBacked}.\cite{draft-ietf-core-coap-18}
 \begin{figure}[h]
@@ -176,6 +182,12 @@ Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode r
    \includegraphics[width=0.6\textwidth]{figuras/piggybacked.png}
    \caption{Resposta na mensagem de confirma\c{c}\~ao, chamado de piggy-backed.}
 \end{figure}
+
+\subsection{Requisi\c{c}\~ao e Resposta}
+
+Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo c\'odigo no cabe\c{c}alho do CoAP e gerado um token.
+Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token tem que bater.
+
 
 Fluxo esperado de requisi\c{c}\~ao sem confirma\c{c}\~ao na figura \ref{nonConfirmable}.
 \begin{figure}[h]
@@ -194,23 +206,28 @@ A RFC tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e respos
    \caption{Fluxo esperado de requisi\c{c}\~ao e resposta com confirma\c{c}\~ao, com resposta separada}
 \end{figure}
 
-\subsection{Camada de Reposta e Requisi\c{c}\~ao}
-Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo c\'odigo no cabe\c{c}alho do CoAP e gerado um token.
-Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token tem que bater.
+\subsection{Op\c{c}\~oes}
+
+O CoAP possui diversas op\c{c}\~oes que s\~ao codificadas conforme a tabela abaixo.
+As op\c{c}\~oes s\~ao separadas entre eletivas, obrigat\'orias e ....
+
+URI, path, query
+observer
+\afazer{falta coisa....}
+
 
 \subsection{Recursos}
-A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690} E a descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.
-
+A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690} E a descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
 \section{EPOS}
 O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, foi desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
 
-Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas. A portabilidade \'e atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas. A figura 5 mostra uma vis\~ao abstrata da arquitetura do EPOS.
+Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\'etodo para projeto de sistemas embarcados orientados \`a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc, AVR e ARM. \cite{epos}
+
+Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas. A portabilidade \'e atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas.
 
 %Inserir figura da arquitetura do EPOS.
 
-Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\'etodo para projeto de sistemas embarcados orientados \`a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc, AVR e ARM. \cite{epos}
-
-Utiliza um sistema de constru\c{c}\~ao baseado em makefiles e shell scripts.
+A infraestrutura de comunicaca\c{c}\~ao do EPOS para redes de sensores sem-fio \'e implementada pelo protocolo C-MAC, Configurable MAC, que prov\^e suporte a comunicaca\c{c}\~ao de baixo n\'ivel (MAC - Medium Access Control)
 
 \section{Trabalhos Relacionados}
 
@@ -241,11 +258,15 @@ O Contiki \'e um sistema operacional criado por Adam Dunkels em 2000, escrito em
 
 Cada processo no Contiki possui bloco de controle, que cont\'em informa\-\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma refer\^encia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. 
 
-Protothread \'e uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento dos eventos, gerando um baixo overhead de mem\'oria por n\~ao necessitar de salvamento de contexto.
+Programas escritos num modelo dirigido a eventos, geralmente s\~ao implementados como m\'aquinas de estados expl\'icitas, que com um grande n\'umero de estados o c\'odigo come\c{c}a a se tornar complexo, dif\'icil de entender e depurar. Estas foram as principais motiva\c{c}\~oes para que fosse desenvolvido um modelo de programa\c{c}\~ao diferente, utilizado nos projetos desenvolvidos por Adam, a pilha uIP e do Contiki.\cite{Dunkels05protothreads}
+
+O conceito protothread foi desenvolvido por Adam Dunkels em 2005, uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento dos eventos, gerando um baixo overhead de mem\'oria por n\~ao necessitar de salvamento de contexto.
+
+As limita\c{c}\~oes dessa t\'ecnicas s\~ao: vari\'aveis autom\'aticas n\~ao s\~ao preservadas Stack durante trocas de contexto entre as protothreads. Elas podem ser utilizadas durante uma protothread mas devem ser salvas antes da execu\c{c}\~ao de do m\'etodo WAITING. Al\'em disso programas que utilizam protothreads n\~ao podem utilizar switch case, caso o fizer um erro de compila\c{c}\~ao \'e esperado.
 
 Cada protothread consome 2 bytes de mem\'oria, que s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. \'E um m\'etodo similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffyMechanism}
 
-O Contiki prop\~oe uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adios desligados em aproximadamente 99\% do tempo.\cite{contikiRadioDutty}
+O Contiki prop\~oe uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adios desligados em aproximadamente 99\% do tempo.\cite{Dunkels11thecontikimac}
 
 \subsection{LibCoap}
 LibCoap \'e uma biblioteca implementada em C do protocolo CoAP. Possui 292K de tamanho compilada estaticamente em sua vers\~ao 4.0.1.
