@@ -1,6 +1,6 @@
 As tecnologias de ambientes inteligentes est\~ao sendo desenvolvidas e ser\~ao um grande passo para as \'areas como constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
 
-Para agirem de forma inteligente, estes ambientes necessitam de informa\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e comunicando os dados do ambiente.\cite{lewis2004wireless}
+Para agirem de forma inteligente, estes ambientes necessitam de informa\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e comunicando os dados do ambiente \cite{lewis2004wireless}.
 
 Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arquitetura orientada a servi\c{c}os e os protocolos de aplica\c{c}ao existentes.
 
@@ -13,13 +13,13 @@ Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, 
 Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores \cite{542724}.
 
 
-Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os \cite{dargie2010fundamentals}.
+Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os.
 
 \begin{figure}[H]
    \label{wsnOverview}
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/wsn.png}
-   \caption{Vis\~ao geral de uma RSSF}
+   \caption{Vis\~ao geral de uma RSSF \cite{dargie2010fundamentals}.}
 \end{figure}
 
 Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
@@ -31,7 +31,7 @@ A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fi
 \subsection{N\'os sensores}
 Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'isica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
 
-Geralmente os n\'o sensores s\~ao compostos por um microcontrolador, transceiver, mem\'oria externa, fonte de energia e um ou mais sensores. Os n\'os s\~ao respons\'aveis por coletar dados, fazer uma certa an\'alise da rede, correla\c{c}\~ao entre dados com outros n\'os e comunica\c{c}\~ao com uma esta\c{c}\~ao base afim de centralizar a informa\c{c}\~ao, para um processamento externo. \cite{dargie2010fundamentals}
+Geralmente os n\'o sensores s\~ao compostos por um microcontrolador, transceiver, mem\'oria externa, fonte de energia e um ou mais sensores. Os n\'os s\~ao respons\'aveis por coletar dados, fazer uma certa an\'alise da rede, correla\c{c}\~ao entre dados com outros n\'os e comunica\c{c}\~ao com uma esta\c{c}\~ao base afim de centralizar a informa\c{c}\~ao, para um processamento externo \cite{dargie2010fundamentals}.
 
 \subsection{Sink Nodes}
 
@@ -83,23 +83,29 @@ Servi\c{c}os Web prov\^em um padr\~ao para a interoperabilidade entre diferentes
 
 \subsection{RESTful}
 
-RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI. \cite{rest}
+RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI .
 
-Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture A \'e uma arquitetura boa para RESTful webservices. \cite{richardson2008restful}
+As opera\c{c}\~oes suportas s\~ao m\'etodos HTTP expl\'icitos que n\~ao salvam estado das aplica\c{c}\~oes clientes e s\~ao idempotentes, s\~ao eles:
+\begin{description}
+    \item[GET:] solicita ao webserver a representa\c{c}\~ao de uma informa\c{c}\~ao de um determinado recurso.
+    \item[POST:] cria um recurso no webserver.
+    \item[PUT:] muda o estado de um recurso do webserver.
+    \item[DELETE:] remove o recurso ou alterar para um estado vazio.
+\end{description}
 
-Os Recursos s\~ao usam um identificador \'unico e persistente, as URIs. A URIs possuem estruturas de diret\'orios, uma URI \'e uma \'arvore com ramos subordinados e superordinados conectando os n\'os. As opera\c{c}\~oes suportas s\~ao m\'etodos HTTP expl\'icitos que n\~ao salvam estado das aplica\c{c}\~oes clientes e s\~ao idempotentes, s\~ao eles:
-GET: solicita ao webserver a representa\c{c}\~ao de uma informa\c{c}\~ao de um determinado recurso.
-POST: criar um recurso no webserver.
-PUT: mudar o estado de um recurso do webserver.
-DELETE: remover o recurso ou alterar para um estado vazio.
+Os Recursos usam um identificador \'unico e persistente, as URIs. A URIs possuem estruturas de diret\'orios, uma URI \'e uma \'arvore com ramos subordinados e superordinados conectando os n\'os \cite{rest}.
+
+
+Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture \'e uma arquitetura boa para RESTful webservices \cite{richardson2008restful}.
 
 Uma abordagem utilizando HTTP n\~ao \'e t\~ao interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
 
 \begin{figure}[H]
+    \title{teste}
     \label{bytesTransmitted}
     \centering
     \includegraphics[width=0.9\textwidth]{figuras/bytestransmitted.png}
-    \caption{\cite{transportApp}}
+    \caption{Diferen\c{c}a de bytes transmitidos \cite{transportApp}.}
 \end{figure}
 
 Todos os webservices utilizam o conceito de URI, por\'em de maneiras diferentes. Mas um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre. Os principais competidores aos servi\c{c}os web RESTful s\~ao os RPC-styles.
@@ -110,11 +116,11 @@ Todos os webservices utilizam o conceito de URI, por\'em de maneiras diferentes.
 
 Um dos principais objetivos do CoAP \'e ser uma alternativa protocolo web gen\'erico para redes com dispositivos com restri\c{c}\~ao de energia e mem\'oria.
 
-As vantagens de utilizar um protocolo compat\'ivel com o HTTP s\~ao: a facilidade de integra\c{c}\~ao e o reuso de aplica\c{c}\~oes. CoAP \'e um conjunto REST otimizado para M2M, com suporte a descoberta de recursos, multicast e troca de mensagens ass\'incronas com simplicidade e baixo overhead.
+As vantagens de utilizar um protocolo compat\'ivel com o HTTP s\~ao a facilidade de integra\c{c}\~ao e o reuso de aplica\c{c}\~oes. CoAP \'e um conjunto REST otimizado para M2M, com suporte a descoberta de recursos, multicast e troca de mensagens ass\'incronas com simplicidade e baixo overhead.
 
 A IETF estabelece as condi\c{c}\~oes m\'inimas para o desenvolvimento de um protocolo de aplica\c{c}\~ao compat\'ivel com HTTP, mas focado em aplica\c{c}\~oes aonde energia e mem\'oria s\~ao escassas. O protocolo CoAP foi projetado levando em considera\c{c}\~ao as restri\c{c}\~oes energ\'eticas e altas taxas de falha na transmiss\~ao dos pacotes em RSSF.
 
-A comunica\c{c}\~ao entre os pontos no CoAP \'e de forma ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial.
+A comunica\c{c}\~ao entre os pontos no CoAP \'e ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial.
 
 Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset. A figura \ref{coapFormat} mostra o formato do pacote.
 
@@ -124,7 +130,7 @@ Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida nu
     \label{coapFormat}
     \centering
     \includegraphics[width=0.6\textwidth]{figuras/formato.png}
-    \caption{formato do pacote CoAP  em bits. \cite{draft-ietf-core-coap-18}}
+    \caption{Formato do pacote CoAP  em bits \cite{draft-ietf-core-coap-18}.}
 \end{figure}
 
 
@@ -161,11 +167,11 @@ Max retransmit & 4 &  \\ \midrule
 \caption{Valores padr\~ao do CoAP.}
 \end{table}
 
-A retransmiss\~ao \'e controlada por um timeout e um contador. Quando este timeout \'e atigido e o contador \'e menor que valor m\'aximo de retransmiss\~ao a mensagem \'e transmitida, o contador incrementado e timeout duplicado. O modelo de retransmiss\~ao usa um contador de timeouts e uma fun\c{c}\~ao que varia de acordo com o n\'umero de tentativas.
+A retransmiss\~ao \'e controlada por um timeout e um contador. Inicialmente o contador \'e zero e atribuido um valor rand\^omico entre o ACK TIMEOUT e (ACK RANDOM FACTOR * ACK TIMEOUT) para o timeout. Quando este timeout \'e atigido o contador \'e incrementado timeout duplicado.
 
 Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa. O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
 
-Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{piggyBacked}.\cite{draft-ietf-core-coap-18}
+Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{piggyBacked}\cite{draft-ietf-core-coap-18}.
 \begin{figure}[H]
    \label{piggyBacked}
    \centering
@@ -175,9 +181,8 @@ Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode r
 
 \subsection{Requisi\c{c}\~ao e Resposta}
 
-Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo c\'odigo no cabe\c{c}alho do CoAP e gerado um token.
-Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token tem que bater.
-
+Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo c\'odigo no cabe\c{c}alho do CoAP e gerar um token.
+Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token seja o mesmo.
 
 Fluxo esperado de requisi\c{c}\~ao sem confirma\c{c}\~ao na figura \ref{nonConfirmable}.
 \begin{figure}[H]
@@ -187,7 +192,7 @@ Fluxo esperado de requisi\c{c}\~ao sem confirma\c{c}\~ao na figura \ref{nonConfi
    \caption{Fluxo esperado de requisi\c{c}\~ao e resposta sem confirma\c{c}\~ao}
 \end{figure}
 
-A RFC tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e resposta separada com confirma\c{c}\~ao. A figura \ref{separateResponse} exemplifica:
+A especifica\c{c}\~ao tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e resposta separada com confirma\c{c}\~ao. A figura \ref{separateResponse} exemplifica:
 
 \begin{figure}[H]
    \label{separateResponse}
@@ -208,13 +213,13 @@ observer
 
 \subsection{Recursos}
 
-A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format.\cite{rfc6690} E a descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
+A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
 \section{EPOS}
-O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, foi desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
+O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
 
 Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\'etodo para projeto de sistemas embarcados orientados \`a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc, AVR e ARM. \cite{eposProject}
 
-Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas. A portabilidade \'e atingida utilizando entidades chamados de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas. Abaixo uma a figura \ref{eposOverview} ilustrando a vis\~ao geral do EPOS.
+A portabilidade \'e atingida utilizando entidades chamadas de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas. Abaixo uma a figura \ref{eposOverview} ilustrando a vis\~ao geral do EPOS.
 
 \begin{figure}[H]
    \label{eposOverview}
@@ -224,45 +229,35 @@ Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^
 \end{figure}
 
  
-O EPOS tamb\'em possui uma interface de software/hardware que abstrai de sensores de forma uniforme, definindo classes de dispositivos baseados numa finalidade.\cite{epos}
-%Inserir figura da arquitetura do EPOS.
+O EPOS tamb\'em possui uma interface de software/hardware que abstrai sensores de forma uniforme, definindo classes de dispositivos baseados numa finalidade. Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas \cite{epos}.
 
-A infraestrutura de comunicaca\c{c}\~ao do EPOS para redes de sensores sem-fio \'e implementada pelo protocolo C-MAC, Configurable MAC, que prov\^e suporte a comunicaca\c{c}\~ao de baixo n\'ivel (MAC - Medium Access Control)
+A infraestrutura de comunicaca\c{c}\~ao do EPOS para redes de sensores sem-fio \'e implementada pelo protocolo C-MAC, Configurable MAC, que prov\^e suporte a comunicaca\c{c}\~ao de baixo n\'ivel (MAC - Medium Access Control).
+
+\afazer{falar sobre UDP/IP do EPOS}
+A camada UDP/IP implementada no EPOS foi utilizada para a aplica\c{c}\~ao gateway.
 
 \section{Trabalhos Relacionados}
 
 \subsection{OpenWSN}
 
-O projeto OpenWSN \'e um projeto de redes de sensores sem fio de c\'odigo aberto e confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas.
+O projeto OpenWSN \'e um projeto de redes de sensores sem fio de c\'odigo aberto que confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas. O OpenWSN tamb\'em possu\'i a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, Time Synchronized Channel Hopping.
 
-E com a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, Time Synchronized Channel Hopping.
+Por serem sincronizados os motes precisam acordar apenas para transmitir ou receber e periodicamente se comunicar para manter a rede sincronizada quando estiver inativo. Este overhead de temporiza\c{c}\~ao \'e pequeno, cerca de 0.02\% de ciclo de trabalho do r\'adio \cite{openWSNPaper}.
 
-Por serem sincronizados os motes precisam acordar apenas para transmitir ou receber e periodicamente se comunicar para manter a rede sincronizada quando estiver inativo. Este overhead de temporiza\c{c}\~ao \'e pequeno, cerca de 0.02\% de ciclo de trabalho do r\'adio. \cite{openWSNPaper}
-
-O pilha de protocolos \'e totalmente em C e pode ser compilada em qualquer toolchain que suporte uma plataforma alvo. OpenWSN j\'a foi portado para as seguintes arquiteturas: ARM, AVR, ...
-
-Possui porte para diversas plataformas de microcontroladores de 16 bits e para as arquiteturas mais novas de 32 bits dos cortex-M. O projeto possui diversas ferramentas para depura\c{c}\~ao, simula\c{c}\~ao e ambiente necess\'ario para integrar as aplica\c{c}\~oes a Internet.\cite{openWSN}
+A pilha de protocolos \'e totalmente implementada em C e pode ser compilada em qualquer toolchain que suporte uma plataforma alvo. Possui porte para diversas plataformas de microcontroladores de 16 bits e para as arquiteturas mais novas de 32 bits dos Cortex-M. O projeto possui diversas ferramentas para depura\c{c}\~ao, simula\c{c}\~ao e ambiente necess\'ario para integrar as aplica\c{c}\~oes a Internet \cite{openWSN}.
 
 Resultados experimentais de uma rede de motes demonstram que os r\'adios operam num ciclo m\'edio de trabalho de $0.1\%$ e uma m\'edia de 0.68 microA em hardware comum. Este consumo baixo permite uma vasta gama de aplica\c{c}\~oes.
 
-Para utilizar \'e necess\'ario baixar os seguintes reposit\'orios:
-\begin{description}
-    \item [Software de sistema:] https://github.com/openwsn-berkeley/openwsn-fw
-    \item [Ferramentas para desenvolvimento:] https://github.com/openwsn-berkeley/openwsn-sw 
-    \item[Implementa\c{c}\~ao do CoAP:] https://github.com/openwsn-berkeley/coap
-\end{description}
-
-
 \subsection{Contiki}
-O Contiki \'e um sistema operacional criado por Adam Dunkels em 2000, escrito em C, de c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos comunicam-se numa rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
+O Contiki \'e um sistema operacional criado por Adam Dunkels em 2000, escrito em C, de c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos comunicarem numa rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
 
 Cada processo no Contiki possui bloco de controle, que cont\'em informa\-\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma refer\^encia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. 
 
-Programas escritos num modelo dirigido a eventos, geralmente s\~ao implementados como m\'aquinas de estados expl\'icitas, que com um grande n\'umero de estados o c\'odigo come\c{c}a a se tornar complexo, dif\'icil de entender e depurar. Estas foram as principais motiva\c{c}\~oes para que fosse desenvolvido um modelo de programa\c{c}\~ao diferente, utilizado nos projetos desenvolvidos por Adam, a pilha uIP e do Contiki.\cite{Dunkels05protothreads}
+Programas s\~ao escritos num modelo dirigido a eventos, geralmente s\~ao implementados como m\'aquinas de estados expl\'icitos, que com um grande n\'umero de estados o c\'odigo come\c{c}a a se tornar complexo, dif\'icil de entender e depurar. Estas foram as principais motiva\c{c}\~oes para que fosse desenvolvido um modelo de programa\c{c}\~ao diferente, utilizado nos projetos desenvolvidos por Adam, a pilha uIP e do Contiki.\cite{Dunkels05protothreads}
 
 O conceito protothread foi desenvolvido por Adam Dunkels em 2005, uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento dos eventos, gerando um baixo overhead de mem\'oria por n\~ao necessitar de salvamento de contexto.
 
-As limita\c{c}\~oes dessa t\'ecnicas s\~ao: vari\'aveis autom\'aticas n\~ao s\~ao preservadas Stack durante trocas de contexto entre as protothreads. Elas podem ser utilizadas durante uma protothread mas devem ser salvas antes da execu\c{c}\~ao de do m\'etodo WAITING. Al\'em disso programas que utilizam protothreads n\~ao podem utilizar switch case, caso o fizer um erro de compila\c{c}\~ao \'e esperado.
+As limita\c{c}\~oes dessas t\'ecnicas s\~ao: vari\'aveis autom\'aticas n\~ao s\~ao preservadas Stack durante trocas de contexto entre as protothreads. Elas podem ser utilizadas durante uma protothread mas devem ser salvas antes da execu\c{c}\~ao de do m\'etodo WAITING. Al\'em disso programas que utilizam protothreads n\~ao podem utilizar switch case, caso o fizer um erro de compila\c{c}\~ao \'e esperado.
 
 Cada protothread consome 2 bytes de mem\'oria, que s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. \'E um m\'etodo similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffyMechanism}
 

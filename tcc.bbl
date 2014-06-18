@@ -82,10 +82,10 @@
 {Cheng, Peng and Chuah, Chen-Nee and Liu, Xin. \emph{Energy-aware node placement in wireless sensor networks}. 2004}
 
 \bibitem[]{coberturaGPRS}
-\abntrefinfo{}{}{}{\afazer{falta inserir dados da anatel}}
+\abntrefinfo{}{ANATEL}{2014}{$<$http://sistemas.anatel.gov.br/stel$>$. 2014}
 
 \bibitem[]{openWSN}
-\abntrefinfo{}{}{}{$<$https://openwsn.atlassian.net/wiki$>$}
+\abntrefinfo{}{OpenWSN}{2014}{$<$https://openwsn.atlassian.net/wiki$>$}
 
 \bibitem[Duffy Device]{duffyMechanism}
 \abntrefinfo{}{Duffy T.}{1988}{Tom Duffy $<$http://www.lysator.liu.se/c/duffs-device.html$>$. 1988.}
