@@ -93,4 +93,6 @@
 \bibitem[EPOS Project]{eposProject}
 \abntrefinfo{}{EPOS}{1999}{$<$http://epos.lisha.ufsc.br/HomePage$>$. 1999.}
 
+\bibitem[EPOS Cross-Layer]{eposCrossLayer}
+\abntrefinfo{}{FRO\"OLICH A., OKAZAKI A., STEINER R., OLIVEIRA P.}{2013}{\emph{A Cross-layer Approach to Trustfulness in the Internet of Things}. 2013}
 \end{thebibliography}

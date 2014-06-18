@@ -203,12 +203,10 @@ A especifica\c{c}\~ao tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{
 
 \subsection{Op\c{c}\~oes}
 
-O CoAP possui diversas op\c{c}\~oes que s\~ao codificadas conforme a tabela abaixo.
-As op\c{c}\~oes s\~ao separadas entre eletivas, obrigat\'orias e ....
+O CoAP possui diversas op\c{c}\~oes tanto nas requisi\c{c}\~oes como nas respostas. 
 
-URI, path, query
-observer
-\afazer{falta coisa....}
+
+As op\c{c}\~oes s\~ao separadas entre eletivas, obrigat\'orias e ....
 
 
 \subsection{Recursos}
@@ -233,8 +231,8 @@ O EPOS tamb\'em possui uma interface de software/hardware que abstrai sensores d
 
 A infraestrutura de comunicaca\c{c}\~ao do EPOS para redes de sensores sem-fio \'e implementada pelo protocolo C-MAC, Configurable MAC, que prov\^e suporte a comunicaca\c{c}\~ao de baixo n\'ivel (MAC - Medium Access Control).
 
-\afazer{falar sobre UDP/IP do EPOS}
-A camada UDP/IP implementada no EPOS foi utilizada para a aplica\c{c}\~ao gateway.
+Possui uma pilha de protocolos basedo na arquitetura OSI e outra abordagem Cross-layer. A implementa\c{c}\~ao IPv4 utiliza um controle de fluxo aonde os n\'os sinalizam a disponibilidade de buffer para mensagem \'unica em tempos ajustando o tempo entre a troca de mensagens \cite{crossLayerEpos}.
+
 
 \section{Trabalhos Relacionados}
 
@@ -253,15 +251,15 @@ O Contiki \'e um sistema operacional criado por Adam Dunkels em 2000, escrito em
 
 Cada processo no Contiki possui bloco de controle, que cont\'em informa\-\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma refer\^encia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. 
 
-Programas s\~ao escritos num modelo dirigido a eventos, geralmente s\~ao implementados como m\'aquinas de estados expl\'icitos, que com um grande n\'umero de estados o c\'odigo come\c{c}a a se tornar complexo, dif\'icil de entender e depurar. Estas foram as principais motiva\c{c}\~oes para que fosse desenvolvido um modelo de programa\c{c}\~ao diferente, utilizado nos projetos desenvolvidos por Adam, a pilha uIP e do Contiki.\cite{Dunkels05protothreads}
+Programas s\~ao escritos num modelo dirigido a eventos, geralmente s\~ao implementados como m\'aquinas de estados expl\'icitos, que com um grande n\'umero de estados o c\'odigo come\c{c}a a se tornar complexo, dif\'icil de entender e depurar. Estas foram as principais motiva\c{c}\~oes para que fosse desenvolvido um modelo de programa\c{c}\~ao diferente, utilizado nos projetos desenvolvidos por Dunkels, a pilha uIP e do Contiki \cite{Dunkels05protothreads}.
 
-O conceito protothread foi desenvolvido por Adam Dunkels em 2005, uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento dos eventos, gerando um baixo overhead de mem\'oria por n\~ao necessitar de salvamento de contexto.
+O conceito protothread foi desenvolvido por Adam Dunkels em 2005, uma combina\c{c}\~ao entre eventos e threads, possuem comportamentos de bloqueio e espera, que permite o intersequenciamento dos eventos, gerando um baixo overhead de mem\'oria por n\~ao necessitar de salvamento de contexto. Foi desenvolvida para diminuir a complexidade de c\'odigo 
 
 As limita\c{c}\~oes dessas t\'ecnicas s\~ao: vari\'aveis autom\'aticas n\~ao s\~ao preservadas Stack durante trocas de contexto entre as protothreads. Elas podem ser utilizadas durante uma protothread mas devem ser salvas antes da execu\c{c}\~ao de do m\'etodo WAITING. Al\'em disso programas que utilizam protothreads n\~ao podem utilizar switch case, caso o fizer um erro de compila\c{c}\~ao \'e esperado.
 
-Cada protothread consome 2 bytes de mem\'oria, que s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. \'E um m\'etodo similar ao mecanismo de Duffy e Co-rotina em C. \cite{duffyMechanism}
+Cada protothread consome 2 bytes de mem\'oria, que s\~ao utilizados para armazenar a continuidade local, uma referencia utilizada em um pulo condicional durante a execu\c{c}\~ao da thread. \'E um m\'etodo similar ao mecanismo de Duffy e Co-rotina em C \cite{duffyMechanism}.
 
-O Contiki prop\~oe uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adios desligados em aproximadamente 99\% do tempo.\cite{Dunkels11thecontikimac}
+O Contiki prop\~oe uma estrat\'egia de ciclos de trabalho que consegue manter um n\'o comunic\'avel em uma rede, por\'em com seus r\'adios desligados em aproximadamente 99\% do tempo \cite{Dunkels11thecontikimac}.
 
 \subsection{LibCoap}
 LibCoap \'e uma biblioteca implementada em C do protocolo CoAP. Possui 292K de tamanho compilada estaticamente em sua vers\~ao 4.0.1.
