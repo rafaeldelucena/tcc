@@ -1,47 +1,45 @@
-As t\'ecnologias de ambientes inteligentes est\~ao est\~ao sendo desenvolvidas e ser\~ao um grande passo para as \'areas como: constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
+As tecnologias de ambientes inteligentes est\~ao sendo desenvolvidas e ser\~ao um grande passo para as \'areas como constru\c{c}\~ao civil, industria, transporte e automa\c{c}\~ao residencial.
 
-Para agirem de forma inteligente, estes ambientes necessitam de informac\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e comunicando os dados do ambiente.\cite{lewis2004wireless}
+Para agirem de forma inteligente, estes ambientes necessitam de informa\c{c}\~ao sobre o contexto aonde ser\~ao implantados. As redes de sensores sem fio s\~ao um componente chave para estes ambientes, adquirem este contexto captando e comunicando os dados do ambiente.\cite{lewis2004wireless}
 
 Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arquitetura orientada a servi\c{c}os e os protocolos de aplica\c{c}ao existentes.
 
 \section{Redes de sensores sem fio}
 
-O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes militares e hoje s\~ao utilizados em 
-utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e controle de processos industriais, supervis\~ao de maquinas, monitoramento de ambientes, estruturas e tubula\c{c}\~oes, autom\c{c}\~ao resid\^encial, coleta de dados de pacientes, entre outros.
+O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes militares e hoje s\~ao utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e controle de processos industriais, supervis\~ao de maquinas, monitoramento de ambientes, estruturas e tubula\c{c}\~oes, automa\c{c}\~ao residencial, coleta de dados de pacientes, entre outros.
 
-Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo uma realidade.
+Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo de energia uma realidade.
 
-Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores.\cite{542724}
+Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores \cite{542724}.
 
 
-Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os.
+Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio, permitindo dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os \cite{dargie2010fundamentals}.
 
 \begin{figure}[H]
    \label{wsnOverview}
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/wsn.png}
-   \caption{\cite{dargie2010fundamentals}}
+   \caption{Vis\~ao geral de uma RSSF}
 \end{figure}
-
 
 Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
 
-Muitas redes de sensores tamb\'em possuem atuadores, que permitem controle direto ao mundo real. Uma rede de sensores e atuadores recebe comandos da unidade de processamento (microcontrolador) e transforma estes comandos em sinais de entrada para um atuador, que interage com processos f\'sicos. Estas redes s\~ao chamadas de redes de sensores e atuadores sem fio, ou WSAN.
+Muitas redes de sensores tamb\'em possuem atuadores, que permitem controle direto ao mundo real. Uma rede de sensores e atuadores recebe comandos da unidade de processamento (microcontrolador) e transforma estes comandos em sinais de entrada para um atuador, que interage com processos f\i'sicos. Estas redes s\~ao chamadas de redes de sensores e atuadores sem fio, ou WSAN.
 
 A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, pois n\~ao est\~ao ligados diretamente a fonte de energia. Deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o meio f\'isico, iniciando com o projeto de r\'adio. \cite{WsnSurvey2008} 
 
 \subsection{N\'os sensores}
-Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'sica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
+Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omenos do mundo real e convertendo em uma forma que pode ser processada, armazenada e utilizada para tomada de decis\~ao. A escolha entre qual sensor a ser utilizado depende muito da aplica\c{c}\~ao e da propriedade f\'isica a ser monitorada, alguns exemplos: temperatura, press\~ao, humidade, entre outros.
 
-Geralmente os n\'o sensores s\~ao compostos por um microcontrolador, transceiver, mem\'oria externa, fonte de energia e um ou mais sensores. Respons\'aveis por coletar dados, fazer uma certa an\'alise da rede, correla\c{c}\~ao entre dados com outros n\'os e comunica\c{c}\~ao com uma esta\c{c}\~ao base afim de centralizar a informa\c{c}\~ao, para um processamento externo. Isto \'e importante pois geralmente tais redes s\~ao compostas por muitos n\'os e com baixa capacidade computacional. \cite{dargie2010fundamentals}
+Geralmente os n\'o sensores s\~ao compostos por um microcontrolador, transceiver, mem\'oria externa, fonte de energia e um ou mais sensores. Os n\'os s\~ao respons\'aveis por coletar dados, fazer uma certa an\'alise da rede, correla\c{c}\~ao entre dados com outros n\'os e comunica\c{c}\~ao com uma esta\c{c}\~ao base afim de centralizar a informa\c{c}\~ao, para um processamento externo. \cite{dargie2010fundamentals}
 
 \subsection{Sink Nodes}
 
-Como estas redes utilizam um espectro diferente de comunica\c{c}\~ao, \'e necess\'ario uma integra\c{c}\~ao com a rede j\'a conhecida. Uma forma de integrar os n\'os sensores \'e utilizar n\'os espec\'ificos para executarem este trabalho. \afazer{citar}
+Como estas redes utilizam um espectro diferente de comunica\c{c}\~ao, \'e necess\'ario uma integra\c{c}\~ao com a rede j\'a conhecida. Uma forma de integrar os n\'os sensores \'e utilizar n\'os espec\'ificos para executarem este trabalho.
 
 Um exemplo \'e utilizar um n\'o como esta\c{c}\~ao de sincroniza\c{c}\~ao, por\'em surge um problema, pois o n\'o sincronizador deve ter conhecimento de todos os recursos dispon\'iveis na rede.
 
-Quando os recursos s\~ao expostos diretamente pelo pr\'oprio dispositivo como num protocolo de aplica\c{c}\~ao tipo o CoAP a complexidade do n\'o gateway \'e bem reduzida, j\'a que o papel \'e simplesmente repassar os pacotes de descoberta de recursos para Internet. \cite{Colitti11deintegrating}
+Quando os recursos s\~ao expostos diretamente pelo pr\'oprio dispositivo como num protocolo de aplica\c{c}\~ao tipo o CoAP a complexidade do n\'o gateway \'e bem reduzida, j\'a que o papel \'e simplesmente repassar os pacotes de descoberta de recursos para Internet \cite{Colitti11deintegrating}.
 
 
 % descreva sobre as plataformas de \subsection{Plataforma de Hardware}
@@ -55,16 +53,16 @@ Quando os recursos s\~ao expostos diretamente pelo pr\'oprio dispositivo como nu
 
 Arquitetura orientada a servi\c{c}os \'e uma forma de organizar infraestrutura e aplica\c{c}\~oes de software em um conjunto de servi\c{c}os. Estes s\~ao oferecidos por prestadores de servi\c{c}o, servidores, organiza\c{c}\~oes que implementam os servi\c{c}os, fornecem descri\c{c}\~ao dos servic\c{c}os oferecidos, suporte t\'ecnico e de neg\'ocio.
 
-O modelo de computa\c{c}\~ao utilizando esta afirmativa \'e conhecido como Computa\c{c}\~ao Orientada a servi\c{c}os (SOC). \cite{581580}
+O modelo de computa\c{c}\~ao utilizando este paradigma \'e conhecido como Computa\c{c}\~ao Orientada a servi\c{c}os (SOC) \cite{581580}.
 
-Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requis\'itos servi\c{c}os devem:
+Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requisitos servi\c{c}os devem:
 \begin{description}
     \item[Tecnologicamente neutros:] utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta;
     \item[Baixo acoplamento:] detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o;
     \item[Localidade transparente:] clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
 \end{description}
 
-SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c} (service provider), descoberta de servi\c{c}o (service discovery agency) e o client (service requestor).  Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes: publicar (publish), encontrar (find) e vincular (bind).
+SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c}o (service provider), descoberta de servi\c{c}o (service discovery agency) e o client (service requestor).  Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes: publicar (publish), encontrar (find) e vincular (bind).
 
 \begin{figure}[H]
    \label{soaOverview}
@@ -77,15 +75,15 @@ SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento e
 
 \section{Webservices}
 
-Um servi\c{c}o web \'e um sistema de software projetado para suportar interoperabilidade em intera\c{c}\~oes m\'aquina-a-m\'aquina na rede. Possui uma interface descritiva das funcionalidades num formato padronizado (especificamente WSDL). Esta nota\c{c}\~ao abstrata que deve ser implementada por um agente.\cite{w3c-web-04}. 
+Um servi\c{c}o web \'e um sistema de software projetado para suportar interoperabilidade em intera\c{c}\~oes m\'aquina-a-m\'aquina na rede. Possui uma interface descritiva das funcionalidades num formato padronizado (especificamente WSDL). Esta nota\c{c}\~ao abstrata que deve ser implementada por um agente \cite{w3c-web-04}.
 
 O agente \'e algo concreto, pode ser um peda\c{c}o de hardware ou software que recebe e envia mensagens. Um exemplo \'e implementar o mesmo servi\c{c}o web, utilizando agentes em diferentes linguagens. Embora o agente seja diferente, o servi\c{c}o Web continua o mesmo.
 
-Servi\c{c}os Web prov\^eem um padr\~ao para a interoperabilidade entre diferentes aplica\c{c}\~oes de software, que executam em diferentes plataformas de software e hardware.
+Servi\c{c}os Web prov\^em um padr\~ao para a interoperabilidade entre diferentes aplica\c{c}\~oes de software, que executam em diferentes plataformas de software e hardware.
 
 \subsection{RESTful}
 
-RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informac\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI. \cite{rest}
+RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI. \cite{rest}
 
 Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture A \'e uma arquitetura boa para RESTful webservices. \cite{richardson2008restful}
 

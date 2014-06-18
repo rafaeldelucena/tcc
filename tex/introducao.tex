@@ -1,39 +1,40 @@
 Redes de sensores e atuadores s\~ao utilizadas para a capta\c{c}\~ao, processamento de informa\c{c}\~ao e atua\c{c}\~ao sobre um ambiente, tornando-as importantes em aplica\c{c}\~oes de controle, telemetria e rastreamento de sistemas.
 
-N\'os que participam destas redes geralmente s\~ao computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e capacidade de comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos.
+N\'os que participam destas redes geralmente s\~ao compostos por computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e capacidade de comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos.
 
-O maior consumo de energia neste tipo de aplica\c{c}\~ao \'e do r\'adio, portanto os desafios dos algoritmos de comunica\c{c}\~ao nesta \'area s\~ao manter os r\'adios ligados o m\'inimo de tempo poss\'ivel sem comprometer a conectividade do n\'o.
+O maior consumo de energia neste tipo de aplica\c{c}\~ao \'e do r\'adio, portanto o desafio dos algoritmos de comunica\c{c}\~ao nesta \'area \'e manter os r\'adios ligados o m\'inimo de tempo poss\'ivel sem comprometer a conectividade do n\'o.
 
 \section{Objetivos}
-O objetivo geral desse trabalho \'e descrever e implementar webservices em uma rede sensores sem fio, que far\~ao a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
+O objetivo geral desse trabalho \'e descrever e implementar webservices em uma rede sensores sem fio que far\~ao a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
 
 \subsection{Objetivos Espec\'ificos}
 Este trabalho realizar\'a o desenvolvimento de aplica\c{c}\~oes web e software de sistema para fazer a ponte entre a rede de sensores e a Internet. O Sistema operacional utilizado ser\'a o EPOS, que possui uma implementa\c{c}\~ao de pilha UDP/IP. A aplica\c{c}\~ao integradora GPRS/802.15.4 ir\'a executar na plataforma EposMoteII utilizando uma extens\~ao GPRS.
 
-A comunica\c{c}\~ao entre os n\'os da rede ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP. Um protocolo espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
+A comunica\c{c}\~ao entre os n\'os da rede ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP, um protocolo espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
 
 Sendo assim, os objetivos espec\'ificos s\~ao:
 
 \begin{enumerate}
-    \item {Portar o protocolo CoAP para o EPOS;}
-    \item {Implementar uma aplica\c{c}\~ao para redes de sensores sem fio;}
-    \item {Desenvolver a aplica\c{c}\~ao gateway GPRS/802.15.4.}
-    \item {Desenvolver uma aplica\c{c}\~ao web para visualiza\c{c}\~ao da informa\c{c}\~ao.}
+    \item{Portar o protocolo CoAP para o EPOS;}
+    \item{Implementar uma aplica\c{c}\~ao para redes de sensores sem fio;}
+    \item{Desenvolver a aplica\c{c}\~ao gateway GPRS/802.15.4.}
+    \item{Desenvolver uma aplica\c{c}\~ao web para visualiza\c{c}\~ao da informa\c{c}\~ao;}
+    \item{Avaliar a soluc\c{c}\~ao desenvolvida.}
 \end{enumerate}
 
 \section{Justificativa}
 
 Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivos com suprimento limitado de energia, como uma bateria ou uma placa fotovolt\'aica. Estas t\'ecnicas fazem que os transmissores fiquem ligados por mais tempo, para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens.
 
-O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas.
+O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em disso quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas, podendo gerar retransmiss\~oes.
 
 Por sua vez o protocolo do UDP, n\~ao mant\'em conex\~ao, dados s\~ao recebidos fora de ordem e o envio \'e feito de uma mensagem por vez. Isto implica tamb\'em na redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote.
 
-Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP.\cite{transportApp}
+Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP \cite{transportApp}.
 
-A falta de padroniza\c{c}\~ao dos protocolos afeta o desenvolvimento de uma rede p\'ublica ub\'iqua de uma cidade inteligente por exemplo. Grande parte das solu\c{c}\~oes utiliza protocolos propriet\'arios, que se comunicacam apenas com os produtos de um mesmo fabricante.
+A falta de padroniza\c{c}\~ao dos protocolos afeta o desenvolvimento de uma rede p\'ublica ub\'iqua de uma cidade inteligente, por exemplo. Grande parte das solu\c{c}\~oes utiliza protocolos propriet\'arios que se comunicacam apenas com os produtos de um mesmo fabricante.
 
-O protocolo HTTP foi desenvolvido para comunica\c{c}\~ao de computadores de prop\'osito geral, onde as restri\c{c}\~oes citadas n\~ao s\~ao comuns. Em rela\c{c}\~ao ao tamanho, o pacote HTTP \'e um problema para redes 802.15.4, j\'a que estas redes que possuem uma restri\c{c}\~ao de 128 bytes. O protocolo TCP precisa transmitir mensagens adicionais para manter uma conex\~ao, outra caracter\'istica que n\~ao \'e interessante para RSSF.
+O protocolo HTTP foi desenvolvido para comunica\c{c}\~ao de computadores de prop\'osito geral, onde as restri\c{c}\~oes citadas n\~ao s\~ao comuns. Em rela\c{c}\~ao ao tamanho, o pacote HTTP \'e um problema para redes 802.15.4, j\'a que estas redes possuem uma restri\c{c}\~ao de 128 bytes em sua PDU. O protocolo TCP precisa transmitir mensagens adicionais para manter uma conex\~ao, outra caracter\'istica que n\~ao \'e interessante para RSSF.
 
 Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\-\c{c}\~oes web em redes de sensores sem fio por um baixo custo. Neste trabalho \'e proposto uma infraestrutura de comunica\c{c}\~ao entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para \'areas sem acesso \`a WIFI, aproveitando a vasta abrang\^encia da tecnologia de telefonia. Com a utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.
 
@@ -48,6 +49,6 @@ Ser\'a feito um levantamento dos componentes de software e hardware necess\'ario
 
 Durante o desenvolvimento do protocolo, testes ser\~ao executados para verificar o correto comportamento e diminuir a depura\c{c}\~ao em hardware, que geralmente leva mais tempo.
 
-Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo Laborat\'orio. Os testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
+Nos testes de integra\c{c}\~ao do gateway, ser\'a utilizada uma placa de desenvolvimento em conjunto com um m\'odulo M95 da Quectel disponibilizada pelo LISHA. Ser\~ao realizads testes de envio de mensagens em diversos protocolos, inclusive testes com comandos propriet\'arios adicionais do modem.
 
-Para testes de integra\c{c}\~ao, as aplica\c{c}\~oes ser\~ao executados na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido.
+Para testes de integra\c{c}\~ao, as aplica\c{c}\~oes ser\~ao executadas na plataforma de sensores sem fio EPOS Mote II utilizando o EPOS com o CoAP desenvolvido.
