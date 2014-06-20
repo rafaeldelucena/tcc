@@ -167,7 +167,7 @@ Max retransmit & 4 &  \\ \midrule
 \caption{Valores padr\~ao do CoAP.}
 \end{table}
 
-A retransmiss\~ao \'e controlada por um timeout e um contador. Inicialmente o contador \'e zero e atribuido um valor rand\^omico entre o ACK TIMEOUT e (ACK RANDOM FACTOR * ACK TIMEOUT) para o timeout. Quando este timeout \'e atigido o contador \'e incrementado timeout duplicado.
+A retransmiss\~ao \'e controlada por um timeout e um contador. Inicialmente o contador \'e zero e atribuido um valor rand\^omico entre o ACK TIMEOUT e (ACK RANDOM FACTOR * ACK TIMEOUT) para o timeout. Quando este timeout \'e atigido o contador \'e incrementado e o timeout duplicado.
 
 Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa. O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
 
@@ -231,7 +231,7 @@ O EPOS tamb\'em possui uma interface de software/hardware que abstrai sensores d
 
 A infraestrutura de comunicaca\c{c}\~ao do EPOS para redes de sensores sem-fio \'e implementada pelo protocolo C-MAC, Configurable MAC, que prov\^e suporte a comunicaca\c{c}\~ao de baixo n\'ivel (MAC - Medium Access Control).
 
-Possui uma pilha de protocolos basedo na arquitetura OSI e outra abordagem Cross-layer. A implementa\c{c}\~ao IPv4 utiliza um controle de fluxo aonde os n\'os sinalizam a disponibilidade de buffer para mensagem \'unica em tempos ajustando o tempo entre a troca de mensagens \cite{crossLayerEpos}.
+Possui uma pilha de protocolos basedo na arquitetura OSI e outra abordagem Cross-layer. A implementa\c{c}\~ao IPv4 utiliza um controle de fluxo aonde os n\'os sinalizam a disponibilidade de buffer para mensagem \'unica em tempos ajustando o tempo entre a troca de mensagens \cite{eposCrossLayer}.
 
 
 \section{Trabalhos Relacionados}
@@ -244,7 +244,7 @@ Por serem sincronizados os motes precisam acordar apenas para transmitir ou rece
 
 A pilha de protocolos \'e totalmente implementada em C e pode ser compilada em qualquer toolchain que suporte uma plataforma alvo. Possui porte para diversas plataformas de microcontroladores de 16 bits e para as arquiteturas mais novas de 32 bits dos Cortex-M. O projeto possui diversas ferramentas para depura\c{c}\~ao, simula\c{c}\~ao e ambiente necess\'ario para integrar as aplica\c{c}\~oes a Internet \cite{openWSN}.
 
-Resultados experimentais de uma rede de motes demonstram que os r\'adios operam num ciclo m\'edio de trabalho de $0.1\%$ e uma m\'edia de 0.68 microA em hardware comum. Este consumo baixo permite uma vasta gama de aplica\c{c}\~oes.
+Resultados experimentais de uma rede de motes demonstram que os r\'adios operam num ciclo m\'edio de trabalho de $0.1\%$ e uma m\'edia de 0.68 $\mu$A em hardware comum. Este consumo baixo permite uma vasta gama de aplica\c{c}\~oes.
 
 \subsection{Contiki}
 O Contiki \'e um sistema operacional criado por Adam Dunkels em 2000, escrito em C, de c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos comunicarem numa rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.

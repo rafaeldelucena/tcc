@@ -22,10 +22,15 @@
 \usepackage[T1]{fontenc}
 \usepackage{inconsolata}
 \usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{pifont}
+
 
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
 \newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
+\newcommand{\cmark}{{\color{green}\ding{51}}}%
+\newcommand{\xmark}{{\color{red}\ding{55}}}%
 
 %----------------------------------------------------------------------
 % Identificadores do trabalho
@@ -89,7 +94,7 @@ utilizando protocolos leves entre os n\'os sensores e um gateway GPRS para aprov
 %\paginaabstract
 %\pretextuais % Substitui todos os elementos pre-textuais acima
 \listadefiguras % as listas dependem da necessidade do usuário
-%\listadetabelas
+\listadetabelas
 \abreviatura{CoAP}{Constrained Aplication Protocol}
 \abreviatura{EPOS}{Embedded Parallel Operating System}
 \abreviatura{HTTP}{Hipertext Transfer protocol}

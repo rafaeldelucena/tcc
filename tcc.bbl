@@ -95,4 +95,11 @@
 
 \bibitem[EPOS Cross-Layer]{eposCrossLayer}
 \abntrefinfo{}{FRO\"OLICH A., OKAZAKI A., STEINER R., OLIVEIRA P.}{2013}{\emph{A Cross-layer Approach to Trustfulness in the Internet of Things}. 2013}
+
+\bibitem[Embedded ARM GCC]{armGCC}
+\abntrefinfo{}{Embedded ARM GCC}{2014}{\emph{GNU Tools for ARM Embedded Processors} $<$https://launchpad.net/gcc-arm-embedded/$>$. 2014}
+
+\bibitem[OpenMote]{openMote}
+\abntrefinfo{}{OpenMote CC2538}{2014}{\emph{OpenMote: open hardware for Internet of Things} $<$http:www.openmote.com$>$. 2014}
+
 \end{thebibliography}

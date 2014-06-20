@@ -1,17 +1,14 @@
 \section{An\'alise Funcional}
-\subsection{Limita\c{c}\~oes Funcionais}
-\afazer{em desenvolvimento}
 
-Atualmente a aplica\c{c}\~ao cliente n\~ao possui uma implementa\c{c}\~ao segura do procotolo CoAP, que utiliza o DTLS.
-Para resolver este problema \'e necess\'ario que o pacote seja criptografado.
+A aplica\c{c}\~ao gateway \'e respons\'avel por fazer uma ponte entre a rede de sensores e a Internet. \'E poss\'ivel descobrir servi\c{c}os e recursos, iniciar requisi\c{c}\~oes, fazer descoberta de recursos, tudo  isto \'e transparente para os pontos comunicantes. 
+
+Atualmente a aplica\c{c}\~ao n\~ao possui uma implementa\c{c}\~ao segura do procotolo CoAP, que utiliza o DTLS. Para resolver este problema \'e necess\'ario que o pacote seja criptografado.
 
 \section{An\'alise Estrutural}
 
-Fator muito importante para verificar a implemenca\c{c}\~ao de protocolo \'e a interoperabilidade entre diferentes implementa\c{c}\~oes.
+Um Fator muito importante para verificar a implemenca\c{c}\~ao de protocolo \'e a interoperabilidade entre diferentes implementa\c{c}\~oes. \'E essencial que a implementa\c{c}\~ao cliente trate os mecanismos de requisi\c{c}\~ao e resposta tanto para mensagens confirmadas e n\~ao confirmadas. Uma maneira de validar a interoperabilidade da implementa\c{c}\~ao do protocolo \'e usar um padr\~ao de testes entre diferentes sistemas.
 
-A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o comportamento entre diversas implementa\c{c}\~oes CoAP.
-
-Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como primeiro evento IOT CoAP plugtest.  Os pontos principais objetivos do teste s\~ao:
+A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o comportamento entre diversas implementa\c{c}\~oes CoAP. Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como primeiro evento IOT CoAP plugtest.  Os pontos principais objetivos do teste s\~ao:
 
 \begin{itemize}
 \item Especifica\c{c}\~ao b\'asica do CoAP.
@@ -21,80 +18,90 @@ Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como 
 \end{itemize}
 
 O teste basicamente \'e executado entre diferentes dispositivos e implementa\c{c}\~oes CoAP. O cen\'ario inicial de testes \'e composto por:
-    \begin{itemize}
-        \item Cada equipamento deve estar configurado com um endere\c{c}o unicast.
-        \item A cache do cliente deve estar limpa.
-        \item Utiliza\c{c}\~ao da op\c{c}\~ao ETag por padr\~ao deve ser evitada a n\~ao ser que esteja explicitamente descrito no caso de teste. 
-        \item O uso de Tokens deve ser evitado a n\~ao ser que o caso de teste utilize, por\'em a implementa\c{c}\~ao deve estar preparada para tratar o token.
-        \item O uso de repostas por Piggybacked deve ser preferencial, a menos que a descri\c{c}\~ao do teste altere este padr\~ao.
-    \end{itemize}
+\begin{itemize}
+    \item Cada equipamento deve estar configurado com um endere\c{c}o unicast.
+    \item A cache do cliente deve estar limpa.
+    \item Utiliza\c{c}\~ao da op\c{c}\~ao ETag por padr\~ao deve ser evitada a n\~ao ser que esteja explicitamente descrito no caso de teste. 
+    \item O uso de Tokens deve ser evitado a n\~ao ser que o caso de teste utilize, por\'em a implementa\c{c}\~ao deve estar preparada para tratar o token.
+    \item O uso de repostas por Piggybacked deve ser preferencial, a menos que a descri\c{c}\~ao do teste altere este padr\~ao.
+\end{itemize}
 
-Os testes feitos para o protocolo CoAP s\~ao:
-\begin{enumerate}
-    \item Cumprir transa\c{c}\~oes GET, confirm\'avel.
-    \item Cumprir transa\c{c}\~oes POST, confirm\'avel.
-    \item Cumprir transa\c{c}\~oes PUT, confirm\'avel.
-    \item Cumprir transa\c{c}\~oes DELETE, confirm\'avel.
-    \item Cumprir transa\c{c}\~oes GET, sem confirma\c{c}\~ao.
-    \item Cumprir transa\c{c}\~oes POST, sem confirma\c{c}\~ao.
-    \item Cumprir transa\c{c}\~oes PUT, sem confirma\c{c}\~ao.
-    \item Cumprir transa\c{c}\~oes DELETE, sem confirma\c{c}\~ao. 
-    \item Cumprir transa\c{c}\~oes GET com resposta separada.
-    \item Tratar requisi\c{c}\~ao com op\c{c}\~ao de Token.
-    \item Tratar requisi\c{c}\~ao sem op\c{c}\~ao de Token.
-    \item Tratar requisi\c{c}\~ao contento v\'arias op\c{c}\~oes URI-Path.
-    \item Tratar requisi\c{c}\~ao contento v\'arias op\c{c}\~oes URI-Query.
-    \item Interoperablidade em contexto de perda de pacotes (CON mode, piggybacked response)
-    \item Interoperablidade em contexto de perda de pacotes (CON mode, delayed response)
-    \item Cumprir transa\c{c}\~oes GET com resposta separada, sem confirma\c{c}\~ao.
-\end{enumerate}
+A tabela abaixo \cite{plugTest} apresenta a rela\c{c}\~ao dos testes, na coluna resultado o s\'imbolo "\xmark" representa falha e "\cmark" sucesso nos testes realizados para a solu\c{c}\~ao desenvolvida neste trabalho.
 
-\'E previsto tamb\'em testes para validar o formato de dados CORE link Format. Abaixo os testes:
+\begin{table}[H]
+\centering
+\label{plugTest}
+\begin{tabular}{p{7cm}|c}
+\hline
+\multicolumn{2}{c}{\bfseries{Testes para especifica\c{c}\~ao b\'asica CoAP}} \\ \hline
+\rowcolor[HTML]{ECF4FF}
+\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
+Tratar GET, confirm\'avel. & \cmark \\
+Tratar POST, confirm\'avel. & \cmark \\
+Tratar PUT, confirm\'avel. & \cmark \\
+Tratar DELETE, confirm\'avel. & \cmark \\
+Tratar GET, sem confirma\c{c}\~ao. & \cmark \\
+Tratar POST, sem confirma\c{c}\~ao. & \cmark \\
+Tratar PUT, sem confirma\c{c}\~ao. & \cmark \\
+Tratar DELETE, sem confirma\c{c}\~ao. & \cmark \\
+Tratar GET com resposta separada. & \cmark \\
+Tratar requisi\c{c}\~ao com Token. & \cmark \\
+Tratar requisi\c{c}\~ao sem Token. & \cmark \\
+Tratar requisi\c{c}\~ao op\c{c}\~oes URI-Path. & \cmark \\
+Tratar requisi\c{c}\~ao op\c{c}\~oes URI-Query. & \cmark \\
+Interoperablidade em contexto de perda\\(CON mode, piggybacked response) & \cmark \\
+Interoperablidade em contexto de perda\\(CON mode, delayed response) & \cmark \\
+Tratar GET com resposta separada, sem confirma\c{c}\~ao. & \cmark \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para validar o formato de dados CORE link Format}} \\ \hline
+\rowcolor[HTML]{ECF4FF}
+\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
+Descoberta de recursos well-known. & \xmark \\
+Utiliza\c{c}\~ao de consulta para filtrar resultados. & \xmark \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para validar a transfer\^encia de blocos}}\\ \hline
+\rowcolor[HTML]{ECF4FF}
+\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
+Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao antecipada). & \xmark \\
+Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao atrasada). & \xmark \\
+Transfer\^encia de blocos grandes utilizando o PUT. & \xmark \\
+Transfer\^encia de blocos grandes utilizando o POST. & \xmark \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para observa\c{c}\~ao de recursos}} \\ \hline
+\rowcolor[HTML]{ECF4FF}
+\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
+Tratar observa\c{c}\~ao de recursos. & \xmark \\
+Parar a observa\c{c}\~ao de recursos. & \xmark \\
+Detec\c{c}\~ao de deregistro do cliente (Max-Age). & \xmark \\
+Detec\c{c}\~ao de deregistro do servidor (client OFF). & \xmark \\
+Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito). & \xmark \\ \hline
+\end{tabular}
+\caption{Resultados dos testes de interoperabilidade IOT Plugtest.}
+\end{table}
 
-\begin{enumerate}
-    \item Descoberta de recursos utilizando a interface de acesso well-known.
-    \item Utiliza\c{c}\~ao de consulta para filtrar resultados.
-\end{enumerate}
+A implementa\c{c}\~ao ir\'a utilizar apenas pacotes com no m\'aximo de 128 bytes, portanto o suporte a transfer\^encia de grandes blocos fragmentados n\~ao ser\'a necess\'ario no momento.
 
-Testes para validar a transfer\^encia de blocos:
-\begin{enumerate}
-    \item Tratar a transfer\^encia de blocos para recursos grandes utilizando o m\'etodo GET (negocia\c{c}\~ao antecipada).
-    \item Tratar a transfer\^encia de blocos para recursos grandes utilizando o m\'etodo GET (negocia\c{c}\~ao atrasada).
-    \item Tratar a transfer\^encia de blocos para recursos grandes utilizando o m\'etodo PUT.
-    \item Tratar a transfer\^encia de blocos para recursos grandes utilizando o m\'etodo POST.
-\end{enumerate}
+O gateway utiliza apenas uma implementa\c{c}\~ao cliente CoAP, n\~ao sendo necess\'ario possuir a implementa\c{c}\~ao de descoberta de recursos e observa\c{c}\~ao, pois estas funcionalidade est\~ao implementada nos nodos sensores. O gateway ir\'a repassar a requisi\c{c}\~ao para os webservers e a cada resposta encaminhar\'a para a Internet, simplificando bastante a implementa\c{c}\~ao. A id\'eia \'e o gateway ser totalmente transparente tanto para clientes e servidores.
 
-Testes para observa\c{c}\~ao de recursos:
-\begin{enumerate}
-    \item Tratar observa\c{c}\~ao de recursos.
-    \item Parar a observa\c{c}\~ao de recursos.
-    \item Detec\c{c}\~ao de deregistro do cliente (Max-Age).
-    \item Detec\c{c}\~ao de deregistro do servidor (client OFF).
-    \item Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito).
-\end{enumerate}
+Para a aplica\c{c}\~ao proposta o conjunto de funcionalidades m\'inimas passou no teste de interoperabilidade, \'e necess\'ario medir a performance, j\'a que a plataforma utilizada possu\'i diversas restri\c{c}\~oes j\'a citadas.
 
 \section{An\'alise de Desempenho}
 
-\afazer{em desenvolvimento: coletando os dados das outras implementa\c{c}\~oes}
-
-
-O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo a tabela \ref{comparacaoCoap}, que faz um comparativo com as diversas arquituras e opera\c{c}\~oes entres as principais solu\c{c}\~oes livres.
+Para mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~ao foi utilizado a toolchain \cite{armGCC}, a vers\~ao utilizada para o Contiki e OpenWSN foi a 4.7. Para a aplica\c{c}\~ao no EPOS,  a vers\~ao do compilador GCC \'e a 4.4, dispon\'ivel em \cite{eposProject}. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
 
 \begin{table}[H]
-    \label{comparacaoCoap}
-    \centering
-    \begin{tabular}{@{}cccc@{}}
-        \toprule
-        OS & CoAP & App & Size \\ \midrule
-        Contiki& Erbium & REST client &  \\
-        OpenWSN & OpenCoAP & CoAP client & \\
-        EPOS & CantCoap & CoapClient & \\
-        \bottomrule
-    \end{tabular}
-    \caption{Compara\c{c}\~ao das implementa\c{c}\~oes}
+\label{comparacaoCoap}
+\centering
+\begin{tabular}{@{}ccccccc@{}}
+    \toprule
+    OS & CoAP & App & .text & .data & .bss & Total\\ \midrule
+    Contiki& Erbium & REST client &  \\
+    OpenWSN & OpenCoAP & CoAP client & \\
+    EPOS & CantCoap & CoapClient & \\
+    Linux & libCoap & coap-client & \\
+    \bottomrule
+\end{tabular}
+\caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria}
 \end{table}
 
-Abaixo um comparativo entre as principais fun\c{c}\~oes utilizadas nos sistema, utilizando um pacote padr\~ao e um pacote com tamanho m\'aximo de 128 bytes, o valor m\'aximo de MTU utilizado.
+O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes foi medido. Abaixo a tabela \ref{executionTimeCoap}, que faz um comparativo com as diversas arquituras e opera\c{c}\~oes entres as principais solu\c{c}\~oes livres.
 
 \begin{table}[H]
     \label{executionTimeCoap}
@@ -109,19 +116,20 @@ Abaixo um comparativo entre as principais fun\c{c}\~oes utilizadas nos sistema, 
     \end{tabular}
     \caption{Compara\c{c}\~ao das implementa\c{c}\~oes em tempo de execu\c{c}\~ao}
 \end{table}
+%Tabela que demonstra a vaz\~ao do sistema para mensagens, com tamanho definido anteriormente.
 
-Tabela que demonstra a vaz\~ao do sistema para mensagens, com tamanho definido anteriormente.
-
-\begin{table}[H]
-    \label{throughputCoap}
-    \centering
-        \begin{tabular}{@{}cccc@{}}
-            \toprule
-            OS & CoAP & App & N\'umero de Mensagens\\ \midrule
-            Contiki & Erbium & ER-Rest-Server &  \\
-            Linux & libCoap & Coap Server &  \\
-            OpenOS & OpenCoap &  &  \\
-            \bottomrule
-        \end{tabular}
-    \caption{Compara\c{c}\~ao da vaz\~ao entre as  implementa\c{c}\~oes}
-\end{table}
+%Abaixo um comparativo entre as principais fun\c{c}\~oes utilizadas nos sistema, utilizando um pacote padr\~ao e um pacote com tamanho m\'aximo de 128 bytes, o valor m\'aximo de MTU utilizado.
+%
+%\begin{table}[H]
+%    \label{throughputCoap}
+%    \centering
+%        \begin{tabular}{@{}cccc@{}}
+%            \toprule
+%            OS & CoAP & App & N\'umero de Mensagens\\ \midrule
+%            Contiki & Erbium & ER-Rest-Server &  \\
+%            Linux & libCoap & Coap Server &  \\
+%            OpenOS & OpenCoap &  &  \\
+%            \bottomrule
+%        \end{tabular}
+%    \caption{Compara\c{c}\~ao da vaz\~ao entre as  implementa\c{c}\~oes}
+%\end{table}
