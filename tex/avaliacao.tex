@@ -17,7 +17,7 @@ A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o
     \item O uso de repostas por Piggybacked deve ser preferencial, a menos que a descri\c{c}\~ao do teste altere este padr\~ao.
 \end{itemize}
 
-A tabela abaixo \ref{plugTest} apresenta a rela\c{c}\~ao dos testes, na coluna resultado o s\'imbolo "\xmark" representa falha e "\cmark" sucesso nos testes realizados para a solu\c{c}\~ao desenvolvida neste trabalho.
+A tabela abaixo \ref{plugTest} apresenta a rela\c{c}\~ao dos testes, na coluna resultado o s\'imbolo "\xmark" representa falha e "\cmark" sucesso nos testes realizados para a solu\c{c}\~ao desenvolvida neste trabalho. O teste consistiu em executar localmente os diferentes servidores e o cliente desenvolvido.
 
 \begin{table}[H]
 \centering
@@ -71,11 +71,13 @@ A implementa\c{c}\~ao ir\'a utilizar apenas pacotes com no m\'aximo de 128 bytes
 
 O gateway utiliza apenas uma implementa\c{c}\~ao cliente CoAP, n\~ao sendo necess\'ario possuir a implementa\c{c}\~ao de descoberta de recursos e observa\c{c}\~ao, pois estas funcionalidade est\~ao implementada nos nodos sensores. O gateway ir\'a repassar a requisi\c{c}\~ao para os webservers e a cada resposta encaminhar\'a para a Internet, simplificando bastante a implementa\c{c}\~ao. A id\'eia \'e o gateway ser totalmente transparente tanto para clientes e servidores.
 
-Para a aplica\c{c}\~ao proposta o conjunto de funcionalidades m\'inimas passou no teste de interoperabilidade, \'e necess\'ario medir a performance, j\'a que a plataforma utilizada possu\'i diversas restri\c{c}\~oes j\'a citadas.
+Para a aplica\c{c}\~ao proposta o conjunto de funcionalidades m\'inimas passou no teste de interoperabilidade, \'e necess\'ario medir a performance, a plataforma utilizada possu\'i diversas restri\c{c}\~oes j\'a citadas.
 
 \section{An\'alise de Desempenho}
 
-Para mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~ao foi utilizado a vers\~ao 4.8.1 do compilador GCC para arquitetura x86. Para a aplica\c{c}\~ao no EPOS,  a vers\~ao do compilador GCC \'e a 4.4, dispon\'ivel em \cite{eposProject}. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
+Afim de mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~ao foi utilizado a vers\~ao 4.8.1 do compilador GCC para arquitetura x86. Para a aplica\c{c}\~ao no EPOS,  a vers\~ao do compilador GCC \'e a 4.4, dispon\'ivel em \cite{eposProject}.
+
+As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a plataforma x86. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
 
 \begin{table}[H]
 \label{comparacaoCoap}
@@ -88,10 +90,12 @@ Para mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~
     Linux & libCoap & coap-client & 55194 & 1346 & 2056 & 58596 \\
     \bottomrule
 \end{tabular}
-\caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria}
+\caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria em bytes}
 \end{table}
 
 Observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 46\% menor que a implementa\c{c}\~ao do Contiki e 7\% maior que a implementa\c{c}\~ao utilizando a libCoap. Apesar de n\~ao ser a mais compacta \'e suficientemente pequena para ser utilizada na aplica\c{c}\~ao.
+
+A grande quantidade de dados inicializados na implementa\c{c}\~ao deve-se ao fato do uso de buffers de 128 bytes para cada pacote, afim de simplificar a ger\^encia de mem\'oria do software desenvolvido. %Em aplica\c{c}\~oes restritas que n\~ao possuem unidades de ger\^encia de mem\'oria isto \'e interessante
 
 %O tempo de execu\c{c}\~ao das principais fun\c{c}\~oes tamb\'em foi medido. Abaixo a tabela \ref{executionTimeCoap}, que faz um comparativo com as diversas arquituras e opera\c{c}\~oes entres as principais solu\c{c}\~oes livres.
 %
