@@ -201,16 +201,6 @@ A especifica\c{c}\~ao tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{
    \caption{Fluxo esperado de requisi\c{c}\~ao e resposta com confirma\c{c}\~ao, com resposta separada}
 \end{figure}
 
-\subsection{Op\c{c}\~oes}
-
-O CoAP possui diversas op\c{c}\~oes tanto nas requisi\c{c}\~oes como nas respostas. 
-
-
-As op\c{c}\~oes s\~ao separadas entre eletivas, obrigat\'orias e ....
-
-
-\subsection{Recursos}
-
 A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
 \section{EPOS}
 O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
@@ -274,9 +264,8 @@ Possui um m\'odulo de rede, aonde \'e implementado as fun\c{c}\~oes de envio/rec
 \'E poss\'ivel selecionar a camada de transporte \'e necess\'ario selecionar utilizando flags de preprocessamento. O padr\~ao \'e socket POSIX. A pilha uIP \'e selecionada com a flag -DWITH\textunderscore CONTIKI, ou para selecionar a pilha lwIP -DWITH\textunderscore LWIP.
 
 \subsection{CantCoap}
-\'E uma implementa\c{c}\~ao em C++ desenvolvida por Ashley Mills em 2013. Utiliza uma licensa similar a.
+\'E uma implementa\c{c}\~ao em C++ desenvolvida por Ashley Mills em 2013. Esta biblioteca foca na simplicidade e oferece um conjuto m\'inimo para montar pacotes CoAP.
 
-Esta biblioteca foca na simplicidade e oferece uma conjuto m\'inimo para montar pacotes CoAP.
 Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede. Abaixo exemplos de uso da biblioteca retirados de https://github.com/staropram/cantcoap.
 
 \lstdefinestyle{customc}{
@@ -319,4 +308,4 @@ if(recvPDU->validate()) {
 }
 \end{lstlisting}
 
-Por ser uma biblioteca bem simplificada e n\~ao possuir depend\^encias diretas com a implementa\c{c}\~ao da camada de transporte e ser c\'odigo livre, foi escolhida para a implementa\c{c}\~ao teste do trabalho.
+Por ser uma biblioteca bem simplificada e n\~ao possuir depend\^encias diretas com a implementa\c{c}\~ao da camada de transporte e ser c\'odigo livre, foi escolhida como base para a implementa\c{c}\~ao teste do trabalho.
