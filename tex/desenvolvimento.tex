@@ -61,14 +61,21 @@ A biblioteca utilizada para montar o pacote CoAP foi a biblioteca CantCoap, na f
 
 Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes \'e utilizado um buffer com um valor m\'aximo e armazenado os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
 
-Foi desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada e alarme configurado para o pr\'oximo reenvio.
-
 No mecanismo de requisic\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num Hash com a chave sendo o token gerado pelo cliente. O protocolo CoAP foi modelado conforme \'e mostrado na figura \ref{uml} abaixo:
 \begin{figure}[H]
    \label{uml}
    \centering
-   \includegraphics[width=0.7\textwidth]{figuras/uml.png}
+   \includegraphics[width=0.8\textwidth]{figuras/uml.png}
    \caption{Diagrama UML das entidades de software implementadas.}
+\end{figure}
+
+Foi desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada e alarme configurado para o pr\'oximo reenvio. A figura \ref{diagramaSequenciaCoapClient} ilustra um cen\'ario de recebimento de mensagem CoAP e envio via GPRS do gateway e a intera\c{c}\~ao entre os m\'odulos em software. 
+
+\begin{figure}[H]
+   \label{diagramaSequenciaCoapClient}
+   \centering
+   \includegraphics[width=1.0\textwidth]{figuras/diagramaSequenciaCoapClient.png}
+   \caption{Diagrama de sequ\^encia de um fluxo comum da aplica\c{c}\~ao gateway.}
 \end{figure}
 
 A figura \ref{casodeuso} mostra o diagrama de caso de uso das principais fun\c{c}\~oes desenvolvidas.
