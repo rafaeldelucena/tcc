@@ -58,8 +58,8 @@ O modelo de computa\c{c}\~ao utilizando este paradigma \'e conhecido como Comput
 
 Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requisitos servi\c{c}os devem:
 \begin{description}
-    \item[Tecnologicamente neutros:] utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta;
-    \item[Baixo acoplamento:] detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o;
+    \item[Tecnologicamente neutros:] utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta.
+    \item[Baixo acoplamento:] detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o.
     \item[Localidade transparente:] clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
 \end{description}
 
@@ -86,20 +86,19 @@ Servi\c{c}os Web prov\^em um padr\~ao para a interoperabilidade entre diferentes
 
 RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma restri\c{c}\~ao importante imposta pelo REST \'e o comportamento stateless do servidor, que n\~ao deve armazenar nenhuma informa\c{c}\~ao dos clientes,  requisi\c{c}\~oes devem conter todas as informa\c{c}\~oes necess\'arias para que sejam executadas.
 
-Uma requisic\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI .
+Uma requisi\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI .
 
 Um aspecto importante \'e uma interface uniforme aonde recursos s\~ao gerenciados pela Web API e possuem as seguintes caracter\'isticas: identifica\c{c}\~ao de recursos, manipula\c{c}\~ao de recursos atrav\'es de representa\c{c}\~oes, mensagens auto descritivas e Hyperm\'idia como mecanismo de estado da aplica\c{c}\~ao \cite{rest}.
 
-As opera\c{c}\~oes suportas s\~ao m\'etodos HTTP expl\'icitos que n\~ao salvam estado das aplica\c{c}\~oes clientes e s\~ao idempotentes, s\~ao eles:
+Um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre. Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture \'e uma arquitetura boa para RESTful webservices \cite{richardson2008restful}.
 
+As opera\c{c}\~oes suportas s\~ao m\'etodos HTTP expl\'icitos que n\~ao salvam estado das aplica\c{c}\~oes clientes e s\~ao idempotentes, s\~ao eles:
 \begin{description}
     \item[GET:] solicita ao webserver a representa\c{c}\~ao de uma informa\c{c}\~ao de um determinado recurso.
     \item[POST:] cria um recurso no webserver.
     \item[PUT:] muda o estado de um recurso do webserver.
     \item[DELETE:] remove o recurso ou alterar para um estado vazio.
 \end{description}
-
-Um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre. Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture \'e uma arquitetura boa para RESTful webservices \cite{richardson2008restful}.
 
 Uma abordagem utilizando HTTP n\~ao \'e t\~ao interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
 
@@ -117,7 +116,7 @@ O teste consistiu em dois laptops conectados via rede GPRS, um cliente e outro s
 
 \section{CoAP}
 
-Um dos principais objetivos do CoAP \'e ser uma alternativa protocolo web gen\'erico para redes com dispositivos com restri\c{c}\~ao de energia e mem\'oria.
+O CoAP \'e um protocolo de aplica\c{c}\~ao com intuito de ser utilizado em dispositivos eletr\^onicos simplificados, permitindo comunica\c{c}\~ao interativa com a Internet e outros dispositivos. A especifica\c{c}\~ao do protocolo \'e a RFC 7252. Um dos principais objetivos do CoAP \'e ser uma alternativa protocolo web gen\'erico para redes com dispositivos com restri\c{c}\~ao de energia e mem\'oria.
 
 As vantagens de utilizar um protocolo compat\'ivel com o HTTP s\~ao a facilidade de integra\c{c}\~ao e o reuso de aplica\c{c}\~oes. CoAP \'e um conjunto REST otimizado para M2M, com suporte a descoberta de recursos, multicast e troca de mensagens ass\'incronas com simplicidade e baixo overhead.
 
@@ -130,7 +129,7 @@ Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida nu
 \begin{figure}[H]
     \label{coapFormat}
     \centering
-    \includegraphics[width=0.6\textwidth]{figuras/formato.png}
+    \includegraphics[width=1.0\textwidth]{figuras/formato.png}
     \caption{Formato do pacote CoAP  em bits \cite{draft-ietf-core-coap-18}.}
 \end{figure}
 

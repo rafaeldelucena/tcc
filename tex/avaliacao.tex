@@ -17,7 +17,7 @@ A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o
     \item O uso de repostas por Piggybacked deve ser preferencial, a menos que a descri\c{c}\~ao do teste altere este padr\~ao.
 \end{itemize}
 
-A tabela abaixo \ref{plugTest} apresenta a rela\c{c}\~ao dos testes, na coluna mais a direita os s\'imbolos "\xmark" e "\cmark" representam o resultado dos testes para a solu\c{c}\~ao desenvolvida neste trabalho. O teste consistiu em executar localmente os diferentes servidores e o cliente desenvolvido.
+A tabela abaixo \ref{plugTest} mostra o resultado dos testes, os s\'imbolos "\xmark" e "\cmark" para a solu\c{c}\~ao desenvolvida neste trabalho.
 
 \begin{table}[H]
 \centering
@@ -61,7 +61,7 @@ Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito). & \xmark \\ \hline
 \caption{Resultados dos testes de interoperabilidade IOT Plugtest.}
 \end{table}
 
-A implementa\c{c}\~ao ir\'a utilizar apenas pacotes com no m\'aximo de 128 bytes, portanto o suporte a transfer\^encia de grandes blocos fragmentados n\~ao ser\'a necess\'ario no momento.
+O teste consistiu em executar localmente os diferentes servidores e o cliente desenvolvido. A implementa\c{c}\~ao ir\'a utilizar apenas pacotes com no m\'aximo de 128 bytes, portanto o suporte a transfer\^encia de grandes blocos fragmentados n\~ao ser\'a necess\'ario no momento.
 
 O gateway utiliza apenas uma implementa\c{c}\~ao cliente CoAP, n\~ao sendo necess\'ario possuir a implementa\c{c}\~ao de descoberta de recursos e observa\c{c}\~ao, pois estas funcionalidade est\~ao implementada nos nodos sensores.
 
@@ -73,7 +73,6 @@ A fim de mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{
 
 As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a arquitetura x86 e para para ARM7 do MC1224V utilizado no EPOSMoteII e no Econotag, plataforma presente no Contiki e utilizado para comparativos. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
 
-
 \begin{table}[H]
 \label{comparacaoCoap}
 \centering
@@ -81,11 +80,11 @@ As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de co
     \toprule
     ISA & OS & CoAP & .text & .data & .bss & Total\\ \midrule
     x86 32& Contiki & Erbium & 97995 & 1792 & 16864 & 116651 \\
-    x86 32& EPOS & Cant Coap & 52348 & 117 & 9652 & 62117 \\
+    x86 32& EPOS & Cantcoap & 52348 & 117 & 9652 & 62117 \\
     x86 32& GNU Linux & libcoap & 45515 & 680 & 1952 & 48147\\ \hline
     ARM7 & Contiki & Erbium & 62727 & 440 & 18108 & 81275\\
     ARM7 & Contiki & Minimal Net & 59496 & 2432 & 22040 & 83968\\
-    ARM7 & EPOS & Cant Coap & 62480 & 216 & 10504 & 73200\\
+    ARM7 & EPOS & Cantcoap & 62480 & 216 & 10504 & 73200\\
     \bottomrule
 \end{tabular}
 \caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria em bytes}
