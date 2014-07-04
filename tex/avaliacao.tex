@@ -22,11 +22,11 @@ A tabela abaixo \ref{plugTest} apresenta a rela\c{c}\~ao dos testes, na coluna m
 \begin{table}[H]
 \centering
 \label{plugTest}
-\begin{tabular}{p{7cm}|c}
+\begin{tabular}{p{8cm}|c{1cm}}
 \hline
-\multicolumn{2}{c}{\bfseries{Testes para especifica\c{c}\~ao b\'asica CoAP}} \\ \hline
 \rowcolor[HTML]{ECF4FF}
-\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
+\multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para especifica\c{c}\~ao b\'asica CoAP}} \\ \hline
 Tratar GET, confirm\'avel. & \cmark \\
 Tratar POST, confirm\'avel. & \cmark \\
 Tratar PUT, confirm\'avel. & \cmark \\
@@ -44,20 +44,14 @@ Interoperablidade em contexto de perda\\(CON mode, piggybacked response) & \cmar
 Interoperablidade em contexto de perda\\(CON mode, delayed response) & \cmark \\
 Tratar GET com resposta separada, sem confirma\c{c}\~ao. & \cmark \\ \hline
 \multicolumn{2}{c}{\bfseries{Testes para validar o formato de dados CORE link Format}} \\ \hline
-\rowcolor[HTML]{ECF4FF}
-\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
 Descoberta de recursos well-known. & \xmark \\
 Utiliza\c{c}\~ao de consulta para filtrar resultados. & \xmark \\ \hline
 \multicolumn{2}{c}{\bfseries{Testes para validar a transfer\^encia de blocos}}\\ \hline
-\rowcolor[HTML]{ECF4FF}
-\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
 Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao antecipada). & \xmark \\
 Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao atrasada). & \xmark \\
 Transfer\^encia de blocos grandes utilizando o PUT. & \xmark \\
 Transfer\^encia de blocos grandes utilizando o POST. & \xmark \\ \hline
 \multicolumn{2}{c}{\bfseries{Testes para observa\c{c}\~ao de recursos}} \\ \hline
-\rowcolor[HTML]{ECF4FF}
-\multicolumn{1}{c|}{Cen\'ario} & \multicolumn{1}{c}{Resultado} \\ \hline
 Tratar observa\c{c}\~ao de recursos. & \xmark \\
 Parar a observa\c{c}\~ao de recursos. & \xmark \\
 Detec\c{c}\~ao de deregistro do cliente (Max-Age). & \xmark \\
@@ -75,36 +69,66 @@ O gateway ir\'a repassar a requisi\c{c}\~ao para os webservers e a cada resposta
 
 \section{An\'alise de Desempenho}
 
-A fim de mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~ao foi utilizado a vers\~ao 4.8.1 do compilador GCC para arquitetura x86. Para a aplica\c{c}\~ao no EPOS,  a vers\~ao do compilador GCC \'e a 4.4, dispon\'ivel em \cite{eposProject}.
+A fim de mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~ao foi utilizada a vers\~ao 4.4.5 para o GCC x86 e o GCC 4.3.2 (Sourcery G++ Lite 2008q3-66) para ARM no Contiki encontrada \cite{malvira}. A aplica\c{c}\~ao no EPOS utiliza a vers\~ao 4.4 do compilador GCC dispon\'ivel em \cite{eposProject}.
 
-As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a plataforma x86. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
+As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a arquitetura x86 e para para ARM7 do MC1224V utilizado no EPOSMoteII e no Econotag, plataforma presente no Contiki e utilizado para comparativos. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
+
 
 \begin{table}[H]
 \label{comparacaoCoap}
 \centering
-\begin{tabular}{@{}ccccccc@{}}
+\begin{tabular}{@{}p{1cm}p{1cm}p{1cm}r{1cm}r{1cm}r{1cm}r{1cm}@{}}
     \toprule
-    OS & CoAP & App & .text & .data & .bss & Total\\ \midrule
-    Contiki & Erbium & coap-client-example & 97995 & 1792 & 16864 & 116651 \\
-    EPOS & CantCoap & CoapClient & 52348 & 117 & 9652 & 62117 \\
-    Linux x86\textunderscore 32 & libCoap & coap-client & 45515 & 680 & 1952 & 48147\\
+    ISA & OS & CoAP & .text & .data & .bss & Total\\ \midrule
+    x86 32& Contiki & Erbium & 97995 & 1792 & 16864 & 116651 \\
+    x86 32& EPOS & Cant Coap & 52348 & 117 & 9652 & 62117 \\
+    x86 32& GNU Linux & libcoap & 45515 & 680 & 1952 & 48147\\ \hline
+    ARM7 & Contiki & Erbium & 62727 & 440 & 18108 & 81275\\
+    ARM7 & Contiki & Minimal Net & 59496 & 2432 & 22040 & 83968\\
+    ARM7 & EPOS & Cant Coap & 62480 & 216 & 10504 & 73200\\
     \bottomrule
 \end{tabular}
 \caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria em bytes}
 \end{table}
 
-Abaixo \ref{x86Elf} mais informa\c{c}\~oes do arquivo gerado ap\'os o sistema de constru\c{c}\~ao. Para compara\c{c}\~ao os s\'imbolos de depurac\c{c}\~ao foram removidos do arquivo ELF. Para compara\c{c}\~ao 
+Nesta tabela \'e poss\'ivel verificar que para a arquitetura x86 a implementa\c{c}\~ao do trabalho \'e 30\% maior que a libcoap, por\'em em torno de 25\% menor que as implementa\c{c}\~oes do Contiki. Um dos fatores da diferen\c{c}a com a aplica\c{c}\~ao da libcoap \'e a utiliza\c{c}\~ao de bibliotecas din\^amicas \cite{ibmCodeSize}. Apesar de n\~ao ser a mais compacta \'e suficientemente pequena para ser utilizada na aplica\c{c}\~ao.
 
-\begin{lstlisting}[label={x86Elf},caption=Verificando o tipo de arquivod gerado no Linux utilizando a ferramenta file.]
+No gr\'afico \ref{memoryDiff} observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
+
+\begin{tikzpicture}
+\centering
+\label{memoryDiff}
+\begin{axis}[ybar , enlargelimits =0.15, legend style ={ at ={(0.5,-0.15)}, anchor =north, legend columns =-1}, ylabel ={\# size in bytes}, symbolic x coords ={epos/cantcoap,contiki/minimal-net,contiki/erbium}, xtick =data, nodes near coords , nodes near coords align ={vertical},]
+\addplot coordinates {(epos/cantcoap,62480) (contiki/minimal-net,59496) (contiki/erbium,62427)};
+\addplot coordinates {(epos/cantcoap,216) (contiki/minimal-net,2432) (contiki/erbium,440)};
+\addplot coordinates {(epos/cantcoap,10504) (contiki/minimal-net,22040) (contiki/erbium,18108)};
+\addplot coordinates {(epos/cantcoap,73200) (contiki/minimal-net,83968) (contiki/erbium,81275)};
+\legend {.text,.data,.bss, Total}
+\end{axis}
+\caption{Gr\'afico do tamanho das sess\~oes do arquivo ELF gerado para ARM.}
+\end{tikzpicture}
+
+
+Abaixo \ref{x86Elf} mais informa\c{c}\~oes do arquivo gerado ap\'os o sistema de constru\c{c}\~ao. Para compara\c{c}\~ao os s\'imbolos de depura\c{c}\~ao foram removidos do arquivo ELF. Para compara\c{c}\~ao 
+
+\begin{lstlisting}[label={x86Elf},caption=Verificando o tipo de arquivo gerado no Linux utilizando a ferramenta file.]
 file epos/img/coap_client
 img/coap_client: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, stripped
 
 file libcoap/examples/coap-client
 examples/coap-client: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.18, stripped
+
+file contiki/examples/er-rest-example/er-example-client.elf
+er-example-client.elf: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, stripped
+
+file contiki/examples/rest-example/coap-client-example.elf 
+coap-client-example.elf: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, stripped
+
+file epos/img/coap_client.img 
+coap_client.img: ELF 32-bit LSB  executable, ARM, version 1, statically linked, stripped
 \end{lstlisting}
 
 
-Observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 46\% menor que a implementa\c{c}\~ao do Contiki e 7\% maior que a implementa\c{c}\~ao utilizando a libCoap. Apesar de n\~ao ser a mais compacta \'e suficientemente pequena para ser utilizada na aplica\c{c}\~ao.
 
 A grande quantidade de dados inicializados na implementa\c{c}\~ao deve-se ao fato do uso de buffers de 128 bytes para cada pacote, afim de simplificar a ger\^encia de mem\'oria do software desenvolvido. %Em aplica\c{c}\~oes restritas que n\~ao possuem unidades de ger\^encia de mem\'oria isto \'e interessante
 

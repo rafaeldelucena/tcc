@@ -1,6 +1,8 @@
 Este trabalho implementa uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP, uma aplica\c{c}\~ao gateway GPRS / 802.14.5 utilizando o EPOS e um componente de hardware GPRS que ser\'a acoplado ao EposMoteII.
 
-Durante o desenvolvimento foram realizados diversos estudos para escolher m\'odulo GPRS adequado \`a tarefa e o trabalho necess\'ario para acoplar o protoloco. Testes de valida\c{c}\~ao dos sistemas de software e valida\c{c}\~ao do m\'odulo GPRS foram realizados. Foi realizado um levantamento de requisitos para porte de uma biblioteca CoAP para o EPOS (libCoap, libCantCoap, microCoap, entre outras) e EPOSMoteII. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu.
+Durante o desenvolvimento foram realizados diversos estudos para escolher m\'odulo GPRS adequado \`a tarefa e o trabalho necess\'ario para acoplar o protoloco. Testes de valida\c{c}\~ao dos sistemas de software e valida\c{c}\~ao do m\'odulo GPRS foram realizados.
+
+Foi realizado um levantamento de requisitos para porte de uma biblioteca CoAP para o EPOS (libCoap, libCantCoap, microCoap, entre outras) e EPOSMoteII. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu.
 
 Foram implementados os mecanismos de transmiss\~ao para mensagens confirm\'aveis e n\~ao-confim\'aveis, requisi\c{c}\~ao e resposta, e suporte a inser\c{c}\~ao de recursos, como sensores e atuadores como servi\c{c}os CoAP.
 
@@ -20,11 +22,19 @@ Ser\'a poss\'ivel comunicar-se em tempo real com a rede de sensores, utilizando 
 
 As fun\c{c}\~oes da da aplica\c{c}\~ao do gateway s\~ao:
 \begin{enumerate}
-    \item Configura\c{c}\~ao, envio e recebimento de SMS;
-    \item Configura\c{c}\~ao de contexto PDP, Configura\c{c}\~ao GPRS;
-    \item Configura\c{c}\~ao UDP/IP no enlace GPRS
-    \item Configura\c{c}\~ao TCP/IP e manuten\c{c}\~ao de conex\~ao TCP/IP no enlace GPRS
+    \item Configura\c{c}\~ao, envio e recebimento de SMS.
+    \item Configura\c{c}\~ao de contexto PDP, Configura\c{c}\~ao GPRS.
+    \item Configura\c{c}\~ao UDP/IP no enlace GPRS.
     \item Recebimento de requisi\c{c}\~oes CoAP.
+    \item Envio de requisi\c{c}\~oes CoAP por UDP/IP e SMS \cite{poetsch2013transport}.
+\end{enumerate}
+
+As fun\c{c}\~oes da aplica\c{c}\~ao cliente ser\~ao:
+
+\begin{enumerate}
+    \item Listar recursos CoAP web de uma RSFF.
+    \item Enviar Requisi\c{c}\~oes CoAP para a RSFF.
+    \item Receber Repostas CoAP e exibir HTML.
 \end{enumerate}
 
 \subsection{Requisitos N\~ao Funcionais}
@@ -69,7 +79,7 @@ No mecanismo de requisic\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes fora
    \caption{Diagrama UML das entidades de software implementadas.}
 \end{figure}
 
-Foi desenvolvimento de um mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas utilizando uma lista ordenada e alarme configurado para o pr\'oximo reenvio. A figura \ref{diagramaSequenciaCoapClient} ilustra a intera\c{c}\~ao entre os m\'odulos de software, incluindo os tipos dos dados e a forma de execu\c{c}\~ao das func\c{c}os.
+No desenvolvimento do mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas foi utilizado uma lista ordenada e alarme configurado para o pr\'oximo reenvio. A figura \ref{diagramaSequenciaCoapClient} ilustra a intera\c{c}\~ao entre os m\'odulos de software, incluindo os tipos dos dados e a forma de execu\c{c}\~ao das func\c{c}os.
 
 \begin{figure}[H]
    \label{diagramaSequenciaCoapClient}

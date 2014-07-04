@@ -1,11 +1,11 @@
-O objetivo principal foi atigindo, o desenvolvimento de um gateway simplificado para redes de sensores que utilizem o protocolo CoAP para disponibilizar servi\c{c}os de sensoriamente e atua\c{c}\~ao. O espa\c{c}os de armazenamento s\~ao muito baixos, respeitando os requis\'itos desse tipo de aplica\c{c}\~ao.
+O objetivo principal foi atigindo, o desenvolvimento de um gateway simplificado para redes de sensores que repassa as mensagens recebidas por um cliente HTTP, para uma rede de sensores sem fio que utiliza o protocolo CoAP, facilitando a disponibiliza\c{c}\~ao de servi\c{c}os de sensoriamente e atua\c{c}\~ao.
 
-Entres os trabalhos futuros poss\'iveis se destacam os seguintes:
+O tamanho do c\'odigo respeitou o espa\c{c}o de armazenamento restrito, comum desse tipo de aplica\c{c}\~ao e foi poss\'ivel criar uma aplica\c{c}\~ao que possa ser utilizado em uma vasta gama de dispositivos. Entres os trabalhos futuros poss\'iveis se destacam os seguintes:
+
 A implementa\c{c}\~ao da vers\~ao segura do protocolo CoAP, utilizando DLTS para comunica\c{c}\~ao segura entre os n\'os.
 
-Uma implementa\c{c}\~ao de servidor CoAP completa para executar utilizando a plataforma do EPOSMote II.
+Uma implementa\c{c}\~ao de servidor CoAP completa para executar utilizando a plataforma do EPOSMote II. Para isto seria necess\'ario desenvolver um m\'odulo gen\'erico o suficiente para adicionar diversos recursos como sensores e atuadores, com suporte a diferentes tipos de fun\c{c}\~oes, dados e a\c{c}\~oes como coletar dado de um ADC ou enviar comandos a um servo.
 
-Implementa\c{c}\~ao de um gateway que utilize Software Defined Radio, assim apenas um transceiver ser\'a necess\'ario para
-fazer a integra\c{c}\~ao com a Internet.
+Uma aplica\c{c}\~ao que poderia reduzir ainda mais o custo para integrar as redes a Internet, \'e a implementa\c{c}\~ao de um gateway que utilize Software Defined Transceiver, assim \'e poss\'ivel integrar uma gama enorme de dispositivos e utilizar apenas um m\'odulo transceiver para enviar os dados da RSSF para Internet.
 
 Um gerador de c\'odigo que utiliza como entrada uma linguagem de especifica\c{c}\~ao dos poss\'iveis recursos e como sa\'ida c\'odigo ANSI C m\'inimo de um servidor web utiliza CoAP e seus respectivos recursos. Este gerador deve ser gen\'erico suficiente para ser f\'acil a adapta\c{c}\~ao de diferentes pilhas CoAP/UDP/IP, arquiteturas e tipos de sensores.

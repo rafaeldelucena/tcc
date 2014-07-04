@@ -5,101 +5,146 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.45.2.1 }
 
-\bibitem[RESTful web services]{richardson2008restful}
-\abntrefinfo{RESTful}{RICHARDSON L., RUBY S.}{2008}
-{Richardson, Leonard and Ruby, Sam. \emph{RESTful web services}. 2008.}
+\bibitem[Alvira 2014]{malvira}
+\abntrefinfo{Alvira}{ALVIRA}{2014}
+{ALVIRA, M. \textbf{Library code for the Freescale MC13224v ARM7 SoC with
+  802.15.4 radio}. 2014.
+Dispon{\'\i}vel em: $<$https://github.com/malvira/libmc1322x$>$.}
 
-\bibitem[Wireless Sensor Network survey]{WsnSurvey2008}
-\abntrefinfo{}{YICK, MUKHERJEE, GHOSAL}{2008}
-{Jennifer Yick, Biswanath Mukherjee, Dipak Ghosal. \emph{Wireless Sensor Network survey}. 2008.}
+\bibitem[Anatel 2014]{coberturaGPRS}
+\abntrefinfo{Anatel}{ANATEL}{2014}
+{ANATEL. 2014.
+Dispon{\'\i}vel em: $<$http://sistemas.anatel.gov.br/stel$>$.}
 
-\bibitem[EPOS]{epos}
-\abntrefinfo{EPOS}{FR\"OHLICH A.}{1999}
-{Ant\^onio Augusto Fr\"ohlich, Wolfgang Schr\"oer-Preikschat. \emph{Embedded Parallel Operating System}. 1999.}
+\bibitem[Berkeley 2014]{openWSN}
+\abntrefinfo{Berkeley}{BERKELEY}{2014}
+{BERKELEY, U. \textbf{OpenWSN WIKI}. 2014.
+Dispon{\'\i}vel em: $<$https://openwsn.atlassian.net/wiki$>$.}
 
-\bibitem[REST]{rest}
-\abntrefinfo{}{FIELDING R.}{2000}
-{Roy Thomas Fielding. \emph{Architectural Styles and the Design of Network-based Software Architectures}. 2000.
-\ $<$http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm$>$.}
+\bibitem[Booth et al. 2004]{w3c-web-04}
+\abntrefinfo{Booth et al.}{BOOTH et al.}{2004}
+{BOOTH, D. et al. \textbf{Web Services Architecture}.
+[S.l.], fev. 2004. Dispon{\'\i}vel em: $<$http://www.w3.org/TR/ws-arch$>$.}
 
-\bibitem[CoAP]{draft-ietf-core-coap-18}
-\abntrefinfo{}{SHELBY Z., HARTKE K., BORMANN C.}{2013}
-{Z. Shelby, K. Hartke, C. Bormann \emph{Constrained Application Protocol (CoAP)}. 2013.
-\ $<$http://www.ietf.org/id/draft-ietf-core-coap-18.txt$>$.}
+\bibitem[Bult et al. 1996]{542724}
+\abntrefinfo{Bult et al.}{BULT et al.}{1996}
+{BULT, K. et al. Low power systems for wireless microsensors. In:  \textbf{Low
+  Power Electronics and Design, 1996., International Symposium on}. [S.l.:
+  s.n.], 1996. p. 17--21.}
 
-\bibitem[CoRE Link Format]{rfc6690}
-\abntrefinfo{Shelby}{SHELBY Z.}{2012}
-{Z. Shelby . \emph{Constrained RESTful Environments (CoRE) Link Format}. 2012.
-\ $<$http://tools.ietf.org/rfc/rfc6690.txt$>$.}
+\bibitem[Colitti, Steenhaut e Caro 2011]{Colitti11deintegrating}
+\abntrefinfo{Colitti, Steenhaut e Caro}{COLITTI; STEENHAUT; CARO}{2011}
+{COLITTI, W.; STEENHAUT, K.; CARO, N.~D. De integrating wireless sensor
+  networks with the web. In:  \textbf{In Proceedings of Workshop on Extending
+  the Internet to Low power and Lossy Networks}. [S.l.: s.n.], 2011.}
 
-\bibitem[Transport Application]{transportApp}
-\abntrefinfo{}{KULADINITHI K., BERGMANN O., P\"OTSCH T., BECKER M., GORG C.}{2011}
-{Koojana Kuladinithi, Olaf Bergmann, Thomas P\"otsch, Markus Becker, Carmelita G\"org \emph{Implementation of CoAP and its Application in Transport Logistics}. 2011.\ $<$http://hinrg.cs.jhu.edu/joomla/images/stories/coap-ipsn.pdf$>$}
+\bibitem[Dargie e Poellabauer 2010]{dargie2010fundamentals}
+\abntrefinfo{Dargie e Poellabauer}{DARGIE; POELLABAUER}{2010}
+{DARGIE, W.; POELLABAUER, C. \textbf{Fundamentals of wireless sensor networks:
+  theory and practice}. [S.l.]: John Wiley \& Sons, 2010.}
 
-\bibitem[Service-Oriented Computing: Concepts, Characteristics and Directions]{581580}
-\abntrefinfo{}{PAPAZOGLOU M.}{2003}
-{Mike P. Papazoglou. \emph{Service-Oriented Computing: Concepts, Characteristics and Directions}. Web Information Systems Engineering - WISE , pp. 3-12, 2003.}
+\bibitem[Developers 2014]{ibmCodeSize}
+\abntrefinfo{Developers}{DEVELOPERS}{2014}
+{DEVELOPERS, I. \textbf{Managing code size}. 2014.
+Dispon{\'\i}vel em:
+  $<$http://publib.boulder.ibm.com/infocenter/comphelp/v101v121/index.jsp?
+  topic=/com.ibm.xlf121.aix.doc/proguide/managingcodesize.html$>$.}
 
-\bibitem[Wireless Sensor Networks]{lewis2004wireless}
-\abntrefinfo{}{LEWIS F.}{2004}
-{Franck L. Lewis. \emph{Wireless Sensor Networks}. Journal Smat environments: technologies, protocols, and applications, pp. 11-46, 2004.}
+\bibitem[Duffy 1988]{duffyMechanism}
+\abntrefinfo{Duffy}{DUFFY}{1988}
+{DUFFY, T. \textbf{Duffy Mechanism}. 1988.
+Dispon{\'\i}vel em: $<$http://www.lysator.liu.se/c/duffs-device.html$>$.}
 
-\bibitem[ADHOP Protocol]{adhop}
-\abntrefinfo{}{OKAZAKI A., FR\"OLICH A.}{2012}
-{Alexandre Massayuki Okazaki, Ant\^onio Augusto Fr\"ohlich. \emph{ADHOP: an Energy Aware Routing Algorithm for Mobile Wireless Sensor Networks}. 2012.}
+\bibitem[Dunkels 2011]{Dunkels11thecontikimac}
+\abntrefinfo{Dunkels}{DUNKELS}{2011}
+{DUNKELS, A. \textbf{The ContikiMAC Radio Duty Cycling Protocol}. 2011.}
 
-\bibitem[Web Services Architecture]{w3c-web-04}
-\abntrefinfo{}{W3C Working Group}{2004}
-{Booth, David and Haas, Hugo and McCabe, Francis and Newcomer, Eric and Champion, Michael and Ferris, Chris and Orchard, David \emph{Web Services Architecture}. $<$http://www.w3.org/TR/ws-arch$>$. 2004.}
+\bibitem[Dunkels e Schmidt 2005]{Dunkels05protothreads}
+\abntrefinfo{Dunkels e Schmidt}{DUNKELS; SCHMIDT}{2005}
+{DUNKELS, A.; SCHMIDT, O. \textbf{Protothreads - Lightweight, Stackless Threads
+  in C}. 2005.}
 
-\bibitem[OpenWSN]{openWSNPaper}
-\abntrefinfo{}{WATTEYNE, VILAJOSANA, KERKEZ}{2012}
-{Watteyne, Thomas and Vilajosana, Xavier and Kerkez, Branko and Chraim, Fabien and Weekly, Kevin and Wang, Qin and Glaser, Steven and Pister, Kris. \emph{OpenWSN: a standards-based low-power wireless development environment}. 2012.}
+\bibitem[EPOS 1999]{eposProject}
+\abntrefinfo{EPOS}{EPOS}{1999}
+{EPOS. \textbf{EPOS Project}. 1999.
+Dispon{\'\i}vel em: $<$http://epos.lisha.ufsc.br/HomePage$>$.}
 
-\bibitem[Fundamentals of WSN]{dargie2010fundamentals}
-\abntrefinfo{}{DARGIE, POELLABAUER}{2010}
-{Dargie, Waltenegus and Poellabauer, Christian \emph{Fundamentals of wireless sensor networks: theory and practice}. 2010. John Wiley \& Sons.}
+\bibitem[Fielding 2000]{rest}
+\abntrefinfo{Fielding}{FIELDING}{2000}
+{FIELDING, R.~T.
+\textbf{Representational State Transfer (REST)}.
+Tese (Doutorado), 2000.
+Dispon{\'\i}vel em:
+  $<$http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm$>$.}
 
-\bibitem[Low power system for wireless microsensors]{542724}
-\abntrefinfo{}{BULT, CHANG, DONG, FIELDING}{1996}
-{Bult, K. and Burstein, A. and Chang, D. and Dong, M. and Fielding, M. and Kruglick, E. and Ho, J. and Lin, F. and Lin, T.-H. and Kaiser, W.J. and Marcy, H. and Mukai, R. and Nelson, P. and Newburg, F. L. and Pister, K.S.J. and Pottie, G. and Sanchez, H. and Sohrabi, K. and Stafsudd, O.M. and Tan, K. B. and Yung, G. and Xue, S. and Yao, J. \emph{Low power systems for wireless microsensors}. 1996}
+\bibitem[Frohlich et al. 2013]{frohlich2013cross}
+\abntrefinfo{Frohlich et al.}{FROHLICH et al.}{2013}
+{FROHLICH, A. et al. A cross-layer approach to trustfulness in the internet of
+  things. In:  \textbf{9th Workshop on Software Technologies for Embedded and
+  Ubiquitous Systems (SEUS), Paderborn, Germany}. [S.l.: s.n.], 2013. p.
+  884--889.}
 
-\bibitem[Contiki MAC]{Dunkels11thecontikimac}
-\abntrefinfo{}{DUNKELS A.}{2011}
-{Adam Dunkels. \emph{The ContikiMAC Radio Duty Cycling Protocol}. 2011}
+\bibitem[Fröhlich 1999]{epos}
+\abntrefinfo{Fröhlich}{FRöHLICH}{1999}
+{FRöHLICH, W. S.-P. A.~A. Epos: an object-oriented operating system.
+1999.}
 
-\bibitem[Protothreads]{Dunkels05protothreads}
-\abntrefinfo{}{DUNKELS A., SCHMIDT O.}{2005}
-{Adam Dunkels and Oliver Schmidt. \emph{Protothreads - Lightweight, Stackless Threads in C}. 2005}
+\bibitem[Kuladinithi et al. 2011]{kuladinithi2011implementation}
+\abntrefinfo{Kuladinithi et al.}{KULADINITHI et al.}{2011}
+{KULADINITHI, K. et al. Implementation of coap and its application in transport
+  logistics.
+\textbf{Proc. IP+ SN, Chicago, IL, USA}, 2011.}
 
-\bibitem[Integrating WSN and WEB]{Colitti11deintegrating}
-\abntrefinfo{}{COLITTI W., STEENHAUT K., DE CARO N.}{2011}
-{Walter Colitti and Kris Steenhaut and Niccol\`o De Caro.
-\emph{De Integrating Wireless Sensor Networks with the Web}. 2011}
+\bibitem[Lewis 2004]{lewis2004wireless}
+\abntrefinfo{Lewis}{LEWIS}{2004}
+{LEWIS, F.~L. Wireless sensor networks.
+\textbf{Smart environments: technologies, protocols, and applications}, New
+  York: Wiley, p. 11--46, 2004.}
 
-\bibitem[Energy-aware placement WSN]{cheng2004energy}
-\abntrefinfo{}{Cheng P., Chuah C.,  Liu X.}{2004}
-{Cheng, Peng and Chuah, Chen-Nee and Liu, Xin. \emph{Energy-aware node placement in wireless sensor networks}. 2004}
+\bibitem[Papazoglou 2003]{581580}
+\abntrefinfo{Papazoglou}{PAPAZOGLOU}{2003}
+{PAPAZOGLOU, M.~P. {Service-Oriented Computing: Concepts, Characteristics and
+  Directions}. In:  \textbf{Web Information Systems Engineering}. [S.l.: s.n.],
+  2003. p. 3--12.}
 
-\bibitem[]{coberturaGPRS}
-\abntrefinfo{}{ANATEL}{2014}{$<$http://sistemas.anatel.gov.br/stel$>$. 2014}
+\bibitem[Poetsch et al. 2013]{poetsch2013transport}
+\abntrefinfo{Poetsch et al.}{POETSCH et al.}{2013}
+{POETSCH, T. et al. Transport of coap over sms.
+\textbf{Transport}, 2013.}
 
-\bibitem[]{openWSN}
-\abntrefinfo{}{OpenWSN}{2014}{$<$https://openwsn.atlassian.net/wiki$>$}
+\bibitem[Richardson e Ruby 2008]{richardson2008restful}
+\abntrefinfo{Richardson e Ruby}{RICHARDSON; RUBY}{2008}
+{RICHARDSON, L.; RUBY, S. \textbf{RESTful web services}. [S.l.]: O'Reilly,
+  2008.}
 
-\bibitem[Duffy Device]{duffyMechanism}
-\abntrefinfo{}{Duffy T.}{1988}{Tom Duffy $<$http://www.lysator.liu.se/c/duffs-device.html$>$. 1988.}
+\bibitem[Shelby Klaus~Hartke 2013]{draft-ietf-core-coap-18}
+\abntrefinfo{Shelby Klaus~Hartke}{SHELBY KLAUS~HARTKE}{2013}
+{SHELBY KLAUS~HARTKE, C.~B. Z. \textbf{Constrained Application Protocol
+  (CoAP)}. IETF, 2013.
+Internet-Drafts.
+ (Internet Draft, 18).
+Dispon{\'\i}vel em: $<$http://www.ietf.org/id/draft-ietf-core-coap-18.txt$>$.}
 
-\bibitem[EPOS Project]{eposProject}
-\abntrefinfo{}{EPOS}{1999}{$<$http://epos.lisha.ufsc.br/HomePage$>$. 1999.}
+\bibitem[Shelby 2012]{rfc6690}
+\abntrefinfo{Shelby}{SHELBY}{2012}
+{SHELBY, Z. \textbf{Constrained RESTful Environments (CoRE) Link Format}. IETF,
+  2012.
+RFC 5280 (Proposed Standard).
+ (Request for Comments, 6690).
+Dispon{\'\i}vel em: $<$http://tools.ietf.org/rfc/rfc6690.txt$>$.}
 
-\bibitem[EPOS Cross-Layer]{eposCrossLayer}
-\abntrefinfo{}{FRO\"OLICH A., OKAZAKI A., STEINER R., OLIVEIRA P.}{2013}{\emph{A Cross-layer Approach to Trustfulness in the Internet of Things}. 2013}
+\bibitem[Watteyne et al. 2012]{openWSNPaper}
+\abntrefinfo{Watteyne et al.}{WATTEYNE et al.}{2012}
+{WATTEYNE, T. et al. Openwsn: a standards-based low-power wireless development
+  environment.
+\textbf{Transactions on Emerging Telecommunications Technologies}, John Wiley
+  \& Sons, Ltd, v.~23, n.~5, p. 480--493, 2012.
+ISSN 2161-3915.
+Dispon{\'\i}vel em: $<$http://dx.doi.org/10.1002/ett.2558$>$.}
 
-\bibitem[Embedded ARM GCC]{armGCC}
-\abntrefinfo{}{Embedded ARM GCC}{2014}{\emph{GNU Tools for ARM Embedded Processors} $<$https://launchpad.net/gcc-arm-embedded/$>$. 2014}
-
-\bibitem[OpenMote]{openMote}
-\abntrefinfo{}{OpenMote CC2538}{2014}{\emph{OpenMote: open hardware for Internet of Things} $<$http:www.openmote.com$>$. 2014}
+\bibitem[Yick Biswanath~Mukherjee 2008]{WsnSurvey2008}
+\abntrefinfo{Yick Biswanath~Mukherjee}{YICK BISWANATH~MUKHERJEE}{2008}
+{YICK BISWANATH~MUKHERJEE, D.~G. J. \textbf{Wireless sensor network survey}.
+  [S.l.]: Elsevier, 2008.}
 
 \end{thebibliography}
