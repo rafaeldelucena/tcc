@@ -79,6 +79,7 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -120,6 +121,7 @@ Universidade Federal de Santa Catarina \\ % Your institution for the title page
 \begin{description}
 \item[Redes de sensores sem fio:]
 \item[Protocolos de aplicação:]
+\item[Internet das Coisas:]
 \end{description}
 \end{frame}
 
@@ -127,11 +129,10 @@ Universidade Federal de Santa Catarina \\ % Your institution for the title page
 \begin{frame}
 \frametitle{Motivação}
 \begin{description}
-\item[Interoperabilidade:]
-\item[Baixo custo:]
-\item[Baixo consumo:]
-\item[Novas aplicações:]
-\item[Maior cobertura da tecnlogia de rede móvel:]
+\item[Interoperabilidade:] comunicação entre diversos dispositivos diferentes utilizando padrões.
+\item[Avanço Tecnológico:] a industria dos semicondutores e a miniaturização dos componentes.
+\item[Ambientes Inteligentes:] novas aplicações que consumam contexto.
+\item[Maior cobertura da tecnologia de rede móvel:] cerca de 5570 municípios no Brasil.
 \end{description}
 \end{frame}
 
@@ -139,7 +140,7 @@ Universidade Federal de Santa Catarina \\ % Your institution for the title page
 \begin{frame}
 \frametitle{Objetivos}
 \begin{description}
-\item[Objetivo Geral:] descrever, implementar e integrar na Internet webservices de uma rede sensores sem fio.
+\item[Objetivo Geral:] descrever, implementar e integrar na Internet serviços web de uma rede sensores sem fio.
 \item[Objetivos Específicos:]
 \begin{itemize}
 \item Portar CoAP para plataforma alvo.
@@ -156,6 +157,10 @@ Universidade Federal de Santa Catarina \\ % Your institution for the title page
 \section{Conceitos Relacionados}
 \begin{frame}
 \frametitle{Conceitos Relacionados}
+\begin{description}
+    \item REST: práticas de desenvolvimento.
+    \item Restful: aplicações web que utiliza REST.
+\end{description}
 \end{frame}
 
 %------------------------------------------------
@@ -203,11 +208,39 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 \subsection{Ambiente de Testes}
 \begin{frame}
 \frametitle{Ambiente de Testes}
+ \begin{table}[!ht]
+  \centering
+  \scriptsize
+  \begin{tabular}{|c|p{3cm}|p{3cm}|}
+	\hline
+	& \textbf{contiki/client} & \textbf{epos/client}  \\ \hline
+	\textbf{Microcontrolador}	  	  & Freescale MC13224V & Freescale MC13224V \\ \hline 
+	\textbf{Plataforma Alvo}    & Econotag & EposMote II\\ \hline    
+	\textbf{Sistema Operacional}    & Contiki & EPOS \\ \hline    
+    \textbf{Ferramentas binárias}		  & GNU Binary Utilities (2.18.50-sg++) & arm-elf-binutils 4.4.4 \\ \hline
+    \textbf{Compiladores}		  & GNU C \& C++ Compilers (4.3.2-sg++) & arm-elf-g++ 4.4.4\\ \hline
+    \textbf{Bibliotecas C}          & Newlib C (1.16.0-sg++) & \\ \hline 
+	\end{tabular}
+  \end{table}
 \end{frame}
 
 \subsection{Resultados Experimentais}
 \begin{frame}
 \frametitle{Resultados Experimentais}
+
+\begin{tikzpicture}
+\centering
+  \scriptsize
+\label{memoryDiff}
+\begin{axis}[ybar , enlargelimits =0.15, legend style ={ at ={(0.5,-0.15)}, anchor =north, legend columns =-1}, ylabel ={\# size in bytes}, symbolic x coords ={epos/cantcoap,contiki/minimal-net,contiki/erbium}, xtick =data, nodes near coords , nodes near coords align ={vertical},]
+\addplot coordinates {(epos/cantcoap,62480) (contiki/minimal-net,59496) (contiki/erbium,62427)};
+\addplot coordinates {(epos/cantcoap,216) (contiki/minimal-net,2432) (contiki/erbium,440)};
+\addplot coordinates {(epos/cantcoap,10504) (contiki/minimal-net,22040) (contiki/erbium,18108)};
+\addplot coordinates {(epos/cantcoap,73200) (contiki/minimal-net,83968) (contiki/erbium,81275)};
+\legend {.text,.data,.bss, Total}
+\end{axis}
+\caption{Gr\'afico do tamanho das sess\~oes do arquivo ELF gerado para ARM.}
+\end{tikzpicture}
 \end{frame}
 
 \section{Conclusão}
@@ -215,12 +248,25 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 \subsection{Conclusões}
 \begin{frame}
 \frametitle{Conclusões}
+\begin{itemize}
+    \item Desenvolvimento de um gateway simplificado para redes de sensores sem fio e a Internet. 
+    \item Exemplo de cliente Web que utiliza a infraestrutura.
+\end{itemize}
 \end{frame}
-
-
 \subsection{Trabalhos Futuros}
 \begin{frame}
 \frametitle{Trabalhos Futuros}
+
+\begin{itemize}
+    \item A implementa\c{c}\~ao da vers\~ao segura do protocolo CoAP, utilizando DLTS para comunica\c{c}\~ao segura entre os n\'os.
+    \item Uma implementa\c{c}\~ao de servidor CoAP completa para executar utilizando a plataforma do EPOSMote II.
+
+    \item Desenvolvimento de um gateway que utilize Software Defined Transceiver.
+
+    \item Um gerador de c\'odigo que utiliza como entrada uma linguagem de especifica\c{c}\~ao dos recursos e a sa\'ida c\'odigo ANSI C m\'inimo de um servidor web utilizando CoAP e seus respectivos recursos.
+
+    \item Modelo de apresentação de recursos para os usuários.
+\end{itemize}
 \end{frame}
 
 
