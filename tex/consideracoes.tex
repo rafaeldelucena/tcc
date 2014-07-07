@@ -1,0 +1,15 @@
+Este trabalho apresentou alguns conceitos sobre redes de sensores e atuadores que utilizam um protocolo de aplica\c{c}\~ao espec\'ifico, para disponibilizar recursos diversos e facilitar a interoperabilidade de diversos sistemas.
+
+As principal contribui\c{c}\~oes deste trabalho s\~ao a avalia\c{c}\~ao de diferentes implementa\c{c}\~oes em diversas plataformas e a implementa\c{c}\~ao de uma infraestrutura para o desenvolvimento de aplica\c{c}\~oes que utilizem redes de sensores sem fio.
+
+O objetivo principal foi atigindo, o desenvolvimento de um gateway simplificado para redes de sensores que repassa as mensagens recebidas para um servidor CoAP na Internet. \'E possui acessar o sistema utilizando um cliente HTTP, facilitando a disponibiliza\c{c}\~ao de servi\c{c}os de sensoriamente e atua\c{c}\~ao.
+
+O tamanho do c\'odigo respeitou o espa\c{c}o de armazenamento restrito, comum desse tipo de aplica\c{c}\~ao e foi poss\'ivel criar uma aplica\c{c}\~ao que possa ser utilizado em uma vasta gama de dispositivos. Entres os trabalhos futuros poss\'iveis se destacam os seguintes:
+
+A implementa\c{c}\~ao da vers\~ao segura do protocolo CoAP, utilizando DLTS para comunica\c{c}\~ao segura entre os n\'os.
+
+Uma implementa\c{c}\~ao de servidor CoAP completa para executar utilizando a plataforma do EPOSMote II. Para isto seria necess\'ario desenvolver um m\'odulo gen\'erico o suficiente para adicionar diversos recursos como sensores e atuadores, com suporte a diferentes tipos de fun\c{c}\~oes, dados e a\c{c}\~oes como coletar dado de um ADC ou enviar comandos a um servo.
+
+Uma aplica\c{c}\~ao que poderia reduzir ainda mais o custo para integrar as redes a Internet, \'e a implementa\c{c}\~ao de um gateway que utilize Software Defined Transceiver, assim \'e poss\'ivel integrar uma gama enorme de dispositivos e utilizar apenas um m\'odulo transceiver para enviar os dados da RSSF para Internet.
+
+Um gerador de c\'odigo que utiliza como entrada uma linguagem de especifica\c{c}\~ao dos poss\'iveis recursos e como sa\'ida c\'odigo ANSI C m\'inimo de um servidor web utiliza CoAP e seus respectivos recursos. Este gerador deve ser gen\'erico suficiente para ser f\'acil a adapta\c{c}\~ao de diferentes pilhas CoAP/UDP/IP, arquiteturas e tipos de sensores.

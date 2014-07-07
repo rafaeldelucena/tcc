@@ -1,0 +1,150 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.45.2.1 }
+
+\bibitem[Alvira 2014]{malvira}
+\abntrefinfo{Alvira}{ALVIRA}{2014}
+{ALVIRA, M. \textbf{Library code for the Freescale MC13224v ARM7 SoC with
+  802.15.4 radio}. 2014.
+Dispon{\'\i}vel em: $<$https://github.com/malvira/libmc1322x$>$.}
+
+\bibitem[Anatel 2014]{coberturaGPRS}
+\abntrefinfo{Anatel}{ANATEL}{2014}
+{ANATEL. 2014.
+Dispon{\'\i}vel em: $<$http://sistemas.anatel.gov.br/stel$>$.}
+
+\bibitem[Berkeley 2014]{openWSN}
+\abntrefinfo{Berkeley}{BERKELEY}{2014}
+{BERKELEY, U. \textbf{OpenWSN WIKI}. 2014.
+Dispon{\'\i}vel em: $<$https://openwsn.atlassian.net/wiki$>$.}
+
+\bibitem[Booth et al. 2004]{w3c-web-04}
+\abntrefinfo{Booth et al.}{BOOTH et al.}{2004}
+{BOOTH, D. et al. \textbf{Web Services Architecture}.
+[S.l.], fev. 2004. Dispon{\'\i}vel em: $<$http://www.w3.org/TR/ws-arch$>$.}
+
+\bibitem[Bult et al. 1996]{542724}
+\abntrefinfo{Bult et al.}{BULT et al.}{1996}
+{BULT, K. et al. Low power systems for wireless microsensors. In:  \textbf{Low
+  Power Electronics and Design, 1996., International Symposium on}. [S.l.:
+  s.n.], 1996. p. 17--21.}
+
+\bibitem[Colitti, Steenhaut e Caro 2011]{Colitti11deintegrating}
+\abntrefinfo{Colitti, Steenhaut e Caro}{COLITTI; STEENHAUT; CARO}{2011}
+{COLITTI, W.; STEENHAUT, K.; CARO, N.~D. De integrating wireless sensor
+  networks with the web. In:  \textbf{In Proceedings of Workshop on Extending
+  the Internet to Low power and Lossy Networks}. [S.l.: s.n.], 2011.}
+
+\bibitem[Dargie e Poellabauer 2010]{dargie2010fundamentals}
+\abntrefinfo{Dargie e Poellabauer}{DARGIE; POELLABAUER}{2010}
+{DARGIE, W.; POELLABAUER, C. \textbf{Fundamentals of wireless sensor networks:
+  theory and practice}. [S.l.]: John Wiley \& Sons, 2010.}
+
+\bibitem[Developers 2014]{ibmCodeSize}
+\abntrefinfo{Developers}{DEVELOPERS}{2014}
+{DEVELOPERS, I. \textbf{Managing code size}. 2014.
+Dispon{\'\i}vel em:
+  $<$http://publib.boulder.ibm.com/infocenter/comphelp/v101v121/index.jsp?
+  topic=/com.ibm.xlf121.aix.doc/proguide/managingcodesize.html$>$.}
+
+\bibitem[Duffy 1988]{duffyMechanism}
+\abntrefinfo{Duffy}{DUFFY}{1988}
+{DUFFY, T. \textbf{Duffy Mechanism}. 1988.
+Dispon{\'\i}vel em: $<$http://www.lysator.liu.se/c/duffs-device.html$>$.}
+
+\bibitem[Dunkels 2011]{Dunkels11thecontikimac}
+\abntrefinfo{Dunkels}{DUNKELS}{2011}
+{DUNKELS, A. \textbf{The ContikiMAC Radio Duty Cycling Protocol}. 2011.}
+
+\bibitem[Dunkels e Schmidt 2005]{Dunkels05protothreads}
+\abntrefinfo{Dunkels e Schmidt}{DUNKELS; SCHMIDT}{2005}
+{DUNKELS, A.; SCHMIDT, O. \textbf{Protothreads - Lightweight, Stackless Threads
+  in C}. 2005.}
+
+\bibitem[EPOS 1999]{eposProject}
+\abntrefinfo{EPOS}{EPOS}{1999}
+{EPOS. \textbf{EPOS Project}. 1999.
+Dispon{\'\i}vel em: $<$http://epos.lisha.ufsc.br/HomePage$>$.}
+
+\bibitem[Fielding 2000]{rest}
+\abntrefinfo{Fielding}{FIELDING}{2000}
+{FIELDING, R.~T.
+\textbf{Representational State Transfer (REST)}.
+Tese (Doutorado), 2000.
+Dispon{\'\i}vel em:
+  $<$http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm$>$.}
+
+\bibitem[Frohlich et al. 2013]{frohlich2013cross}
+\abntrefinfo{Frohlich et al.}{FROHLICH et al.}{2013}
+{FROHLICH, A. et al. A cross-layer approach to trustfulness in the internet of
+  things. In:  \textbf{9th Workshop on Software Technologies for Embedded and
+  Ubiquitous Systems (SEUS), Paderborn, Germany}. [S.l.: s.n.], 2013. p.
+  884--889.}
+
+\bibitem[Fröhlich 1999]{epos}
+\abntrefinfo{Fröhlich}{FRöHLICH}{1999}
+{FRöHLICH, W. S.-P. A.~A. Epos: an object-oriented operating system.
+1999.}
+
+\bibitem[Kuladinithi et al. 2011]{kuladinithi2011implementation}
+\abntrefinfo{Kuladinithi et al.}{KULADINITHI et al.}{2011}
+{KULADINITHI, K. et al. Implementation of coap and its application in transport
+  logistics.
+\textbf{Proc. IP+ SN, Chicago, IL, USA}, 2011.}
+
+\bibitem[Lewis 2004]{lewis2004wireless}
+\abntrefinfo{Lewis}{LEWIS}{2004}
+{LEWIS, F.~L. Wireless sensor networks.
+\textbf{Smart environments: technologies, protocols, and applications}, New
+  York: Wiley, p. 11--46, 2004.}
+
+\bibitem[Papazoglou 2003]{581580}
+\abntrefinfo{Papazoglou}{PAPAZOGLOU}{2003}
+{PAPAZOGLOU, M.~P. {Service-Oriented Computing: Concepts, Characteristics and
+  Directions}. In:  \textbf{Web Information Systems Engineering}. [S.l.: s.n.],
+  2003. p. 3--12.}
+
+\bibitem[Poetsch et al. 2013]{poetsch2013transport}
+\abntrefinfo{Poetsch et al.}{POETSCH et al.}{2013}
+{POETSCH, T. et al. Transport of coap over sms.
+\textbf{Transport}, 2013.}
+
+\bibitem[Richardson e Ruby 2008]{richardson2008restful}
+\abntrefinfo{Richardson e Ruby}{RICHARDSON; RUBY}{2008}
+{RICHARDSON, L.; RUBY, S. \textbf{RESTful web services}. [S.l.]: O'Reilly,
+  2008.}
+
+\bibitem[Shelby Klaus~Hartke 2013]{draft-ietf-core-coap-18}
+\abntrefinfo{Shelby Klaus~Hartke}{SHELBY KLAUS~HARTKE}{2013}
+{SHELBY KLAUS~HARTKE, C.~B. Z. \textbf{Constrained Application Protocol
+  (CoAP)}. IETF, 2013.
+Internet-Drafts.
+ (Internet Draft, 18).
+Dispon{\'\i}vel em: $<$http://www.ietf.org/id/draft-ietf-core-coap-18.txt$>$.}
+
+\bibitem[Shelby 2012]{rfc6690}
+\abntrefinfo{Shelby}{SHELBY}{2012}
+{SHELBY, Z. \textbf{Constrained RESTful Environments (CoRE) Link Format}. IETF,
+  2012.
+RFC 5280 (Proposed Standard).
+ (Request for Comments, 6690).
+Dispon{\'\i}vel em: $<$http://tools.ietf.org/rfc/rfc6690.txt$>$.}
+
+\bibitem[Watteyne et al. 2012]{openWSNPaper}
+\abntrefinfo{Watteyne et al.}{WATTEYNE et al.}{2012}
+{WATTEYNE, T. et al. Openwsn: a standards-based low-power wireless development
+  environment.
+\textbf{Transactions on Emerging Telecommunications Technologies}, John Wiley
+  \& Sons, Ltd, v.~23, n.~5, p. 480--493, 2012.
+ISSN 2161-3915.
+Dispon{\'\i}vel em: $<$http://dx.doi.org/10.1002/ett.2558$>$.}
+
+\bibitem[Yick Biswanath~Mukherjee 2008]{WsnSurvey2008}
+\abntrefinfo{Yick Biswanath~Mukherjee}{YICK BISWANATH~MUKHERJEE}{2008}
+{YICK BISWANATH~MUKHERJEE, D.~G. J. \textbf{Wireless sensor network survey}.
+  [S.l.]: Elsevier, 2008.}
+
+\end{thebibliography}

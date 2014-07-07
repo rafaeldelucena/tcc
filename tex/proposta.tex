@@ -1,0 +1,85 @@
+Este trabalho prop\~oes a implementa\c{c}\~ao de uma biblioteca que utiliza a camada UDP do EPOS para dar suporte ao protocolo CoAP.
+
+O trabalho tamb\'em consiste na implementa\c{c}\~ao de uma aplica\c{c}\~ao para gateway GPRS/Zigbee utilizando o EPOS e um componente de hardware que ser\'a acoplado ao EposMoteII. Este componente esta sendo desenvolvido em paralelo por um colega de laborat\'orio.
+
+O desenvolvimento da aplica\c{c}\~ao no EPOS que ser\'a respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
+
+As principais fun\c{c}\~oes deste gateway s\~ao receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final.
+
+As fun\c{c}\~oes a serem desenvolvidas na aplica\c{c}\~ao do gateway s\~ao:
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Configura\c{c}\~ao SMS
+    \item Envia mensagem SMS
+    \item Recebe mensagem SMS
+    \item Configura\c{c}\~ao contexto PDP
+    \item Configura\c{c}\~ao GPRS
+    \item Configura\c{c}\~ao TCP/IP
+    \item Manter uma conex\~ao TCP/IP 
+\end{itemize}
+
+\section{Metas}
+Entregar um m\'odulo simplificado do procotolo CoAP no primeiro semestre e testar as funcionalidades no modem GSM/GPRS.
+Desenvolver a aplica\c{c}\~ao no EPOS no segundo semestre e fazer testes de integra\c{c}\~ao.
+
+\section{Cronograma}
+\begin{ganttchart}[
+        vgrid, hgrid, x unit=3mm, today=11, bar/.append style={fill=green},
+    ] {1}{21}
+    \gantttitle {Trabalho de Conclus\~ao de Curso}{21} \\
+    \gantttitlelist {3,...,12}{2}\\
+    \ganttgroup {2013.1} {1}{10}\\
+    \ganttbar[progress=100]{Estudar EPOS} {1}{4}\\
+    \ganttbar[progress=100]{Estudar EPOSMoteII}{1}{4}\\
+    \ganttbar[progress=100]{Estudar modem GPRS}{1}{4}\\
+    \ganttbar[progress=100]{Levantar requisitos libcoap no EPOS} {3}{4} \\
+    \ganttbar[progress=100]{Levantar requisitos do HW} {1}{6}\\
+    \ganttbar[progress=60]{Implementa\c{c}\~ao do CoAP} {3}{10} \\
+    \ganttbar[progress=100]{Testar modem GPRS} {6}{10} \\
+    \ganttbar[progress=0] {Desenvolvimento do prot\'otipo do HW} {7}{10}\\
+    \ganttmilestone {Relat\'orio de TCC I}{10}\\
+    \ganttnewline[thick, blue]
+    \ganttgroup {2014.1}{11}{20} \\
+    \ganttbar[progress=20]{Implementa\c{c}\~ao do Gateway} {11}{18}\\
+    \ganttbar[progress=0]{Testes de Integra\c{c}\~ao} {19}{20}\\
+    \ganttbar[progress=40]{Documenta\c{c}\~ao do trabalho} {1}{20} \\
+    \ganttmilestone {Relat\'orio de TCC II}{20}
+
+    \ganttlink {elem3}{elem7}
+    \ganttlink {elem5}{elem8}
+    \ganttlink {elem7}{elem11}
+    \ganttlink {elem8}{elem12}
+    \ganttlink {elem11}{elem12}
+
+\end{ganttchart}
+
+\section{Resultados parciais}
+
+Estudos realizados durante o desenvolvimento do protocolo e testes para valida\c{c}\~ao do m\'odulo GPRS. e durante o levamento de requisitos para portar a libcoap para o EPOS, e EPOSMoteII. Levantar requisitos libcoap no EPOS, requisitos do HW.
+
+Porte da biblioteca para o EPOS. Utilizando testes para validar o funcionamento entre diferentes arquiteturas e compiladores. A execu\c{c}\~ao dos testes foi feita no Qemu. Implementa\c{c}\~ao do CoAP: mecanismos de retransmiss\~ao, requisi\c{c}\~ao e resposta.
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Repassar mensagem para controle de Requisi\c{c}\~ao e Reposta.
+\item Adicionar a lista de mensagem recebidas.
+\item Envio de mensagens confirm\'aveis e n\~ao confirm\'aveis
+\item Mecanismo de retransmiss\~ao simplificado: enviar mensagens com confirma\c{c}\~ao pendentes e reconfigurar-se a pr\'oximo envio.
+\end{itemize}
+
+Testes no m\'ouldo GPRS:
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Enviar Mensagem
+\item Receber Mensagem
+\item Criar socket TCP
+\item Enviar mensagem via socket
+\item Receber mensagem via socket
+\item Fazer requisi\c{c}\~ao HTTP para um webserver, foi poss\'ivel utilizando os comandos propriet\'arios do modem.
+\end{itemize}
+
+\subsection{Atividades pendentes}
+As atividades que ser\~ao feitas ao longo do segundo semestre:
+\begin{itemize}
+    \item Implementa\c{c}\~ao do Gateway.
+    \item Testes de Integra\c{c}\~ao.
+    \item Documenta\c{c}\~ao do trabalho.
+    \item Relat\'orio de TCC II.
+\end{itemize}
