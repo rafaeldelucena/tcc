@@ -119,7 +119,7 @@ Universidade Federal de Santa Catarina \\ % Your institution for the title page
 \begin{frame}
 \frametitle{Contextualização}
 \begin{description}
-\item[Redes de sensores sem fio:]
+\item[Redes de sensores sem fio:] centenas ou milhares de n\'os sensores, caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido.
 \item[Protocolos de aplicação:]
 \item[Internet das Coisas:]
 \end{description}
@@ -192,6 +192,15 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 \begin{figure}
 \includegraphics[width=0.9\linewidth]{../figuras/arquiteturaSlide}
 \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Implementação}
+\begin{itemize}
+    \item Validação dos pacotes utilizando testes unitários, exemplos de outras bibliotecas, sniffing com Wireshark.
+    \item A implementação do agendador de transmissão utiliza alarmes de disparo único.
+    \item Exemplos de diveros recursos CoAP: coap:coap.me.
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
