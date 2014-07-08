@@ -269,6 +269,8 @@ Requisitos Não Funcionais:
     \item Verificação do funcionamento da biblioteca CoAP na plataforma, utilizando testes unitários.
     \item A implementação do agendador de transmissão utiliza alarmes de disparo único.
     \item Testes de interoperabilidade utilizando exemplos funcionais (coap://coap:coap.me).
+\item Gateway GPRS: ao adquirir um IP da rede, envia pacote CoAP contendo novo endereço.
+\item Servidor Web: responde requisições CoAP e HTTP, envia pacotes CoAP para o gateway e mapeia os recursos CoAP para http://hostname/resources/.
 \end{itemize}
 \end{frame}
 
