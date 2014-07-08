@@ -147,7 +147,7 @@ Objetos do cotidiano que possuem representações de seus recursos na Internet e
 \begin{block}{Interoperabilidade}Comunicação entre diversos dispositivos diferentes utilizando padrões.
 \end{block}
     \begin{block}{Avanço Tecnológico}
-        A industria dos semicondutores e a miniaturização dos componentes.
+        A indústria dos semicondutores e a miniaturização dos componentes.
     \end{block}
     \begin{block}{Ambientes Inteligentes}
         Novas aplicações que consumam contexto.
@@ -225,7 +225,7 @@ Protocolo proposto por CoRE group com as seguintes características:
 \begin{frame}
 \frametitle{Constrained Application Protocol: parte 2}
 \begin{itemize}
-    \item Suporte a diferentes mídias: text/plain, charset=utf-8, application/link-format, application/xml, application/octet-stream, application/exi, application/json.
+    \item Suporte a diferentes mídias: \textit{text/plain, charset=utf-8, application/link-format, application/xml, application/octet-stream, application/exi, application/json.}
     \item Cache simples baseado no tempo de vida (max-age) do dado captado. (opcional)
     \item Sistema de assinatura e publicação. (opcional)
     \item Confiablidade na entrega de mensagens. (opcional) 
@@ -236,7 +236,7 @@ Protocolo proposto por CoRE group com as seguintes características:
 \frametitle{Constrained Application Protocol: Formato}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{../figuras/formato}
-\caption{Formato do pacote em bits}
+\caption{Formato do pacote em bits.}
 \end{figure}
 \end{frame}
 
@@ -331,9 +331,9 @@ Plataforma com 128KB Flash, 96KB RAM de memória.
     \end{block}
     \begin{block}{Servidores}
     \begin{itemize}
-        \item Licoap: ETSI e exemplo.
-        \item LibCantCoap exemplo.
-        \item Contiki Erbium server e Minimal-Net server.
+        \item Licoap: example/etsi01.c e exemple/server.c.
+        \item LibCantCoap: plain/server.c.
+        \item Contiki: Erbium server e Minimal-Net server.
         \end{itemize}
     \end{block}
 \end{frame}
@@ -418,7 +418,8 @@ Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito). & \xmark \\ \hline
 \begin{frame}
 \frametitle{Conclusões}
 \begin{itemize}
-    \item Desenvolvimento de um gateway simplificado para redes de sensores sem fio e a Internet. 
+    \item Foi possível a implementação de um gateway simplificado para redes de sensores sem fio e a Internet. 
+    \item Desenvolveu-se uma Web API para interação com os nós. 
     \item Protocolo adequado para redes com um número grande de nós.
     \item A falta de um tipo de mídia expecífico para representação de medidas dos sensores. (SEML rascunho)
 \end{itemize}
