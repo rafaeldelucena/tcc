@@ -71,9 +71,9 @@
 %\usecolortheme{wolverine}
 
 %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 \usepackage{graphicx} % Allows including images
@@ -118,38 +118,55 @@ Universidade Federal de Santa Catarina \\ % Your institution for the title page
 \subsection{Contextualização}
 \begin{frame}
 \frametitle{Contextualização}
-\begin{description}
-\item[Redes de sensores sem fio:] centenas ou milhares de n\'os sensores, caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido.
-\item[Protocolos de aplicação:]
-\item[Internet das Coisas:]
-\end{description}
+
+\begin{block}{Redes de sensores sem fio}
+Centenas ou milhares de n\'os sensores, caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido.
+\end{block}
+
+\begin{block}{Internet das Coisas}
+Objetos do cotidiano que possuem representações de seus recursos na Internet e capazes de interação com pessoas e outros objetos.
+\end{block}
+
+\begin{block}{Protocolos de aplicação}
+    \begin{itemize}
+        \item HTTP
+        \item XMPP 
+        \item MQTT
+        \item \textbf{CoAP}, RFC 7252 desde 26/06/2014.
+    \end{itemize}
+\end{block}
 \end{frame}
 
 \subsection{Motivação}
 \begin{frame}
 \frametitle{Motivação}
-\begin{description}
-\item[Interoperabilidade:] comunicação entre diversos dispositivos diferentes utilizando padrões.
-\item[Avanço Tecnológico:] a industria dos semicondutores e a miniaturização dos componentes.
-\item[Ambientes Inteligentes:] novas aplicações que consumam contexto.
-\item[Maior cobertura da tecnologia de rede móvel:] cerca de 5570 municípios no Brasil.
-\end{description}
+\begin{block}{Interoperabilidade}Comunicação entre diversos dispositivos diferentes utilizando padrões.
+\end{block}
+    \begin{block}{Avanço Tecnológico}
+        A industria dos semicondutores e a miniaturização dos componentes.
+    \end{block}
+    \begin{block}{Ambientes Inteligentes}
+        Novas aplicações que consumam contexto.
+    \end{block}
+\begin{block}{Vasta cobertura da tecnologia}
+    Cerca de 5570 municípios no Brasil possuem pelo menos uma ERB.
+\end{block}
 \end{frame}
 
 \subsection{Objetivos}
 \begin{frame}
 \frametitle{Objetivos}
-\begin{description}
-\item[Objetivo Geral:] descrever, implementar e integrar na Internet serviços web de uma rede sensores sem fio.
-\item[Objetivos Específicos:]
+\begin{block}{Objetivo Geral}
+    Descrever, implementar e integrar na Internet serviços web de uma rede sensores sem fio.
+\end{block}
+\begin{block}{Objetivos Específicos}
 \begin{itemize}
 \item Portar CoAP para plataforma alvo.
-\item Implementar aplicação para a rede de sensores sem fio.
 \item Desenvolver a aplicação gateway GPRS / 802.15.4.
-\item Desenvolver uma aplicação para visualização da informação.
+\item Desenvolver uma WEB API para coleta da informação.
 \item Avaliar a solução desenvolvida.
 \end{itemize}
-\end{description}
+\end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -157,10 +174,13 @@ Universidade Federal de Santa Catarina \\ % Your institution for the title page
 \section{Conceitos Relacionados}
 \begin{frame}
 \frametitle{Conceitos Relacionados}
-\begin{description}
-    \item REST: práticas de desenvolvimento.
-    \item Restful: aplicações web que utiliza REST.
-\end{description}
+
+\begin{block}{REST}
+    Conjunto de princípios e restrições arquiteturais para o desenvolvimento de sistemas distribuídos.
+\end{block}
+\begin{block}{Restful}
+    Práticas de desenvolvimento para aplicações web baseados no REST.
+\end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -185,21 +205,67 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 
 %------------------------------------------------
 
+\section{CoAP}
+\begin{frame}
+\frametitle{Constrained Application Protocol: parte 1}
+Protocolo proposto por CoRE group com as seguintes características:
+\begin{itemize}
+    \item Baixo overhead na validação do pacote e do cabecalho.
+    \item Suporte a URI.
+    \item Descoberta de recursos, GET para /well-know/core.
+    \item Descoberta de serviços com socket multicast. 
+    \item Protocolo desenvolvido para minimizar complexidade do mapeamento para HTTP.
+\end{itemize}
+Continua...
+\end{frame}
+
+\begin{frame}
+\frametitle{Constrained Application Protocol: parte 2}
+\begin{itemize}
+    \item Suporte a diferentes mídias: text/plain, charset=utf-8, application/link-format, application/xml, application/octet-stream, application/exi, application/json.
+    \item Cache simples baseado no tempo de vida (max-age) do dado captado. (opcional)
+    \item Sistema de assinatura e publicação. (opcional)
+    \item Confiablidade na entrega de mensagens. (opcional) 
+\end{itemize}
+Continua...
+\end{frame}
+
+\begin{frame}
+\frametitle{Constrained Application Protocol: Formato}
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{../figuras/formato}
+\end{figure}
+\end{frame}
+
 \section{Implementação}
 
 \begin{frame}
-\frametitle{Implementação}
+\frametitle{Implementação: Arquitetura}
 \begin{figure}
 \includegraphics[width=0.9\linewidth]{../figuras/arquiteturaSlide}
 \end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{Implementação}
+\frametitle{Implementação: Requisitos}
+Requisitos Funcionais:
 \begin{itemize}
-    \item Validação dos pacotes utilizando testes unitários, exemplos de outras bibliotecas, sniffing com Wireshark.
+    \item Envio de requisição e recebimento de respostas CoAP.
+    \item Integração com a Internet utilizando GPRS. 
+\end{itemize}
+Requisitos Não Funcionais:
+\begin{itemize}
+    \item Plataforma alvo com restrições de memória.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Implementação: Desenvolvimento}
+\begin{itemize}
+    \item Levantamento de requisitos para porte de uma biblioteca CoAP. (libCoap, libCantCoap, microCoap, ...)
+    \item Verificação do funcionamento da biblioteca CoAP na plataforma, utilizando testes unitários.
     \item A implementação do agendador de transmissão utiliza alarmes de disparo único.
-    \item Exemplos de diveros recursos CoAP: coap:coap.me.
+    \item Testes de interoperabilidade utilizando exemplos funcionais (coap://coap:coap.me).
 \end{itemize}
 \end{frame}
 
@@ -209,7 +275,8 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 
 \subsection{Ambiente de Testes}
 \begin{frame}
-\frametitle{Ambiente de Testes}
+\frametitle{Ambiente de Testes: requisitos mínimos da aplicação}
+Abaixo informações sobre as plataformas utilizadas para comparação.
  \begin{table}[!ht]
   \centering
   \scriptsize
@@ -228,12 +295,13 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 
 \subsection{Resultados Experimentais}
 \begin{frame}
-\frametitle{Resultados Experimentais}
+\frametitle{Resultados Experimentais: Requisitos Mínimos}
+
+Plataforma com 128KB Flash, 96KB RAM de memória.
 
 \begin{tikzpicture}
 \centering
   \scriptsize
-\label{memoryDiff}
 \begin{axis}[ybar , enlargelimits =0.15, legend style ={ at ={(0.5,-0.15)}, anchor =north, legend columns =-1}, ylabel ={\# size in bytes}, symbolic x coords ={epos/cantcoap,contiki/minimal-net,contiki/erbium}, xtick =data, nodes near coords , nodes near coords align ={vertical},]
 \addplot coordinates {(epos/cantcoap,62480) (contiki/minimal-net,59496) (contiki/erbium,62427)};
 \addplot coordinates {(epos/cantcoap,216) (contiki/minimal-net,2432) (contiki/erbium,440)};
@@ -241,8 +309,23 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 \addplot coordinates {(epos/cantcoap,73200) (contiki/minimal-net,83968) (contiki/erbium,81275)};
 \legend {.text,.data,.bss, Total}
 \end{axis}
-\caption{Gr\'afico do tamanho das sess\~oes do arquivo ELF gerado para ARM.}
 \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ambiente de Testes: Interoperabilidade}
+
+    As ferramentas utilizadas para verificar o funcionamento do cliente CoAP entre diversas plataformas, foram:
+    \begin{description}
+    \item[Libcoap:] ETSI Server e example server.
+    \item[LibCantCoap:] Example server. 
+    \item[Contiki:] Erbium server e example server.
+    \end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Resultados Experimentais: Interoperabilidade}
+Testes para verificar a interoperabilidade.
 \end{frame}
 
 \section{Conclusão}
@@ -252,7 +335,8 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 \frametitle{Conclusões}
 \begin{itemize}
     \item Desenvolvimento de um gateway simplificado para redes de sensores sem fio e a Internet. 
-    \item 
+    \item Protocolo adequado para redes com um número grande de nós.
+    \item A falta de um tipo de mídia expecífico para representação de medidas dos sensores. (SEML rascunho)
 \end{itemize}
 \end{frame}
 \subsection{Trabalhos Futuros}
@@ -262,7 +346,7 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
 \begin{itemize}
     \item A implementa\c{c}\~ao da vers\~ao segura do protocolo CoAP, utilizando DLTS para comunica\c{c}\~ao segura entre os n\'os.
     \item Uma implementa\c{c}\~ao de servidor CoAP completa para executar utilizando a plataforma do EPOSMote II.
-    \item Melhorar as métricas de avaliação: vazão de mensagens, round-time trip e consumo de energia.
+    \item Melhorar as métricas de avaliação: vazão de mensagens, round-time trip e consumo de energia e memória ao longo do tempo.
 
     \item Desenvolvimento de um gateway que utilize Software Defined Transceiver.
 
@@ -271,38 +355,6 @@ Biblioteca de código aberto em C, que implementa o protocolo CoAP, que utiliza 
     \item Modelo de apresentação de recursos para os usuários.
 \end{itemize}
 \end{frame}
-
-
-%\begin{frame}
-%\frametitle{Figure}
-%Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%%\begin{figure}
-%%\includegraphics[width=0.8\linewidth]{test}
-%%\end{figure}
-%\end{frame}
-
-%------------------------------------------------
-
-%\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-%\frametitle{Citation}
-%An example of the \verb|\cite| command to cite within the presentation:\\~
-%
-%This statement requires citation \cite{p1}.
-%\end{frame}
-
-%------------------------------------------------
-
-%\begin{frame}
-%\frametitle{Bibliografia}
-%\footnotesize{
-%\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-%\bibitem[Smith, 2012]{p1} John Smith (2012)
-%\newblock Title of the publication
-%\newblock \emph{Journal Name} 12(3), 45 -- 678.
-%\end{thebibliography}
-%}
-%\end{frame}
-
 %------------------------------------------------
 
 \begin{frame}
