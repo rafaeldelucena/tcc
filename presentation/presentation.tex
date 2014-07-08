@@ -80,6 +80,10 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage[utf8]{inputenc}
 \usepackage{pgfplots}
+\usepackage{pifont}
+
+\newcommand{\cmark}{{\color{green}\ding{51}}}%
+\newcommand{\xmark}{{\color{red}\ding{55}}}%
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -216,7 +220,6 @@ Protocolo proposto por CoRE group com as seguintes características:
     \item Descoberta de serviços com socket multicast. 
     \item Protocolo desenvolvido para minimizar complexidade do mapeamento para HTTP.
 \end{itemize}
-Continua...
 \end{frame}
 
 \begin{frame}
@@ -227,13 +230,13 @@ Continua...
     \item Sistema de assinatura e publicação. (opcional)
     \item Confiablidade na entrega de mensagens. (opcional) 
 \end{itemize}
-Continua...
 \end{frame}
 
 \begin{frame}
 \frametitle{Constrained Application Protocol: Formato}
 \begin{figure}
-\includegraphics[width=0.9\linewidth]{../figuras/formato}
+\includegraphics[width=1.0\linewidth]{../figuras/formato}
+\caption{Formato do pacote em bits}
 \end{figure}
 \end{frame}
 
@@ -288,7 +291,7 @@ Abaixo informações sobre as plataformas utilizadas para comparação.
 	\textbf{Sistema Operacional}    & Contiki & EPOS \\ \hline    
     \textbf{Ferramentas binárias}		  & GNU Binary Utilities (2.18.50-sg++) & arm-elf-binutils 4.4.4 \\ \hline
     \textbf{Compiladores}		  & GNU C \& C++ Compilers (4.3.2-sg++) & arm-elf-g++ 4.4.4\\ \hline
-    \textbf{Bibliotecas C}          & Newlib C (1.16.0-sg++) & \\ \hline 
+    \textbf{Bibliotecas C}          & Newlib C (1.16.0-sg++) & Newlib C \\ \hline 
 	\end{tabular}
   \end{table}
 \end{frame}
@@ -314,18 +317,99 @@ Plataforma com 128KB Flash, 96KB RAM de memória.
 
 \begin{frame}
     \frametitle{Ambiente de Testes: Interoperabilidade}
-
-    As ferramentas utilizadas para verificar o funcionamento do cliente CoAP entre diversas plataformas, foram:
-    \begin{description}
-    \item[Libcoap:] ETSI Server e example server.
-    \item[LibCantCoap:] Example server. 
-    \item[Contiki:] Erbium server e example server.
-    \end{description}
+    \begin{block}{Máquina Host}
+     \begin{table}[!ht]
+      \centering
+      \scriptsize
+      \begin{tabular}{|c|c|}
+        \hline
+        \textbf{ISA} & x86 32 \\ \hline
+        \textbf{SO}	& GNU/LINUX 2.6.32-5-686 \\ \hline 
+        \textbf{Distro}	& Debian 6.0.9 \\ \hline 
+        \end{tabular}
+      \end{table}
+    \end{block}
+    \begin{block}{Servidores}
+    \begin{itemize}
+        \item Licoap: ETSI e exemplo.
+        \item LibCantCoap exemplo.
+        \item Contiki Erbium server e Minimal-Net server.
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{Resultados Experimentais: Interoperabilidade}
-Testes para verificar a interoperabilidade.
+\frametitle{Resultados Experimentais: Interoperabilidade 1}
+\begin{table}[H]
+\centering
+\scriptsize
+\label{plugTest}
+\begin{tabular}{p{8cm}|c{1cm}}
+\hline
+\multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para especifica\c{c}\~ao b\'asica CoAP}} \\ \hline
+Tratar GET, confirm\'avel. & \cmark \\
+Tratar POST, confirm\'avel. & \cmark \\
+Tratar PUT, confirm\'avel. & \cmark \\
+Tratar DELETE, confirm\'avel. & \cmark \\
+Tratar GET, sem confirma\c{c}\~ao. & \cmark \\
+Tratar POST, sem confirma\c{c}\~ao. & \cmark \\
+Tratar PUT, sem confirma\c{c}\~ao. & \cmark \\
+Tratar DELETE, sem confirma\c{c}\~ao. & \cmark \\
+Tratar GET com resposta separada. & \cmark \\
+Tratar requisi\c{c}\~ao com Token. & \cmark \\
+Tratar requisi\c{c}\~ao sem Token. & \cmark \\
+Tratar requisi\c{c}\~ao op\c{c}\~oes URI-Path. & \cmark \\
+Tratar requisi\c{c}\~ao op\c{c}\~oes URI-Query. & \cmark \\
+Interoperablidade em contexto de perda\\(CON mode, piggybacked response) & \cmark \\
+Interoperablidade em contexto de perda\\(CON mode, delayed response) & \cmark \\
+Tratar GET com resposta separada, sem confirma\c{c}\~ao. & \cmark \\ \hline
+\end{tabular}
+\caption{Resultados IOT Plugtest.}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Resultados Experimentais: Interoperabilidade 2}
+\begin{table}[H]
+\centering
+\scriptsize
+\label{plugTest}
+\begin{tabular}{p{8cm}|c{1cm}}
+\hline
+\multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para validar o formato de dados CORE link Format}} \\ \hline
+Descoberta de recursos well-known. & \xmark \\
+Utiliza\c{c}\~ao de consulta para filtrar resultados. & \xmark \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para validar a transfer\^encia de blocos}}\\ \hline
+Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao antecipada). & \xmark \\
+Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao atrasada). & \xmark \\
+Transfer\^encia de blocos grandes utilizando o PUT. & \xmark \\
+Transfer\^encia de blocos grandes utilizando o POST. & \xmark \\ \hline
+\end{tabular}
+\caption{Resultados IOT Plugtest.}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Resultados Experimentais: Interoperabilidade 3}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\label{plugTest}
+\begin{tabular}{p{8cm}|c{1cm}}
+\hline
+\multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para observa\c{c}\~ao de recursos}} \\ \hline
+Tratar observa\c{c}\~ao de recursos. & \xmark \\
+Parar a observa\c{c}\~ao de recursos. & \xmark \\
+Detec\c{c}\~ao de deregistro do cliente (Max-Age). & \xmark \\
+Detec\c{c}\~ao de deregistro do servidor (client OFF). & \xmark \\
+Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito). & \xmark \\ \hline
+\end{tabular}
+\caption{Resultados IOT Plugtest.}
+\end{table}
 \end{frame}
 
 \section{Conclusão}
