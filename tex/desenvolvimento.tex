@@ -96,8 +96,6 @@ A figura \ref{casodeuso} mostra o diagrama de caso de uso das principais fun\c{c
    \caption{Diagrama de casos de uso.}
 \end{figure}
 
-A aplica\c{c}\~ao cliente foi desenvolvida em um Linux utilizando tecnologias HTML5, JavaScript, JSON e HTML foram utilizados. O servidor HTTP utilizado foi HttpServer do NodeJS, que recebe requisi\c{c}\~oes HTTP dos clientes para a rede de sensores sem fio utilizando a biblioteca Node-CoAP.
-
 A aplica\c{c}\~ao desenvolvida no EPOS utiliza buffer para o recebimento de dados da rede 802.15.4 que ser\'a enviado para rede via GPRS. Foram utilizadas duas threads, uma produtora que ficar\'a escutando o r\'adio 802.15.4 e outra consumidora que ser\'a respons\'avel em utlizar estes dados na rede de sensores e encaminh\'a-los pra Internet usando a extens\~ao GPRS do EPOSmote II. Para validar o comportamento foram utilizados testes da pr\'opria biblioteca CoAP portados para o EPOS.
 
 \section{Implementa\c{c}\~ao}
@@ -119,6 +117,13 @@ Com isto o sistema est\'a apto para receber requisi\c{c}\~oes externas e enviar 
 Para testar \'e necess\'ario executar tamb\'em o HTTP server, que receber\'a as requisi\c{c}\~oes de clientes HTTP e ir\'a repassar para qualquer servidor CoAP atrav\'es de uma rota que o usu\'ario informou.
 
 Este servidor HTTP trata requisi\c{c}\~oes para\\http://http-server-hostname/coap-server-hostname/resources, que retorna os recursos do servidor coap em formato JSON e para\\http://http-server-hostname/coap-server-hostname/resource, aonde resource \'e a rota dispon\'ivel de um recurso CoAP.
+
+O servidor HTTP foi implementado na linguagem JavaScript, utilizando o framework para desenvolvimento de aplica\c{c}\~oes web chamado Express do NodeJS. Este servidor \'e respons\'avel por receber as requisi\c{c}\~oes HTTP dos clientes e inicia requisi\c{c}\~oes CoAP para o servidor CoAP.
+
+O servidor CoAP utiliza a biblioteca Node-CoAP, recebe requisi\c{c}\~oes e repassa os pacotes para o endere\c{c}o da aplica\c{c}\~ao gateway, caso este esteja conectado na rede m\'ovel. Este servidor tamb\'em foi desenvolvido utilizando a linguagem JavaScript.
+
+A aplica\c{c}\~ao gateway foi desenvolvida em C++, utilizando a biblioteca CantCoap pra montar os pacotes e alguns utilit\'arios do sistema operacional EPOS, como alarmes, listas ordenadas entre outros.
+
 
 \begin{lstlisting}
 \end{lstlisting}
