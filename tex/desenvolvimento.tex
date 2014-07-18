@@ -100,6 +100,29 @@ A aplica\c{c}\~ao cliente foi desenvolvida em um Linux utilizando tecnologias HT
 
 A aplica\c{c}\~ao desenvolvida no EPOS utiliza buffer para o recebimento de dados da rede 802.15.4 que ser\'a enviado para rede via GPRS. Foram utilizadas duas threads, uma produtora que ficar\'a escutando o r\'adio 802.15.4 e outra consumidora que ser\'a respons\'avel em utlizar estes dados na rede de sensores e encaminh\'a-los pra Internet usando a extens\~ao GPRS do EPOSmote II. Para validar o comportamento foram utilizados testes da pr\'opria biblioteca CoAP portados para o EPOS.
 
+\section{Implementa\c{c}\~ao}
+
+A modelagem da solu\c{c}\~ao visa uma implementa\c{c}\~ao modular, para facilitar a verifica\c{c}\~ao do correto funcionamento e tamb\'em para ser de f\'acil adapta\c{c}\~a a diversas plataformas. O sistema proposto \'e composto pela aplica\c{c}\~ao gateway, por um servidor coap externo e um servidor http externo, este apenas para facilitar o acesso de dispositivos sem suporte ao protocolo CoAP.
+
+Para funcionamento \'e necess\'ario executar a aplica\c{c}\~ao coap-gateway-server, dispon\'ivel em:\\https://github.com/rafaeldelucena/coap-gateway-server.
+
+Tamb\'em \'e necess\'ario iniciar o gateway e os dispositivos que ir\~ao se comunicar via 802.15.4 por protocolo CoAP.
+
+No gateway o sistema desenvolvido possui como entradas mensagens sequ\^encias de caract\eres do transceiver 802.15.4 e do m\'odulo GPRS, que s\~ao validados em pacotes CoAP.
+
+Ao estabelecer o t\'unnel e obter um endere\c{c}o IP e uma porta da rede m\'ovel \'e enviada uma requisi\c{c}\~ao CoAP para o recurso\\ coap://hostname/gateway/config/ip e para\\ coap://hostname/gateway/config/port.
+
+Ao receber uma mensagem pelo m\'odulo GPRS e validado o pacote CoAP \'e repassado para a rede de sensores conectada.  No caso de receber uma mensagem por 802.15.4, esta mensagem \'e validada e repassada para o hostname anteriormente definido no sistema. 
+
+Com isto o sistema est\'a apto para receber requisi\c{c}\~oes externas e enviar para a rede de sensores, quando a resposta retornar da RSSF, o pacote tamb\'em \'e validado e depois enviado para o endere\c{c}o previamente configurado.
+
+Para testar \'e necess\'ario executar tamb\'em o HTTP server, que receber\'a as requisi\c{c}\~oes de clientes HTTP e ir\'a repassar para qualquer servidor CoAP atrav\'es de uma rota que o usu\'ario informou.
+
+Este servidor HTTP trata requisi\c{c}\~oes para\\http://http-server-hostname/coap-server-hostname/resources, que retorna os recursos do servidor coap em formato JSON e para\\http://http-server-hostname/coap-server-hostname/resource, aonde resource \'e a rota dispon\'ivel de um recurso CoAP.
+
+\begin{lstlisting}
+\end{lstlisting}
+
 \section{Testes}
 
 Durante o desenvolvimento foram realizados in\'umeros testes para verificar e validar o correto comportamento dos componentes de software e hardware.  A implementa\c{c}\~ao do protocolo CoAP foi testada da seguinte maneira:
