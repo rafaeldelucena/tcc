@@ -104,9 +104,9 @@ A modelagem da solu\c{c}\~ao visa uma implementa\c{c}\~ao modular, para facilita
 
 Para funcionamento \'e necess\'ario executar a aplica\c{c}\~ao coap-gateway-server, dispon\'ivel em:\\https://github.com/rafaeldelucena/coap-gateway-server.
 
-Tamb\'em \'e necess\'ario iniciar o gateway e os dispositivos que ir\~ao se comunicar via 802.15.4 por protocolo CoAP.
+Tamb\'em \'e necess\'ario iniciar o m\'odulo gateway e os dispositivos que ir\~ao se comunicar via 802.15.4 por protocolo CoAP.
 
-No gateway o sistema desenvolvido possui como entradas mensagens sequ\^encias de caract\eres do transceiver 802.15.4 e do m\'odulo GPRS, que s\~ao validados em pacotes CoAP.
+No m\'odulo gateway, o sistema desenvolvido possui como entradas sequ\^encias de caracteres recebidos do transceiver 802.15.4 e m\'odulo GPRS, que s\~ao validados em pacotes CoAP.
 
 Ao estabelecer o t\'unnel e obter um endere\c{c}o IP e uma porta da rede m\'ovel \'e enviada uma requisi\c{c}\~ao CoAP para o recurso\\ coap://hostname/gateway/config/ip e para\\ coap://hostname/gateway/config/port.
 
