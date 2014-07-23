@@ -110,7 +110,18 @@ No m\'odulo gateway, o sistema desenvolvido possui como entradas sequ\^encias de
 
 Ao estabelecer o t\'unnel e obter um endere\c{c}o IP e uma porta da rede m\'ovel \'e enviada uma requisi\c{c}\~ao CoAP para o recurso\\ coap://hostname/gateway/config/ip e para\\ coap://hostname/gateway/config/port.
 
-Ao receber uma mensagem pelo m\'odulo GPRS e validado o pacote CoAP \'e repassado para a rede de sensores conectada.  No caso de receber uma mensagem por 802.15.4, esta mensagem \'e validada e repassada para o hostname anteriormente definido no sistema. 
+Na inicializa\c{c}\~ao do m\'odulo 802.15.4, \'e feita a descoberta de servi\c{c}os, enviando um broadcast para os n\'os da rede de sensores sem fio. A figura abaixo \ref{onStartup}, demonstra o diagrama de sequ\^encia durante o processo de incializa\c{c}\~ao da aplica\c{c}\~ao gateway.
+
+
+\begin{figure}[H]
+   \label{onStartup}
+   \centering
+   \includegraphics[width=1.0\textwidth]{figuras/umlOnStartup.png}
+   \caption{Inicializa\c{c}\~ao do sistema.}
+\end{figure}
+
+Ao receber uma mensagem pelo m\'odulo GPRS e validado o pacote CoAP \'e repassado para a rede de sensores conectada.  No caso de receber uma mensagem por 802.15.4, esta mensagem \'e validada e repassada para o hostname anteriormente definido no sistema.
+
 
 Com isto o sistema est\'a apto para receber requisi\c{c}\~oes externas e enviar para a rede de sensores, quando a resposta retornar da RSSF, o pacote tamb\'em \'e validado e depois enviado para o endere\c{c}o previamente configurado.
 
