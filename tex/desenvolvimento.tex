@@ -25,23 +25,21 @@ As fun\c{c}\~oes da da aplica\c{c}\~ao do gateway s\~ao:
     \item Configura\c{c}\~ao, envio e recebimento de SMS.
     \item Configura\c{c}\~ao de contexto PDP, Configura\c{c}\~ao GPRS.
     \item Configura\c{c}\~ao UDP/IP no enlace GPRS.
-    \item Recebimento de requisi\c{c}\~oes CoAP.
-    \item Envio de requisi\c{c}\~oes CoAP por UDP/IP e SMS \cite{poetsch2013transport}.
+    \item Envio e recebimento de requisi\c{c}\~oes CoAP.
 \end{enumerate}
 
 As fun\c{c}\~oes da aplica\c{c}\~ao cliente ser\~ao:
 
 \begin{enumerate}
     \item Listar recursos CoAP web de uma RSFF.
-    \item Enviar Requisi\c{c}\~oes CoAP para a RSFF.
-    \item Receber Repostas CoAP e exibir HTML.
+    \item Enviar Requisi\c{c}\~oes e receber respostas CoAP da RSFF.
 \end{enumerate}
 
 \subsection{Requisitos N\~ao Funcionais}
 
-Os webservices que v\~ao executar nos motes devem herdar a caracteristica de baixo consumo energ\'etico para que possam durar por anos, e serem extens\'iveis, podendo ser reutilizada em outras arquiteturas.
+Os servi\c{c}os ser\~ao listados utilizando o padr\~ao \cite{rfc6690} disponibilizados na forma de webservices CoAP. A padroniza\c{c}\~ao na comunica\c{c}\~ao visa facilitar a interconex\~ao dos sistemas de diversas plataformas.
 
-Al\'em disso os servi\c{c}os ser\~ao listados utilizando o padr\~ao \cite{rfc6690} disponibilizados na forma de webservices CoAP. A padroniza\c{c}\~ao na comunica\c{c}\~ao visa facilitar a interconex\~ao dos sistemas de diversas plataformas.
+Os webservices conectados a rede v\~ao executar nos motes com caracteristicas de baixo consumo energ\'etico para que possam durar por anos, e serem extens\'iveis, podendo ser reutilizada em outras arquiteturas.
 
 Caracter\'isticas herdadas dos n\'os simplificados s\~ao:
 \begin{description}
@@ -63,7 +61,7 @@ A aplica\c{c}\~ao \'e composta pelos n\'os webservers CoAP, um n\'o cliente CoAP
 \end{figure}
 
 \subsection{Componentes}
-A aplica\c{c}\~ao do gateway \'e composta por: Mecanismos de temporiza\c{c}\~ao, camada UDP/IP, parser de pacote CoAP, conjunto de comandos AT, Estruturas de filas, Hash simples e Threads.
+A aplica\c{c}\~ao do gateway \'e composta por: Mecanismos de temporiza\c{c}\~ao, camada UDP/IP, parser de pacote CoAP, conjunto de comandos AT, Estruturas de filas, \textit{Hash} simples e \textit{Threads}.
 
 A implementa\c{c}\~ao consiste num m\'odulo que trata requisi\c{c}\~oes, encapsula em pacotes e transmite por mecanimos de transmiss\~ao baseados em \cite{draft-ietf-core-coap-18}.
 
@@ -71,7 +69,7 @@ A biblioteca utilizada para montar o pacote CoAP foi a biblioteca CantCoap, na f
 
 Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes \'e utilizado um buffer com um valor m\'aximo e armazenado os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
 
-No mecanismo de requisi\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num Hash com a chave sendo o token gerado pelo cliente. O protocolo CoAP foi modelado conforme \'e mostrado na figura \ref{uml} abaixo:
+No mecanismo de requisi\c{c}\~o e resposta, as requisi\c{c}\~oes pendentes foram armezenadas num \textit{Hash} com a chave sendo o token gerado pelo cliente. O protocolo CoAP foi modelado conforme \'e mostrado na figura \ref{uml} abaixo:
 \begin{figure}[H]
    \label{uml}
    \centering
@@ -106,9 +104,7 @@ Para funcionamento \'e necess\'ario executar a aplica\c{c}\~ao coap-gateway-serv
 
 Tamb\'em \'e necess\'ario iniciar o m\'odulo gateway e os dispositivos que ir\~ao se comunicar via 802.15.4 por protocolo CoAP.
 
-No m\'odulo gateway, o sistema desenvolvido possui como entradas sequ\^encias de caracteres recebidos do transceiver 802.15.4 e m\'odulo GPRS, que s\~ao validados em pacotes CoAP.
-
-Ao estabelecer o t\'unnel e obter um endere\c{c}o IP e uma porta da rede m\'ovel \'e enviada uma requisi\c{c}\~ao CoAP para o recurso\\ coap://hostname/gateway/config/ip e para\\ coap://hostname/gateway/config/port.
+No m\'odulo gateway, o sistema desenvolvido possui como entradas sequ\^encias de caracteres recebidos do transceiver 802.15.4 e m\'odulo GPRS, que s\~ao validados em pacotes CoAP. Ao estabelecer o t\'unnel e obter um endere\c{c}o IP e uma porta da rede m\'ovel \'e enviada uma requisi\c{c}\~ao CoAP para o recurso coap://hostname/gateway/config, contendo um JSON com o endere\c{c}o IP e a porta dispon\'iveis.
 
 Na inicializa\c{c}\~ao do m\'odulo 802.15.4, \'e feita a descoberta de servi\c{c}os, enviando um broadcast para os n\'os da rede de sensores sem fio. A figura abaixo \ref{onStartup}, demonstra o diagrama de sequ\^encia durante o processo de incializa\c{c}\~ao da aplica\c{c}\~ao gateway.
 

@@ -25,7 +25,7 @@ Desta forma permite dissemina\c{c}\~ao da informa\c{c}\~ao para processamento re
 
 Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
 
-Muitas redes de sensores tamb\'em possuem atuadores, que permitem controle direto ao mundo real. Uma rede de sensores e atuadores recebe comandos da unidade de processamento (microcontrolador) e transforma estes comandos em sinais de entrada para um atuador, que interage com processos f\i'sicos. Estas redes s\~ao chamadas de redes de sensores e atuadores sem fio, ou WSAN.
+Muitas redes de sensores tamb\'em possuem atuadores, que permitem controle direto ao mundo real. Uma rede de sensores e atuadores recebe comandos da unidade de processamento (microcontrolador) e transforma estes comandos em sinais de entrada para um atuador, que interage com processos f\'isicos. Estas redes s\~ao chamadas de redes de sensores e atuadores sem fio, ou WSAN.
 
 A conserva\c{c}\~ao de energia \'e um dos objetivos das redes de sensores sem fio, pois n\~ao est\~ao ligados diretamente a fonte de energia. Deve-se minimizar o consumo em todos os n\'iveis do sistema, da aplica\c{c}\~ao at\'e o meio f\'isico, iniciando com o projeto de r\'adio \cite{WsnSurvey2008}.
 
@@ -54,16 +54,14 @@ Quando os recursos s\~ao expostos diretamente pelo pr\'oprio dispositivo como nu
 
 Arquitetura orientada a servi\c{c}os \'e uma forma de organizar infraestrutura e aplica\c{c}\~oes de software em um conjunto de servi\c{c}os. Estes s\~ao oferecidos por prestadores de servi\c{c}o, servidores, organiza\c{c}\~oes que implementam os servi\c{c}os, fornecem descri\c{c}\~ao dos servic\c{c}os oferecidos, suporte t\'ecnico e de neg\'ocio.
 
-O modelo de computa\c{c}\~ao utilizando este paradigma \'e conhecido como Computa\c{c}\~ao Orientada a servi\c{c}os (SOC) \cite{581580}.
-
-Clientes destes servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios. Para satisfazer estes requisitos servi\c{c}os devem:
+Para satisfazer estes requisitos os servi\c{c}os devem possuir as seguintes caracter\'isticas:
 \begin{description}
     \item[Tecnologicamente neutros:] utilizar-se de padr\~oes reconhecidos e bem aceitos para comunica\c{c}\~ao, descri\c{c}\~ao e mecanismos de descoberta.
     \item[Baixo acoplamento:] detalhes desnecess\'arios (o qu\~ao desnecess\'ario precisa ser discutido) devem ser escondidos do cliente, que n\~ao precisa ter conhecimento sobre o funcionamento interno para utilizar o servi\c{c}o.
     \item[Localidade transparente:] clientes devem ser atendidos independentemente da localidade do servi\c{c}o dispon\'ivel.
 \end{description}
 
-SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c}o (service provider), descoberta de servi\c{c}o (service discovery agency) e o client (service requestor).  Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes: publicar (publish), encontrar (find) e vincular (bind).
+O modelo de computa\c{c}\~ao utilizando este paradigma \'e conhecido como Computa\c{c}\~ao Orientada a servi\c{c}os (SOC) \cite{581580}. SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c}o, um agente de um registro dos servi\c{c}os dispon\'iveis e o cliente. Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes.
 
 \begin{figure}[H]
    \label{soaOverview}
@@ -72,21 +70,23 @@ SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento e
    \caption{Arquitetura Orientada a Servi\c{c}os}
 \end{figure}
 
+Clientes que utililiza tais servi\c{c}os e podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios.
+
 %\section{REST}
 
 \section{Webservices}
 
 Um servi\c{c}o web \'e um sistema de software projetado para suportar interoperabilidade em intera\c{c}\~oes m\'aquina-a-m\'aquina na rede. Possui uma interface descritiva das funcionalidades num formato padronizado (especificamente WSDL). Esta nota\c{c}\~ao abstrata que deve ser implementada por um agente \cite{w3c-web-04}.
 
-O agente \'e algo concreto, pode ser um peda\c{c}o de hardware ou software que recebe e envia mensagens. Um exemplo \'e implementar o mesmo servi\c{c}o web, utilizando agentes em diferentes linguagens. Embora o agente seja diferente, o servi\c{c}o Web continua o mesmo.
+O agente \'e algo concreto, pode ser um peda\c{c}o de hardware ou software que recebe e envia mensagens. Um exemplo \'e implementar o mesmo servi\c{c}o web utilizando agentes em diferentes linguagens, embora o agente seja diferente, o servi\c{c}o web continua o mesmo.
 
 Servi\c{c}os Web prov\^em um padr\~ao para a interoperabilidade entre diferentes aplica\c{c}\~oes de software, que executam em diferentes plataformas de software e hardware.
 
 \subsection{RESTful}
 
-RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma restri\c{c}\~ao importante imposta pelo REST \'e o comportamento stateless do servidor, que n\~ao deve armazenar nenhuma informa\c{c}\~ao dos clientes,  requisi\c{c}\~oes devem conter todas as informa\c{c}\~oes necess\'arias para que sejam executadas.
+RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma restri\c{c}\~ao importante imposta pelo REST \'e o comportamento \textit{stateless} do servidor, que n\~ao deve armazenar nenhuma informa\c{c}\~ao dos clientes. Requisi\c{c}\~oes geradas por clientes distintos devem conter todas as informa\c{c}\~oes necess\'arias para que sejam executadas e respondidas por servidores.
 
-Uma requisi\c{c}\~ao a um webservice RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado na URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI .
+Uma requisi\c{c}\~ao a um servi\c{c}o web RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado a partir da URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI .
 
 Um aspecto importante \'e uma interface uniforme aonde recursos s\~ao gerenciados pela Web API e possuem as seguintes caracter\'isticas: identifica\c{c}\~ao de recursos, manipula\c{c}\~ao de recursos atrav\'es de representa\c{c}\~oes, mensagens auto descritivas e Hyperm\'idia como mecanismo de estado da aplica\c{c}\~ao \cite{rest}.
 
@@ -199,7 +199,7 @@ A especifica\c{c}\~ao tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{
    \caption{Fluxo esperado de requisi\c{c}\~ao e resposta com confirma\c{c}\~ao, com resposta separada}
 \end{figure}
 
-A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso ~/well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
+A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso /.well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
 \section{EPOS}
 O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
 
