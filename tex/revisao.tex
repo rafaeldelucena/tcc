@@ -6,22 +6,20 @@ Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arq
 
 \section{Redes de sensores sem fio}
 
-O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes militares e hoje s\~ao utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e controle de processos industriais, supervis\~ao de m\'aquinas, monitoramento de ambientes, estruturas e tubula\c{c}\~oes, automa\c{c}\~ao residencial, coleta de dados de pacientes, entre outros.
-
-Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo de energia uma realidade.
-
-Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores \cite{542724}.
-
-Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio.
-
-Desta forma permite dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. A figura \ref{wsnOverview} d\'a uma vis\~ao geral sobre a comunica\c{c}\~ao destes n\'os.
+O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes militares e hoje s\~ao utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e controle de processos industriais, supervis\~ao de m\'aquinas, monitoramento de ambientes, estruturas e tubula\c{c}\~oes, automa\c{c}\~ao residencial, coleta de dados de pacientes, entre outros. A figura \ref{wsnOverview} d\'a uma vis\~ao geral de uma rede de sensores sem fio e a comunica\c{c}\~ao com outros sistemas.
 
 \begin{figure}[H]
-   \label{wsnOverview}
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/wsn.png}
    \caption{Vis\~ao geral de uma RSSF \cite{dargie2010fundamentals}.}
+   \label{wsnOverview}
 \end{figure}
+
+Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo de energia uma realidade.
+
+Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio.  Desta forma permite dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. 
+
+Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores \cite{542724}.
 
 Um n\'o pertencente a esta rede geralmente \'e um dispositivo especificamente desenvolvido para um pr\'oposito, que possui poucos recursos computacionais e energ\'eticos e se comunicam entre seus semelhantes.
 
@@ -34,7 +32,7 @@ Sensores ligam o f\'isico com o mundo digital, capturando e revelando fen\^omeno
 
 Geralmente os n\'o sensores s\~ao compostos por um microcontrolador, transceiver, mem\'oria externa, fonte de energia e um ou mais sensores. Os n\'os s\~ao respons\'aveis por coletar dados, fazer uma certa an\'alise da rede, correla\c{c}\~ao entre dados com outros n\'os e comunica\c{c}\~ao com uma esta\c{c}\~ao base afim de centralizar a informa\c{c}\~ao, para um processamento externo \cite{dargie2010fundamentals}.
 
-\subsection{Sink Nodes}
+\subsection{N\'os Sincronizadores}
 
 Como estas redes utilizam um espectro diferente de comunica\c{c}\~ao, \'e necess\'ario uma integra\c{c}\~ao com a rede j\'a conhecida. Uma forma de integrar os n\'os sensores \'e utilizar n\'os espec\'ificos para executarem este trabalho.
 
@@ -64,10 +62,10 @@ Para satisfazer estes requisitos os servi\c{c}os devem possuir as seguintes cara
 O modelo de computa\c{c}\~ao utilizando este paradigma \'e conhecido como Computa\c{c}\~ao Orientada a servi\c{c}os (SOC) \cite{581580}. SOA n\~ao \'e apenas uma arquitetura sobre servi\c{c}os, mas um relacionamento entre tr\^es entidades: o provedor de servi\c{c}o, um agente de um registro dos servi\c{c}os dispon\'iveis e o cliente. Abaixo a figura \ref{soaOverview} demonstra este relacionamento e suas intera\c{c}\~oes.
 
 \begin{figure}[H]
-   \label{soaOverview}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/soa.png}
    \caption{Arquitetura Orientada a Servi\c{c}os}
+   \label{soaOverview}
 \end{figure}
 
 Clientes que utililiza tais servi\c{c}os e podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios.
@@ -103,11 +101,10 @@ As opera\c{c}\~oes suportas s\~ao m\'etodos HTTP expl\'icitos que n\~ao salvam e
 Uma abordagem utilizando HTTP n\~ao \'e t\~ao interessante para uma aplica\c{c}\~ao de RSSF, j\'a que a quantidade de informa\c{c}\~ao a ser transmitida \'e consideravelmente maior. A figura \ref{bytesTransmitted} faz um comparativo entre o n\'umero de bytes transmitidos de diversos servidores web e seus protocolos.
 
 \begin{figure}[H]
-    \title{teste}
-    \label{bytesTransmitted}
     \centering
     \includegraphics[width=0.9\textwidth]{figuras/bytestransmitted.png}
     \caption{Diferen\c{c}a de bytes transmitidos \cite{kuladinithi2011implementation}.}
+    \label{bytesTransmitted}
 \end{figure}
 
 O teste consistiu em dois laptops conectados via rede GPRS, um cliente e outro servidor, com RTT configurado \`a 800ms, similar a uma RSSF multi-saltos. Ambos laptops configurados para tratar os protocolos HTTP e CoAP.
@@ -127,10 +124,10 @@ A comunica\c{c}\~ao entre os pontos no CoAP \'e ass\'incrona usando o UDP. A con
 \subsection{Formato das mensagens}
 Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida numa camada de enlace limitada.
 \begin{figure}[H]
-    \label{coapFormat}
     \centering
     \includegraphics[width=1.0\textwidth]{figuras/formato.png}
     \caption{Formato do pacote CoAP  em bits \cite{draft-ietf-core-coap-18}.}
+    \label{coapFormat}
 \end{figure}
 
 
@@ -150,7 +147,6 @@ Estes par\^ametros s\~ao respectivamente: o tempo que uma mensagem confirm\'avel
 
 A Leisure \'e o tempo que o servidor aguarda para responder uma requisi\c{c}\~ao multicast, \'e calculada: $Leisure = S * G / R$. Aonde S \'e o tamanho estimado da reposta, G \'e uma estimativa do tamanho do grupo e R \'e a taxa de transmiss\~ao. PROBING RATE: \'e a taxa m\'edia para transmiss\~ao de dados. Estes par\^ametros definem a temporiza\c{c}\~ao do sistema. Os valores padr\~oes s\~ao mostrados na Tabela \ref{coapDefault}.
 \begin{table}[h]
-\label{coapDefault}
 \centering
 \begin{tabular}{@{}lllll@{}}
 \toprule
@@ -163,18 +159,19 @@ Probing rate & 1 Byte/segundo & \\
 Max retransmit & 4 &  \\ \midrule
 \end{tabular}
 \caption{Valores padr\~ao do CoAP.}
+\label{coapDefault}
 \end{table}
 
 A retransmiss\~ao \'e controlada por um timeout e um contador. Inicialmente o contador \'e zero e atribuido um valor rand\^omico entre o ACK TIMEOUT e (ACK RANDOM FACTOR * ACK TIMEOUT) para o timeout. Quando este timeout \'e atigido o contador \'e incrementado e o timeout duplicado.
 
 Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa. O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
 
-Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{piggyBacked}\cite{draft-ietf-core-coap-18}.
+Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas, o cen\'ario \'e ilustrado na Figura \ref{piggyBacked} \cite{draft-ietf-core-coap-18}.
 \begin{figure}[H]
-   \label{piggyBacked}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/piggybacked.png}
    \caption{Resposta na mensagem de confirma\c{c}\~ao, chamado de piggy-backed.}
+   \label{piggyBacked}
 \end{figure}
 
 \subsection{Requisi\c{c}\~ao e Resposta}
@@ -184,19 +181,19 @@ Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token seja o m
 
 Fluxo esperado de requisi\c{c}\~ao sem confirma\c{c}\~ao na figura \ref{nonConfirmable}.
 \begin{figure}[H]
-   \label{nonConfirmable}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/nonconfirmable.png}
    \caption{Fluxo esperado de requisi\c{c}\~ao e resposta sem confirma\c{c}\~ao}
+   \label{nonConfirmable}
 \end{figure}
 
 A especifica\c{c}\~ao tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e resposta separada com confirma\c{c}\~ao. A figura \ref{separateResponse} exemplifica:
 
 \begin{figure}[H]
-   \label{separateResponse}
    \centering
    \includegraphics[width=0.6\textwidth]{figuras/separateresponse.png}
    \caption{Fluxo esperado de requisi\c{c}\~ao e resposta com confirma\c{c}\~ao, com resposta separada}
+   \label{separateResponse}
 \end{figure}
 
 A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso /.well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
@@ -208,10 +205,10 @@ Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\
 A portabilidade \'e atingida utilizando entidades chamadas de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas. Abaixo uma a figura \ref{eposOverview} ilustrando a vis\~ao geral do EPOS.
 
 \begin{figure}[H]
-   \label{eposOverview}
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/eposOverview.png}
    \caption{Overview do EPOS.}
+   \label{eposOverview}
 \end{figure}
 
  
@@ -226,7 +223,7 @@ Possui uma pilha de protocolos basedo na arquitetura OSI e outra abordagem Cross
 
 \subsection{OpenWSN}
 
-O projeto OpenWSN \'e um projeto de redes de sensores sem fio de c\'odigo aberto que confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas. O OpenWSN tamb\'em possu\'i a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, Time Synchronized Channel Hopping.
+O projeto OpenWSN \'e um projeto de redes de sensores sem fio de c\'odigo aberto que confia na comunidade para manter atualizado e encontrar erros. Possui uma implementa\c{c}\~ao completa de c\'odigo aberto, das pilhas de protocolos padr\~oes pra Internet das Coisas. O OpenWSN tamb\'em possu\'i a primeira implementa\c{c}\~ao aberta do padr\~ao 802.15.4e, \textit{Time Synchronized Channel Hopping}.
 
 Por serem sincronizados os motes precisam acordar apenas para transmitir ou receber e periodicamente se comunicar para manter a rede sincronizada quando estiver inativo. Este overhead de temporiza\c{c}\~ao \'e pequeno, cerca de 0.02\% de ciclo de trabalho do r\'adio \cite{openWSNPaper}.
 
@@ -237,7 +234,7 @@ Resultados experimentais de uma rede de motes demonstram que os r\'adios operam 
 \subsection{Contiki}
 O Contiki \'e um sistema operacional criado por Adam Dunkels em 2000, escrito em C, de c\'odigo aberto para sistemas com restri\c{c}\~ao de recursos comunicarem numa rede. Foi desenvolvido para ser um sistema operacional para Internet das coisas. Possui uma camada de abstra\c{c}\~ao RESTful para web services chamada Erbium, que implementa o protocolo CoAP.
 
-Cada processo no Contiki possui bloco de controle, que cont\'em informa\-\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma refer\^encia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. 
+Cada processo no Contiki possui bloco de controle, que cont\'em informa\c{c}\~oes de tempo de execu\c{c}\~ao do processo e uma refer\^encia para uma protothread, na qual o c\'ogido \'e armazenado na ROM. 
 
 Geralmente programas neste tipo de aplica\c{c}\~ao s\~ao escritos utilizando um modelo dirigido a eventos, que consome pouca mem\'oria. Estes programas s\~ao implementados como m\'aquinas de estados expl\'icitos, que com um grande n\'umero de estados o c\'odigo come\c{c}a a se tornar complexo, dif\'icil de entender e depurar.
 
@@ -255,7 +252,7 @@ A licensa da biblioteca \'e GPL (2 ou maior) ou licensa BSD revisada.
 
 Possui uma su\'ite de testes para regress\~ao, utilizando o framework de testes CUnit (http://cunit.sourceforge.net/). A documenta\c{c}\~ao pode ser encontrada em: http://libcoap.sourceforge.net/.
 
-\'E uma biblioteca auto-condida, que possui parser do protocolo e fun\c{c}\~oes b\'asicas de rede. Depende de implementa\c{c}\~ao de sockets tipo BSD e malloc. Possui implementa\c{c}\~ao de Hash, String e URI utilizados para montar os pacotes CoAP.
+\'E uma biblioteca auto-condida, que possui parser do protocolo e fun\c{c}\~oes b\'asicas de rede. Depende de implementa\c{c}\~ao de sockets tipo BSD e malloc. Possui implementa\c{c}\~ao de \textit{Hash, String} e URI utilizados para montar os pacotes CoAP.
 
 Possui um m\'odulo de rede, aonde \'e implementado as fun\c{c}\~oes de envio/recebimento de requisi\c{c}\~oes e respostas, com confirma\c{c}\~ao, sem confirma\c{c}\~ao, mensagem de reset e erros.
 

@@ -1,6 +1,6 @@
 \section{An\'alise Funcional}
 
-A aplica\c{c}\~ao gateway \'e respons\'avel por fazer uma ponte entre a rede de sensores e a Internet. \'E poss\'ivel descobrir servi\c{c}os e recursos, iniciar requisi\c{c}\~oes, fazer descoberta de recursos, tudo  isto \'e transparente para os pontos comunicantes. 
+A aplica\c{c}\~ao gateway \'e respons\'avel por fazer uma ponte entre a rede de sensores e a Internet. \'E poss\'ivel descobrir servi\c{c}os e recursos, iniciar requisi\c{c}\~oes, fazer descoberta de recursos, tudo  isto \'e transparente para os pontos comunicantes.
 
 Atualmente a aplica\c{c}\~ao n\~ao possui uma implementa\c{c}\~ao segura do procotolo CoAP, que utiliza o DTLS. Para resolver este problema \'e necess\'ario que o pacote seja criptografado.
 
@@ -21,7 +21,6 @@ A tabela abaixo \ref{plugTest} mostra o resultado dos testes, os s\'imbolos "\xm
 
 \begin{table}[H]
 \centering
-\label{plugTest}
 \begin{tabular}{p{8cm}|c{1cm}}
 \hline
 \rowcolor[HTML]{ECF4FF}
@@ -59,6 +58,7 @@ Detec\c{c}\~ao de deregistro do servidor (client OFF). & \xmark \\
 Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito). & \xmark \\ \hline
 \end{tabular}
 \caption{Resultados dos testes de interoperabilidade IOT Plugtest.}
+\label{plugTest}
 \end{table}
 
 O teste consistiu em executar localmente os diferentes servidores e o cliente desenvolvido. A implementa\c{c}\~ao ir\'a utilizar apenas pacotes com no m\'aximo de 128 bytes, portanto o suporte a transfer\^encia de grandes blocos fragmentados n\~ao ser\'a necess\'ario no momento.
@@ -74,7 +74,6 @@ A fim de mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{
 As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a arquitetura x86 e para para ARM7 do MC1224V utilizado no EPOSMoteII e no Econotag, plataforma presente no Contiki e utilizado para comparativos. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
 
 \begin{table}[H]
-\label{comparacaoCoap}
 \centering
 \begin{tabular}{@{}p{1cm}p{1cm}p{1cm}r{1cm}r{1cm}r{1cm}r{1cm}@{}}
     \toprule
@@ -88,15 +87,15 @@ As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de co
     \bottomrule
 \end{tabular}
 \caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria em bytes}
+\label{comparacaoCoap}
 \end{table}
 
 Nesta tabela \'e poss\'ivel verificar que para a arquitetura x86 a implementa\c{c}\~ao do trabalho \'e 30\% maior que a libcoap, por\'em em torno de 25\% menor que as implementa\c{c}\~oes do Contiki. Um dos fatores da diferen\c{c}a com a aplica\c{c}\~ao da libcoap \'e a utiliza\c{c}\~ao de bibliotecas din\^amicas \cite{ibmCodeSize}. Apesar de n\~ao ser a mais compacta \'e suficientemente pequena para ser utilizada na aplica\c{c}\~ao.
 
-No gr\'afico \ref{memoryDiff} observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
-
-\begin{tikzpicture}
+No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
+\\\\
+\begin{tikzpicture}[H]
 \centering
-\label{memoryDiff}
 \begin{axis}[ybar , enlargelimits =0.15, legend style ={ at ={(0.5,-0.15)}, anchor =north, legend columns =-1}, ylabel ={\# size in bytes}, symbolic x coords ={epos/cantcoap,contiki/minimal-net,contiki/erbium}, xtick =data, nodes near coords , nodes near coords align ={vertical},]
 \addplot coordinates {(epos/cantcoap,62480) (contiki/minimal-net,59496) (contiki/erbium,62427)};
 \addplot coordinates {(epos/cantcoap,216) (contiki/minimal-net,2432) (contiki/erbium,440)};
@@ -106,11 +105,11 @@ No gr\'afico \ref{memoryDiff} observa-se que a solu\c{c}\~ao do EPOS \'e no tota
 \end{axis}
 \caption{Gr\'afico do tamanho das sess\~oes do arquivo ELF gerado para ARM.}
 \end{tikzpicture}
+\\\\
 
+Abaixo mais informa\c{c}\~oes do arquivo gerado ap\'os o sistema de constru\c{c}\~ao. Para compara\c{c}\~ao os s\'imbolos de depura\c{c}\~ao foram removidos do arquivo ELF.
 
-Abaixo \ref{x86Elf} mais informa\c{c}\~oes do arquivo gerado ap\'os o sistema de constru\c{c}\~ao. Para compara\c{c}\~ao os s\'imbolos de depura\c{c}\~ao foram removidos do arquivo ELF. Para compara\c{c}\~ao 
-
-\begin{lstlisting}[label={x86Elf},caption=Verificando o tipo de arquivo gerado no Linux utilizando a ferramenta file.]
+\begin{lstlisting}[caption*=Verificando o tipo de arquivo gerado no Linux utilizando a ferramenta file.]
 file epos/img/coap_client
 img/coap_client: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, stripped
 
@@ -126,8 +125,6 @@ coap-client-example.elf: ELF 32-bit LSB executable, ARM, version 1 (SYSV), stati
 file epos/img/coap_client.img 
 coap_client.img: ELF 32-bit LSB  executable, ARM, version 1, statically linked, stripped
 \end{lstlisting}
-
-
 
 A grande quantidade de dados inicializados na implementa\c{c}\~ao deve-se ao fato do uso de buffers de 128 bytes para cada pacote, afim de simplificar a ger\^encia de mem\'oria do software desenvolvido. %Em aplica\c{c}\~oes restritas que n\~ao possuem unidades de ger\^encia de mem\'oria isto \'e interessante
 
