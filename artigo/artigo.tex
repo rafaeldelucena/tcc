@@ -1,0 +1,323 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx,url}
+
+%\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc}  
+\usepackage{pifont}
+\usepackage{float}
+\usepackage{pgfplots}
+
+\newcommand{\cmark}{{\color{green}\ding{51}}}%
+\newcommand{\xmark}{{\color{red}\ding{55}}}%
+
+     
+\sloppy
+
+\title{Implementação do protocolo CoAP para serviços de monitoramento em redes de sensores sem fio}
+
+\author{Rafael de Lucena Valle\inst{1}}
+
+\address{Departamento de Informática e Estatística -- Universidade Federal de Santa Catarina
+  (UFSC)\\
+  -- Florianópolis, SC -- Brazil
+  \email{rafaeldelucena@inf.ufsc.br}
+}
+
+\begin{document} 
+
+\maketitle
+
+\begin{abstract}
+    Nowadays, there is a large growth in the development of technologies for mobile cellular communications, satellite communications and wireless local area networks. The 
+popularization of these technology has enabled remote access to information wherever they are, opening a very wide range of facilities, applications and services to users. among 
+these services, there are the applications that are developed for medical fields, specifically for the nutritional area. The application used as case study is the Horus system that 
+performs the assessment and nutritional guidance through artificial inteligêcia technique called Bayesian Networks.
+
+First of all developed for computers desktop accessed by web and then migrated to interactive digital television. Thus, with the development of convergence
+Horus system for digital mobile closed cycle digital convergence. Made possible the implementation of the system on three different platforms enabling
+wider dissemination to the people who live in remote locations. A questionnaire was used to measure the usability of the application and noted the effort in hours of every step
+convergent development for mobile devices. The study of the implementation and evaluation effort digital convergence enables systematic and efficient make the process of
+design and production of multi-device applications.
+\end{abstract}
+     
+\begin{resumo} 
+Redes de sensores e atuadores são utilizadas para a captura, processamento de informação e atuação sobre um ambiente, tornando-as importantes em aplicações de controle, telemetria e rastreamento.  
+
+Estas redes são compostas por nós sensores que trabalham em conjunto a fim de obter dados de um ambiente. Possuem processadores, transmissores e receptores de dados simplificados, restrições de memória e energia, geralmente sem alimentação constante de energia. Contudo possuem um custo baixo de equipamentos, tornando interessante a implantação destes sistemas.
+    
+O protocolo HTTP, um protocolo de aplicação muito utilizado na atualidade, foi desenvolvido para computadores de propósito geral, onde essas restrições não existem. Um protocolo leve como CoAP pode tornar viável o desenvolvimento de aplicações web em redes de sensores sem fio.
+
+Este trabalho propõe uma infraestrutura de comunicação entre redes de sensores sem fio e a Internet, utilizando protocolos leves entre os nós sensores e um gateway GPRS para aproveitar a cobertura da tecnologia GPRS.
+
+Com a implementação do CoAP é esperado uma redução de consumo de energia e memória, em relação a outros protocolos de aplicação existentes.
+\end{resumo}
+
+
+\section{Introdução}
+Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo de energia uma realidade.
+
+N\'os que participam destas redes geralmente s\~ao compostos por computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e capacidade de comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos.
+
+O maior consumo de energia neste tipo de aplica\c{c}\~ao \'e do r\'adio, portanto o desafio dos algoritmos de comunica\c{c}\~ao nesta \'area \'e manter os r\'adios ligados o m\'inimo de tempo poss\'ivel sem comprometer a conectividade do n\'o.
+
+O objetivo geral desse trabalho \'e descrever e implementar webservices em uma rede sensores sem fio que far\~ao a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
+
+Este trabalho realizar\'a o desenvolvimento de aplica\c{c}\~oes web e software de sistema para fazer a ponte entre a rede de sensores e a Internet. O Sistema operacional utilizado ser\'a o EPOS, que possui uma implementa\c{c}\~ao de pilha UDP/IP. A aplica\c{c}\~ao integradora GPRS/802.15.4 ir\'a executar na plataforma EposMoteII utilizando uma extens\~ao GPRS.
+
+A comunica\c{c}\~ao entre os n\'os da rede ser\'a feita atrav\'es do protocolo de aplica\c{c}\~ao CoAP, um protocolo espec\'ifico para redes de sensores sem fio. Ser\'a utilizado um porte de uma implementa\c{c}\~ao livre do protocolo CoAP.
+
+Sendo assim, os objetivos espec\'ificos s\~ao:
+
+\begin{enumerate}
+    \item{Portar o protocolo CoAP para o EPOS;}
+    \item{Desenvolver a aplica\c{c}\~ao gateway GPRS/802.15.4.}
+    \item{Desenvolver uma WEP API para coleta da informa\c{c}\~ao dos n\'os sensores.}
+    \item{Avaliar a solu\c{c}\~ao desenvolvida.}
+\end{enumerate}
+
+\section{Justificativa e Motivação}
+O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em disso quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas, podendo gerar retransmiss\~oes.
+
+A falta de padroniza\c{c}\~ao dos protocolos afeta o desenvolvimento de uma rede p\'ublica ub\'iqua de uma cidade inteligente, por exemplo. Grande parte das solu\c{c}\~oes utiliza protocolos propriet\'arios que se comunicacam apenas com os produtos de um mesmo fabricante.
+
+Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivos com suprimento limitado de energia, como uma bateria ou uma placa fotovolt\'aica. Estas t\'ecnicas fazem que os transmissores fiquem ligados por mais tempo, para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens.
+
+Por sua vez o protocolo do UDP, n\~ao mant\'em conex\~ao, dados s\~ao recebidos fora de ordem e o envio \'e feito de uma mensagem por vez. Isto implica tamb\'em na redu\c{c}\~ao do tamanho do cabe\c{c}alho do pacote.
+
+Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP \cite{kuladinithi2011implementation}.
+
+Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\c{c}\~oes web em redes de sensores sem fio por um baixo custo. Com a utiliza\c{c}\~ao do CoAP \'e esperado uma redu\c{c}\~ao de consumo de energia e mem\'oria, em rela\c{c}\~ao a outros protocolos de aplica\c{c}\~ao existentes.
+
+Em lugares aonde n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo a distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.\cite{coberturaGPRS}
+
+\section{CoAP}
+
+O CoAP \'e um protocolo de aplica\c{c}\~ao com intuito de ser utilizado em dispositivos eletr\^onicos simplificados, permitindo comunica\c{c}\~ao interativa com a Internet e outros dispositivos. A especifica\c{c}\~ao do protocolo \'e a RFC 7252. Um dos principais objetivos do CoAP \'e ser uma alternativa protocolo web gen\'erico para redes com dispositivos com restri\c{c}\~ao de energia e mem\'oria.
+
+A comunica\c{c}\~ao entre os pontos no CoAP \'e ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial. Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset. A figura \ref{coapFormat} mostra o formato do pacote.
+
+Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida numa camada de enlace limitada.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{../figuras/formato.png}
+    \caption{Formato do pacote CoAP  em bits \cite{draft-ietf-core-coap-18}.}
+    \label{coapFormat}
+\end{figure}
+
+Os campos do pacote CoAP s\~ao: a vers\~ao do CoAP, implementa\c{c}\~oes devem utilizar este campo com o valor 1. O tipo: campo para definir o tipo da mensagem: Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
+
+O tamanho do Token: utilizado para controle de requisi\c{c}\~oes e repostas. O tamanho do Token pode variar entre 0 e 8 bytes. Tamanhos entre 9 a 15 s\~ao reservados e n\~ao devem ser usados. \'E um campo sempre gerado pelo cliente CoAP.
+
+O C\'odigo: separados em 3-bit mais significativos para classes e 5-bits menos significativos para detalhe. As classes podem indicar uma requisi\c{c}\~ao (0), uma resposta de sucesso (2), e uma resposta de erro do cliente (4), ou uma resposta de erro do servidor (5), as outras classes s\~ao reservadas. Em um caso especial o c\'odigo 0.00 indica uma mensagem vazia.
+
+O ID da mensagem: usada para deduplica\c{c}\~ao de mensagens e confirma\c{c}\~ao ou reset de mensagens. \'E gerado por quem envia a mensagem, no caso de uma mensagem confirm\'avel ou reset, a resposta deve possuir o ID da mensagem enviada. A implemeta\c{c}\~ao da gera\c{c}\~ao dos IDs est\'a aberta, depende da aplica\c{c}\~ao que o CoAP ser\'a usado, por\'em \'e recomendado que o valor inicial seja rand\^omico.
+   
+A transmiss\~ao de mensagems \'e controlada basicamente pelos par\^ametros: ACK TIMEOUT, ACK RANDOM FACTOR, MAX RETRANSMIT, NSTART, Leisure e PROBING RATE. Estes par\^ametros s\~ao respectivamente: o tempo que uma mensagem confirm\'avel aguarda o ACK; fator de randomicidade para gerar os ACK TIMEOUTs subsequentes; contador para o n\'umero m\'aximo de tentativas de retransmiss\~ao; n\'umero limite de intera\c{c}\~oes simult\^aneas mantidas por um servidor.
+
+A Leisure \'e o tempo que o servidor aguarda para responder uma requisi\c{c}\~ao multicast, \'e calculada: $Leisure = S * G / R$. Aonde S \'e o tamanho estimado da reposta, G \'e uma estimativa do tamanho do grupo e R \'e a taxa de transmiss\~ao. PROBING RATE: \'e a taxa m\'edia para transmiss\~ao de dados. Estes par\^ametros definem a temporiza\c{c}\~ao do sistema.
+
+Uma falha na transmiss\~ao ocorre quando atingir o n\'umero m\'aximo de tentavivas ou receber uma mensagem de RESET. Quando receber um ACK a transmiss\~ao da mensagem confirm\'avel \'e completa. O servidor ir\'a ignorar mensagens que chegam por multicast quando n\~ao puder responder nada de \'util.
+
+Na situa\c{c}\~ao aonde possuir uma informa\c{c}\~ao suficientemente nova pode responder na pr\'opria mensagem de confirma\c{c}\~ao (ACK). Essa t\'ecnica \'e chamada de ''Piggy-backed'' um mecanismo de transmiss\~ao para mensagens confirmadas.
+
+Uma requisi\c{c}\~ao \'e inicializada ao preencher o campo c\'odigo no cabe\c{c}alho do CoAP e gerar um token.
+Para finalizar o fluxo \'e necess\'ario que a resposta chegue e o token seja o mesmo. A especifica\c{c}\~ao tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{c}\~ao, e resposta separada com confirma\c{c}\~ao.
+
+A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso /.well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
+
+\section{EPOS}
+O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
+
+Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\'etodo para projeto de sistemas embarcados orientados \`a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc, AVR e ARM. \cite{eposProject}
+
+A portabilidade \'e atingida utilizando entidades chamadas de Mediadores de Hardware que fornecem interfaces simples para acesso as fun\c{c}\~oes espec\'ificas de arquitetura. Estas interfaces s\~ao utilizadas por entidades abstratas como alarmes e threads peri\'odicas. Abaixo uma a figura \ref{eposOverview} ilustrando a vis\~ao geral do EPOS.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.8\textwidth]{../figuras/eposOverview.png}
+   \caption{Overview do EPOS.}
+   \label{eposOverview}
+\end{figure}
+
+ 
+O EPOS tamb\'em possui uma interface de software/hardware que abstrai sensores de forma uniforme, definindo classes de dispositivos baseados numa finalidade. Possui abstra\c{c}\~oes para entidades temporais como rel\'ogio, alarme e cron\^ometro, biblioteca com estruturas de dados e sequenciadores. Permitindo o uso de ferramentas para gera\c{c}\~ao automatizada de abstra\c{c}\~oes de sistemas \cite{epos}.
+
+A infraestrutura de comunicaca\c{c}\~ao do EPOS para redes de sensores sem-fio \'e implementada pelo protocolo C-MAC, Configurable MAC, que prov\^e suporte a comunicaca\c{c}\~ao de baixo n\'ivel (MAC - Medium Access Control).
+
+Possui uma pilha de protocolos basedo na arquitetura OSI e outra abordagem Cross-layer. A implementa\c{c}\~ao IPv4 utiliza um controle de fluxo aonde os n\'os sinalizam a disponibilidade de buffer para mensagem \'unica em tempos ajustando o tempo entre a troca de mensagens \cite{frohlich2013cross}.
+
+\section{Desenvolvimento}
+Os requisitos funcionais da solu\c{c}\~ao coletar informa\c{c}\~ao do ambiente atrav\'es de sensores e transmit\'i-las atrav\'es da Internet e f\'acil integra\c{c}\~ao com a Internet mesmo em locais sem rede WIFI.
+
+As principais fun\c{c}\~oes deste gateway s\~ao receber os dados da rede de sensores e encaminh\'a-las para um servidor remoto que armazenar\'a essas informa\c{c}\~oes e exibir\'a de forma conveniente para o usu\'ario final.
+
+As fun\c{c}\~oes da da aplica\c{c}\~ao do gateway s\~ao:
+\begin{enumerate}
+    \item Configura\c{c}\~ao, envio e recebimento de SMS.
+    \item Configura\c{c}\~ao de contexto PDP, Configura\c{c}\~ao GPRS.
+    \item Configura\c{c}\~ao UDP/IP no enlace GPRS.
+    \item Envio e recebimento de requisi\c{c}\~oes CoAP.
+\end{enumerate}
+
+As fun\c{c}\~oes da aplica\c{c}\~ao cliente ser\~ao:
+
+\begin{enumerate}
+    \item Listar recursos CoAP web de uma RSFF.
+    \item Enviar Requisi\c{c}\~oes e receber respostas CoAP da RSFF.
+\end{enumerate}
+
+Os requisitos não funcionais são:
+\begin{description}
+\item[Armazenamento:] deve ser suficientemente pequeno para ser utilizado em microcontroladores.
+\item[Energia:] consumir pouca energia para longa durabilidade.
+\item[Valor:] utilizar uma infraestrutura de hardware simples para realizar as tarefas.
+\item[Interoperabilidade:] A padroniza\c{c}\~ao na comunica\c{c}\~ao visa facilitar a interconex\~ao dos sistemas de diversas plataformas.
+\end{description}
+
+Durante o desenvolvimento foram realizados diversos estudos para escolher m\'odulo GPRS adequado \`a tarefa e o trabalho necess\'ario para acoplar o protoloco. Testes de valida\c{c}\~ao dos sistemas de software e valida\c{c}\~ao do m\'odulo GPRS foram realizados.
+
+A aplica\c{c}\~ao respons\'avel pelo roteamento de mensagens para Internet utiliza a tecnologia GPRS, provida por um m\'odulo GSM/GPRS da Quectel o M95.
+
+A aplica\c{c}\~ao \'e composta pelos n\'os webservers CoAP, um n\'o cliente CoAP que far\'a o roteamento para Internet utilizando um m\'odulo GPRS.  Os webservers informam a temperatura, atrav\'es de respostas a requisi\c{c}\~oes CoAP. A figura \ref{arquitetura} ilustra a interconex\~ao entre os nodos da rede.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.8\textwidth]{../figuras/arquitetura.png}
+   \caption{Vis\~ao geral sobre comunica\c{c}\~ao do sistema.}
+   \label{arquitetura}
+\end{figure}
+
+A biblioteca utilizada para montar o pacote CoAP foi a biblioteca CantCoap com algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante o desenvolvimento da aplica\c{c}\~ao. As altera\c{c}\~oes resultaram em contribui\c{c}\~ao para o referido projeto, aceita pelo mantenedor.
+
+Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes \'e utilizado um buffer com um valor m\'aximo e armazenado os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
+
+A modelagem da solu\c{c}\~ao visa uma implementa\c{c}\~ao modular, para facilitar a verifica\c{c}\~ao do correto funcionamento e tamb\'em para ser de f\'acil adapta\c{c}\~a a diversas plataformas. O sistema proposto \'e composto pela aplica\c{c}\~ao gateway, por um servidor coap externo e um servidor http externo, este apenas para facilitar o acesso de dispositivos sem suporte ao protocolo CoAP.
+
+Para funcionamento \'e necess\'ario executar o servidor CoAP dispon\'ivel em: https://github.com/rafaeldelucena/coap-gateway/server. O c\'odigo do software de sistema que ir\'a executar na plataforma alvo est\'a dispon\'ivel em https://github.com/rafaeldelucen/coap-gateway/application.
+
+\section{Resultados}
+Atualmente a aplica\c{c}\~ao n\~ao possui uma implementa\c{c}\~ao segura do procotolo CoAP, que utiliza o DTLS. Para resolver este problema \'e necess\'ario que o pacote seja criptografado.
+
+A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o comportamento entre diversas implementa\c{c}\~oes CoAP. Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como primeiro evento IOT CoAP plugtest. Para validar a interoperabilidade os teste s\~ao: especifica\c{c}\~ao b\'asica do CoAP, transfer\^encia em bloco, observa\c{c}\~ao de recursos CoAP, formato CORE link. Os teste s\~ao executados entre diferentes dispositivos e implementa\c{c}\~oes CoAP.
+
+As tabela abaixo \ref{plugTest1}, \ref{plugTest2}, \ref{plugTest3} mostram os resultados dos testes, os s\'imbolos "\xmark" e "\cmark" para a solu\c{c}\~ao desenvolvida neste trabalho.
+
+\begin{table}[H]
+\centering
+\label{plugTest}
+\begin{tabular}{p{8cm}|c{1cm}}
+\hline
+\multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para especifica\c{c}\~ao b\'asica CoAP}} \\ \hline
+Tratar GET, confirm\'avel. & \cmark \\
+Tratar POST, confirm\'avel. & \cmark \\
+Tratar PUT, confirm\'avel. & \cmark \\
+Tratar DELETE, confirm\'avel. & \cmark \\
+Tratar GET, sem confirma\c{c}\~ao. & \cmark \\
+Tratar POST, sem confirma\c{c}\~ao. & \cmark \\
+Tratar PUT, sem confirma\c{c}\~ao. & \cmark \\
+Tratar DELETE, sem confirma\c{c}\~ao. & \cmark \\
+Tratar GET com resposta separada. & \cmark \\
+Tratar requisi\c{c}\~ao com Token. & \cmark \\
+Tratar requisi\c{c}\~ao sem Token. & \cmark \\
+Tratar requisi\c{c}\~ao op\c{c}\~oes URI-Path. & \cmark \\
+Tratar requisi\c{c}\~ao op\c{c}\~oes URI-Query. & \cmark \\
+Interoperablidade em contexto de perda\\(CON mode, piggybacked response) & \cmark \\
+Interoperablidade em contexto de perda\\(CON mode, delayed response) & \cmark \\
+Tratar GET com resposta separada, sem confirma\c{c}\~ao. & \cmark \\ \hline
+\end{tabular}
+\caption{Resultados IOT Plugtest.}
+\end{table}
+
+\begin{table}[H]
+\centering
+\label{plugTest}
+\begin{tabular}{p{8cm}|c{1cm}}
+\hline
+\multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para validar o formato de dados CORE link Format}} \\ \hline
+Descoberta de recursos well-known. & \xmark \\
+Utiliza\c{c}\~ao de consulta para filtrar resultados. & \xmark \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para validar a transfer\^encia de blocos}}\\ \hline
+Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao antecipada). & \xmark \\
+Transfer\^encia de blocos grandes utilizando GET (negocia\c{c}\~ao atrasada). & \xmark \\
+Transfer\^encia de blocos grandes utilizando o PUT. & \xmark \\
+Transfer\^encia de blocos grandes utilizando o POST. & \xmark \\ \hline
+\end{tabular}
+\caption{Resultados IOT Plugtest.}
+\end{table}
+
+\begin{table}[H]
+\centering
+\label{plugTest}
+\begin{tabular}{p{8cm}|c{1cm}}
+\hline
+\multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
+\multicolumn{2}{c}{\bfseries{Testes para observa\c{c}\~ao de recursos}} \\ \hline
+Tratar observa\c{c}\~ao de recursos. & \xmark \\
+Parar a observa\c{c}\~ao de recursos. & \xmark \\
+Detec\c{c}\~ao de deregistro do cliente (Max-Age). & \xmark \\
+Detec\c{c}\~ao de deregistro do servidor (client OFF). & \xmark \\
+Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito). & \xmark \\ \hline
+\end{tabular}
+\caption{Resultados IOT Plugtest.}
+\end{table}
+
+A fim de mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~ao foi utilizada a vers\~ao 4.4.5 para o GCC x86 e o GCC 4.3.2 (Sourcery G++ Lite 2008q3-66) para ARM no Contiki encontrada \cite{malvira}. A aplica\c{c}\~ao no EPOS utiliza a vers\~ao 4.4 do compilador GCC dispon\'ivel em \cite{eposProject}.
+
+As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a arquitetura x86 e para para ARM7 do MC1224V utilizado no EPOSMoteII e no Econotag, plataforma presente no Contiki e utilizado para comparativos. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}p{1cm}p{1cm}p{1cm}r{1cm}r{1cm}r{1cm}r{1cm}@{}}
+    \toprule
+    ISA & OS & CoAP & .text & .data & .bss & Total\\ \midrule
+    x86 32& Contiki & Erbium & 97995 & 1792 & 16864 & 116651 \\
+    x86 32& EPOS & Cantcoap & 52348 & 117 & 9652 & 62117 \\
+    x86 32& GNU Linux & libcoap & 45515 & 680 & 1952 & 48147\\ \hline
+    ARM7 & Contiki & Erbium & 62727 & 440 & 18108 & 81275\\
+    ARM7 & Contiki & Minimal Net & 59496 & 2432 & 22040 & 83968\\
+    ARM7 & EPOS & Cantcoap & 62480 & 216 & 10504 & 73200\\
+    \bottomrule
+\end{tabular}
+\caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria em bytes}
+\label{comparacaoCoap}
+\end{table}
+
+Nesta tabela \'e poss\'ivel verificar que para a arquitetura x86 a implementa\c{c}\~ao do trabalho \'e 30\% maior que a libcoap, por\'em em torno de 25\% menor que as implementa\c{c}\~oes do Contiki. Um dos fatores da diferen\c{c}a com a aplica\c{c}\~ao da libcoap \'e a utiliza\c{c}\~ao de bibliotecas din\^amicas \cite{ibmCodeSize}. Apesar de n\~ao ser a mais compacta \'e suficientemente pequena para ser utilizada na aplica\c{c}\~ao.
+
+No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
+\\\\
+\begin{tikzpicture}[H]
+\centering
+\begin{axis}[ybar , enlargelimits =0.15, legend style ={ at ={(0.5,-0.15)}, anchor =north, legend columns =-1}, ylabel ={\# size in bytes}, symbolic x coords ={epos/cantcoap,contiki/minimal-net,contiki/erbium}, xtick =data, nodes near coords , nodes near coords align ={vertical},]
+\addplot coordinates {(epos/cantcoap,62480) (contiki/minimal-net,59496) (contiki/erbium,62427)};
+\addplot coordinates {(epos/cantcoap,216) (contiki/minimal-net,2432) (contiki/erbium,440)};
+\addplot coordinates {(epos/cantcoap,10504) (contiki/minimal-net,22040) (contiki/erbium,18108)};
+\addplot coordinates {(epos/cantcoap,73200) (contiki/minimal-net,83968) (contiki/erbium,81275)};
+\legend {.text,.data,.bss, Total}
+\end{axis}
+\caption{Gr\'afico do tamanho das sess\~oes do arquivo ELF gerado para ARM.}
+\end{tikzpicture}
+\\\\
+
+\section{Conclusão}
+Este trabalho apresentou alguns conceitos sobre redes de sensores e atuadores que utilizam um protocolo de aplica\c{c}\~ao espec\'ifico, para disponibilizar recursos diversos e facilitar a interoperabilidade de diversos sistemas.
+
+As principal contribui\c{c}\~oes deste trabalho s\~ao a avalia\c{c}\~ao de diferentes implementa\c{c}\~oes em diversas plataformas e a implementa\c{c}\~ao de uma infraestrutura para o desenvolvimento de aplica\c{c}\~oes que utilizem redes de sensores sem fio.
+
+O objetivo principal foi atigindo, o desenvolvimento de um gateway simplificado para redes de sensores que repassa as mensagens recebidas para um servidor CoAP na Internet. \'E possui acessar o sistema utilizando um cliente HTTP, facilitando a disponibiliza\c{c}\~ao de servi\c{c}os de sensoriamente e atua\c{c}\~ao.
+
+O protocolo CoAP \'e adequado a redes com um elevado n\'umero de n\'os baseando-se na arquitetura da WEB, focando na utiliza\c{c}\~ao dos princ\'ios REST para o desenvolvimento de novas aplica\c{c}\~oes.
+
+O tamanho do c\'odigo respeitou o espa\c{c}o de armazenamento restrito, comum desse tipo de aplica\c{c}\~ao e foi poss\'ivel criar uma aplica\c{c}\~ao que possa ser utilizado em uma vasta gama de dispositivos.
+
+\section{Referências}
+
+\bibliographystyle{sbc}
+\bibliography{referencias}
+
+\end{document}
