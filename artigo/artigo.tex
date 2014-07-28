@@ -31,16 +31,13 @@
 \maketitle
 
 \begin{abstract}
-    Nowadays, there is a large growth in the development of technologies for mobile cellular communications, satellite communications and wireless local area networks. The 
-popularization of these technology has enabled remote access to information wherever they are, opening a very wide range of facilities, applications and services to users. among 
-these services, there are the applications that are developed for medical fields, specifically for the nutritional area. The application used as case study is the Horus system that 
-performs the assessment and nutritional guidance through artificial inteligêcia technique called Bayesian Networks.
+Currently the Internet has limited capability of monitoring and acting on the real world. Both network layer and application layer interoperability are needed between WSNs and networked objects in the Internet to solve this problem.
 
-First of all developed for computers desktop accessed by web and then migrated to interactive digital television. Thus, with the development of convergence
-Horus system for digital mobile closed cycle digital convergence. Made possible the implementation of the system on three different platforms enabling
-wider dissemination to the people who live in remote locations. A questionnaire was used to measure the usability of the application and noted the effort in hours of every step
-convergent development for mobile devices. The study of the implementation and evaluation effort digital convergence enables systematic and efficient make the process of
-design and production of multi-device applications.
+Up to now, diverse structures of sensor nodes and the non-standard protocols used were the biggest obstacles in front of integrating wireless sensor networks into the Web.
+
+Standard and widely used protocols are needed, RESTful Web services is a very good option for that matter. But for constrained nodes requires a lighter protocol than HTTP, especially due to the verbose nature of HTTP and XML specifications.
+
+This work presents an RESTful Web service infrastructure for wireless sensor networks using Constrained Application Protocol and the integration with the Internet via General Packet Radio Service.
 \end{abstract}
      
 \begin{resumo} 
@@ -273,9 +270,6 @@ As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de co
 \begin{tabular}{@{}p{1cm}p{1cm}p{1cm}r{1cm}r{1cm}r{1cm}r{1cm}@{}}
     \toprule
     ISA & OS & CoAP & .text & .data & .bss & Total\\ \midrule
-    x86 32& Contiki & Erbium & 97995 & 1792 & 16864 & 116651 \\
-    x86 32& EPOS & Cantcoap & 52348 & 117 & 9652 & 62117 \\
-    x86 32& GNU Linux & libcoap & 45515 & 680 & 1952 & 48147\\ \hline
     ARM7 & Contiki & Erbium & 62727 & 440 & 18108 & 81275\\
     ARM7 & Contiki & Minimal Net & 59496 & 2432 & 22040 & 83968\\
     ARM7 & EPOS & Cantcoap & 62480 & 216 & 10504 & 73200\\
@@ -303,11 +297,9 @@ No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'
 \\\\
 
 \section{Conclusão}
-Este trabalho apresentou alguns conceitos sobre redes de sensores e atuadores que utilizam um protocolo de aplica\c{c}\~ao espec\'ifico, para disponibilizar recursos diversos e facilitar a interoperabilidade de diversos sistemas.
+O objetivo principal foi atigindo, o desenvolvimento de um gateway simplificado para redes de sensores que repassa as mensagens recebidas para um servidor CoAP na Internet. \'E possui acessar o sistema utilizando um cliente HTTP, facilitando a disponibiliza\c{c}\~ao de servi\c{c}os de sensoriamente e atua\c{c}\~ao.
 
 As principal contribui\c{c}\~oes deste trabalho s\~ao a avalia\c{c}\~ao de diferentes implementa\c{c}\~oes em diversas plataformas e a implementa\c{c}\~ao de uma infraestrutura para o desenvolvimento de aplica\c{c}\~oes que utilizem redes de sensores sem fio.
-
-O objetivo principal foi atigindo, o desenvolvimento de um gateway simplificado para redes de sensores que repassa as mensagens recebidas para um servidor CoAP na Internet. \'E possui acessar o sistema utilizando um cliente HTTP, facilitando a disponibiliza\c{c}\~ao de servi\c{c}os de sensoriamente e atua\c{c}\~ao.
 
 O protocolo CoAP \'e adequado a redes com um elevado n\'umero de n\'os baseando-se na arquitetura da WEB, focando na utiliza\c{c}\~ao dos princ\'ios REST para o desenvolvimento de novas aplica\c{c}\~oes.
 

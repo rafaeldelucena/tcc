@@ -8,8 +8,6 @@ Este cap\'itulo apresenta uma vis\~ao geral sobre redes de sensores sem fio, arq
 
 Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo de energia uma realidade.
 
-O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes militares e hoje s\~ao utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e controle de processos industriais, supervis\~ao de m\'aquinas, monitoramento de ambientes, estruturas e tubula\c{c}\~oes, automa\c{c}\~ao residencial, coleta de dados de pacientes, entre outros. A figura \ref{wsnOverview} d\'a uma vis\~ao geral de uma rede de sensores sem fio e a comunica\c{c}\~ao com outros sistemas.
-
 \begin{figure}[H]
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/wsn.png}
@@ -17,7 +15,11 @@ O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes mi
    \label{wsnOverview}
 \end{figure}
 
-Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio.  Desta forma permite dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. 
+O desenvolvimento destas redes foi inicialmente motivada por aplica\c{c}\~oes militares e hoje s\~ao utilizados em diversas aplica\c{c}\~oes na ind\'ustria, no monitoramento e controle de processos industriais, supervis\~ao de m\'aquinas, monitoramento de ambientes, estruturas e tubula\c{c}\~oes, automa\c{c}\~ao residencial, coleta de dados de pacientes, entre outros.
+
+Geralmente tais redes possuem centenas ou milhares de n\'os sensores e possuem as seguintes caracter\'isticas: pouca mem\'oria, pouco alcance do r\'adio, baixa capacidade de processamento e bateria, e custo reduzido. A figura \ref{wsnOverview} d\'a uma vis\~ao geral de uma rede de sensores sem fio e a comunica\c{c}\~ao com outros sistemas.
+
+Comunicam-se entre si e com esta\c{c}\~oes base utilizando seus r\'adios sem fio.  Desta forma permite dissemina\c{c}\~ao da informa\c{c}\~ao para processamento remoto, visualiza\c{c}\~ao, an\'alise e armazenamento. 
 
 Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores \cite{542724}.
 
@@ -34,9 +36,9 @@ Geralmente os n\'o sensores s\~ao compostos por um microcontrolador, transceiver
 
 \subsection{N\'os Sincronizadores}
 
-Como estas redes utilizam um espectro diferente de comunica\c{c}\~ao, \'e necess\'ario uma integra\c{c}\~ao com a rede j\'a conhecida. Uma forma de integrar os n\'os sensores \'e utilizar n\'os espec\'ificos para executarem este trabalho.
+\'E muito comum nodos destas redes utilizarem um espectro diferente de comunica\c{c}\~ao, necessitando uma integra\c{c}\~ao com a rede sem fio trandicional 802.11. Uma forma de integrar os n\'os sensores \'e utilizar n\'os espec\'ificos para executarem este trabalho.
 
-Um exemplo \'e utilizar um n\'o como esta\c{c}\~ao de sincroniza\c{c}\~ao, por\'em surge um problema, pois o n\'o sincronizador deve ter conhecimento de todos os recursos dispon\'iveis na rede.
+Alguns n\'os da rede s\~ao utilizados como esta\c{c}\~oes de sincroniza\c{c}\~ao, que fucionam como pontes para diferentes meios de comunica\c{c}\~ao.
 
 Quando os recursos s\~ao expostos diretamente pelo pr\'oprio dispositivo como num protocolo de aplica\c{c}\~ao tipo o CoAP a complexidade do n\'o gateway \'e bem reduzida, j\'a que o papel \'e simplesmente repassar os pacotes de descoberta de recursos para Internet \cite{Colitti11deintegrating}.
 
@@ -68,11 +70,11 @@ O modelo de computa\c{c}\~ao utilizando este paradigma \'e conhecido como Comput
    \label{soaOverview}
 \end{figure}
 
-Clientes que utililiza tais servi\c{c}os e podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios.
+Clientes que utililiza tais servi\c{c}os podem ser outras solu\c{c}\~oes, aplica\c{c}\~oes, processos ou usu\'arios.
 
 %\section{REST}
 
-\section{Webservices}
+\section{Servi\c{c}o WEB}
 
 Um servi\c{c}o web \'e um sistema de software projetado para suportar interoperabilidade em intera\c{c}\~oes m\'aquina-a-m\'aquina na rede. Possui uma interface descritiva das funcionalidades num formato padronizado (especificamente WSDL). Esta nota\c{c}\~ao abstrata que deve ser implementada por um agente \cite{w3c-web-04}.
 
@@ -82,13 +84,11 @@ Servi\c{c}os Web prov\^em um padr\~ao para a interoperabilidade entre diferentes
 
 \subsection{RESTful}
 
-RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma restri\c{c}\~ao importante imposta pelo REST \'e o comportamento \textit{stateless} do servidor, que n\~ao deve armazenar nenhuma informa\c{c}\~ao dos clientes. Requisi\c{c}\~oes geradas por clientes distintos devem conter todas as informa\c{c}\~oes necess\'arias para que sejam executadas e respondidas por servidores.
+RESTFul \'e uma maneira de aplicar os princ\'ipios de design REST para servi\c{c}os web. Uma restri\c{c}\~ao importante imposta pelo REST \'e o comportamento \textit{stateless} do servidor, que n\~ao necessita possuir nenhuma informa\c{c}\~ao adicional al\'em dos dados contidos nas requisi\c{c}\~oes para tratar e responder de acordo para o cliente.
+
+Estas requisi\c{c}\~oes geradas por clientes distintos devem conter todas as informa\c{c}\~oes necess\'arias para que sejam executadas e respondidas por servidores.
 
 Uma requisi\c{c}\~ao a um servi\c{c}o web RESTful, utiliza a informa\c{c}\~ao do m\'etodo como um verbo HTTP e a informa\c{c}\~ao do escopo ao qual o verbo ser\'a utilizado a partir da URI. Ao contr\'ario um estilo RPC tende a ignorar o m\'etodo HTTP, procurando pelo m\'etodo a ser utilizado e o escopo na pr\'opria URI .
-
-Um aspecto importante \'e uma interface uniforme aonde recursos s\~ao gerenciados pela Web API e possuem as seguintes caracter\'isticas: identifica\c{c}\~ao de recursos, manipula\c{c}\~ao de recursos atrav\'es de representa\c{c}\~oes, mensagens auto descritivas e Hyperm\'idia como mecanismo de estado da aplica\c{c}\~ao \cite{rest}.
-
-Um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre. Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture \'e uma arquitetura boa para RESTful webservices \cite{richardson2008restful}.
 
 As opera\c{c}\~oes suportas s\~ao m\'etodos HTTP expl\'icitos que n\~ao salvam estado das aplica\c{c}\~oes clientes e s\~ao idempotentes, s\~ao eles:
 \begin{description}
@@ -109,6 +109,10 @@ Uma abordagem utilizando HTTP n\~ao \'e t\~ao interessante para uma aplica\c{c}\
 
 O teste consistiu em dois laptops conectados via rede GPRS, um cliente e outro servidor, com RTT configurado \`a 800ms, similar a uma RSSF multi-saltos. Ambos laptops configurados para tratar os protocolos HTTP e CoAP.
 
+Um aspecto importante \'e uma interface uniforme aonde recursos s\~ao gerenciados pela Web API e possuem as seguintes caracter\'isticas: identifica\c{c}\~ao de recursos, manipula\c{c}\~ao de recursos atrav\'es de representa\c{c}\~oes, mensagens auto descritivas e Hyperm\'idia como mecanismo de estado da aplica\c{c}\~ao \cite{rest}.
+
+Um servi\c{c}o RESTful sempre exp\~oe a URI para cada peda\c{c}o de dado que o cliente quer operar sobre. Para transfe\^encia de dados utiliza-se formatos gen\'ericos que enfatizam simplicidade e usabilidade pela internet, como XML e JSON. Resource Oriented Architecture \'e uma arquitetura boa para RESTful webservices \cite{richardson2008restful}.
+
 %\section{Webservices em WSN}
 
 \section{CoAP}
@@ -119,10 +123,13 @@ As vantagens de utilizar um protocolo compat\'ivel com o HTTP s\~ao a facilidade
 
 A IETF estabelece as condi\c{c}\~oes m\'inimas para o desenvolvimento de um protocolo de aplica\c{c}\~ao compat\'ivel com HTTP, mas focado em aplica\c{c}\~oes aonde energia e mem\'oria s\~ao escassas. O protocolo CoAP foi projetado levando em considera\c{c}\~ao as restri\c{c}\~oes energ\'eticas e altas taxas de falha na transmiss\~ao dos pacotes em RSSF.
 
-A comunica\c{c}\~ao entre os pontos no CoAP \'e ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial. Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset. A figura \ref{coapFormat} mostra o formato do pacote.
+A comunica\c{c}\~ao entre os pontos no CoAP \'e ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial. Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset.
 
 \subsection{Formato das mensagens}
-Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida numa camada de enlace limitada.
+Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida numa camada de enlace limitada. A figura \ref{coapFormat} mostra o formato do pacote.
+
+Os campos do pacote CoAP s\~ao: a vers\~ao do CoAP, implementa\c{c}\~oes devem utilizar este campo com o valor 1. O tipo: campo para definir o tipo da mensagem: Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{figuras/formato.png}
@@ -130,8 +137,6 @@ Uma mensagem CoAP deve caber num \'unico pacote IP, para que seja transmitida nu
     \label{coapFormat}
 \end{figure}
 
-
-Os campos do pacote CoAP s\~ao: a vers\~ao do CoAP, implementa\c{c}\~oes devem utilizar este campo com o valor 1. O tipo: campo para definir o tipo da mensagem: Confirm\'avel (0), N\~ao-Confirm\'avel (1) , de Confirma\c{c}\~ao (2) ou Reset (3).
 
 O tamanho do Token: utilizado para controle de requisi\c{c}\~oes e repostas. O tamanho do Token pode variar entre 0 e 8 bytes. Tamanhos entre 9 a 15 s\~ao reservados e n\~ao devem ser usados. \'E um campo sempre gerado pelo cliente CoAP.
 
