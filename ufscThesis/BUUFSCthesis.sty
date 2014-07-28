@@ -24,6 +24,7 @@
 \usepackage[brazil]{babel}	% coloca as coisas em portugues no sumário.
 \usepackage[ansinew]{inputenc}	% tipo de caracteres usados no documento
 \usepackage[normalem]{ulem}	% provê sublinhados para textos (\ul)
+\usepackage{graphicx}
 
 \usepackage{subfigure}		% permite ter subfiguras
 \usepackage{indentfirst}	% indenta a primeira linha dos paragrafos
@@ -256,26 +257,10 @@ para a obtenção do Grau de \graudata.}
 Ficha de identificação da obra elaborada pelo autor
 através do \\Programa de Geração Automática da Biblioteca Universitária da UFSC.
 \end{center}
-\frame{
-    \begin{minipage}{\textwidth}
-	\begin{espacosimples}
-	    {\small
-	    \vspace{5em}
-	    \parindent1.5cm
-	    A ficha de identificação é elaborada pelo próprio autor\\
-	    
-                                      
-                      
-	    
-	      
-	    Maiores informações em:
-
-	    http://portalbu.ufsc.br/ficha
-	    \vspace{4em}}
-	\end{espacosimples}
-    \end{minipage}
-}
-\vspace{1cm}
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.8\textwidth]{figuras/ficha.png}
+\end{figure}
 }
 
 %-------------------------------------------------------------------------------

@@ -201,8 +201,7 @@ A especifica\c{c}\~ao tamb\'em prev\^e fluxo de requisi\c{c}\~ao com confirma\c{
    \label{separateResponse}
 \end{figure}
 
-A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso /.well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP.  
-\section{EPOS}
+A descoberta de recursos \'e feita quando um servidor recebe uma requisi\c{c}\~ao GET para o recurso /.well-know/core. O servidor CoAP deve responder no formato CORE link Format\cite{rfc6690}. A descoberta de servi\c{c}os no protocolo CoAP \'e feita atrav\'es de socket Multicast. Os recursos s\~ao identificados por uma URI, e os m\'etodos s\~ao implementados de forma similar ao HTTP \section{EPOS}.
 O EPOS \'e um sistema operacional multithread com suporte a preemp\c{c}\~ao, desenvolvido em C++ que faz uso intenso de programa\c{c}\~ao orientada a aspectos utilizando templates.
 
 Foi projetado utilizando ADESD, Application Driven Embedded System Design, um m\'etodo para projeto de sistemas embarcados orientados \`a aplica\c{c}\~ao. Esta metodologia guia o desenvolvimento paralelo de hardware e software al\'em de manter portabilidade. O EPOS possui porte para as seguintes arquiteturas: MIPS, IA32, PowerPC, H8, Sparc, AVR e ARM. \cite{eposProject}
@@ -255,7 +254,7 @@ O Contiki prop\~oe uma estrat\'egia de ciclos de trabalho que consegue manter um
 LibCoap \'e uma biblioteca implementada em C do protocolo CoAP. Possui 292K de tamanho compilada estaticamente em sua vers\~ao 4.0.1.
 A licensa da biblioteca \'e GPL (2 ou maior) ou licensa BSD revisada.
 
-Possui uma su\'ite de testes para regress\~ao, utilizando o framework de testes CUnit (http://cunit.sourceforge.net/). A documenta\c{c}\~ao pode ser encontrada em: http://libcoap.sourceforge.net/.
+Possui uma su\'ite de testes para regress\~ao, utilizando o \textit{framework} de testes CUnit (http://cunit.sourceforge.net/). A documenta\c{c}\~ao pode ser encontrada em \cite{libcoap}.
 
 \'E uma biblioteca auto-condida, que possui parser do protocolo e fun\c{c}\~oes b\'asicas de rede. Depende de implementa\c{c}\~ao de sockets tipo BSD e malloc. Possui implementa\c{c}\~ao de \textit{Hash, String} e URI utilizados para montar os pacotes CoAP.
 
@@ -266,7 +265,7 @@ Possui um m\'odulo de rede, aonde \'e implementado as fun\c{c}\~oes de envio/rec
 \subsection{CantCoap}
 \'E uma implementa\c{c}\~ao em C++ desenvolvida por Ashley Mills em 2013. Esta biblioteca foca na simplicidade e oferece um conjuto m\'inimo para montar pacotes CoAP.
 
-Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede. Abaixo exemplos de uso da biblioteca retirados de https://github.com/staropram/cantcoap.
+Tamb\'em \'e poss\'ivel montar os pacotes CoAP a partir de uma sequ\^encia de caracteres recebidos de uma placa de rede. Abaixo exemplos de uso da biblioteca retirados de \cite{cantcoap}.
 
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,

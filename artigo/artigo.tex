@@ -56,7 +56,9 @@ Com a implementação do CoAP é esperado uma redução de consumo de energia e memór
 \section{Introdução}
 Avan\c{c}os recentes nas tecnologias de sistemas eletr\^onicos, semicondutores, sensores, microcontroladores e r\'adios tornaram poss\'ivel o desenvolvimento de redes de sensores de baixo custo e baixo consumo de energia uma realidade.
 
-N\'os que participam destas redes geralmente s\~ao compostos por computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e capacidade de comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos.
+N\'os que participam destas redes geralmente s\~ao compostos por computadores e r\'adios simplificados, que possuem restri\c{c}\~oes de mem\'oria, processamento, energia e capacidade de comunica\c{c}\~ao, mas um custo relativamente baixo de equipamentos \cite{dargie2010fundamentals}.
+
+Os requisitos para uma rede de sensores distribu\'ida s\~ao: reconfigura\c{c}\~ao com esta\c{c}\~ao base, controle auton\^omo de opera\c{c}\~ao e ger\^encia de energia, auto-monitoramento, efici\^encia energ\'etica para longo tempo de opera\c{c}\~ao e apta a incorporar diversos sensores \cite{542724}.
 
 O objetivo geral desse trabalho \'e descrever e implementar webservices em uma rede sensores sem fio que far\~ao a aquisi\c{c}\~ao dos dados do ambiente e disponibilizar\~ao as informa\c{c}\~oes captadas na Internet.
 
@@ -74,7 +76,7 @@ Sendo assim, os objetivos espec\'ificos s\~ao:
 
 \section{Justificativa e Motivação}
 
-O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em disso quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas, podendo gerar retransmiss\~oes. Inclusive o desafio dos algoritmos de comunica\c{c}\~ao nesta \'area \'e manter os r\'adios ligados o m\'inimo de tempo poss\'ivel sem comprometer a conectividade do n\'o.
+O maior consumo de energia de um n\'o sensor \'e no envio e recebimento de dados, quando mantem seu transmissor ligado. Al\'em disso quem recebe a mensagem precisa mont\'a-la e tratar as partes corrompidas, podendo gerar retransmiss\~oes. Inclusive o desafio dos algoritmos de comunica\c{c}\~ao nesta \'area \'e manter os r\'adios ligados o m\'inimo de tempo poss\'ivel sem comprometer a conectividade do n\'o \cite{WsnSurvey2008}.
 
 Os mecanismos de confiabilidade na transmiss\~ao de dados, t\'ecnicas para se manter uma conex\~ao do TCP e rearranjos que s\~ao feitos para garantir a ordem das mensagens recebidas n\~ao s\~ao adequados para um dispositivos com suprimento limitado de energia, como uma bateria ou uma placa fotovolt\'aica. Estas t\'ecnicas fazem que os transmissores fiquem ligados por mais tempo, para manter a conex\~ao ou at\'e mesmo para reenvio de mensagens.
 
@@ -86,11 +88,11 @@ Um protocolo leve como CoAP pode tornar vi\'avel a cria\c{c}\~ao de aplica\c{c}\
 
 Estas caracter\'isticas demostram uma alternativa interessante para estes equipamentos limitados. Testes feitos em implementa\c{c}\~oes de sistemas operacionais similares ao EPOS, como Contiki e TinyOS, utilizando o protocolo CoAP demonstram redu\c{c}\~ao no consumo de energia e mem\'oria em rela\c{c}\~ao ao HTTP \cite{kuladinithi2011implementation}.
 
-Em lugares aonde n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo a distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios.\cite{coberturaGPRS}
+Em lugares aonde n\~ao existe o acesso a rede cabeada ou sem fio, como lugares afastados, na \'area rural, por exemplo a distribui\c{c}\~ao da informa\c{c}\~ao para Internet ser\'a feita atrav\'es de um gateway. Atualmente o padr\~ao GPRS oferece a maior cobertura dentre as tecnologias de transmiss\~ao de telefonia no Brasil, atingindo cerca de 5477 munic\'ipios \cite{coberturaGPRS}.
 
 \section{CoAP}
 
-O CoAP \'e um protocolo de aplica\c{c}\~ao com intuito de ser utilizado em dispositivos eletr\^onicos simplificados, permitindo comunica\c{c}\~ao interativa com a Internet e outros dispositivos. A especifica\c{c}\~ao do protocolo \'e a RFC 7252. Um dos principais objetivos do CoAP \'e ser uma alternativa protocolo web gen\'erico para redes com dispositivos com restri\c{c}\~ao de energia e mem\'oria.
+O CoAP \'e um protocolo de aplica\c{c}\~ao com intuito de ser utilizado em dispositivos eletr\^onicos simplificados, permitindo comunica\c{c}\~ao interativa com a Internet e outros dispositivos. A especifica\c{c}\~ao do protocolo \'e a RFC 7252. Um dos principais objetivos do CoAP \'e ser uma alternativa protocolo web gen\'erico para redes com dispositivos com restri\c{c}\~ao de energia e mem\'oria \cite{draft-ietf-core-coap-18}.
 
 A comunica\c{c}\~ao entre os pontos no CoAP \'e ass\'incrona usando o UDP. A confiabilidade \'e um par\^ametro opcional e funciona atrav\'es de um mecanismo de retransmiss\~ao exponencial. Possui 4 tipos de mensagem: Confirm\'avel, N\~ao-Confirm\'avel, Confirma\c{c}\~ao (ACK) e Reset. A figura \ref{coapFormat} mostra o formato do pacote.
 
@@ -185,24 +187,24 @@ A aplica\c{c}\~ao \'e composta pelos n\'os webservers CoAP, um n\'o cliente CoAP
    \label{arquitetura}
 \end{figure}
 
-A biblioteca utilizada para montar o pacote CoAP foi a biblioteca CantCoap com algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante o desenvolvimento da aplica\c{c}\~ao. As altera\c{c}\~oes resultaram em contribui\c{c}\~ao para o referido projeto, aceita pelo mantenedor.
+A biblioteca utilizada para montar o pacote CoAP foi a biblioteca \cite{cantcoap} algumas corre\c{c}\~oes e testes para facilitar a verifica\c{c}\~ao da execu\c{c}\~ao correta dos algoritmos internos durante o desenvolvimento da aplica\c{c}\~ao. As altera\c{c}\~oes resultaram em contribui\c{c}\~ao para o referido projeto, aceita pelo mantenedor.
 
 Para o funcionamento desta biblioteca no EPOS, e para utilizar uma MTU limitada a 128 bytes \'e utilizado um buffer com um valor m\'aximo e armazenado os dados do pacote no buffer. Foi necess\'ario alterar os tipos das vari\'aveis para se adquerem ao EPOS.
 
 A modelagem da solu\c{c}\~ao visa uma implementa\c{c}\~ao modular, para facilitar a verifica\c{c}\~ao do correto funcionamento e tamb\'em para ser de f\'acil adapta\c{c}\~a a diversas plataformas. O sistema proposto \'e composto pela aplica\c{c}\~ao gateway, por um servidor coap externo e um servidor http externo, este apenas para facilitar o acesso de dispositivos sem suporte ao protocolo CoAP.
 
-Para funcionamento \'e necess\'ario executar o servidor CoAP dispon\'ivel em: https://github.com/rafaeldelucena/coap-gateway/server. O c\'odigo do software de sistema que ir\'a executar na plataforma alvo est\'a dispon\'ivel em https://github.com/rafaeldelucen/coap-gateway/application.
+O c\'odigo desenvolvido do servidor CoAP externo e o c\'odigo de sistema da plataforma alvo est\~ao dispon\'iveis em \cite{coapGatewayCode}.
 
 \section{Resultados}
 Atualmente a aplica\c{c}\~ao n\~ao possui uma implementa\c{c}\~ao segura do procotolo CoAP, que utiliza o DTLS. Para resolver este problema \'e necess\'ario que o pacote seja criptografado.
 
-A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o comportamento entre diversas implementa\c{c}\~oes CoAP. Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como primeiro evento IOT CoAP plugtest. Para validar a interoperabilidade os teste s\~ao: especifica\c{c}\~ao b\'asica do CoAP, transfer\^encia em bloco, observa\c{c}\~ao de recursos CoAP, formato CORE link. Os teste s\~ao executados entre diferentes dispositivos e implementa\c{c}\~oes CoAP.
+A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o comportamento entre diversas implementa\c{c}\~oes CoAP. Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como primeiro evento IOT CoAP plugtest. Para validar a interoperabilidade os teste s\~ao: especifica\c{c}\~ao b\'asica do CoAP, transfer\^encia em bloco, observa\c{c}\~ao de recursos CoAP, formato CORE link. Os testes s\~ao executados entre diferentes dispositivos e implementa\c{c}\~oes CoAP.
 
-As tabela abaixo \ref{plugTest1}, \ref{plugTest2}, \ref{plugTest3} mostram os resultados dos testes, os s\'imbolos "\xmark" e "\cmark" para a solu\c{c}\~ao desenvolvida neste trabalho.
+As tabelas abaixo \ref{plugTest1}, \ref{plugTest2}, \ref{plugTest3} mostram os resultados dos testes, os s\'imbolos "\xmark" e "\cmark" para a solu\c{c}\~ao desenvolvida neste trabalho.
 
 \begin{table}[H]
 \centering
-\label{plugTest}
+\scriptsize
 \begin{tabular}{p{8cm}|c{1cm}}
 \hline
 \multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
@@ -225,11 +227,12 @@ Interoperablidade em contexto de perda\\(CON mode, delayed response) & \cmark \\
 Tratar GET com resposta separada, sem confirma\c{c}\~ao. & \cmark \\ \hline
 \end{tabular}
 \caption{Resultados IOT Plugtest.}
+\label{plugTest1}
 \end{table}
 
 \begin{table}[H]
 \centering
-\label{plugTest}
+\scriptsize
 \begin{tabular}{p{8cm}|c{1cm}}
 \hline
 \multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
@@ -243,11 +246,12 @@ Transfer\^encia de blocos grandes utilizando o PUT. & \xmark \\
 Transfer\^encia de blocos grandes utilizando o POST. & \xmark \\ \hline
 \end{tabular}
 \caption{Resultados IOT Plugtest.}
+\label{plugTest2}
 \end{table}
 
 \begin{table}[H]
 \centering
-\label{plugTest}
+\scriptsize
 \begin{tabular}{p{8cm}|c{1cm}}
 \hline
 \multicolumn{1}{c|}{\textbf{CEN\'ARIO}} & \multicolumn{1}{c}{\textbf{RESULTADO}} \\ \hline
@@ -259,32 +263,18 @@ Detec\c{c}\~ao de deregistro do servidor (client OFF). & \xmark \\
 Detec\c{c}\~ao de deregistro do servidor (RESET expl\'icito). & \xmark \\ \hline
 \end{tabular}
 \caption{Resultados IOT Plugtest.}
+\label{plugTest3}
 \end{table}
 
 A fim de mensurar algumas informa\c{c}\~oes importantes no contexto da aplica\c{c}\~ao foi utilizada a vers\~ao 4.4.5 para o GCC x86 e o GCC 4.3.2 (Sourcery G++ Lite 2008q3-66) para ARM no Contiki encontrada \cite{malvira}. A aplica\c{c}\~ao no EPOS utiliza a vers\~ao 4.4 do compilador GCC dispon\'ivel em \cite{eposProject}.
 
-As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a arquitetura x86 e para para ARM7 do MC1224V utilizado no EPOSMoteII e no Econotag, plataforma presente no Contiki e utilizado para comparativos. Abaixo a tabela \ref{comparacaoCoap} mostra um comparativo do espa\c{c}o utilizado das diferentes implementa\c{c}\~oes CoAP.
+As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de constru\c{c}\~ao dos projetos para a arquitetura x86 e para para ARM7 do MC1224V utilizado no EPOSMoteII e no Econotag, plataforma presente no Contiki e utilizado para comparativos.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{@{}p{1cm}p{1cm}p{1cm}r{1cm}r{1cm}r{1cm}r{1cm}@{}}
-    \toprule
-    ISA & OS & CoAP & .text & .data & .bss & Total\\ \midrule
-    ARM7 & Contiki & Erbium & 62727 & 440 & 18108 & 81275\\
-    ARM7 & Contiki & Minimal Net & 59496 & 2432 & 22040 & 83968\\
-    ARM7 & EPOS & Cantcoap & 62480 & 216 & 10504 & 73200\\
-    \bottomrule
-\end{tabular}
-\caption{Compara\c{c}\~ao das implementa\c{c}\~oes em consumo de mem\'oria em bytes}
-\label{comparacaoCoap}
-\end{table}
-
-Nesta tabela \'e poss\'ivel verificar que para a arquitetura x86 a implementa\c{c}\~ao do trabalho \'e 30\% maior que a libcoap, por\'em em torno de 25\% menor que as implementa\c{c}\~oes do Contiki. Um dos fatores da diferen\c{c}a com a aplica\c{c}\~ao da libcoap \'e a utiliza\c{c}\~ao de bibliotecas din\^amicas \cite{ibmCodeSize}. Apesar de n\~ao ser a mais compacta \'e suficientemente pequena para ser utilizada na aplica\c{c}\~ao.
-
-No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
+No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS, no total de mem\'oria utilizada, cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
 \\\\
+\begin{center}
 \begin{tikzpicture}[H]
-\centering
+\scriptsize
 \begin{axis}[ybar , enlargelimits =0.15, legend style ={ at ={(0.5,-0.15)}, anchor =north, legend columns =-1}, ylabel ={\# size in bytes}, symbolic x coords ={epos/cantcoap,contiki/minimal-net,contiki/erbium}, xtick =data, nodes near coords , nodes near coords align ={vertical},]
 \addplot coordinates {(epos/cantcoap,62480) (contiki/minimal-net,59496) (contiki/erbium,62427)};
 \addplot coordinates {(epos/cantcoap,216) (contiki/minimal-net,2432) (contiki/erbium,440)};
@@ -293,7 +283,9 @@ No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'
 \legend {.text,.data,.bss, Total}
 \end{axis}
 \caption{Gr\'afico do tamanho das sess\~oes do arquivo ELF gerado para ARM.}
+\label{comparacaoCoap}
 \end{tikzpicture}
+\end{center}
 \\\\
 
 \section{Conclusão}
@@ -301,13 +293,17 @@ O objetivo principal foi atigindo, o desenvolvimento de um gateway simplificado 
 
 As principal contribui\c{c}\~oes deste trabalho s\~ao a avalia\c{c}\~ao de diferentes implementa\c{c}\~oes em diversas plataformas e a implementa\c{c}\~ao de uma infraestrutura para o desenvolvimento de aplica\c{c}\~oes que utilizem redes de sensores sem fio.
 
-O protocolo CoAP \'e adequado a redes com um elevado n\'umero de n\'os baseando-se na arquitetura da WEB, focando na utiliza\c{c}\~ao dos princ\'ios REST para o desenvolvimento de novas aplica\c{c}\~oes.
+O protocolo CoAP \'e adequado a redes com um elevado n\'umero de n\'os baseando-se na arquitetura da Web, focando na utiliza\c{c}\~ao dos princ\'ios REST para o desenvolvimento de novas aplica\c{c}\~oes \cite{rest}.
 
 O tamanho do c\'odigo respeitou o espa\c{c}o de armazenamento restrito, comum desse tipo de aplica\c{c}\~ao e foi poss\'ivel criar uma aplica\c{c}\~ao que possa ser utilizado em uma vasta gama de dispositivos.
 
-\section{Referências}
+Uma aplica\c{c}\~ao que poderia reduzir ainda mais o custo para integrar as redes a Internet, \'e a implementa\c{c}\~ao de um gateway que utilize Software Defined Transceiver, assim \'e poss\'ivel integrar uma gama enorme de dispositivos e utilizar apenas um m\'odulo transceiver para enviar os dados da RSSF para Internet.
+
+Outro trabalho futuro, seria um gerador de c\'odigo que utiliza como entrada uma linguagem de especifica\c{c}\~ao dos poss\'iveis recursos e como sa\'ida gera um c\'odigo ANSI C m\'inimo de um servidor web utiliza CoAP e seus respectivos recursos. Este gerador deve ser gen\'erico suficiente para ser f\'acil a adapta\c{c}\~ao de diferentes pilhas CoAP/UDP/IP, arquiteturas e tipos de sensores.
+
+Outra id\'eia interessante \'e um modelo para apresenta\c{c}\~ao dos dados coletados dos recursos dispon\'iveis na rede.
 
 \bibliographystyle{sbc}
-\bibliography{referencias}
+\bibliography{../bibliografia}
 
 \end{document}

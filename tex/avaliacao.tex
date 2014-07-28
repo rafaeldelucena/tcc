@@ -8,7 +8,7 @@ Atualmente a aplica\c{c}\~ao n\~ao possui uma implementa\c{c}\~ao segura do proc
 
 Um Fator muito importante para verificar a implemenca\c{c}\~ao de protocolo \'e a interoperabilidade entre diferentes implementa\c{c}\~oes. \'E essencial que a implementa\c{c}\~ao cliente trate os mecanismos de requisi\c{c}\~ao e resposta tanto para mensagens confirmadas e n\~ao confirmadas. Uma maneira de validar a interoperabilidade da implementa\c{c}\~ao do protocolo \'e usar um padr\~ao de testes entre diferentes sistemas.
 
-A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o comportamento entre diversas implementa\c{c}\~oes CoAP. Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como primeiro evento IOT CoAP plugtest. Para validar a interoperabilidade os teste s\~ao: especifica\c{c}\~ao b\'asica do CoAP, transfer\^encia em bloco, observa\c{c}\~ao de recursos CoAP, formato CORE link. Os teste s\~ao executados entre diferentes dispositivos e implementa\c{c}\~oes CoAP. O cen\'ario inicial de testes possui os seguintes requisitos:
+A ETSI em conjunto com a IPSO desenvolveram um conjunto de testes para validar o comportamento entre diversas implementa\c{c}\~oes CoAP. Este teste foi aplicado em 24, 25 de mar\c{c}o de 2012 em Paris, conhecido como primeiro evento IOT CoAP plugtest. Para validar a interoperabilidade os teste s\~ao: especifica\c{c}\~ao b\'asica do CoAP, transfer\^encia em bloco, observa\c{c}\~ao de recursos CoAP, formato CORE link. Os testes s\~ao executados entre diferentes dispositivos e implementa\c{c}\~oes CoAP. O cen\'ario inicial de testes possui os seguintes requisitos:
 \begin{itemize}
     \item Cada equipamento deve estar configurado com um endere\c{c}o unicast.
     \item A cache do cliente deve estar limpa.
@@ -92,7 +92,7 @@ As flags de compila\c{c}\~ao utilizadas foram as padr\~oes de cada sistema de co
 
 Nesta tabela \'e poss\'ivel verificar que para a arquitetura x86 a implementa\c{c}\~ao do trabalho \'e 30\% maior que a libcoap, por\'em em torno de 25\% menor que as implementa\c{c}\~oes do Contiki. Um dos fatores da diferen\c{c}a com a aplica\c{c}\~ao da libcoap \'e a utiliza\c{c}\~ao de bibliotecas din\^amicas \cite{ibmCodeSize}. Apesar de n\~ao ser a mais compacta \'e suficientemente pequena para ser utilizada na aplica\c{c}\~ao.
 
-No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS \'e no total de mem\'oria utilizada \'e cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
+No gr\'afico abaixo observa-se que a solu\c{c}\~ao do EPOS, no total de mem\'oria utilizada, cerca de 12,82\% menor que a implementa\c{c}\~ao do Contiki Minimal Net e 9,93\% menor que a implementa\c{c}\~ao utilizando o Erbium.
 \\\\
 \begin{tikzpicture}[H]
 \centering

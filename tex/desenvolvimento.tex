@@ -51,7 +51,7 @@ Caracter\'isticas herdadas dos n\'os simplificados s\~ao:
 \section{Especifica\c{c}\~ao}
 \subsection{Arquitetura}
 
-A aplica\c{c}\~ao \'e composta pelos n\'os webservers CoAP, um n\'o cliente CoAP que far\'a o roteamento para Internet utilizando um m\'odulo GPRS.  Os webservers informam a temperatura, atrav\'es de respostas a requisi\c{c}\~oes CoAP. A figura \ref{arquitetura} ilustra a interconex\~ao entre os nodos da rede.
+A aplica\c{c}\~ao \'e composta pelos n\'os webservers CoAP, um n\'o cliente CoAP que far\'a o roteamento para Internet utilizando um m\'odulo GPRS.  Os webservers informam a seus recursos dispon\'iveis e recebem requisi\c{c}\~oes CoAP, retornando respostas. A figura \ref{arquitetura} ilustra a interconex\~ao entre os nodos da rede.
 
 \begin{figure}[H]
    \centering
@@ -87,7 +87,7 @@ A figura \ref{casodeuso} mostra o diagrama de caso de uso das principais fun\c{c
 
 A aplica\c{c}\~ao desenvolvida no EPOS utiliza buffer para o recebimento de dados da rede 802.15.4 que ser\'a enviado para rede via GPRS. Foram utilizadas duas threads, uma produtora que ficar\'a escutando o r\'adio 802.15.4 e outra consumidora que ser\'a respons\'avel em utlizar estes dados na rede de sensores e encaminh\'a-los pra Internet usando a extens\~ao GPRS do EPOSmote II. Para validar o comportamento foram utilizados testes da pr\'opria biblioteca CoAP portados para o EPOS.
 
-No desenvolvimento do mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas foi utilizado uma lista ordenada e alarme configurado para o pr\'oximo reenvio. A figura \ref{diagramaSequenciaCoapClient} ilustra a intera\c{c}\~ao entre os m\'odulos de software, incluindo os tipos dos dados e a forma de execu\c{c}\~ao das func\c{c}os.
+No desenvolvimento do mecanismo de retransmiss\~ao de mensagens n\~ao-confirmadas foi utilizado uma lista ordenada e alarme configurado para o pr\'oximo reenvio. A figura \ref{diagramaSequenciaCoapClient} ilustra a intera\c{c}\~ao entre os m\'odulos de software, incluindo os tipos dos dados e a forma de execu\c{c}\~ao das fun\c{c}\~oes.
 
 \begin{figure}[H]
    \centering
@@ -101,7 +101,7 @@ No desenvolvimento do mecanismo de retransmiss\~ao de mensagens n\~ao-confirmada
 
 A modelagem da solu\c{c}\~ao visa uma implementa\c{c}\~ao modular, para facilitar a verifica\c{c}\~ao do correto funcionamento e tamb\'em para ser de f\'acil adapta\c{c}\~a a diversas plataformas. O sistema proposto \'e composto pela aplica\c{c}\~ao gateway, por um servidor coap externo e um servidor http externo, este apenas para facilitar o acesso de dispositivos sem suporte ao protocolo CoAP.
 
-Para funcionamento \'e necess\'ario executar o servidor CoAP dispon\'ivel em: https://github.com/rafaeldelucena/coap-gateway/server. O c\'odigo do software de sistema que ir\'a executar na plataforma alvo est\'a dispon\'ivel em https://github.com/rafaeldelucen/coap-gateway/application.
+O c\'odigo desenvolvido do servidor CoAP externo e o c\'odigo de sistema da plataforma alvo est\~ao dispon\'iveis em \cite{coapGatewayCode}.
 
 Na inicializa\c{c}\~ao do m\'odulo 802.15.4, \'e feita a descoberta de servi\c{c}os, enviando um broadcast para os n\'os da rede de sensores sem fio. A figura abaixo \ref{onStartup}, demonstra o diagrama de sequ\^encia durante o processo de incializa\c{c}\~ao da aplica\c{c}\~ao gateway.  
 
